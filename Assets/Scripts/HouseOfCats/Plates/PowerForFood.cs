@@ -77,24 +77,24 @@ public class PowerForFood : MonoBehaviour, IPlateInterface
         foodTimer = 0;
         secForFoodAll = 0;
         PlayerPrefs.SetString(timeWhenFoodAddPref, System.DateTime.Now.ToBinary().ToString());
-        Debug.Log("Plate1 EVENT AddFood in PowerForFood ----------------------------------- Food ADDED");
+        // Debug.Log("Plate1 EVENT AddFood in PowerForFood ----------------------------------- Food ADDED");
     }
 
     public void Save()
     {
         PlayerPrefs.SetString(exitTimeFoodPref, System.DateTime.Now.ToBinary().ToString());
-        Debug.Log(" Before Save foodTimer1 " + foodTimer + "  And msFoodTime is  -  " + msFoodTime);
+        // Debug.Log(" Before Save foodTimer1 " + foodTimer + "  And msFoodTime is  -  " + msFoodTime);
         if (foodTimer >= msFoodTime)
         {
             PlayerPrefs.SetFloat(secondsLeftFoodPref, secondsLeft);
-            Debug.Log(" Save to secondsLeftFoodPref in Plate1 " + secondsLeft);
+            // Debug.Log(" Save to secondsLeftFoodPref in Plate1 " + secondsLeft);
         }
         else if (foodTimer < msFoodTime)
         {
             var foodTimerAndIcons = secondsLeft + (msFoodTime * iconsFood);
             PlayerPrefs.SetFloat(secondsLeftFoodPref, foodTimerAndIcons);
             // PlayerPrefs.SetFloat(secondsLeftFoodPref, foodTimer);
-            Debug.Log(" Save to secondsLeftFoodPref in Plate1 " + foodTimerAndIcons);
+            // Debug.Log(" Save to secondsLeftFoodPref in Plate1 " + foodTimerAndIcons);
         }
     }
 
@@ -112,7 +112,7 @@ public class PowerForFood : MonoBehaviour, IPlateInterface
         secAfterExit = (int)rawTime;
 
         var totalSecondsFoodLeft = PlayerPrefs.GetFloat(secondsLeftFoodPref);
-        Debug.Log("!________________________________________________________ Load to totalSecondsFoodLeft " + totalSecondsFoodLeft);
+        // Debug.Log("!________________________________________________________ Load to totalSecondsFoodLeft " + totalSecondsFoodLeft);
         if (totalSecondsFoodLeft > secAfterExit)
         {
             var SecFoodWithoutSecExit = (int)totalSecondsFoodLeft - secAfterExit;
@@ -121,7 +121,7 @@ public class PowerForFood : MonoBehaviour, IPlateInterface
                 iconsFood = SecFoodWithoutSecExit / ((int)msFoodTime);
             }
             else iconsFood = 0;
-            Debug.Log("!________________________________________________________  Load to IconsFood " + iconsFood);
+            // Debug.Log("!________________________________________________________  Load to IconsFood " + iconsFood);
             secondsLeft = (SecFoodWithoutSecExit - (msFoodTime * iconsFood));
         }
         else
@@ -129,9 +129,9 @@ public class PowerForFood : MonoBehaviour, IPlateInterface
             iconsFood = 0;
             secondsLeft = 0;
         }
-        Debug.Log("!________________________________________________________ Load to SecondsLeft " + secondsLeft);
+        // Debug.Log("!________________________________________________________ Load to SecondsLeft " + secondsLeft);
         foodTimer = msFoodTime - secondsLeft;
-        Debug.Log("!________________________________________________________ Load to FoodTimer " + foodTimer);
+        // Debug.Log("!________________________________________________________ Load to FoodTimer " + foodTimer);
 
         secondsWhenWereExit = totalSecondsFoodLeft - secondsLeft;
 
