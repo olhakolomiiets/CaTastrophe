@@ -22,6 +22,8 @@ public class AquariumVerticalDestroy : MonoBehaviour
     private ScoreManager sm;
     public static Rigidbody2D rb;
     bool isBroke = false;
+    [SerializeField] private bool isTimeBonus;
+    [SerializeField] private string bonusIdPref;
 
     private void Awake()
     {
@@ -30,7 +32,10 @@ public class AquariumVerticalDestroy : MonoBehaviour
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
-
+        if (isTimeBonus == true)
+        {
+            PlayerPrefs.SetInt(bonusIdPref, 0);
+        }
 
     }
 
@@ -51,6 +56,15 @@ public class AquariumVerticalDestroy : MonoBehaviour
         {
             sm.DestroyBonus(points);
             AquariumBroke();
+            if (isTimeBonus == true)
+            {
+                if (PlayerPrefs.HasKey(bonusIdPref))
+                {
+                    var x = PlayerPrefs.GetInt(bonusIdPref);
+                    PlayerPrefs.SetInt(bonusIdPref, (int)x + 1);
+                    sm.UpdateTimeBonusScore();
+                }
+            }
         }
     }
 

@@ -11,9 +11,15 @@ public class LampDestroy : MonoBehaviour
     bool isBroke = false;
     private ScoreManager sm;
     public static Rigidbody2D rb;
+    [SerializeField] private bool isTimeBonus;
+    [SerializeField] private string bonusIdPref;
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        if (isTimeBonus == true)
+        {
+            PlayerPrefs.SetInt(bonusIdPref, 0);
+        }
     }
 
     void FixedUpdate()
@@ -30,6 +36,15 @@ public class LampDestroy : MonoBehaviour
             sm.DestroyBonus(points);
             PlayerPrefs.SetInt("LampAchieve", PlayerPrefs.GetInt("LampAchieve") + 1);
             LampBroke();
+            if (isTimeBonus == true)
+            {
+                if (PlayerPrefs.HasKey(bonusIdPref))
+                {
+                    var x = PlayerPrefs.GetInt(bonusIdPref);
+                    PlayerPrefs.SetInt(bonusIdPref, (int)x + 1);
+                    sm.UpdateTimeBonusScore();
+                }
+            }
         }
     }
     public void LampBroke()

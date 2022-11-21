@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +22,10 @@ public class LampQuest : MonoBehaviour
     public AudioClip crashPillow;
     private AudioSource source;
     private GameObject pooh;
+    [SerializeField]
+    private bool isTimeBonus;
+    [SerializeField]
+    private string bonusIdPref;
 
    
      private void Awake() 
@@ -33,6 +37,10 @@ public class LampQuest : MonoBehaviour
      void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        if (isTimeBonus == true)
+        {
+            PlayerPrefs.SetInt(bonusIdPref, 0);
+        }
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();        
         bull = inventory.gameObject.GetComponents<Animator>();
         btnActive = btn.transform.GetChild(0).gameObject;
@@ -62,6 +70,15 @@ public class LampQuest : MonoBehaviour
     
         PlayerPrefs.SetInt("LampTip", 1);    
         Used = true;
+        if (isTimeBonus == true)
+        {
+            if (PlayerPrefs.HasKey(bonusIdPref))
+            {
+                var x = PlayerPrefs.GetInt(bonusIdPref);
+                PlayerPrefs.SetInt(bonusIdPref, (int)x + 1);
+                sm.UpdateTimeBonusScore();
+            }
+        }
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
         this.gameObject.SetActive(false);
