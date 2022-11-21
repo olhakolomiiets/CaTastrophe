@@ -37,7 +37,8 @@ public class TimeBonus : MonoBehaviour
     private int[] secAdd;
     private Text[] textBonus;
     public delegate void TimeBonusDelegate();
-    private void OnEnable()
+
+    private void Awake()
     {
         done = new GameObject[] { done1, done2, done3 };
         bonusIdPref = new string[] { bonusIdPref1, bonusIdPref2, bonusIdPref3 };
@@ -50,20 +51,22 @@ public class TimeBonus : MonoBehaviour
         {
             textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} sec";
         }
-
         sm.UpdateBonusScore += CheckForTimeBonuses;
+    }
+
+    private void OnEnable()
+    {       
         CheckForTimeBonuses();
     }
     private void CheckForTimeBonuses()
     {
         for (int i = 0; i < bonusIdPref.Length; i++)
         {
-            if (PlayerPrefs.GetInt(bonusIdPref[i]) == HowMany[i] && !completed[i])
+            if (PlayerPrefs.GetInt(bonusIdPref[i]) == HowMany[i] && completed[i] == false)
             {
-                Debug.Log("!!!______________________________________________________ CheckForTimeBonuses " + bonusIdPref[i]);
                 completed[i] = true;
                 done[i].SetActive(true);
-                timer.AddSecondsToTimer(secAdd[i]);
+                timer.AddSecondsToTimer(secAdd[i]);                
             }
             textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} sec";
         }
