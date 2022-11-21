@@ -154,11 +154,8 @@ public class HouseCat : MonoBehaviour, IClickable
     }
     public void Click()
     {
-        // if (bar.active)
-        //     bar.SetActive(false);
-        // else
-        //     bar.SetActive(true);
         ClickManager.CallCloseAllPanels();
+        barTop.transform.parent.gameObject.GetComponent<EnergyCat>().UpdateEnergy();
         barTop.SetActive(true);
     }
 
