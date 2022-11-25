@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -96,7 +96,8 @@ public class DestructableObjectHandler : MonoBehaviour
                 ResetStuffToDestroy();
                 price = TotalScore - repairCost;
                 priceText.text = repairCost.ToString();
-                priceObject.SetActive(true);
+                StartCoroutine(PriceAnimation());
+                //priceObject.SetActive(true);
                 ico.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, .5f);
                 var currentTime = DateTime.Now;
                 var theTime = currentTime.AddSeconds(-msToiletTime);
@@ -133,6 +134,15 @@ public class DestructableObjectHandler : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         noMoneyTag.SetActive(false);
+    }
+    IEnumerator PriceAnimation()
+    {
+
+        priceObject.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        priceObject.SetActive(false);
     }
 
 }
