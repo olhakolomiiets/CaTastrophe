@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -91,6 +91,7 @@ public class MenuLevels : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         StartCoroutine(LoadAsync(level));
+        PlayerPrefs.SetInt("LastOpenHouse", level);
     }
     IEnumerator LoadAsync(int level)
     {
