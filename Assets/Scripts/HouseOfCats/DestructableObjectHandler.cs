@@ -51,9 +51,11 @@ public class DestructableObjectHandler : MonoBehaviour
         switch (floor)
         {
             case 3:
+            if (PlayerPrefs.GetInt("secondFloorBought") == 1)
                 msToiletTime = PowerForToilet3.instance.msToiletTime;
                 break;
             case 2:
+            if (PlayerPrefs.GetInt("firstFloorBought") == 1)
                 msToiletTime = PowerForToilet2.instance.msToiletTime;
                 break;
             case 1:

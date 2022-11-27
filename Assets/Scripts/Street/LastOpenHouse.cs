@@ -51,6 +51,9 @@ public class LastOpenHouse : MonoBehaviour
             case 12:
                 rectTransform.anchoredPosition = new Vector2(-4791, 0);
                  break;
+            default:
+            rectTransform.anchoredPosition = new Vector2(5212, 0);
+            break;
          }
         
     }
