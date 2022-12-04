@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,8 +35,10 @@ public class RobotCleaner : MonoBehaviour
     public float yCorrection;
     public AudioSource sound;
     [SerializeField] private GameTimer timer;
+    private string secText;
     void Start()
     {
+        secText = Lean.Localization.LeanLocalization.GetTranslationText("Seconds");
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -183,7 +185,7 @@ public class RobotCleaner : MonoBehaviour
         electro.SetActive(true);
         sound.enabled = false;
         text.SetActive(true);
-        textBonus.text = $"+ {secondsAdd} sec";
+        textBonus.text = $"+ {secondsAdd} {secText}";
         timer.AddSecondsToTimer(secondsAdd);
         yield return new WaitForSeconds(5f);
     }

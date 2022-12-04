@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +37,8 @@ public class TimeBonus : MonoBehaviour
     private int[] secAdd;
     private Text[] textBonus;
     public delegate void TimeBonusDelegate();
+    // public Text timeSec;
+    public string secText;
 
     private void Awake()
     {
@@ -46,10 +48,13 @@ public class TimeBonus : MonoBehaviour
         secAdd = new int[] { secAdd1, secAdd2, secAdd3 };
         textBonus = new Text[] { textBonus1, textBonus2, textBonus3 };
         completed = new bool[] { completed1, completed2, completed3 };
+        secText = Lean.Localization.LeanLocalization.GetTranslationText("Seconds");
+        //secText = timeSec.text.ToString();
+        
 
         for (int i = 0; i < bonusIdPref.Length; i++)
         {
-            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} sec";
+            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {secText}";
         }
         sm.UpdateBonusScore += CheckForTimeBonuses;
     }
@@ -68,9 +73,10 @@ public class TimeBonus : MonoBehaviour
                 done[i].SetActive(true);
                 timer.AddSecondsToTimer(secAdd[i]);                
             }
-            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} sec";
+            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {secText}";
         }
     }
+    
 
     // private void CheckForTimeBonuses()
     // {
