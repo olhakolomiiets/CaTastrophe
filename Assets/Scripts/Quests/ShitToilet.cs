@@ -36,7 +36,8 @@ public class ShitToilet : MonoBehaviour
     [SerializeField] private GameTimer timer;
     private string secText;
     private CowController _playerController;
-    [SerializeField] private Transform _poopPosition;
+    [SerializeField] private GameObject _sandHeap;
+[SerializeField] private GameObject toiletSandParticles;
 
     private void Awake()
     {
@@ -169,6 +170,7 @@ public class ShitToilet : MonoBehaviour
     }
     IEnumerator PlayerGoLeft()
     {
+        _playerController.DisableAllControlButtons();
         _playerController.GoForAnimation(false);
         yield return new WaitForSeconds(0.7f);
         _playerController.OnButtonUp();
@@ -196,13 +198,18 @@ public class ShitToilet : MonoBehaviour
         _playerController.GoForAnimation(true);
         yield return new WaitForSeconds(0.7f);
         _playerController.OnButtonUp();
+        _playerController.TurnPlayerToRight(false);
         yield return new WaitForSeconds(0.2f);
         foreach (Animator anim in playerAnim)
         {
             anim.SetTrigger("actionDigPoop");
         }
+        toiletSandParticles.SetActive(true);
+        _sandHeap.SetActive(true);
+        yield return new WaitForSeconds(2f);
         _textBonus.SetActive(true);
         _text.text = $"+ {secondsAdd} {secText}";
         timer.AddSecondsToTimer(secondsAdd);
+        _playerController.EnableAllControlButtons();
     }
 }

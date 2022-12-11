@@ -297,8 +297,39 @@ public class CowController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
         }
-
     }
+
+    public void TurnPlayerToRight (bool turnRight)
+    {
+        if (turnRight)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+    }
+
+    public void DisableAllControlButtons()
+    {
+        left.enabled = false;
+        right.enabled = false;
+        leftButton.enabled = false;
+        rightButton.enabled = false;
+        jump.interactable = false;
+        doButton.interactable = false;
+    }
+        public void EnableAllControlButtons()
+    {
+        left.enabled = true;
+        right.enabled = true;
+        leftButton.enabled = true;
+        rightButton.enabled = true;
+        jump.interactable = true;
+        doButton.interactable = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == enemy1 | other.gameObject.tag == enemy2 | other.gameObject.tag == enemy3 | other.gameObject.tag == enemy4 | other.gameObject.tag == enemy5)
