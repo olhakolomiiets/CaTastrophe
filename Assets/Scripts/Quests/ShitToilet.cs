@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using DG.Tweening;
 
 public class ShitToilet : MonoBehaviour
 {
@@ -30,10 +31,12 @@ public class ShitToilet : MonoBehaviour
     private GameObject shitThis;
     Transform player;
     [SerializeField] private bool isActive = false;
-    [SerializeField] private GameObject text;
-    [SerializeField] private Text textBonus;
+    [SerializeField] private GameObject _textBonus;
+    private Text _text;
     [SerializeField] private GameTimer timer;
     private string secText;
+    private CowController _playerController;
+    [SerializeField] private Transform _poopPosition;
 
     private void Awake()
     {
@@ -41,12 +44,14 @@ public class ShitToilet : MonoBehaviour
     }
     void Start()
     {
+        _text = _textBonus.transform.GetChild(0).GetComponent<Text>();
         secText = Lean.Localization.LeanLocalization.GetTranslationText("Seconds");
         sm = FindObjectOfType<ScoreManager>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         playerAnim = inventory.gameObject.GetComponents<Animator>();
         questTip = gameObject.transform.GetChild(0).gameObject;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerController = player.GetComponent<CowController>();
         btnActive = btn.transform.GetChild(0).gameObject;
     }
     public void OnTriggerEnter2D(Collider2D other)
@@ -77,31 +82,32 @@ public class ShitToilet : MonoBehaviour
     public void Do()
     {
         btn.GetComponent<StopMoveForDo>().StopMove();
-        foreach (Animator anim in ThisAnim)
-        {
-            anim.SetTrigger("Done");
-        }
+        StartCoroutine(PlayerGoLeft());
+        // foreach (Animator anim in ThisAnim)
+        // {
+        //     anim.SetTrigger("Done");
+        // }
 
-        foreach (Animator anim in playerAnim)
-        {
-            anim.SetTrigger("actionShit");
-        }
-        isActive = false;
+        // foreach (Animator anim in playerAnim)
+        // {
+        //     anim.SetTrigger("actionPoopNoDig");
+        // }
+        // isActive = false;
 
-        if (player.eulerAngles.y == 0)
-        {
-            StartCoroutine(Shit());
-            StartCoroutine(ShitFlies());
-        }
-        else
-        {
-            StartCoroutine(Shit180());
-            StartCoroutine(ShitFlies180());
-        }
-        text.SetActive(true);
-        textBonus.text = $"+ {secondsAdd} {secText}";
-        timer.AddSecondsToTimer(secondsAdd);
-        source.PlayOneShot(soundForThis);
+        // if (player.eulerAngles.y == 0)
+        // {
+        //     StartCoroutine(Shit());
+        //     StartCoroutine(ShitFlies());
+        // }
+        // else
+        // {
+        //     StartCoroutine(Shit180());
+        //     StartCoroutine(ShitFlies180());
+        // }
+        // _textBonus.SetActive(true);
+        // _text.text = $"+ {secondsAdd} {secText}";
+        // timer.AddSecondsToTimer(secondsAdd);
+        // source.PlayOneShot(soundForThis);
         questTip.SetActive(false);
         PlayerPrefs.SetInt(prefTip, 1);
         inventory.removeFromArray();
@@ -151,10 +157,52 @@ public class ShitToilet : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         shitThis = Instantiate(shit, new Vector3(player.position.x - 1f, transform.position.y - yPointShit, 0), Quaternion.identity);
+                source.PlayOneShot(soundForThis);
+        SoundManager.snd.PlayFartSounds();
     }
     IEnumerator Shit180()
     {
         yield return new WaitForSeconds(0.5f);
         shitThis = Instantiate(shit, new Vector3(player.position.x + 1f, transform.position.y - yPointShit, 0), Quaternion.identity);
+                source.PlayOneShot(soundForThis);
+        SoundManager.snd.PlayFartSounds();
+    }
+    IEnumerator PlayerGoLeft()
+    {
+        _playerController.GoForAnimation(false);
+        yield return new WaitForSeconds(0.7f);
+        _playerController.OnButtonUp();
+        yield return new WaitForSeconds(0.2f);
+        foreach (Animator anim in ThisAnim)
+        {
+            anim.SetTrigger("Done");
+        }
+        foreach (Animator anim in playerAnim)
+        {
+            anim.SetTrigger("actionPoopNoDig");
+        }
+        isActive = false;
+          if (player.eulerAngles.y == 0)
+        {
+            StartCoroutine(Shit());
+            StartCoroutine(ShitFlies());
+        }
+        else
+        {
+            StartCoroutine(Shit180());
+            StartCoroutine(ShitFlies180());
+        }
+        yield return new WaitForSeconds(2f);
+        _playerController.GoForAnimation(true);
+        yield return new WaitForSeconds(0.7f);
+        _playerController.OnButtonUp();
+        yield return new WaitForSeconds(0.2f);
+        foreach (Animator anim in playerAnim)
+        {
+            anim.SetTrigger("actionDigPoop");
+        }
+        _textBonus.SetActive(true);
+        _text.text = $"+ {secondsAdd} {secText}";
+        timer.AddSecondsToTimer(secondsAdd);
     }
 }
