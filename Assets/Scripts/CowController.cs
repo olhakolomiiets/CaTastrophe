@@ -279,35 +279,40 @@ public class CowController : MonoBehaviour
         speed = 0f;
         anim.SetBool("isRunning", false);
     }
-    public void GoForAnimation(bool goRight)
+
+    public void MovePlayerToRightForToiletQuest(bool goRight)
     {
         if (goRight)
         {
-        if (speed >= 0f)
-        {
-            speed = 7f;
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        }
-        else
-        {
-        if (speed <= 0f)
-        {
-            speed = -7f;
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+            if (speed >= 0f)
+            {
+                speed = 7f;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
         }
     }
 
-    public void TurnPlayerToRight (bool turnRight)
+    public void MovePlayerToLeftForToiletQuest(bool goLeft)
     {
-        if (turnRight)
+        if (goLeft)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            if (speed <= 0f)
+            {
+                speed = -7f;
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+        }
+    }
+
+    public void TurnPlayerForToiletQuest (bool turnPlayer)
+    {
+        if (turnPlayer)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
         else
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
@@ -320,7 +325,7 @@ public class CowController : MonoBehaviour
         jump.interactable = false;
         doButton.interactable = false;
     }
-        public void EnableAllControlButtons()
+    public void EnableAllControlButtons()
     {
         left.enabled = true;
         right.enabled = true;

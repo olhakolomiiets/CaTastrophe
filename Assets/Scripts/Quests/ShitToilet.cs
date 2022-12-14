@@ -21,8 +21,6 @@ public class ShitToilet : MonoBehaviour
     [SerializeField] private float yPointShit;
     [SerializeField] private float yPointFlies;
     [SerializeField] private string prefTip;
-    // [SerializeField] private string isBought;
-    // [SerializeField] private string prefAchieve;
     [SerializeField] private AudioClip soundForThis;
     private AudioSource source;
     [SerializeField] private GameObject flies;
@@ -43,9 +41,10 @@ public class ShitToilet : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
     }
+
     void Start()
     {
-        _text = _textBonus.transform.GetChild(0).GetComponent<Text>();
+        _text = _textBonus.transform.GetChild(1).GetComponent<Text>();
         secText = Lean.Localization.LeanLocalization.GetTranslationText("Seconds");
         sm = FindObjectOfType<ScoreManager>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -55,6 +54,7 @@ public class ShitToilet : MonoBehaviour
         _playerController = player.GetComponent<CowController>();
         btnActive = btn.transform.GetChild(0).gameObject;
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(inventory.HasFullSlots());
@@ -77,38 +77,13 @@ public class ShitToilet : MonoBehaviour
                     btnActive.SetActive(true);
                 }
             }
-
         }
     }
+
     public void Do()
     {
         btn.GetComponent<StopMoveForDo>().StopMove();
         StartCoroutine(PlayerGoLeft());
-        // foreach (Animator anim in ThisAnim)
-        // {
-        //     anim.SetTrigger("Done");
-        // }
-
-        // foreach (Animator anim in playerAnim)
-        // {
-        //     anim.SetTrigger("actionPoopNoDig");
-        // }
-        // isActive = false;
-
-        // if (player.eulerAngles.y == 0)
-        // {
-        //     StartCoroutine(Shit());
-        //     StartCoroutine(ShitFlies());
-        // }
-        // else
-        // {
-        //     StartCoroutine(Shit180());
-        //     StartCoroutine(ShitFlies180());
-        // }
-        // _textBonus.SetActive(true);
-        // _text.text = $"+ {secondsAdd} {secText}";
-        // timer.AddSecondsToTimer(secondsAdd);
-        // source.PlayOneShot(soundForThis);
         questTip.SetActive(false);
         PlayerPrefs.SetInt(prefTip, 1);
         inventory.removeFromArray();
@@ -116,6 +91,7 @@ public class ShitToilet : MonoBehaviour
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
     }
+
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player") && inventory.HasFullSlots())
@@ -134,10 +110,12 @@ public class ShitToilet : MonoBehaviour
             btnActive.SetActive(false);
         }
     }
+
     private void TipHide()
     {
         questTip.SetActive(false);
     }
+
     IEnumerator ShitFlies()
     {
         yield return new WaitForSeconds(0.5f);
@@ -146,6 +124,7 @@ public class ShitToilet : MonoBehaviour
         yield return new WaitForSeconds(3f);
         fliesThis.SetActive(true);
     }
+
     IEnumerator ShitFlies180()
     {
         yield return new WaitForSeconds(0.5f);
@@ -154,24 +133,27 @@ public class ShitToilet : MonoBehaviour
         yield return new WaitForSeconds(3f);
         fliesThis.SetActive(true);
     }
+
     IEnumerator Shit()
     {
         yield return new WaitForSeconds(0.5f);
         shitThis = Instantiate(shit, new Vector3(player.position.x - 1f, transform.position.y - yPointShit, 0), Quaternion.identity);
-                source.PlayOneShot(soundForThis);
+        source.PlayOneShot(soundForThis);
         SoundManager.snd.PlayFartSounds();
     }
+
     IEnumerator Shit180()
     {
         yield return new WaitForSeconds(0.5f);
         shitThis = Instantiate(shit, new Vector3(player.position.x + 1f, transform.position.y - yPointShit, 0), Quaternion.identity);
-                source.PlayOneShot(soundForThis);
+        source.PlayOneShot(soundForThis);
         SoundManager.snd.PlayFartSounds();
     }
+
     IEnumerator PlayerGoLeft()
     {
         _playerController.DisableAllControlButtons();
-        _playerController.GoForAnimation(false);
+        _playerController.MovePlayerToLeftForToiletQuest(true);
         yield return new WaitForSeconds(0.7f);
         _playerController.OnButtonUp();
         yield return new WaitForSeconds(0.2f);
@@ -195,10 +177,10 @@ public class ShitToilet : MonoBehaviour
             StartCoroutine(ShitFlies180());
         }
         yield return new WaitForSeconds(2f);
-        _playerController.GoForAnimation(true);
+        _playerController.MovePlayerToRightForToiletQuest(true);
         yield return new WaitForSeconds(0.7f);
         _playerController.OnButtonUp();
-        _playerController.TurnPlayerToRight(false);
+        _playerController.TurnPlayerForToiletQuest(true);
         yield return new WaitForSeconds(0.2f);
         foreach (Animator anim in playerAnim)
         {
@@ -207,9 +189,9 @@ public class ShitToilet : MonoBehaviour
         toiletSandParticles.SetActive(true);
         _sandHeap.SetActive(true);
         yield return new WaitForSeconds(2f);
+        _playerController.EnableAllControlButtons();
         _textBonus.SetActive(true);
         _text.text = $"+ {secondsAdd} {secText}";
         timer.AddSecondsToTimer(secondsAdd);
-        _playerController.EnableAllControlButtons();
     }
 }
