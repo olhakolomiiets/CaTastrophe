@@ -56,8 +56,9 @@ public class DestroyBottle : MonoBehaviour
     }
     public void VaseBroke()
     {
-        Instantiate(destroyedVersion, transform.position, transform.rotation);
+        destroyedVersion.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        destroyedVersion.SetActive(true);
+        gameObject.SetActive(false);
         SoundManager.snd.PlayBottlesSounds();
-        Destroy(gameObject);
     }
 }
