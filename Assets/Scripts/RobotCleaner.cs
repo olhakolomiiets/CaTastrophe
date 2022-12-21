@@ -29,8 +29,8 @@ public class RobotCleaner : MonoBehaviour
     [SerializeField] private GameObject smoke;
     [SerializeField] private GameObject electro;
     [SerializeField] private GameObject brush;
-    [SerializeField] private GameObject text;
-    [SerializeField] private Text textBonus;
+    [SerializeField] private GameObject _textBonus;
+    private Text _text;
     [SerializeField] private int secondsAdd;
     public float yCorrection;
     public AudioSource sound;
@@ -38,6 +38,7 @@ public class RobotCleaner : MonoBehaviour
     private string secText;
     void Start()
     {
+        _text = _textBonus.transform.GetChild(1).GetComponent<Text>();
         secText = Lean.Localization.LeanLocalization.GetTranslationText("Seconds");
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // anim = GetComponent<Animator>();
@@ -80,13 +81,13 @@ public class RobotCleaner : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            text.transform.rotation = Quaternion.Euler(0, 0, 0);
+            _textBonus.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
             transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            text.transform.rotation = Quaternion.Euler(0, 0, 0);
+            _textBonus.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
     void Angry()
@@ -184,8 +185,8 @@ public class RobotCleaner : MonoBehaviour
         Instantiate(smoke, new Vector3(transform.position.x, transform.position.y - yCorrection, 0), Quaternion.identity);
         electro.SetActive(true);
         sound.enabled = false;
-        text.SetActive(true);
-        textBonus.text = $"+ {secondsAdd} {secText}";
+        _textBonus.SetActive(true);
+        _text.text = $"+ {secondsAdd} {secText}";
         timer.AddSecondsToTimer(secondsAdd);
         yield return new WaitForSeconds(5f);
     }
