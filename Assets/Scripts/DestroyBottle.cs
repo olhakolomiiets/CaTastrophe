@@ -13,8 +13,10 @@ public class DestroyBottle : MonoBehaviour
     public static Rigidbody2D rb;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    [SerializeField] private bool reuseCollisionCallbacks;
     private void Start()
     {
+        Physics.reuseCollisionCallbacks = reuseCollisionCallbacks;
         sm = FindObjectOfType<ScoreManager>();
         if (isTimeBonus == true)
         {
