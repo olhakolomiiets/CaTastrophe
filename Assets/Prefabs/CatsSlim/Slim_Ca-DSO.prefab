@@ -1377,7 +1377,9 @@ MonoBehaviour:
   ppCatName: DSOSlimCat
   speed: 7.5
   normalSpeed: 6
-  jumpForce: 23
+  jumpForce: 13
+  jumpTime: 0.35
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 1341643901353931162}
   checkRadius: 0.8
@@ -1421,6 +1423,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 7527866436883535277}
   catPower: {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
+  isUiJumpPressed: 0
 --- !u!50 &1196111122079956494
 Rigidbody2D:
   serializedVersion: 4

@@ -546,7 +546,9 @@ MonoBehaviour:
   ppCatName: tigerfatcat
   speed: 7
   normalSpeed: 9
-  jumpForce: 27
+  jumpForce: 17
+  jumpTime: 0.35
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -590,6 +592,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 1248305267807275406}
   catPower: {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
+  isUiJumpPressed: 0
 --- !u!81 &5294315305467472851
 AudioListener:
   m_ObjectHideFlags: 0

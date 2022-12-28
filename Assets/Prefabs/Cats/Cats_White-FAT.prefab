@@ -4084,7 +4084,9 @@ MonoBehaviour:
   ppCatName: whitefatcat
   speed: 7
   normalSpeed: 7.5
-  jumpForce: 25
+  jumpForce: 15
+  jumpTime: 0.35
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -4128,6 +4130,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 8573790635379763541}
   catPower: {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
+  isUiJumpPressed: 0
 --- !u!81 &3375388094198582024
 AudioListener:
   m_ObjectHideFlags: 0

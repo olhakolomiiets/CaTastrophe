@@ -4405,7 +4405,9 @@ MonoBehaviour:
   ppCatName: GSlimCat
   speed: 7
   normalSpeed: 6.5
-  jumpForce: 24
+  jumpForce: 14
+  jumpTime: 0.35
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 8569031990903860655}
   checkRadius: 0.8
@@ -4449,6 +4451,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 868475197085845912}
   catPower: {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
+  isUiJumpPressed: 0
 --- !u!50 &8425209670946611771
 Rigidbody2D:
   serializedVersion: 4

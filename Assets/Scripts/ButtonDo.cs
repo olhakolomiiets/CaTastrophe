@@ -8,15 +8,15 @@ using UnityEngine.EventSystems;
 public class ButtonDo : MonoBehaviour
 {
   private CowController controller;
-      private GameObject buttonDoLink;
+      private GameObject buttonJumpLink;
       private GameObject buttonLeftLink;
       private GameObject buttonRightLink;
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CowController>();
-        buttonDoLink = this.gameObject.transform.GetChild(0).gameObject;
-        Button buttonDoLink2 = buttonDoLink.GetComponent<Button>();
-        buttonDoLink2.onClick.AddListener(controller.OnJumpbuttonDown);
+        buttonJumpLink = this.gameObject.transform.GetChild(0).gameObject;
+        Button buttonJump = buttonJumpLink.GetComponent<Button>();
+        // buttonJump.onClick.AddListener(controller.OnJumpbuttonDown);
 
         buttonLeftLink = this.gameObject.transform.GetChild(2).gameObject;
         EventTrigger buttonLeftLink2 = buttonLeftLink.GetComponent<EventTrigger>();
@@ -43,6 +43,7 @@ public class ButtonDo : MonoBehaviour
         entryR2.callback.AddListener((data) => { controller.OnButtonUp(); });
         buttonRightLink2.triggers.Add(entryR2);      
     }
+
 }
 
     

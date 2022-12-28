@@ -12,6 +12,10 @@ public class CowController : MonoBehaviour
     public float speed;
     public float normalSpeed;
     public float jumpForce;
+    private float _jumpTimeCounter;
+    public float jumpTime;
+    private bool jumpTimeSetuped;
+    public bool isJumping;
     private float moveInput;
     public bool isGrounded;
     public Transform feetPos;
@@ -62,19 +66,20 @@ public class CowController : MonoBehaviour
     private Button rightButton;
     private Button doButton;
     public FloatSO catPower;
+    public bool isUiJumpPressed;
 
     private void Awake()
     {
-         #  region SetupCheatPowers
+        #region SetupCheatPowers
 
-         if (PlayerPrefs.GetInt(ppCatName + "CheatEnemyDog") == 2)
+        if (PlayerPrefs.GetInt(ppCatName + "CheatEnemyDog") == 2)
         {
             enemy1 = "";
             noAffraidDogs = true;
         }
         else enemy1 = "EnemyDog";
 
-         if (PlayerPrefs.GetInt(ppCatName + "PowerAntiPlant") == 2)
+        if (PlayerPrefs.GetInt(ppCatName + "PowerAntiPlant") == 2)
         {
             enemy2 = "";
         }
@@ -86,20 +91,20 @@ public class CowController : MonoBehaviour
         }
         else enemy3 = "EnemySteam";
 
-          if (PlayerPrefs.GetInt(ppCatName + "PowerAntiFan") == 2)
+        if (PlayerPrefs.GetInt(ppCatName + "PowerAntiFan") == 2)
         {
             enemy4 = "";
         }
         else enemy4 = "EnemyFan";
-        
+
         if (PlayerPrefs.GetInt(ppCatName + "PowerWeightShop") == 2)
         {
             activeCollaider.tag = "ActiveCollaiderHeavy";
         }
         else activeCollaider.tag = "ActiveCollaider";
-        
+
         #endregion
-        
+
         // int i = PlayerPrefs.GetInt("Player");
         // energyCat = PlayerPrefs.GetFloat("totalEnergyCat" + i);
     }
@@ -154,10 +159,32 @@ public class CowController : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround | whatIsGround2 | whatIsGround3 | whatIsGround4 | whatIsGround5 | whatIsGround6);
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space) || isGrounded == true && isUiJumpPressed == true)
         {
+            isJumping = true;
+            _jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
             anim.SetTrigger("takeOff");
+        }
+
+        if (Input.GetKey(KeyCode.Space) && isJumping == true || isUiJumpPressed == true && isJumping == true)
+        {
+            if (_jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                _jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) || isUiJumpPressed == false)
+        {
+            isJumping = false;
+            isUiJumpPressed = false;
         }
 
         if (isGrounded == true)
@@ -250,14 +277,15 @@ public class CowController : MonoBehaviour
             OnButtonUp();
         }
     }
-    public void OnJumpbuttonDown()
-    {
-        if (isGrounded == true)
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            anim.SetTrigger("takeOff");
-        }
-    }
+    // public void OnJumpbuttonDown()
+    // {
+    //     if (isGrounded == true)
+    //     {
+    //         rb.velocity = Vector2.up * jumpForce;
+    //         anim.SetTrigger("takeOff");
+    //     }
+    // }
+
     public void OnLeftButtonDown()
     {
         if (speed <= 0f)
@@ -304,7 +332,7 @@ public class CowController : MonoBehaviour
         }
     }
 
-    public void TurnPlayerForToiletQuest (bool turnPlayer)
+    public void TurnPlayerForToiletQuest(bool turnPlayer)
     {
         if (turnPlayer)
         {
