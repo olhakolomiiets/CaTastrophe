@@ -15,10 +15,12 @@ public class GameTimer : MonoBehaviour
     private bool TimeUp;
     int sceneIndex;
     int levelComplete;
-    public int scoreForWin;
+    // public int scoreForWin;
+    [SerializeField] private HouseStarsSO _houseStars;
     public GameObject damageImage;
     public GameObject canvas;
     private Animator anim;
+    private UIManager _uiManager;
     private void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -26,9 +28,9 @@ public class GameTimer : MonoBehaviour
         Debug.Log("sceneIndex is" + sceneIndex);
         sm = FindObjectOfType<ScoreManager>();
         TimeUp = false;
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-        damageImage = canvas.gameObject.transform.GetChild(10).gameObject;
         anim = gameObject.GetComponent<Animator>();
+        _uiManager = Camera.main.GetComponent<UIManager>();
+
     }
     public int GetLevelScore()
     {
@@ -60,19 +62,12 @@ public class GameTimer : MonoBehaviour
                 Debug.Log(PlayerPrefs.GetInt("LevelStars" + sceneIndex, sm.score));
                 Debug.Log("sceneIndex is" + sceneIndex);
             }
-            if (sceneIndex == 13)
+            if (sm.score >= _houseStars.Star1 && levelComplete < sceneIndex)
             {
-                Invoke("LoadMenuLevels", 1f);
-            }
-            else
-            {
-                if (sm.score >= scoreForWin && levelComplete < sceneIndex)
-                {
-                    PlayerPrefs.SetInt("LevelComplete", sceneIndex);
-                }
+                PlayerPrefs.SetInt("LevelComplete", sceneIndex);
             }
             timeDisplay.text = ("00:00");
-            Camera.main.GetComponent<UIManager>().TimeUp();
+            _uiManager.TimeUp();
             damageImage.SetActive(false);
             TimeUp = true;
         }
@@ -83,8 +78,8 @@ public class GameTimer : MonoBehaviour
         Time.timeScale = 1;
     }
     public void AddSecondsToTimer(int sec)
-    { 
+    {
         anim.SetTrigger("Add");
-        timer = timer + sec;   
+        timer = timer + sec;
     }
 }

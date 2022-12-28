@@ -12130,7 +12130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseStars: {fileID: 11400000, guid: 055ef72edd4012f49b1060d485712f35, type: 2}
-  levelIndex: 2
+  levelIndex: 8
   textForStar1: {fileID: 9178901317915718568}
   textForStar2: {fileID: 7493877739150359329}
   textForStar3: {fileID: 335867577}
@@ -38420,7 +38420,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 893187020}
+      objectReference: {fileID: 0}
     - target: {fileID: 6335725946859324688, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -38456,12 +38456,6 @@ PrefabInstance:
 --- !u!224 &893187019 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 228585658939514695, guid: 83e0397d56371d64eb0fdce44b3dbee5,
-    type: 3}
-  m_PrefabInstance: {fileID: 893187018}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &893187020 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6335725946659374870, guid: 83e0397d56371d64eb0fdce44b3dbee5,
     type: 3}
   m_PrefabInstance: {fileID: 893187018}
   m_PrefabAsset: {fileID: 0}
@@ -41070,7 +41064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDisplay: {fileID: 1011978784}
   timer: 60
-  scoreForWin: 50
+  _houseStars: {fileID: 0}
   damageImage: {fileID: 756574142}
   canvas: {fileID: 1891394182}
 --- !u!1 &1012407017
@@ -41949,7 +41943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDisplay: {fileID: 1011978784}
   timer: 180
-  scoreForWin: 310
+  _houseStars: {fileID: 11400000, guid: 055ef72edd4012f49b1060d485712f35, type: 2}
   damageImage: {fileID: 756574142}
   canvas: {fileID: 1891394182}
 --- !u!95 &1043261220

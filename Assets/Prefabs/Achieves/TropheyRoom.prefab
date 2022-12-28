@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2058840688966701498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -948,9 +948,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0421\u0411\u0420\u0410\u0421\u042B\u0412\u0410\u0419\u0422\u0415 \u0425\u0420\u0423\u041F\u041A\u0418\u0415
-    \u041F\u0420\u0415\u0414\u041C\u0415\u0422\u042B \u041D\u0410 \u041F\u041E\u041B
-    \u0427\u0422\u041E \u0411\u042B \u0420\u0410\u0417\u0411\u0418\u0422\u042C"
+  m_Text: DROP FRAGILE OBJECTS TO THE FLOOR TO BREAK
 --- !u!114 &5036587254662065858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,9 +1024,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardVaseDestroyed
   slider: {fileID: 6384495095608156387}
-  TargetNumber: 10
-  TargetNumber2: 30
-  TargetNumber3: 100
+  TargetNumber: 1000
+  TargetNumber2: 3000
+  TargetNumber3: 10000
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -2269,7 +2267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0420\u0410\u0417\u0420\u0423\u0428\u0418\u0422\u0415\u041B\u042C"
+  m_Text: DESTROYER
 --- !u!114 &6384495095583444745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,9 +2518,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10000
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2559,7 +2557,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4583,8 +4581,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041D\u0410\u041A\u041E\u041F\u0418\u0422\u0415 \u041A\u0410\u041A \u041C\u041E\u0416\u041D\u041E
-    \u0411\u041E\u041B\u042C\u0428\u0415 \u0414\u0415\u041D\u0415\u0413"
+  m_Text: SAVE AS MUCH MONEY AS POSSIBLE
 --- !u!114 &6384495095717040700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5607,8 +5604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041E\u0422\u041A\u0420\u042B\u0412\u0410\u0419\u0422\u0415 \u041D\u041E\u0412\u042B\u0415
-    \u0414\u041E\u041C\u0410"
+  m_Text: DISCOVER NEW HOUSES
 --- !u!114 &6384495095771943402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6229,9 +6225,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 6
+  m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 4.03
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6347,7 +6343,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351, y: -0.0002593994}
+  m_AnchoredPosition: {x: 304.5, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495095794490998
@@ -7733,7 +7729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.9, y: -0.2999531}
+  m_AnchoredPosition: {x: -43.3, y: -0.2999531}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495095847499178
@@ -7904,7 +7900,7 @@ MonoBehaviour:
   AchieveNamePref: AwardMoneyPerHouse
   TargetNumber: 300
   TargetNumber2: 600
-  TargetNumber3: 1000
+  TargetNumber3: 1200
   realNumber: 0
   awardBronze: {fileID: 6384495097043605195}
   awardSilver: {fileID: 6384495095889953606}
@@ -7995,9 +7991,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 9000
+  m_MaxValue: 50000
   m_WholeNumbers: 0
-  m_Value: 4000
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8201,8 +8197,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0422\u0420\u0410\u0422\u042C\u0422\u0415 \u041A\u041E\u0428\u0410\u0427\u042C\u0418
-    \u0416\u0418\u0417\u041D\u0418"
+  m_Text: SPEND CAT LIVES
 --- !u!114 &6384495095858274346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9012,7 +9007,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 15
   m_WholeNumbers: 0
-  m_Value: 8
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9245,9 +9240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardPoopInShoes
   slider: {fileID: 6384495095786759886}
-  TargetNumber: 2
-  TargetNumber2: 4
-  TargetNumber3: 6
+  TargetNumber: 50
+  TargetNumber2: 150
+  TargetNumber3: 300
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -9559,8 +9554,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041A\u0423\u041F\u0418\u0422\u0415 \u0412\u0421\u0415\u0425 \u041A\u041E\u0422\u041E\u0412
-    \u0412 \u041C\u0410\u0413\u0410\u0417\u0418\u041D\u0415"
+  m_Text: BUY ALL CATS IN THE STORE
 --- !u!114 &6384495095911247067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9684,7 +9678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81, y: -0.0002593994}
+  m_AnchoredPosition: {x: 8.5, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495095921989987
@@ -9886,9 +9880,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 16
+  m_MaxValue: 22
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9970,8 +9964,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0413\u0410\u0414\u042C\u0422\u0415 \u0412 \u041B\u042E\u0411\u0423\u042E
-    \u041E\u0411\u0423\u0412\u042C \u0412 \u0414\u041E\u041C\u0415"
+  m_Text: SHIT IN ANY SHOES IN THE HOUSE
 --- !u!114 &6384495095927390823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10020,7 +10013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 472, y: -0.0002593994}
+  m_AnchoredPosition: {x: 341, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495095929811810
@@ -11194,9 +11187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardPowersIsYours
   slider: {fileID: 6384495095925721538}
-  TargetNumber: 4
-  TargetNumber2: 10
-  TargetNumber3: 16
+  TargetNumber: 5
+  TargetNumber2: 12
+  TargetNumber3: 22
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -11495,7 +11488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: -0.0002593994}
+  m_AnchoredPosition: {x: 130.8, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096020802866
@@ -12016,7 +12009,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041E\u0411\u0416\u041E\u0420\u0410"
+  m_Text: 'GLUTTON '
 --- !u!114 &6384495096060675889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12231,9 +12224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardEatTimes
-  TargetNumber: 20
-  TargetNumber2: 60
-  TargetNumber3: 120
+  TargetNumber: 30
+  TargetNumber2: 100
+  TargetNumber3: 200
   realNumber: 0
   awardBronze: {fileID: 6384495096814962576}
   awardSilver: {fileID: 6384495096131011333}
@@ -12880,7 +12873,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0421\u041A\u0420\u0423\u0414\u0416"
+  m_Text: SCROOGE
 --- !u!114 &6384495096098562558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13043,7 +13036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.6, y: -0.3}
+  m_AnchoredPosition: {x: 0, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096112041476
@@ -13218,8 +13211,8 @@ MonoBehaviour:
   AchieveNamePref: AwardDogsShoked
   slider: {fileID: 6384495097665270622}
   TargetNumber: 5
-  TargetNumber2: 15
-  TargetNumber3: 30
+  TargetNumber2: 20
+  TargetNumber3: 60
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -13265,7 +13258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 382, y: -0.0002593994}
+  m_AnchoredPosition: {x: 227.4, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096126013386
@@ -13978,9 +13971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardTotalMoney
-  TargetNumber: 1000
-  TargetNumber2: 4000
-  TargetNumber3: 9000
+  TargetNumber: 2500
+  TargetNumber2: 25000
+  TargetNumber3: 50000
   realNumber: 0
   awardBronze: {fileID: 6384495096738872976}
   awardSilver: {fileID: 6384495097234581608}
@@ -14063,7 +14056,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0414\u041E\u041C\u041E\u0412\u041B\u0410\u0414\u0415\u041B\u0415\u0426"
+  m_Text: HOME OWNER
 --- !u!114 &6384495096156483091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14415,7 +14408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 385, y: -0.0002593994}
+  m_AnchoredPosition: {x: 311.8, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096175132776
@@ -15015,7 +15008,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ea0225b44870c7449bcd3af51fefebc, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -15495,7 +15488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53.1, y: -0.2999531}
+  m_AnchoredPosition: {x: -55.6, y: -0.2999531}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096256847494
@@ -15790,7 +15783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0421\u0415\u0420\u0423\u041D"
+  m_Text: DOO-DOO
 --- !u!114 &6384495096269613161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16484,9 +16477,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardPoopInShoes
-  TargetNumber: 2
-  TargetNumber2: 4
-  TargetNumber3: 6
+  TargetNumber: 50
+  TargetNumber2: 150
+  TargetNumber3: 300
   realNumber: 0
   awardBronze: {fileID: 6384495096050604222}
   awardSilver: {fileID: 6384495096838300389}
@@ -16730,7 +16723,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.625
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -16769,7 +16762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -0.0002593994}
+  m_AnchoredPosition: {x: -25, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096357512016
@@ -17025,9 +17018,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 120
+  m_MaxValue: 200
   m_WholeNumbers: 0
-  m_Value: 60
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -17799,9 +17792,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 1200
   m_WholeNumbers: 0
-  m_Value: 600
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -18035,7 +18028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.8, y: -0.3}
+  m_AnchoredPosition: {x: 0.018951416, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096432974729
@@ -18354,9 +18347,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardVaseDestroyed
-  TargetNumber: 10
-  TargetNumber2: 30
-  TargetNumber3: 100
+  TargetNumber: 1000
+  TargetNumber2: 3000
+  TargetNumber3: 10000
   realNumber: 0
   awardBronze: {fileID: 6384495095743567961}
   awardSilver: {fileID: 6384495097625686741}
@@ -18486,7 +18479,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041A\u041E\u0422\u041E\u0412\u041B\u0410\u0414\u0415\u041B\u0415\u0426"
+  m_Text: CAT OWNER
 --- !u!114 &6384495096458222771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18814,7 +18807,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20057,7 +20050,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.9, y: -0.2999531}
+  m_AnchoredPosition: {x: -53.2, y: -0.2999531}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096541899748
@@ -20475,8 +20468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardDogsShoked
   TargetNumber: 5
-  TargetNumber2: 15
-  TargetNumber3: 30
+  TargetNumber2: 20
+  TargetNumber3: 60
   realNumber: 0
   awardBronze: {fileID: 6384495095878829871}
   awardSilver: {fileID: 6384495096499054581}
@@ -20662,7 +20655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 436, y: -0.0002593994}
+  m_AnchoredPosition: {x: 501, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096567051164
@@ -22356,7 +22349,7 @@ MonoBehaviour:
   slider: {fileID: 6384495096394673261}
   TargetNumber: 300
   TargetNumber2: 600
-  TargetNumber3: 1000
+  TargetNumber3: 1200
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -22652,8 +22645,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041A\u0423\u041F\u0418\u0422\u0415 \u0412\u0421\u0415 \u041D\u0410\u0412\u042B\u041A\u0418
-    \u0412 \u041C\u0410\u0413\u0410\u0417\u0418\u041D\u0415"
+  m_Text: BUY ALL SKILLS IN THE STORE
 --- !u!114 &6384495096709499851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23140,7 +23132,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.53333336
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -23840,7 +23832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5, y: -0.3}
+  m_AnchoredPosition: {x: -26.4, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096803609874
@@ -25112,9 +25104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardEatTimes
   slider: {fileID: 6384495096366970551}
-  TargetNumber: 20
-  TargetNumber2: 60
-  TargetNumber3: 120
+  TargetNumber: 30
+  TargetNumber2: 100
+  TargetNumber3: 200
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -25663,7 +25655,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041A\u041E\u0422\u041E\u0421\u0422\u0420\u041E\u0424\u0410"
+  m_Text: CATASTROPHE
 --- !u!114 &6384495096889199082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25997,7 +25989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.6, y: -0.2999531}
+  m_AnchoredPosition: {x: -39.8, y: -0.2999531}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096905772154
@@ -26225,7 +26217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.6, y: -0.3}
+  m_AnchoredPosition: {x: 7.1, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495096914321488
@@ -26823,9 +26815,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardPowersIsYours
-  TargetNumber: 4
-  TargetNumber2: 10
-  TargetNumber3: 16
+  TargetNumber: 5
+  TargetNumber2: 12
+  TargetNumber3: 22
   realNumber: 0
   awardBronze: {fileID: 6384495095656075280}
   awardSilver: {fileID: 6384495097235300701}
@@ -27233,7 +27225,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27659,7 +27651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u041D\u0415 9 \u0416\u0418\u0417\u041D\u0415\u0419"
+  m_Text: 'NOT 9 LIVES '
 --- !u!114 &6384495096977389924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29386,9 +29378,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchieveNamePref: AwardTotalMoney
   slider: {fileID: 6384495095852058674}
-  TargetNumber: 1000
-  TargetNumber2: 4000
-  TargetNumber3: 9000
+  TargetNumber: 2500
+  TargetNumber2: 25000
+  TargetNumber3: 50000
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -29459,8 +29451,8 @@ MonoBehaviour:
   AchieveNamePref: CatsIsYoursAchieve
   slider: {fileID: 6384495095897271456}
   TargetNumber: 3
-  TargetNumber2: 6
-  TargetNumber3: 10
+  TargetNumber2: 8
+  TargetNumber3: 15
   realNumber: 0
   done: 0
   stage1complete: 0
@@ -30118,7 +30110,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -32106,7 +32098,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -32713,7 +32705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214, y: -0.0002593994}
+  m_AnchoredPosition: {x: 75, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495097269635605
@@ -33357,7 +33349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112, y: -0.0002593994}
+  m_AnchoredPosition: {x: 98.8, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495097303965512
@@ -34246,7 +34238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: -0.0002593994}
+  m_AnchoredPosition: {x: 58, y: -0.0002593994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495097381141919
@@ -34321,7 +34313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.6, y: -0.2999531}
+  m_AnchoredPosition: {x: -71.7, y: -0.2999531}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495097388218924
@@ -34937,7 +34929,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.53846157
+  m_FillAmount: 0.5833333
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -35051,7 +35043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.9, y: -0.2999531}
+  m_AnchoredPosition: {x: -66.3, y: -0.2999531}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495097447489208
@@ -35323,7 +35315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0415\u0428\u042C\u0422\u0415 \u041A\u041E\u0420\u041C \u0418\u0417 \u041C\u0418\u0421\u041E\u041A"
+  m_Text: EAT BOWL FOOD
 --- !u!114 &6384495097454219456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36317,7 +36309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.4, y: -0.3}
+  m_AnchoredPosition: {x: 0, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384495097552574963
@@ -37266,7 +37258,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.5
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -37911,7 +37903,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.6716667
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -38702,9 +38694,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 60
   m_WholeNumbers: 0
-  m_Value: 15
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

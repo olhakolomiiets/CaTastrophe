@@ -24,11 +24,13 @@ public class TimeUpScore : MonoBehaviour
         {
             PlayerPrefs.SetInt("AwardMoneyPerHouse", sm.score);
         }
+        StartCoroutine("Counter");
+        StartCoroutine("CounterTotal");
     }
     void Update()
     {
-        StartCoroutine("Counter");
-        StartCoroutine("CounterTotal");
+        // StartCoroutine("Counter");
+        // StartCoroutine("CounterTotal");
     }
     IEnumerator Counter()
     {
@@ -55,5 +57,11 @@ public class TimeUpScore : MonoBehaviour
             yield return null;
         }
         scoreTotalText.text = sm.TotalScore.ToString();
+    }
+
+    private void OnDisable() 
+    {
+        StopCoroutine("Counter");
+        StopCoroutine("CounterTotal");
     }
 }
