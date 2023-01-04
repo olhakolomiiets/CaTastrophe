@@ -15,6 +15,7 @@ public class CowController : MonoBehaviour
     private float _jumpTimeCounter;
     public float jumpTime;
     private bool jumpTimeSetuped;
+    [SerializeField] private float _jumpDelayTimer;
     public bool isJumping;
     private float moveInput;
     public bool isGrounded;
@@ -160,15 +161,16 @@ public class CowController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround | whatIsGround2 | whatIsGround3 | whatIsGround4 | whatIsGround5 | whatIsGround6);
 
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space) || isGrounded == true && isUiJumpPressed == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && _jumpDelayTimer <= 0f || isUiJumpPressed && isGrounded && _jumpDelayTimer <= 0f)
         {
             isJumping = true;
             _jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
             anim.SetTrigger("takeOff");
+            _jumpDelayTimer = 1f;
         }
 
-        if (Input.GetKey(KeyCode.Space) && isJumping == true || isUiJumpPressed == true && isJumping == true)
+        if (Input.GetKey(KeyCode.Space) && isJumping || isUiJumpPressed && isJumping)
         {
             if (_jumpTimeCounter > 0)
             {
@@ -181,13 +183,18 @@ public class CowController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) || isUiJumpPressed == false)
+        if (_jumpDelayTimer > 0)
+        {
+            _jumpDelayTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) || !isUiJumpPressed)
         {
             isJumping = false;
             isUiJumpPressed = false;
         }
 
-        if (isGrounded == true)
+        if (rb.velocity.y <= 0)
         {
             anim.SetBool("isJumping", false);
         }
@@ -219,6 +226,8 @@ public class CowController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+
         if (lives > numOfHearts)
         {
             lives = numOfHearts;
