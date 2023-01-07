@@ -170,7 +170,7 @@ public class CowController : MonoBehaviour
             _jumpDelayTimer = 1f;
         }
 
-        if (Input.GetKey(KeyCode.Space) && isJumping || isUiJumpPressed && isJumping)
+        if (Input.GetKey(KeyCode.Space) || isUiJumpPressed && isJumping)
         {
             if (_jumpTimeCounter > 0)
             {
