@@ -138,7 +138,7 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
         if (secAfterExit < secondsWhenWereExit)
         {
             Debug.Log(" if secAfterExit " + secAfterExit + " < secondsWhenWereExit " + secondsWhenWereExit);
-            pointsWhenWereExit = secAfterExit * 0.01666666666f;
+            pointsWhenWereExit = secAfterExit * 0.00083333f;
             Debug.Log("pointsWhenWereExit " + pointsWhenWereExit);
             if (pointsWhenWereExit > 0)
             {
@@ -157,7 +157,7 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
             Debug.Log(" Plate2 if secAfterExit " + secAfterExit + " > secondsWhenWereExit " + secondsWhenWereExit);
             if (secondsWhenWereExit > 0)
             {
-                float pointsForActiveFood = secondsWhenWereExit * 0.01666666666f;
+                float pointsForActiveFood = secondsWhenWereExit * 0.00083333f;
                 pointsWhenWereExit = pointsForActiveFood;
 
                 if (pointsWhenWereExit > 0)

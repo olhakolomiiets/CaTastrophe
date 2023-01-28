@@ -60,41 +60,41 @@ public class PassivePowerUp : MonoBehaviour
             {
                 if (catPower.Value < 10)
                 {
-                    catPower.ChangeAmountBy(0.01666666666f);
+                    catPower.ChangeAmountBy(0.00083333f);
                     ValueChangeBy?.Invoke(0f);
                     if (ToiletSpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.01666666666f);
+                        catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
                         Debug.Log("ToiletSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Toilet2SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.01666666666f);
+                        catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
                         Debug.Log("Toilet2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Toilet3SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.01666666666f);
+                        catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
                         Debug.Log("Toilet3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (FoodSpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.01666666666f);
+                        catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
                         Debug.Log("FoodSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Food2SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.01666666666f);
+                        catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
                         Debug.Log("Food2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Food3SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.01666666666f);
+                        catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
                         Debug.Log("Food3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
@@ -161,8 +161,8 @@ public class PassivePowerUp : MonoBehaviour
             if (power.Value < 10f)
             {
                 Debug.Log("Power value before load ===== " + power.Value + " to cat " + power.nameCat);
-                power.ChangeAmountBy(LoadPowerWhenWasOut() * 0.01666666666f);
-                Debug.Log("points Passive when Exit " + (LoadPowerWhenWasOut() * 0.01666666666f));
+                power.ChangeAmountBy(LoadPowerWhenWasOut() * 0.00083333f);
+                Debug.Log("points Passive when Exit " + (LoadPowerWhenWasOut() * 0.00083333f));
                 power.ChangeAmountBy(toiletPointsWhenWereExit);
                 power.ChangeAmountBy(toiletPoints2WhenWereExit);
                 power.ChangeAmountBy(toiletPoints3WhenWereExit);
@@ -181,7 +181,7 @@ public class PassivePowerUp : MonoBehaviour
             {
                 power.SetNewAmount(10f);
             }
-            // Debug.Log("Load SecAfterExit !!!!!!!!!!    " + LoadPowerWhenWasOut() + " * 0.01666666666f" + " = " + (LoadPowerWhenWasOut() * 0.01666667f) + " Cat is " + power.name);
+            // Debug.Log("Load SecAfterExit !!!!!!!!!!    " + LoadPowerWhenWasOut() + " * 0.00083333f" + " = " + (LoadPowerWhenWasOut() * 0.01666667f) + " Cat is " + power.name);
         }
     }
 
@@ -194,5 +194,13 @@ public class PassivePowerUp : MonoBehaviour
         var rawTime = (float)difference.TotalSeconds;
         var secAfterExit = (int)rawTime;
         return secAfterExit;
+    }
+
+    public void SetAllPowestToMax()
+    {
+        foreach (FloatSO power in catPowersSO)
+        {
+            power.SetNewAmount(10f);
+        }
     }
 }

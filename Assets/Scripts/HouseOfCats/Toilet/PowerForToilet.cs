@@ -164,7 +164,7 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         if (secAfterExit <= secondsWhenWereExit)
         {
             Debug.Log(" if secAfterExit " + secAfterExit + " < secondsToiletLeft " + secondsWhenWereExit);
-            pointsWhenWereExit = secAfterExit * 0.01666666666f;
+            pointsWhenWereExit = secAfterExit * 0.00083333f;
             Debug.Log("pointsWhenWereExit " + pointsWhenWereExit);
             if (pointsWhenWereExit > 0)
             {
@@ -183,7 +183,7 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
             Debug.Log(" Toilet if secAfterExit " + secAfterExit + " > secondsToiletLeft " + secondsWhenWereExit);
             if (secondsWhenWereExit > 0)
             {
-                float pointsForActiveToilet = secondsWhenWereExit * 0.01666666666f;
+                float pointsForActiveToilet = secondsWhenWereExit * 0.00083333f;
                 pointsWhenWereExit = pointsForActiveToilet;
 
                 if (pointsWhenWereExit > 0)
