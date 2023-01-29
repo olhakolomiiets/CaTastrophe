@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController2 : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class CameraController2 : MonoBehaviour
     public bool stairs1 = false;
     public bool stairs2 = false;
     public bool basement = false;
+
+    [SerializeField] private CameraShakeSO _cameraShake;
     void Start()
     {
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
@@ -218,5 +221,10 @@ public class CameraController2 : MonoBehaviour
         bottomLimit = -11.70f;
         upperLimit = 17.8f;
         leftLimit = -26f;
+    }
+
+    public void CameraShake()
+    {
+        Camera.main.DOShakePosition(_cameraShake.Duration, _cameraShake.Strength, _cameraShake.Vibrato);
     }
 }

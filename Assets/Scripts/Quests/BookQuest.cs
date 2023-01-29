@@ -3,25 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class BookQuest : MonoBehaviour
 {
+    #region "Public Fields"
     public bool Used;
     public Animator[] questAnim;
     public Animator[] bull;
     public Button btn;
-    private GameObject btnActive;
-
     public int points = 20;
-    private ScoreManager sm;
-    private GameObject plantTip;
     public GameObject CottonParticles;
     public AudioClip crashPlant;
+    #endregion
+
+    #region "Private Fields"
+    private GameObject btnActive;
+    private ScoreManager sm;
+    private GameObject plantTip;
     private AudioSource source;
     private GameObject pooh;
     Transform player;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    [SerializeField] private CameraController2 mainCamera;
+
+    #endregion
+
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -31,9 +40,7 @@ public class BookQuest : MonoBehaviour
 
         if (PlayerPrefs.GetInt("closetsDestroy") == 1)
         {
-
             col.enabled = true;
-
         }
     }
 
@@ -41,6 +48,7 @@ public class BookQuest : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         sm = FindObjectOfType<ScoreManager>();
+        mainCamera = FindObjectOfType<CameraController2>();
         bull = GameObject.FindGameObjectWithTag("Player").GetComponents<Animator>();
         plantTip = gameObject.transform.GetChild(1).gameObject;
         btnActive = btn.transform.GetChild(0).gameObject;
@@ -52,19 +60,15 @@ public class BookQuest : MonoBehaviour
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
-
                 foreach (Animator anim in questAnim)
                 {
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("bookStandDestroy1TipUsed") == 0)
                     {
                         plantTip.SetActive(true);
-
                     }
-
                     btn.onClick.AddListener(Do);
                     btnActive.SetActive(true);
-
                 }
             }
         }
@@ -75,7 +79,6 @@ public class BookQuest : MonoBehaviour
         btn.GetComponent<StopMoveForDo>().StopMove();
         plantTip.SetActive(false);
         PlayerPrefs.SetInt("bookStandDestroy1TipUsed", 1);
-
         Used = true;
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
@@ -85,7 +88,6 @@ public class BookQuest : MonoBehaviour
             {
                 anim.SetTrigger("Done");
             }
-
         }
         else if (transform.position.x < player.position.x - 0.01)
         {
@@ -109,6 +111,7 @@ public class BookQuest : MonoBehaviour
             anim.SetTrigger("actionPush");
         }
         sm.DestroyBonus(points);
+        mainCamera.CameraShake();
         Invoke("Sound", 0.4f);
     }
     public void OnTriggerExit2D(Collider2D other)
