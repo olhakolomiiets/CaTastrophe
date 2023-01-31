@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraControllerOld : MonoBehaviour
 {
     public float dumping = 1.5f;
     public Vector2 offset = new Vector2(2f, 1f);

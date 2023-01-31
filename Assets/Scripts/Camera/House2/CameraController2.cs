@@ -28,6 +28,10 @@ public class CameraController2 : MonoBehaviour
     public bool basement = false;
 
     [SerializeField] private CameraShakeSO _cameraShake;
+    public bool isShaking;
+    public bool start = false;
+    public float duration = 1f;
+
     void Start()
     {
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
@@ -49,6 +53,16 @@ public class CameraController2 : MonoBehaviour
     }
     void Update()
     {
+        if(isShaking)
+        {
+            CameraShake();
+        }
+
+        if(start)
+        {
+            start = false;
+        }
+
         if (player)
         {
             int currentX = Mathf.RoundToInt(player.position.x);
@@ -225,6 +239,32 @@ public class CameraController2 : MonoBehaviour
 
     public void CameraShake()
     {
-        Camera.main.DOShakePosition(_cameraShake.Duration, _cameraShake.Strength, _cameraShake.Vibrato);
+        DOTween.Shake(() => transform.rotation.eulerAngles, x =>
+            {
+                var rotation = transform.rotation;
+                rotation.eulerAngles = Vector3.forward * x.x;
+                transform.rotation = rotation;
+            }, 1, 3, 3, 2);
+        StartCoroutine("StopShake");
     }
+
+    IEnumerator StopShake()
+    {
+        yield return new WaitForSeconds (0.5f);
+        isShaking = false;
+    }
+
+    // IEnumerator Shaking()
+    // {
+    //     Vector3 startPosition = transform.position;
+    //     float elapsedTime = 0f;
+
+    //     while (elapsedTime < duration)
+    //     {
+    //         elapsedTime += Time.deltaTime;
+    //         transform.position = startPosition + Random.insideUnitSphere;
+    //         yield return null;
+    //     }
+    //     transform.position = startPosition;
+    // }
 }

@@ -17796,7 +17796,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420030}
+  - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -17804,7 +17804,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &519420030
+--- !u!114 &519420029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17813,23 +17813,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 444fc8b3b5e321241b98f6c19e49bd6f, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd47b19377734de4919390171f6a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dumping: 1.5
   offset: {x: 2, y: 1}
   isLeft: 0
-  leftLimit: -57.3
-  rightLimit: 112.7
-  bottomLimit: 2.17
-  upperLimit: 17.8
-  floor1: 0
-  floor2: 0
-  floor3: 0
-  stairs1: 0
-  stairs2: 0
-  basement: 0
-  _cameraShake: {fileID: 11400000, guid: e353df0f09e06a94e81450782e6a0efc, type: 2}
+  leftLimitFloor1: -57.3
+  rightLimitFloor1: 112.7
+  bottomLimitFloor1: 2.15
+  upperLimitFloor1: 3.2
+  leftLimitFloor2: -57.3
+  rightLimitFloor2: 112.7
+  bottomLimitFloor2: 16.35
+  upperLimitFloor2: 17.8
+  leftLimitFloor3: 0
+  rightLimitFloor3: 0
+  bottomLimitFloor3: 0
+  upperLimitFloor3: 0
+  leftLimitBasement: 0
+  rightLimitBasement: 0
+  bottomLimitBasement: 0
+  upperLimitBasement: 0
+  leftLimitBasementStairs: 0
+  rightLimitBasementStairs: 0
+  bottomLimitBasementStairs: 0
+  upperLimitBasementStairs: 0
+  leftLimitStairsFloor1: -57.3
+  rightLimitStairsFloor1: 112.7
+  bottomLimitStairsFloor1: 2.15
+  upperLimitStairsFloor1: 17.8
+  leftLimitStairsFloor2: -57.3
+  rightLimitStairsFloor2: 112.7
+  bottomLimitStairsFloor2: 16.35
+  upperLimitStairsFloor2: 34
+  _cameraShake: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -27253,7 +27271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831107967}
   - component: {fileID: 831107969}
-  - component: {fileID: 831107968}
+  - component: {fileID: 831107970}
   m_Layer: 0
   m_Name: 1floorStairs
   m_TagString: Untagged
@@ -27280,19 +27298,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.4336, y: -4.785}
   m_SizeDelta: {x: 0.32221532, y: 4.586052}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &831107968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831107966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14a9846dce97a944878b7686e3f1d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraMain: {fileID: 519420028}
 --- !u!61 &831107969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27319,6 +27324,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31664234, y: 4.601906}
   m_EdgeRadius: 0
+--- !u!114 &831107970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831107966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMain: {fileID: 519420028}
 --- !u!1 &835167906
 GameObject:
   m_ObjectHideFlags: 0
@@ -57402,7 +57420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068540451}
   - component: {fileID: 2068540453}
-  - component: {fileID: 2068540452}
+  - component: {fileID: 2068540454}
   m_Layer: 0
   m_Name: 1floorStairsRight
   m_TagString: Untagged
@@ -57429,19 +57447,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.7744, y: -4.598}
   m_SizeDelta: {x: 0.78383374, y: 4.539463}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2068540452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068540450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14a9846dce97a944878b7686e3f1d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraMain: {fileID: 519420028}
 --- !u!60 &2068540453
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -57473,6 +57478,19 @@ PolygonCollider2D:
       - {x: -0.46560934, y: -5.402339}
       - {x: 0.2383084, y: -1.678026}
       - {x: 0.3259753, y: 0.3917792}
+--- !u!114 &2068540454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068540450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMain: {fileID: 519420028}
 --- !u!1 &2078363818
 GameObject:
   m_ObjectHideFlags: 0
@@ -63417,6 +63435,7 @@ MonoBehaviour:
   destroyedVersion: {fileID: 4029105871053577871, guid: 60462f6c36f82a64aabaa0527ba20aed,
     type: 3}
   destroyedVersionLeft: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!4 &1611016178061287025
 Transform:
   m_ObjectHideFlags: 0
@@ -98003,7 +98022,7 @@ GameObject:
   - component: {fileID: 5304449927746886870}
   - component: {fileID: 5304449927746886871}
   - component: {fileID: 5304449927746886872}
-  - component: {fileID: 5304449927746886875}
+  - component: {fileID: 5304449927746886876}
   m_Layer: 0
   m_Name: 1floofTrigger
   m_TagString: Untagged
@@ -98011,7 +98030,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5304449927746886875
+--- !u!114 &5304449927746886876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98020,7 +98039,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5304449927746886874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f5c895cb6bcaa4e9d85041e62bbdd2, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -103818,7 +103837,7 @@ GameObject:
   - component: {fileID: 8549982078489930079}
   - component: {fileID: 8549982078489930076}
   - component: {fileID: 8549982078489930077}
-  - component: {fileID: 8549982078489930068}
+  - component: {fileID: 8549982078489930069}
   m_Layer: 0
   m_Name: 2floofTrigger
   m_TagString: Untagged
@@ -103826,7 +103845,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8549982078489930068
+--- !u!114 &8549982078489930069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103835,7 +103854,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8549982078489930067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 701f61cce803aab49a76896137828542, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}

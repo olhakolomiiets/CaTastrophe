@@ -10,12 +10,16 @@ public class BookStandDestr : MonoBehaviour
     public GameObject destroyedVersionLeft;
     private ScoreManager sm;
     public static Rigidbody2D rb;
+    [SerializeField] private CameraController2 mainCamera;
+
 
 
 
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        mainCamera = FindObjectOfType<CameraController2>();
+
     }
 
     void FixedUpdate()
@@ -25,12 +29,14 @@ public class BookStandDestr : MonoBehaviour
     public void VaseBroke()
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
+        mainCamera.isShaking = true;
         // SoundManager.snd.PlayVaseSounds();
         Destroy(gameObject);
     }
      public void VaseBrokeLeft()
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
+        mainCamera.isShaking = true;
         // SoundManager.snd.PlayVaseSounds();
         Destroy(gameObject);
     }

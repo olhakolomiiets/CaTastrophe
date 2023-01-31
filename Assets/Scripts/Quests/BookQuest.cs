@@ -111,7 +111,6 @@ public class BookQuest : MonoBehaviour
             anim.SetTrigger("actionPush");
         }
         sm.DestroyBonus(points);
-        mainCamera.CameraShake();
         Invoke("Sound", 0.4f);
     }
     public void OnTriggerExit2D(Collider2D other)
