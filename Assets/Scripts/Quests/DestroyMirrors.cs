@@ -13,6 +13,7 @@ public class DestroyMirrors : MonoBehaviour
     bool isBroke = false;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    private CameraController _mainCamera;
     private void Awake()
     {
         if (isTimeBonus == true)
@@ -36,6 +37,7 @@ public class DestroyMirrors : MonoBehaviour
     {
         sm = FindObjectOfType<ScoreManager>();
         rb = GetComponent<Rigidbody2D>();
+        _mainCamera = FindObjectOfType<CameraController>();
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -66,6 +68,7 @@ public class DestroyMirrors : MonoBehaviour
             }
         }
         Instantiate(destroyedVersion, transform.position, transform.rotation);
+        _mainCamera.isShakingLevel1 = true;
         SoundManager.snd.PlayTVandOtherSounds();
         Destroy(gameObject);
         isBroke = true;

@@ -26,7 +26,6 @@ public class BookQuest : MonoBehaviour
     Transform player;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
-    [SerializeField] private CameraController2 mainCamera;
 
     #endregion
 
@@ -48,7 +47,6 @@ public class BookQuest : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         sm = FindObjectOfType<ScoreManager>();
-        mainCamera = FindObjectOfType<CameraController2>();
         bull = GameObject.FindGameObjectWithTag("Player").GetComponents<Animator>();
         plantTip = gameObject.transform.GetChild(1).gameObject;
         btnActive = btn.transform.GetChild(0).gameObject;

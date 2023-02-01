@@ -12,6 +12,7 @@ public class DestroyPictures : MonoBehaviour
     bool isBroke = false;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    private CameraController _mainCamera;
     private void Awake()
     {
         Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
@@ -31,6 +32,7 @@ public class DestroyPictures : MonoBehaviour
     {
         sm = FindObjectOfType<ScoreManager>();
         rb = GetComponent<Rigidbody2D>();
+        _mainCamera = FindObjectOfType<CameraController>();
 
     }
     public void OnTriggerEnter2D(Collider2D other)
@@ -62,6 +64,7 @@ public class DestroyPictures : MonoBehaviour
     public void PictureBroke()
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
+        _mainCamera.isShakingLevel1 = true;
         SoundManager.snd.PlayTVandOtherSounds();
         Destroy(gameObject);
         isBroke = true;

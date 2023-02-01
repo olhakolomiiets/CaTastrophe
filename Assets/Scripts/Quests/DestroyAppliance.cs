@@ -14,6 +14,7 @@ public class DestroyAppliance : MonoBehaviour
     bool isBroke = false;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    private CameraController _mainCamera;
     
 
     private void Awake()
@@ -42,6 +43,7 @@ public class DestroyAppliance : MonoBehaviour
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        _mainCamera = FindObjectOfType<CameraController>();
     }
     void FixedUpdate()
     {
@@ -69,6 +71,7 @@ public class DestroyAppliance : MonoBehaviour
             }
         }
         Instantiate(destroyedVersion, transform.position, transform.rotation);
+        _mainCamera.isShakingLevel1 = true;
         SoundManager.snd.PlayTVandOtherSounds();
         Destroy(gameObject);
         isBroke = true;

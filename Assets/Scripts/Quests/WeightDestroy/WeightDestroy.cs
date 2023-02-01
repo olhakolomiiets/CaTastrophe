@@ -13,9 +13,11 @@ public class WeightDestroy : MonoBehaviour
     private GameObject activeCollaider;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    private CameraController _mainCamera;
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        _mainCamera = FindObjectOfType<CameraController>();
         Rigidbody2D rigBod;
         rigBod = gameObject.GetComponent<Rigidbody2D>();      
         player = GameObject.FindGameObjectWithTag("Player");
@@ -53,6 +55,7 @@ public class WeightDestroy : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
             weightFolt = true;
             SoundManager.snd.PlayPaintSounds();
+            _mainCamera.isShakingLevel2 = true;
             PlayerPrefs.SetInt("AwardHeavyObj", PlayerPrefs.GetInt("AwardHeavyObj") + 1);
         }
     }

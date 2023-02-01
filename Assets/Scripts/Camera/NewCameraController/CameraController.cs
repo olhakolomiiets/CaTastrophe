@@ -12,12 +12,23 @@ public class CameraController : MonoBehaviour
     private Transform player;
     private int lastX;
 
+    #region "Camera Shake"
+
+    [Header("Camera Shake")]
+    [SerializeField] private CameraShakeSO _cameraShake;
+    [HideInInspector] public bool isShakingLevel1;
+    [HideInInspector] public bool isShakingLevel2;
+    [HideInInspector] public bool isShakingLevel3;
+
+    #endregion
+
     #region "Limits"
 
-    private float leftLimit;
-    private float rightLimit;
-    private float bottomLimit;
-    private float upperLimit;
+    [Header("Start Limits")]
+    [SerializeField] private float leftLimit;
+    [SerializeField] private float rightLimit;
+    [SerializeField] private float bottomLimit;
+    [SerializeField] private float upperLimit;
 
     [Header("First Floor Limits")]
     [SerializeField] private float leftLimitFloor1;
@@ -76,19 +87,6 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
-    #region "Camera Shake"
-
-    [SerializeField] private CameraShakeSO _cameraShake;
-    private bool isShaking;
-
-    #endregion
-
-    // [SerializeField] private List<bool> _boolsToFalse;
-
-    // private void Awake()
-    // {
-    //     _boolsToFalse = new List<bool>(){ floor1, floor2, floor3, stairs1, stairs1, basement, stairsBasement };
-    // }
 
     void Start()
     {
@@ -109,11 +107,20 @@ public class CameraController : MonoBehaviour
             transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
         }
     }
+
     void Update()
     {
-        if(isShaking)
+        if(isShakingLevel1)
         {
-            CameraShake();
+            CameraShakeLevel1();
+        }
+        if(isShakingLevel2)
+        {
+            CameraShakeLevel2();
+        }
+        if(isShakingLevel3)
+        {
+            CameraShakeLevel3();
         }
 
         if (player)
@@ -207,6 +214,7 @@ public class CameraController : MonoBehaviour
             bottomLimit = Mathf.Lerp(bottomLimit, bottomLimitBasementStairs, Time.deltaTime);
         }
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -215,78 +223,62 @@ public class CameraController : MonoBehaviour
         Gizmos.DrawLine(new Vector2(leftLimit, upperLimit), new Vector2(leftLimit, bottomLimit));
         Gizmos.DrawLine(new Vector2(rightLimit, upperLimit), new Vector2(rightLimit, bottomLimit));
     }
+
+    #region "Floor Switch Methods"
+
     public void TheFirstFloor()
     {
-        SetFalseToAllBools();
+        SetFalseToAllBool();
         floor1 = true;
         leftLimit = leftLimitFloor1;
         rightLimit = rightLimitFloor1;
     }
+
     public void TheSecondFloor()
     {
-        SetFalseToAllBools();      
+        SetFalseToAllBool();      
         floor2 = true;
         leftLimit = leftLimitFloor2;
         rightLimit = rightLimitFloor2;
     }
+
     public void TheThirdFloor()
     {
-        SetFalseToAllBools();
+        SetFalseToAllBool();
         floor3 = true;
         leftLimit = leftLimitFloor3;
         rightLimit = rightLimitFloor3;
     }
+
     public void TheBasement()
     {
-        SetFalseToAllBools();
+        SetFalseToAllBool();
         basement = true;
         bottomLimit = bottomLimitBasement;
         upperLimit = upperLimitBasement;
         leftLimit = leftLimitBasement;
     }
+
     public void StairsSecondFloor()
     {
-        SetFalseToAllBools();
+        SetFalseToAllBool();
         stairs2 = true; 
     }
+
     public void StairsFirstFloor()
     {
-        SetFalseToAllBools();
+        SetFalseToAllBool();
         stairs1 = true;
     }
+
     public void StairsBasement()
     {
-        SetFalseToAllBools();
+        SetFalseToAllBool();
         basement = true;
     }
 
-    public void CameraShake()
+    private void SetFalseToAllBool()
     {
-        DOTween.Shake(() => transform.rotation.eulerAngles, x =>
-            {
-                var rotation = transform.rotation;
-                rotation.eulerAngles = Vector3.forward * x.x;
-                transform.rotation = rotation;
-            }, 1, 3, 3, 2);
-        StartCoroutine("StopShake");
-    }
-
-    IEnumerator StopShake()
-    {
-        yield return new WaitForSeconds (0.5f);
-        isShaking = false;
-    }
-
-    private void SetFalseToAllBools()
-    {
-        // for(int i = 0; i < _boolsToFalse.Count; i++)
-        // {
-        //     _boolsToFalse[i] = false;
-        // }
-        // foreach (bool boolToFalse in _boolsToFalse)
-        // {
-        //     boolToFalse = false;
-        // }
         floor1 = false;
         floor2 = false;
         floor3 = false;
@@ -294,6 +286,53 @@ public class CameraController : MonoBehaviour
         stairs2 = false;
         basement = false;
         stairsBasement = false;
-
     }
+
+    #endregion
+
+    #region "CameraShake Methods"
+
+    public void CameraShakeLevel1()
+    {
+        DOTween.Shake(() => transform.rotation.eulerAngles, x =>
+            {
+                var rotation = transform.rotation;
+                rotation.eulerAngles = Vector3.forward * x.x;
+                transform.rotation = rotation;
+            }, _cameraShake.Duration1, _cameraShake.Strength1, _cameraShake.Vibrato1, _cameraShake.Randomness1);
+        StartCoroutine("StopShake");
+    }
+
+    public void CameraShakeLevel2()
+    {
+        DOTween.Shake(() => transform.rotation.eulerAngles, x =>
+            {
+                var rotation = transform.rotation;
+                rotation.eulerAngles = Vector3.forward * x.x;
+                transform.rotation = rotation;
+            }, _cameraShake.Duration2, _cameraShake.Strength2, _cameraShake.Vibrato2, _cameraShake.Randomness2);
+        StartCoroutine("StopShake");
+    }
+
+    public void CameraShakeLevel3()
+    {
+        DOTween.Shake(() => transform.rotation.eulerAngles, x =>
+            {
+                var rotation = transform.rotation;
+                rotation.eulerAngles = Vector3.forward * x.x;
+                transform.rotation = rotation;
+            }, _cameraShake.Duration3, _cameraShake.Strength3, _cameraShake.Vibrato3, _cameraShake.Randomness3);
+        StartCoroutine("StopShake");
+    }
+
+    IEnumerator StopShake()
+    {
+        yield return new WaitForSeconds (0.5f);
+        isShakingLevel1 = false;
+        isShakingLevel2 = false;
+        isShakingLevel3 = false;
+    }
+
+    #endregion
+
 }

@@ -13,6 +13,7 @@ public class DestroyTV : MonoBehaviour
     bool isBroke = false;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    private CameraController _mainCamera;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class DestroyTV : MonoBehaviour
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        _mainCamera = FindObjectOfType<CameraController>();
     }
     void FixedUpdate()
     {
@@ -75,6 +77,7 @@ public class DestroyTV : MonoBehaviour
         }
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         SoundManager.snd.PlayTVandOtherSounds();
+        _mainCamera.isShakingLevel2 = true;
         Destroy(gameObject);
         isBroke = true;
     }
