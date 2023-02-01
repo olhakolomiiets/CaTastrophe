@@ -14,9 +14,11 @@ public class BustDestroy : MonoBehaviour
     private GameObject activeCollaider;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+    private CameraController _mainCamera;
     private void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
+        _mainCamera = FindObjectOfType<CameraController>();
         Rigidbody2D rigBod;
         rigBod = gameObject.GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -56,6 +58,7 @@ public class BustDestroy : MonoBehaviour
             SoundManager.snd.PlayPaintSounds();
             PlayerPrefs.SetInt("AwardHeavyObj", PlayerPrefs.GetInt("AwardHeavyObj") + 1);
             Instantiate(destroyedVersion, transform.position, transform.rotation);
+            _mainCamera.isShakingLevel2 = true;
             print("hererererererererer");
             Destroy(gameObject);
         }

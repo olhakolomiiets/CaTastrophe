@@ -9955,7 +9955,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 216553081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6a587964ce18f4bb81ada87db6f7cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 388f85fa6398d4caba10ec05dfda92ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -10412,7 +10412,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 220333418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef4dbb76e3ce974facbfab6799e516f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0332f6904bd804178a6b53e90595a1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -26931,7 +26931,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420030}
+  - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26939,7 +26939,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &519420030
+--- !u!114 &519420029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26948,23 +26948,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619a025c2259e684d8fdacfda963146f, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd47b19377734de4919390171f6a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dumping: 1.5
   offset: {x: 2, y: 1.45}
   isLeft: 0
+  _cameraShake: {fileID: 11400000, guid: e353df0f09e06a94e81450782e6a0efc, type: 2}
+  isShakingLevel1: 0
+  isShakingLevel2: 0
+  isShakingLevel3: 0
   leftLimit: -57.3
   rightLimit: 112.7
   bottomLimit: 2.15
   upperLimit: 3.2
-  floor1: 0
-  floor2: 0
-  floor3: 0
-  stairs1: 0
-  stairs2: 0
-  stairsBase: 0
-  basement: 0
+  leftLimitFloor1: -58
+  rightLimitFloor1: 112.7
+  bottomLimitFloor1: 2.15
+  upperLimitFloor1: 3.2
+  leftLimitFloor2: -58
+  rightLimitFloor2: 112.7
+  bottomLimitFloor2: 16.35
+  upperLimitFloor2: 17.8
+  leftLimitFloor3: -58
+  rightLimitFloor3: 74
+  bottomLimitFloor3: 32.6
+  upperLimitFloor3: 34
+  leftLimitBasement: -26
+  rightLimitBasement: 0
+  bottomLimitBasement: -11.7
+  upperLimitBasement: 17.8
+  leftLimitBasementStairs: -26
+  rightLimitBasementStairs: 0
+  bottomLimitBasementStairs: -11.7
+  upperLimitBasementStairs: 17.8
+  leftLimitStairsFloor1: 0
+  rightLimitStairsFloor1: 0
+  bottomLimitStairsFloor1: 2.15
+  upperLimitStairsFloor1: 17.8
+  leftLimitStairsFloor2: 0
+  rightLimitStairsFloor2: 0
+  bottomLimitStairsFloor2: 16.35
+  upperLimitStairsFloor2: 34
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -37094,7 +37119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 745119412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef4dbb76e3ce974facbfab6799e516f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0332f6904bd804178a6b53e90595a1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -46047,7 +46072,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 914361559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c28e843e3433f48bdd956f4cb88f02, type: 3}
+  m_Script: {fileID: 11500000, guid: 4200051f4e58b4899bc887579a6fcc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -52189,7 +52214,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1251000460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f269c3644db00534f8d7a64ebd060f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -57897,8 +57922,8 @@ GameObject:
   - component: {fileID: 1503585258}
   - component: {fileID: 1503585261}
   - component: {fileID: 1503585260}
-  - component: {fileID: 1503585259}
   - component: {fileID: 1503585262}
+  - component: {fileID: 1503585259}
   m_Layer: 0
   m_Name: 2floofStairs
   m_TagString: Untagged
@@ -57929,7 +57954,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503585257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc64c85f8420d34b9c2af3a89f2bc7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f2293b33d4e749b3aa0deda6b9c6dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -59596,7 +59621,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1585585976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698729b8bc3cadc42a8e48efb38267e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -62672,7 +62697,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704608942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6acdc79c4f29c9043b9ac14fdce0191f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -70036,7 +70061,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1822474636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698729b8bc3cadc42a8e48efb38267e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -81300,7 +81325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313426097504989735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f269c3644db00534f8d7a64ebd060f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -81486,7 +81511,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313426097632735311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f269c3644db00534f8d7a64ebd060f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -107416,7 +107441,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3242776929973634990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698729b8bc3cadc42a8e48efb38267e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}

@@ -31099,7 +31099,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
+  - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -31107,6 +31107,57 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &519420029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd47b19377734de4919390171f6a516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dumping: 1.5
+  offset: {x: 2, y: 1.45}
+  isLeft: 0
+  _cameraShake: {fileID: 11400000, guid: e353df0f09e06a94e81450782e6a0efc, type: 2}
+  isShakingLevel1: 0
+  isShakingLevel2: 0
+  isShakingLevel3: 0
+  leftLimit: -57.3
+  rightLimit: 112.7
+  bottomLimit: 2.15
+  upperLimit: 3.2
+  leftLimitFloor1: -57.3
+  rightLimitFloor1: 112.7
+  bottomLimitFloor1: 2.15
+  upperLimitFloor1: 3.2
+  leftLimitFloor2: -57.3
+  rightLimitFloor2: 112.7
+  bottomLimitFloor2: 16.35
+  upperLimitFloor2: 17.8
+  leftLimitFloor3: -2.67
+  rightLimitFloor3: 69.4
+  bottomLimitFloor3: 32.6
+  upperLimitFloor3: 34
+  leftLimitBasement: 0
+  rightLimitBasement: 0
+  bottomLimitBasement: 0
+  upperLimitBasement: 0
+  leftLimitBasementStairs: 0
+  rightLimitBasementStairs: 0
+  bottomLimitBasementStairs: 0
+  upperLimitBasementStairs: 0
+  leftLimitStairsFloor1: 0
+  rightLimitStairsFloor1: 0
+  bottomLimitStairsFloor1: 2.15
+  upperLimitStairsFloor1: 17.8
+  leftLimitStairsFloor2: 0
+  rightLimitStairsFloor2: 0
+  bottomLimitStairsFloor2: 16.35
+  upperLimitStairsFloor2: 34
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -31214,31 +31265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f49a9a169b04b440b2e27b300d2768a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f829efd4399b58444b75f4b94d2f7da3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dumping: 1.5
-  offset: {x: 2, y: 1.45}
-  isLeft: 0
-  leftLimit: -57.3
-  rightLimit: 112.7
-  bottomLimit: 16.3
-  upperLimit: 17.8
-  floor1: 0
-  floor2: 0
-  floor3: 0
-  stairs1: 0
-  stairs2: 0
-  basement: 0
 --- !u!1 &519925662
 GameObject:
   m_ObjectHideFlags: 0
@@ -48313,7 +48339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002051917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c486e25258b034ba6093ea613b9774, type: 3}
+  m_Script: {fileID: 11500000, guid: 388f85fa6398d4caba10ec05dfda92ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -59390,7 +59416,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361661808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f275be85f72d84458f7c9d53dfd8114, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -83012,7 +83038,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 739572359929089776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3593672b8ea55e148bfa072047bf1a69, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -86379,7 +86405,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519031566805678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c486e25258b034ba6093ea613b9774, type: 3}
+  m_Script: {fileID: 11500000, guid: 388f85fa6398d4caba10ec05dfda92ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -86501,7 +86527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032224135289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f275be85f72d84458f7c9d53dfd8114, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -86635,8 +86661,8 @@ GameObject:
   - component: {fileID: 1763519032291008317}
   - component: {fileID: 1763519032291008314}
   - component: {fileID: 1763519032291008315}
-  - component: {fileID: 1763519032291008319}
   - component: {fileID: 1763519032291008313}
+  - component: {fileID: 1763519032291008319}
   m_Layer: 0
   m_Name: 2floofStairs
   m_TagString: Untagged
@@ -86653,7 +86679,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032291008318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1524bfba165b10c48b18a1d72eafcf98, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f2293b33d4e749b3aa0deda6b9c6dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -86775,7 +86801,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032340014063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c04c0c0bebcaf440bbc315ef2125819, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}
@@ -104753,7 +104779,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3853374121441196921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c04c0c0bebcaf440bbc315ef2125819, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f2293b33d4e749b3aa0deda6b9c6dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 519420028}

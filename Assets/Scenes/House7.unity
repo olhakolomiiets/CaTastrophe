@@ -15767,8 +15767,8 @@ GameObject:
   - component: {fileID: 481711582}
   - component: {fileID: 481711586}
   - component: {fileID: 481711585}
-  - component: {fileID: 481711584}
   - component: {fileID: 481711583}
+  - component: {fileID: 481711584}
   m_Layer: 0
   m_Name: 1floofStairs (1)
   m_TagString: Untagged
@@ -15829,7 +15829,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 481711581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80f3371a495295542859951b44811160, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -40580,7 +40580,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002051917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edee3a29dbbea0540ad2cd98ae987bcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0332f6904bd804178a6b53e90595a1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -90072,7 +90072,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 739572359929089776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a825682ff1f205e40b813ef93b2c9512, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -95636,8 +95636,8 @@ GameObject:
   - component: {fileID: 1763519032224135288}
   - component: {fileID: 1763519032224135269}
   - component: {fileID: 1763519032224135270}
-  - component: {fileID: 1763519032224135290}
   - component: {fileID: 1763519032224135291}
+  - component: {fileID: 1763519032224135290}
   m_Layer: 0
   m_Name: 1floofStairs
   m_TagString: Untagged
@@ -95654,7 +95654,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032224135289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80f3371a495295542859951b44811160, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -95792,8 +95792,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1763519032291008317}
   - component: {fileID: 1763519032291008314}
-  - component: {fileID: 1763519032291008319}
   - component: {fileID: 1763519032291008313}
+  - component: {fileID: 1763519032291008319}
   m_Layer: 0
   m_Name: BasementStairs
   m_TagString: Untagged
@@ -95810,7 +95810,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032291008318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd8898878362734cb0db6ce410ae0e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4200051f4e58b4899bc887579a6fcc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -105217,7 +105217,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3853374121441196921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0218743ccb0934946a5f79a2b2a946f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -126143,7 +126143,7 @@ GameObject:
   - component: {fileID: 6205156459948934416}
   - component: {fileID: 6205156459948934638}
   - component: {fileID: 6205156459948934637}
-  - component: {fileID: 6205156459948934420}
+  - component: {fileID: 6205156459948934421}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -126151,7 +126151,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6205156459948934420
+--- !u!114 &6205156459948934421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126160,23 +126160,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 6205156459948934419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5188722aeff7b9f46b9e6f81ae9fac7d, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd47b19377734de4919390171f6a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dumping: 1.5
   offset: {x: 2, y: 1.45}
   isLeft: 0
+  _cameraShake: {fileID: 11400000, guid: e353df0f09e06a94e81450782e6a0efc, type: 2}
+  isShakingLevel1: 0
+  isShakingLevel2: 0
+  isShakingLevel3: 0
   leftLimit: -57.3
   rightLimit: 161
   bottomLimit: -16.5
   upperLimit: 3.2
-  floor1: 0
-  floor2: 0
-  floor3: 0
-  stairs1: 0
-  stairs2: 0
-  basement: 1
-  stairsBase: 0
+  leftLimitFloor1: -58
+  rightLimitFloor1: 161
+  bottomLimitFloor1: 2.15
+  upperLimitFloor1: 6.2
+  leftLimitFloor2: -58
+  rightLimitFloor2: 161
+  bottomLimitFloor2: 20.35
+  upperLimitFloor2: 26
+  leftLimitFloor3: 0
+  rightLimitFloor3: 0
+  bottomLimitFloor3: 0
+  upperLimitFloor3: 0
+  leftLimitBasement: -2.6
+  rightLimitBasement: 0
+  bottomLimitBasement: -16.5
+  upperLimitBasement: -11.53
+  leftLimitBasementStairs: -26
+  rightLimitBasementStairs: 0
+  bottomLimitBasementStairs: -16.5
+  upperLimitBasementStairs: 17.8
+  leftLimitStairsFloor1: 0
+  rightLimitStairsFloor1: 0
+  bottomLimitStairsFloor1: 2.15
+  upperLimitStairsFloor1: 17.8
+  leftLimitStairsFloor2: 0
+  rightLimitStairsFloor2: 0
+  bottomLimitStairsFloor2: 0
+  upperLimitStairsFloor2: 0
 --- !u!114 &6205156459948934637
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36707,7 +36707,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002051917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70142199f9b2111448e1f973e5976a44, type: 3}
+  m_Script: {fileID: 11500000, guid: 388f85fa6398d4caba10ec05dfda92ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -72598,7 +72598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 739572359929089776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff3b1299a9fbd646a394ca2a5e0a130, type: 3}
+  m_Script: {fileID: 11500000, guid: d316cbf3b7f1f41af8341ce3e093d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -76738,7 +76738,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519031566805678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70142199f9b2111448e1f973e5976a44, type: 3}
+  m_Script: {fileID: 11500000, guid: 388f85fa6398d4caba10ec05dfda92ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -76843,8 +76843,8 @@ GameObject:
   - component: {fileID: 1763519032224135288}
   - component: {fileID: 1763519032224135269}
   - component: {fileID: 1763519032224135270}
-  - component: {fileID: 1763519032224135290}
   - component: {fileID: 1763519032224135291}
+  - component: {fileID: 1763519032224135290}
   m_Layer: 0
   m_Name: 1floofStairs
   m_TagString: Untagged
@@ -76861,7 +76861,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032224135289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e347c24a2f7ce4589c8a46c7076633, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ead7102bf7d6481d940aef6401edc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -77026,8 +77026,8 @@ GameObject:
   - component: {fileID: 1763519032291008317}
   - component: {fileID: 1763519032291008314}
   - component: {fileID: 1763519032291008315}
-  - component: {fileID: 1763519032291008319}
   - component: {fileID: 1763519032291008313}
+  - component: {fileID: 1763519032291008319}
   m_Layer: 0
   m_Name: 2floofStairs
   m_TagString: Untagged
@@ -77044,7 +77044,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032291008318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 791dbe31bde84df4ba632b5aef00010b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f2293b33d4e749b3aa0deda6b9c6dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -77166,7 +77166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763519032340014063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23630d10e5d94f4a83a80e5d6308886, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -88020,7 +88020,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3853374121441196921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23630d10e5d94f4a83a80e5d6308886, type: 3}
+  m_Script: {fileID: 11500000, guid: 27581227c254c499291bfea5920c5e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMain: {fileID: 6205156459948934419}
@@ -108968,22 +108968,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 6205156459948934419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306f0f9c5a3a4654f85fc08cc4354ed8, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd47b19377734de4919390171f6a516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dumping: 1.5
   offset: {x: 2, y: 1.4}
   isLeft: 0
+  _cameraShake: {fileID: 11400000, guid: e353df0f09e06a94e81450782e6a0efc, type: 2}
+  isShakingLevel1: 0
+  isShakingLevel2: 0
+  isShakingLevel3: 0
   leftLimit: -57.3
   rightLimit: 175
   bottomLimit: 2.15
   upperLimit: 3.2
-  floor1: 1
-  floor2: 0
-  floor3: 0
-  stairs1: 0
-  stairs2: 0
-  basement: 0
+  leftLimitFloor1: -58
+  rightLimitFloor1: 175
+  bottomLimitFloor1: 2.15
+  upperLimitFloor1: 6.2
+  leftLimitFloor2: -58
+  rightLimitFloor2: 175
+  bottomLimitFloor2: 20.35
+  upperLimitFloor2: 26
+  leftLimitFloor3: -19.72
+  rightLimitFloor3: 143
+  bottomLimitFloor3: 39.6
+  upperLimitFloor3: 42.8
+  leftLimitBasement: 0
+  rightLimitBasement: 0
+  bottomLimitBasement: 0
+  upperLimitBasement: 0
+  leftLimitBasementStairs: 0
+  rightLimitBasementStairs: 0
+  bottomLimitBasementStairs: 0
+  upperLimitBasementStairs: 0
+  leftLimitStairsFloor1: 0
+  rightLimitStairsFloor1: 0
+  bottomLimitStairsFloor1: 2.15
+  upperLimitStairsFloor1: 17.8
+  leftLimitStairsFloor2: 0
+  rightLimitStairsFloor2: 0
+  bottomLimitStairsFloor2: 16.35
+  upperLimitStairsFloor2: 34
 --- !u!114 &6205156459948934637
 MonoBehaviour:
   m_ObjectHideFlags: 0
