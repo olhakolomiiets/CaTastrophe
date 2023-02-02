@@ -300,6 +300,7 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration1, _cameraShake.Strength1, _cameraShake.Vibrato1, _cameraShake.Randomness1);
+        StartCoroutine("DeviceVibration");
         StartCoroutine("StopShake");
     }
 
@@ -311,6 +312,7 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration2, _cameraShake.Strength2, _cameraShake.Vibrato2, _cameraShake.Randomness2);
+        StartCoroutine("DeviceVibration");
         StartCoroutine("StopShake");
     }
 
@@ -322,6 +324,7 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration3, _cameraShake.Strength3, _cameraShake.Vibrato3, _cameraShake.Randomness3);
+        StartCoroutine("DeviceVibration");
         StartCoroutine("StopShake");
     }
 
@@ -331,6 +334,12 @@ public class CameraController : MonoBehaviour
         isShakingLevel1 = false;
         isShakingLevel2 = false;
         isShakingLevel3 = false;
+    }
+
+    IEnumerator DeviceVibration()
+    {
+        yield return new WaitForSeconds (0.25f);
+        Handheld.Vibrate();
     }
 
     #endregion
