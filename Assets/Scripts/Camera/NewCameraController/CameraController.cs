@@ -300,7 +300,8 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration1, _cameraShake.Strength1, _cameraShake.Vibrato1, _cameraShake.Randomness1);
-        StartCoroutine("DeviceVibration");
+        // StartCoroutine("DeviceVibration");
+        Vibrator.Vibrate();
         StartCoroutine("StopShake");
     }
 
@@ -330,7 +331,7 @@ public class CameraController : MonoBehaviour
 
     IEnumerator StopShake()
     {
-        yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds (0.25f);
         isShakingLevel1 = false;
         isShakingLevel2 = false;
         isShakingLevel3 = false;
@@ -338,7 +339,7 @@ public class CameraController : MonoBehaviour
 
     IEnumerator DeviceVibration()
     {
-        yield return new WaitForSeconds (0.25f);
+        yield return new WaitForSeconds (0.15f);
         Handheld.Vibrate();
     }
 
