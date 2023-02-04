@@ -12404,6 +12404,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7241852519501635361, guid: 54f3401fbcae78c48acc77cc93b59ea8,
+        type: 3}
+      propertyPath: _shakesCamera
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54f3401fbcae78c48acc77cc93b59ea8, type: 3}
 --- !u!1 &289329349
@@ -26990,6 +26995,9 @@ MonoBehaviour:
   rightLimitStairsFloor2: 0
   bottomLimitStairsFloor2: 16.35
   upperLimitStairsFloor2: 34
+  patternLevel1: 000000000000000014000000000000001e0000000000000014000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a00000000000000
+  patternLevel2: 0000000000000000140000000000000028000000000000001e0000000000000014000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a00000000000000
+  patternLevel3: 000000000000000014000000000000001e000000000000002800000000000000320000000000000028000000000000001e0000000000000014000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a00000000000000
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -36478,6 +36486,11 @@ PrefabInstance:
     - target: {fileID: 5142673047179032355, guid: 6541912b0da39c64eb3e209c50b5e297,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7241852519501635361, guid: 6541912b0da39c64eb3e209c50b5e297,
+        type: 3}
+      propertyPath: _shakesCamera
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -85193,7 +85206,7 @@ MonoBehaviour:
   - {fileID: 2355734393187675671}
   btn: {fileID: 1214254212}
   secondsAdd: 30
-  yPointShit: 0.4
+  yPointShit: 0.17
   yPointFlies: -0.9
   prefTip: toiletShitTip
   soundForThis: {fileID: 8300000, guid: 05e8f42c3ccee374ba32b70188015a69, type: 3}

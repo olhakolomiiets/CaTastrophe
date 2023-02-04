@@ -15,7 +15,8 @@ public class DestroyAppliance : MonoBehaviour
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
     private CameraController _mainCamera;
-    
+    [SerializeField] private bool _shakesCamera;
+
 
     private void Awake()
     {
@@ -27,13 +28,13 @@ public class DestroyAppliance : MonoBehaviour
             col.isTrigger = true;
         }
         rigBod.bodyType = RigidbodyType2D.Kinematic;
-        if (PlayerPrefs.GetInt(shopIdPref) == 1)   
+        if (PlayerPrefs.GetInt(shopIdPref) == 1)
         {
-        foreach (Collider2D col in colList)
-        {
-            col.isTrigger = false;
-        }
-        rigBod.bodyType = RigidbodyType2D.Dynamic;
+            foreach (Collider2D col in colList)
+            {
+                col.isTrigger = false;
+            }
+            rigBod.bodyType = RigidbodyType2D.Dynamic;
         }
         if (isTimeBonus == true)
         {
@@ -71,7 +72,10 @@ public class DestroyAppliance : MonoBehaviour
             }
         }
         Instantiate(destroyedVersion, transform.position, transform.rotation);
-        _mainCamera.isShakingLevel1 = true;
+        if (_shakesCamera)
+        {
+            _mainCamera.isShakingLevel2 = true;
+        }
         SoundManager.snd.PlayTVandOtherSounds();
         Destroy(gameObject);
         isBroke = true;
