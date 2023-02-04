@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public static class Vibrator
 {
@@ -12,16 +13,26 @@ public static AndroidJavaObject vibrator = currentActivity.Call<AndroidJavaObjec
     public static AndroidJavaObject vibrator;
 #endif
 
-    public static void Vibrate(long milliseconds = 250)
+    public static void Vibrate(long milliseconds = 300)
     {
         if (IsAndroid())
         {
             vibrator.Call("vibrate", milliseconds);
+            Debug.Log("!!!!!------ Is Android Vibrate");
         }
         else
         {
             Handheld.Vibrate();
+            Debug.Log("!!!!!----- Handheld Vibrate");
         }
+    }
+
+    public static void Vibrate(long[] pattern, int repeat)
+    {
+        if (IsAndroid())
+            vibrator.Call("vibrate", pattern, repeat);
+        else
+            Handheld.Vibrate();
     }
 
     public static void Cancel()

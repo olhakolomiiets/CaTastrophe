@@ -87,6 +87,11 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
+    public long[] patternLevel1 = { 0, 20, 30, 20, 10, 10, 10, 10, 10, 10, 10 };
+    public long[] patternLevel2 = { 0, 20, 40, 30, 20, 10, 10, 10, 10, 10, 10, 10, 10 };
+    public long[] patternLevel3 = { 0, 20, 30, 40, 50, 40, 30, 20, 10, 10, 10, 10, 10, 10, 10, 10 };
+
+
 
     void Start()
     {
@@ -306,8 +311,7 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration1, _cameraShake.Strength1, _cameraShake.Vibrato1, _cameraShake.Randomness1);
-        StartCoroutine("DeviceVibration");
-        // Vibrator.Vibrate();
+        Vibrator.Vibrate(patternLevel1, -1);
         StartCoroutine("StopShake");
     }
 
@@ -319,7 +323,7 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration2, _cameraShake.Strength2, _cameraShake.Vibrato2, _cameraShake.Randomness2);
-        StartCoroutine("DeviceVibration");
+        Vibrator.Vibrate(patternLevel2, -1);
         StartCoroutine("StopShake");
     }
 
@@ -331,7 +335,7 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration3, _cameraShake.Strength3, _cameraShake.Vibrato3, _cameraShake.Randomness3);
-        StartCoroutine("DeviceVibration");
+        Vibrator.Vibrate(patternLevel3, -1);
         StartCoroutine("StopShake");
     }
 
@@ -341,12 +345,6 @@ public class CameraController : MonoBehaviour
         isShakingLevel1 = false;
         isShakingLevel2 = false;
         isShakingLevel3 = false;
-    }
-
-    IEnumerator DeviceVibration()
-    {
-        yield return new WaitForSeconds (0.15f);
-        Handheld.Vibrate();
     }
 
     #endregion
