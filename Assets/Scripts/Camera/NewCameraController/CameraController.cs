@@ -183,6 +183,12 @@ public class CameraController : MonoBehaviour
                 bottomLimit = Mathf.Lerp(bottomLimit, bottomLimitFloor3, Time.deltaTime);
             }
             else bottomLimit = bottomLimitFloor3;
+
+            if (upperLimit > upperLimitFloor3)
+            {
+                upperLimit = Mathf.Lerp(upperLimit, upperLimitFloor3, Time.deltaTime);
+            }
+            else upperLimit = upperLimitFloor3;
         }
         if (basement)
         {
@@ -300,8 +306,8 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration1, _cameraShake.Strength1, _cameraShake.Vibrato1, _cameraShake.Randomness1);
-        // StartCoroutine("DeviceVibration");
-        Vibrator.Vibrate();
+        StartCoroutine("DeviceVibration");
+        // Vibrator.Vibrate();
         StartCoroutine("StopShake");
     }
 

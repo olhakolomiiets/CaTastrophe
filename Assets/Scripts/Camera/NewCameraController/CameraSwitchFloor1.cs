@@ -16,7 +16,7 @@ public class CameraSwitchFloor1 : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player"))
         {
-            cameraController.StairsFirstFloor();
+            cameraController.TheFirstFloor();
         }
     }
 }
