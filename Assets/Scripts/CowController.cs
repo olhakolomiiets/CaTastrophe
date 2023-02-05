@@ -391,6 +391,7 @@ public class CowController : MonoBehaviour
     IEnumerator DamageImage()
     {
         damageImage.SetActive(true);
+        Vibrator.Vibrate();
         yield return new WaitForSeconds(0.15f);
         damageImage.SetActive(false);
     }

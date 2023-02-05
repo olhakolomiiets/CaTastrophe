@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float rightLimitFloor3;
     [SerializeField] private float bottomLimitFloor3;
     [SerializeField] private float upperLimitFloor3;
-    
+
     [Header("Basement Floor Limits")]
     [SerializeField] private float leftLimitBasement;
     [SerializeField] private float rightLimitBasement;
@@ -115,15 +115,15 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if(isShakingLevel1)
+        if (isShakingLevel1)
         {
             CameraShakeLevel1();
         }
-        if(isShakingLevel2)
+        if (isShakingLevel2)
         {
             CameraShakeLevel2();
         }
-        if(isShakingLevel3)
+        if (isShakingLevel3)
         {
             CameraShakeLevel3();
         }
@@ -247,7 +247,7 @@ public class CameraController : MonoBehaviour
 
     public void TheSecondFloor()
     {
-        SetFalseToAllBool();      
+        SetFalseToAllBool();
         floor2 = true;
         leftLimit = leftLimitFloor2;
         rightLimit = rightLimitFloor2;
@@ -273,7 +273,7 @@ public class CameraController : MonoBehaviour
     public void StairsSecondFloor()
     {
         SetFalseToAllBool();
-        stairs2 = true; 
+        stairs2 = true;
     }
 
     public void StairsFirstFloor()
@@ -285,7 +285,7 @@ public class CameraController : MonoBehaviour
     public void StairsBasement()
     {
         SetFalseToAllBool();
-        basement = true;
+        stairsBasement = true;
     }
 
     private void SetFalseToAllBool()
@@ -311,7 +311,10 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration1, _cameraShake.Strength1, _cameraShake.Vibrato1, _cameraShake.Randomness1);
-        Vibrator.Vibrate(patternLevel1, -1);
+        if (PlayerPrefs.GetInt("VibrationSettingsPref") == 1)
+        {
+            Vibrator.Vibrate(patternLevel1, -1);
+        }
         StartCoroutine("StopShake");
     }
 
@@ -323,7 +326,10 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration2, _cameraShake.Strength2, _cameraShake.Vibrato2, _cameraShake.Randomness2);
-        Vibrator.Vibrate(patternLevel2, -1);
+        if (PlayerPrefs.GetInt("VibrationSettingsPref") == 1)
+        {
+            Vibrator.Vibrate(patternLevel2, -1);
+        }
         StartCoroutine("StopShake");
     }
 
@@ -335,13 +341,16 @@ public class CameraController : MonoBehaviour
                 rotation.eulerAngles = Vector3.forward * x.x;
                 transform.rotation = rotation;
             }, _cameraShake.Duration3, _cameraShake.Strength3, _cameraShake.Vibrato3, _cameraShake.Randomness3);
-        Vibrator.Vibrate(patternLevel3, -1);
+        if (PlayerPrefs.GetInt("VibrationSettingsPref") == 1)
+        {
+            Vibrator.Vibrate(patternLevel3, -1);
+        }
         StartCoroutine("StopShake");
     }
 
     IEnumerator StopShake()
     {
-        yield return new WaitForSeconds (0.25f);
+        yield return new WaitForSeconds(0.25f);
         isShakingLevel1 = false;
         isShakingLevel2 = false;
         isShakingLevel3 = false;

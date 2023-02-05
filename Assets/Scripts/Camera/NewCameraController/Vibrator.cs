@@ -13,7 +13,7 @@ public static AndroidJavaObject vibrator = currentActivity.Call<AndroidJavaObjec
     public static AndroidJavaObject vibrator;
 #endif
 
-    public static void Vibrate(long milliseconds = 300)
+    public static void Vibrate(long milliseconds = 150)
     {
         if (IsAndroid())
         {

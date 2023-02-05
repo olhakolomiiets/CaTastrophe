@@ -14951,6 +14951,9 @@ MonoBehaviour:
   rightLimitStairsFloor2: 0
   bottomLimitStairsFloor2: 0
   upperLimitStairsFloor2: 0
+  patternLevel1: 000000000000000014000000000000001e0000000000000014000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a00000000000000
+  patternLevel2: 0000000000000000140000000000000028000000000000001e0000000000000014000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a00000000000000
+  patternLevel3: 000000000000000014000000000000001e000000000000002800000000000000320000000000000028000000000000001e0000000000000014000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a000000000000000a00000000000000
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -76688,10 +76691,60 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6816701292827090823, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_Name
+      value: Lang-Ukr
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816701292827090825, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1759449019}
+    - target: {fileID: 6816701292827090825, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816701292827090825, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241242155}
+    - target: {fileID: 6816701292827090825, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCurrentLanguage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816701292827090825, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Ukrainian
+      objectReference: {fileID: 0}
     - target: {fileID: 6816701294479145669, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105325557011868847, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1759449019}
+    - target: {fileID: 9105325557011868847, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105325557011868847, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241242155}
+    - target: {fileID: 9105325557011868847, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCurrentLanguage
       objectReference: {fileID: 0}
     - target: {fileID: 9105325557172878142, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -76707,6 +76760,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105325557713639522, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1759449019}
+    - target: {fileID: 9105325557713639522, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105325557713639522, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241242155}
+    - target: {fileID: 9105325557713639522, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCurrentLanguage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105325558274916572, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1759449019}
+    - target: {fileID: 9105325558274916572, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105325558274916572, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241242155}
+    - target: {fileID: 9105325558274916572, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCurrentLanguage
       objectReference: {fileID: 0}
     - target: {fileID: 9105325558414196498, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
