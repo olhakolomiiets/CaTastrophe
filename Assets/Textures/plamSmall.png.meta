@@ -99,7 +99,7 @@ TextureImporter:
       213: 2000480800986234552
     second: plamSmall_31
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -119,6 +119,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -127,12 +129,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -150,10 +152,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -205,6 +211,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -900,6 +918,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      plamSmall_0: 6265241209697503220
+      plamSmall_1: -1210859603193135809
+      plamSmall_10: 8900410401208924569
+      plamSmall_11: -4723162060292665907
+      plamSmall_12: -7345376003218138103
+      plamSmall_13: -2287216356705730979
+      plamSmall_14: 8150741688460106949
+      plamSmall_15: -1584588609226228870
+      plamSmall_16: -6540040587508056800
+      plamSmall_17: 5268883110676394459
+      plamSmall_18: 8843671584184300955
+      plamSmall_19: 5863472289712028506
+      plamSmall_2: 8636093480320594495
+      plamSmall_20: 5641388492371499750
+      plamSmall_21: -5088915774467751203
+      plamSmall_22: 9050095591834878238
+      plamSmall_23: -8147291301498635011
+      plamSmall_24: 8008109669441300175
+      plamSmall_25: -2298304953106103828
+      plamSmall_26: 7007732784725309262
+      plamSmall_27: -3200477708374013477
+      plamSmall_28: 971483770327843194
+      plamSmall_29: 3788631999746553302
+      plamSmall_3: -8838899073987290469
+      plamSmall_30: -3622911614513820522
+      plamSmall_31: 2000480800986234552
+      plamSmall_4: 5598082271880607989
+      plamSmall_5: -7286406041251492768
+      plamSmall_6: -6340611863702701101
+      plamSmall_7: -4104264339719777830
+      plamSmall_8: -767595507557371999
+      plamSmall_9: 2432229381615230394
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

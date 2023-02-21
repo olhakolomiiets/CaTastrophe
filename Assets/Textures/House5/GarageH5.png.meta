@@ -96,7 +96,7 @@ TextureImporter:
       213: -8951213556145607413
     second: GarageH5_30
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -116,6 +116,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -124,12 +126,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -147,10 +149,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -202,6 +208,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -876,6 +894,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GarageH5_0: -5579398112419802689
+      GarageH5_1: -4149628564117303076
+      GarageH5_10: -1850337139488786512
+      GarageH5_11: -7371442566065142882
+      GarageH5_12: -4792735003125897390
+      GarageH5_13: 865526828568122894
+      GarageH5_14: -1274892382953639729
+      GarageH5_15: -2036726791715104971
+      GarageH5_16: -6305120710504816028
+      GarageH5_17: 5213296117371017215
+      GarageH5_18: 2123162514590315096
+      GarageH5_19: 6544339966559860177
+      GarageH5_2: 5894699910656180915
+      GarageH5_20: 7931078231447005695
+      GarageH5_21: -421484257181109379
+      GarageH5_22: 7839032524743878358
+      GarageH5_23: 3832695439411016499
+      GarageH5_24: -8057282222085102800
+      GarageH5_25: 1945726340060989496
+      GarageH5_26: -5543883716260604217
+      GarageH5_27: 332822887757834904
+      GarageH5_28: -2160438309820796352
+      GarageH5_29: 4118546388531797635
+      GarageH5_3: 5039499199648646526
+      GarageH5_30: -8951213556145607413
+      GarageH5_4: 5485242425897663738
+      GarageH5_5: -1134821406960494831
+      GarageH5_6: 6483394677658255171
+      GarageH5_7: -5097196567694869839
+      GarageH5_8: 7072648057854416773
+      GarageH5_9: 243687830958353482
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -234,7 +234,7 @@ TextureImporter:
       213: -2499123821356636558
     second: Lamps_76
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -254,6 +254,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -262,12 +264,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -285,10 +287,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -340,6 +346,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1980,6 +1998,84 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Lamps_0: 553813464291019251
+      Lamps_1: 7967830136837287263
+      Lamps_10: 8569465779243699953
+      Lamps_11: 1225984019521575005
+      Lamps_12: 2467541543550457910
+      Lamps_13: -7072391305365211227
+      Lamps_14: -1000253275142855332
+      Lamps_15: -2235304235314663227
+      Lamps_16: -8014643354104055155
+      Lamps_17: -7726503403345472085
+      Lamps_18: -532191112090913497
+      Lamps_19: 247337057734824860
+      Lamps_2: 2185767848867999025
+      Lamps_20: 5276032648022594537
+      Lamps_21: -792841369064645925
+      Lamps_22: 3499508368298791873
+      Lamps_23: 5366576844281998260
+      Lamps_24: -8638275358224658679
+      Lamps_25: -7119559833527487035
+      Lamps_26: 2849805872296324795
+      Lamps_27: 1143847241432737082
+      Lamps_28: -1980146635774754673
+      Lamps_29: 8826759456185583295
+      Lamps_3: 8481040609135356565
+      Lamps_30: -4877031655808188575
+      Lamps_31: -5279424690906375399
+      Lamps_32: -3507879989448257551
+      Lamps_33: -5175701137841335571
+      Lamps_34: -7009780465389335964
+      Lamps_35: 1555822236174893617
+      Lamps_36: -4536900785503651782
+      Lamps_37: 6516353187899633575
+      Lamps_38: -1980738302748708714
+      Lamps_39: -2343906406407738610
+      Lamps_4: 9129194299637428269
+      Lamps_40: -3906187702106203487
+      Lamps_41: 8390174897114505554
+      Lamps_42: 2664438163696391402
+      Lamps_43: -3638957854733212318
+      Lamps_44: -6441140061551794453
+      Lamps_45: 5883950175418974739
+      Lamps_46: 3410434691389172621
+      Lamps_47: -3032577487013157100
+      Lamps_48: -3121605525483947572
+      Lamps_49: 2177136307075426332
+      Lamps_5: 9090351670064758069
+      Lamps_50: 8615142401683070679
+      Lamps_51: 3522453879824934677
+      Lamps_52: 3859717575800430426
+      Lamps_53: -7160916912885726135
+      Lamps_54: 685961207742998295
+      Lamps_55: -8782417961596363249
+      Lamps_56: -6867468325939913732
+      Lamps_57: -2271649633882394088
+      Lamps_58: -158272689251819917
+      Lamps_59: 5024396419042298989
+      Lamps_6: 1758663944682815014
+      Lamps_60: -6677604132714108570
+      Lamps_61: -5084634769133877023
+      Lamps_62: -6289535490816313583
+      Lamps_63: 2208846080575193951
+      Lamps_64: -686804509111380443
+      Lamps_65: -2541853649364948871
+      Lamps_66: 2785119051431038044
+      Lamps_67: 5013783664368614628
+      Lamps_68: -7583412849777390831
+      Lamps_69: -5765626141030374538
+      Lamps_7: 3093686136273899590
+      Lamps_70: 2683875561065274851
+      Lamps_71: -2359114632344973437
+      Lamps_72: -4001648963850757207
+      Lamps_73: -4803747411531342395
+      Lamps_74: -7983132315968184467
+      Lamps_75: -421203067916004771
+      Lamps_76: -2499123821356636558
+      Lamps_8: 7108040465129917104
+      Lamps_9: 8907622525160883614
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -78,7 +78,7 @@ TextureImporter:
       213: 5436415880283533989
     second: H2Stuff1_24
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -98,6 +98,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -106,12 +108,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -129,10 +131,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -184,6 +190,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -711,6 +729,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      H2Stuff1_0: 5665000955740214565
+      H2Stuff1_1: -5603708675650910673
+      H2Stuff1_10: -2505975851481319473
+      H2Stuff1_11: -5442579005048228982
+      H2Stuff1_12: -8473511263164173552
+      H2Stuff1_13: 3945761915337416576
+      H2Stuff1_14: -1501137485840923896
+      H2Stuff1_15: -3585488963049526369
+      H2Stuff1_16: -8930622109617824952
+      H2Stuff1_18: -8466339470976192872
+      H2Stuff1_19: -74776363919207129
+      H2Stuff1_2: 7055563605392291730
+      H2Stuff1_20: 8462506710912895934
+      H2Stuff1_21: -8152092883405199023
+      H2Stuff1_22: 7999650324663602765
+      H2Stuff1_23: -2765929090992021159
+      H2Stuff1_24: 5436415880283533989
+      H2Stuff1_3: 8675360962225875580
+      H2Stuff1_4: 7101204043099932081
+      H2Stuff1_5: 7626913739884595828
+      H2Stuff1_6: 3573084299773938519
+      H2Stuff1_7: 7807354090343664939
+      H2Stuff1_8: 1405843734847654401
+      H2Stuff1_9: -1206314602671745461
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
