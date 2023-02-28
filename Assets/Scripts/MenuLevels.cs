@@ -104,8 +104,8 @@ public class MenuLevels : MonoBehaviour
     }
     public void Reset()
     {
-        Leve2Button.interactable = false;
-        Leve3Button.interactable = false;
+        // Leve2Button.interactable = false;
+        // Leve3Button.interactable = false;
         Total.text = "0";
         PlayerPrefs.DeleteAll();
     }

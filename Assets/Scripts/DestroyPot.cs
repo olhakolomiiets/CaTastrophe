@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Analytics;
+// using Firebase.Analytics;
 
 
 public class DestroyPot : MonoBehaviour
