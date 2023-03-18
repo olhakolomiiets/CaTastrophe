@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 62432020}
   - component: {fileID: 62432019}
   - component: {fileID: 62432018}
+  - component: {fileID: 62432021}
   m_Layer: 5
   m_Name: Leve2Button (1)
   m_TagString: Untagged
@@ -1590,7 +1591,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 386184845}
+      - m_Target: {fileID: 0}
         m_MethodName: buy
         m_Mode: 1
         m_Arguments:
@@ -1639,6 +1640,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62432016}
   m_CullTransparentMesh: 0
+--- !u!114 &62432021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62432016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: catastrophe_money_pack_5000
+  buttonType: 0
+  consumePurchase: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 386184845}
+        m_MethodName: MoneyPack5000
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &67893557
 GameObject:
   m_ObjectHideFlags: 0
@@ -10171,6 +10207,7 @@ GameObject:
   - component: {fileID: 357528384}
   - component: {fileID: 357528383}
   - component: {fileID: 357528382}
+  - component: {fileID: 357528385}
   m_Layer: 5
   m_Name: Leve2Button (1)
   m_TagString: Untagged
@@ -10242,7 +10279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 755359984}
+      - m_Target: {fileID: 0}
         m_MethodName: buy
         m_Mode: 1
         m_Arguments:
@@ -10291,6 +10328,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357528380}
   m_CullTransparentMesh: 0
+--- !u!114 &357528385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357528380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: catastrophe_no_ads
+  buttonType: 0
+  consumePurchase: 0
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 755359984}
+        m_MethodName: NoAds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &361689662
 GameObject:
   m_ObjectHideFlags: 0
@@ -10868,13 +10940,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 386184843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b77216ba37594a9d1d824d65985c7, type: 3}
+  m_Script: {fileID: 11500000, guid: d4af49d49b85bbc4cabca59c5682cc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPurchased: 0
-  ppnamePower: extraLife
-  price: 0
-  purch: 0
+  purchaseName: moneyPack5000
+  purch: 5000
   buyTxt: {fileID: 1387458215}
   alreadyBoughtTxt: {fileID: 110474797}
 --- !u!1 &390332542
@@ -12802,7 +12873,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -22098,12 +22169,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 755359982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b77216ba37594a9d1d824d65985c7, type: 3}
+  m_Script: {fileID: 11500000, guid: d4af49d49b85bbc4cabca59c5682cc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPurchased: 0
-  ppnamePower: extraLife
-  price: 0
+  purchaseName: adsRemoved
   purch: 0
   buyTxt: {fileID: 432527115}
   alreadyBoughtTxt: {fileID: 591283572}
@@ -22621,7 +22691,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BUY 5000 COINS
+  m_Text: "\u041A\u0423\u041F\u0418\u0422\u042C 5000 \u041C\u041E\u041D\u0415\u0422"
 --- !u!222 &774354875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23511,7 +23581,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0412\u042B\u041A\u041B\u042E\u0427\u0418\u0422\u042C \u0420\u0415\u041A\u041B\u0410\u041C\u0423"
+  m_Text: "\u041E\u0422\u041A\u041B\u042E\u0427\u0418\u0422\u042C \u0420\u0415\u041A\u041B\u0410\u041C\u0423"
 --- !u!222 &828810074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24749,7 +24819,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 290b6fc8f2581734383d9ddae92a916b, type: 3}
     m_FontSize: 41
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 41
     m_Alignment: 5
@@ -34954,7 +35024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 429.03003, y: -554}
+  m_AnchoredPosition: {x: 429, y: -554}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1263660181
@@ -39733,7 +39803,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 290b6fc8f2581734383d9ddae92a916b, type: 3}
     m_FontSize: 41
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 41
     m_Alignment: 5
@@ -39875,7 +39945,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DISABLE ADVERTISING
+  m_Text: "\u041E\u0422\u041A\u041B\u042E\u0427\u0418\u0422\u042C \u0420\u0415\u041A\u041B\u0410\u041C\u0423"
 --- !u!222 &1439279835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50460,7 +50530,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +1 LIFE
+  m_Text: "+1 \u0416\u0418\u0417\u041D\u042C"
 --- !u!222 &1849781579
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51940,7 +52010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 987.53, y: -554}
+  m_AnchoredPosition: {x: 987.5, y: -554}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903543529
@@ -63735,6 +63805,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 6805203693989944558}
   checkRadius: 0.8
@@ -63778,6 +63851,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!1 &704301635696980961
 GameObject:
   m_ObjectHideFlags: 0
@@ -66263,6 +66337,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -66306,6 +66383,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!4 &1051242579087702023
 Transform:
   m_ObjectHideFlags: 0
@@ -70637,6 +70715,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 4747154828224486430}
   checkRadius: 0.8
@@ -70680,6 +70761,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!114 &1609848941905970037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72184,6 +72266,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -72227,6 +72312,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!212 &1876293766372783195
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73960,6 +74046,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 5429668754161522028}
   checkRadius: 0.8
@@ -74003,6 +74092,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!1 &2086305161219102566
 GameObject:
   m_ObjectHideFlags: 0
@@ -89374,6 +89464,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -89417,6 +89510,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!95 &3880396138448423754
 Animator:
   serializedVersion: 3
@@ -91961,6 +92055,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 7876062874079104610}
   checkRadius: 0.8
@@ -92004,6 +92101,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!1 &4253483327377094697
 GameObject:
   m_ObjectHideFlags: 0
@@ -97005,6 +97103,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 1378079385816276042}
   checkRadius: 0.8
@@ -97048,6 +97149,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!4 &4950498347698584479
 Transform:
   m_ObjectHideFlags: 0
@@ -108934,6 +109036,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 820477735561106907}
   checkRadius: 0.8
@@ -108977,6 +109082,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!1 &6690805284012585572
 GameObject:
   m_ObjectHideFlags: 0
@@ -109400,6 +109506,7 @@ GameObject:
   - component: {fileID: 6709940986012789304}
   - component: {fileID: 6709940986012789303}
   - component: {fileID: 6709940986012789302}
+  - component: {fileID: 6709940986012789305}
   m_Layer: 5
   m_Name: Leve2Button (1)
   m_TagString: Untagged
@@ -109471,7 +109578,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6709940986788717094}
+      - m_Target: {fileID: 0}
         m_MethodName: buy
         m_Mode: 1
         m_Arguments:
@@ -109520,6 +109627,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6709940986012789300}
   m_CullTransparentMesh: 0
+--- !u!114 &6709940986012789305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709940986012789300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: catastrophe_extra_life
+  buttonType: 0
+  consumePurchase: 0
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6709940986788717094}
+        m_MethodName: ExtraLife
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &6709940986175655891
 GameObject:
   m_ObjectHideFlags: 0
@@ -109832,7 +109974,7 @@ GameObject:
   - component: {fileID: 6709940986788717093}
   - component: {fileID: 6709940986788717094}
   m_Layer: 5
-  m_Name: ExLife
+  m_Name: ExtraLife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109876,12 +110018,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6709940986788717092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168b77216ba37594a9d1d824d65985c7, type: 3}
+  m_Script: {fileID: 11500000, guid: d4af49d49b85bbc4cabca59c5682cc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPurchased: 0
-  ppnamePower: extraLife
-  price: 0
+  purchaseName: extraLife
   purch: 0
   buyTxt: {fileID: 6709940985729627472}
   alreadyBoughtTxt: {fileID: 6709940986178976224}
@@ -109969,8 +110110,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.11
-  m_Text: "\u0414\u041E\u0411\u0410\u0412\u041B\u042F\u0415\u0422 \u0427\u0415\u0422\u0412\u0415\u0420\u0422\u0423\u042E
-    \u0416\u0418\u0417\u041D\u042C \u041A\u041E\u0422\u0423"
+  m_Text: "\u0414\u041E\u0411\u0410\u0412\u041B\u042F\u0415\u0422 \u041A\u041E\u0422\u0423
+    \u0427\u0415\u0422\u0412\u0415\u0420\u0422\u0423\u042E \u0416\u0418\u0417\u041D\u042C"
 --- !u!222 &6709940986922643018
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -113441,6 +113582,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -113484,6 +113628,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!1 &7108288222596399213
 GameObject:
   m_ObjectHideFlags: 0
@@ -113891,6 +114036,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 3790165954832113173}
   checkRadius: 0.8
@@ -113934,6 +114082,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!4 &7146137078264977874
 Transform:
   m_ObjectHideFlags: 0
@@ -118548,6 +118697,9 @@ MonoBehaviour:
   speed: 7.5
   normalSpeed: 6
   jumpForce: 24
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 4294866238994712571}
   checkRadius: 0.8
@@ -118591,6 +118743,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!4 &7794335766987660773
 Transform:
   m_ObjectHideFlags: 0
@@ -123581,6 +123734,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 2502348785393002303}
   checkRadius: 0.8
@@ -123624,6 +123780,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!4 &8435051762448965880
 Transform:
   m_ObjectHideFlags: 0
@@ -129673,6 +129830,9 @@ MonoBehaviour:
   speed: 7
   normalSpeed: 6
   jumpForce: 23
+  jumpTime: 0
+  _jumpDelayTimer: 0
+  isJumping: 0
   isGrounded: 0
   feetPos: {fileID: 0}
   checkRadius: 0.8
@@ -129716,6 +129876,7 @@ MonoBehaviour:
   lowPower: {fileID: 0}
   activeCollaider: {fileID: 0}
   catPower: {fileID: 0}
+  isUiJumpPressed: 0
 --- !u!114 &9216854149928620410
 MonoBehaviour:
   m_ObjectHideFlags: 0

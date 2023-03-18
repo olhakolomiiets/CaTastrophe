@@ -93,16 +93,16 @@ public class Interstitial : MonoBehaviour
         adInterstitial.OnAdClosed -= this.HandleOnAdClosed;
     }
 
- 
-
-
     void ShowAd()
     {
-        counter++;
-        if (counter == 3)
+        if (PlayerPrefs.GetInt("adsRemoved") == 0)
         {
-            counter = 0;
-            ShowInterstitialAd();
+            counter++;
+            if (counter == 3)
+            {
+                counter = 0;
+                ShowInterstitialAd();
+            }
         }
     }
 
