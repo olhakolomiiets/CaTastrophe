@@ -1543,7 +1543,6 @@ GameObject:
   - component: {fileID: 62432020}
   - component: {fileID: 62432019}
   - component: {fileID: 62432018}
-  - component: {fileID: 62432021}
   m_Layer: 5
   m_Name: Leve2Button (1)
   m_TagString: Untagged
@@ -1615,7 +1614,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 62432019}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010847144}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: BuyProduct
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: com.catastrophe.moneypack5000
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &62432019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,42 +1666,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62432016}
   m_CullTransparentMesh: 0
---- !u!114 &62432021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62432016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  productId: catastrophe_money_pack_5000
-  buttonType: 0
-  consumePurchase: 1
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 386184845}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: MoneyPack5000
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  titleText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 0}
 --- !u!1 &67893557
 GameObject:
   m_ObjectHideFlags: 0
@@ -10353,7 +10328,6 @@ GameObject:
   - component: {fileID: 357528384}
   - component: {fileID: 357528383}
   - component: {fileID: 357528382}
-  - component: {fileID: 357528385}
   m_Layer: 5
   m_Name: Leve2Button (1)
   m_TagString: Untagged
@@ -10425,7 +10399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 357528383}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010847144}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: BuyProduct
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: com.catastrophe.noads
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &357528383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10465,42 +10451,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357528380}
   m_CullTransparentMesh: 0
---- !u!114 &357528385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357528380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  productId: catastrophe_no_ads
-  buttonType: 0
-  consumePurchase: 0
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 755359984}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: NoAds
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  titleText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 0}
 --- !u!1 &361689662
 GameObject:
   m_ObjectHideFlags: 0
@@ -11037,7 +10987,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 386184844}
-  - component: {fileID: 386184845}
   m_Layer: 5
   m_Name: BuyCoins
   m_TagString: Untagged
@@ -11053,8 +11002,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386184843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.559329, y: 1.481243, z: 1.481243}
+  m_LocalPosition: {x: 0, y: 0, z: 9.622504}
+  m_LocalScale: {x: 0.80821866, y: 0.15836965, z: 0.15836965}
   m_Children:
   - {fileID: 1418332332}
   - {fileID: 384303811}
@@ -11067,31 +11016,14 @@ RectTransform:
   - {fileID: 1302536797}
   - {fileID: 268982624}
   - {fileID: 742004281}
-  m_Father: {fileID: 1994722825}
-  m_RootOrder: 13
+  m_Father: {fileID: 2010847145}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.97632, y: -126.834335}
+  m_AnchoredPosition: {x: -27.582016, y: -12.560715}
   m_SizeDelta: {x: 170.41287, y: 465.62256}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &386184845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386184843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4af49d49b85bbc4cabca59c5682cc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPurchased: 0
-  purchaseName: moneyPack5000
-  purch: 5000
-  buyTxt: {fileID: 1387458215}
-  alreadyBoughtTxt: {fileID: 110474797}
 --- !u!1 &390332542
 GameObject:
   m_ObjectHideFlags: 0
@@ -22437,7 +22369,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755359983}
-  - component: {fileID: 755359984}
   m_Layer: 5
   m_Name: NoAds
   m_TagString: Untagged
@@ -22453,8 +22384,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755359982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.559329, y: 1.481243, z: 1.481243}
+  m_LocalPosition: {x: 0, y: 0, z: 9.622504}
+  m_LocalScale: {x: 0.80821866, y: 0.15836965, z: 0.15836965}
   m_Children:
   - {fileID: 1546429454}
   - {fileID: 1237206169}
@@ -22466,31 +22397,14 @@ RectTransform:
   - {fileID: 357528381}
   - {fileID: 2005759692}
   - {fileID: 120351396}
-  m_Father: {fileID: 1994722825}
-  m_RootOrder: 12
+  m_Father: {fileID: 2010847145}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.97632, y: -126.834335}
+  m_AnchoredPosition: {x: -27.582016, y: -12.560715}
   m_SizeDelta: {x: 170.41287, y: 465.62256}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &755359984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755359982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4af49d49b85bbc4cabca59c5682cc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPurchased: 0
-  purchaseName: adsRemoved
-  purch: 0
-  buyTxt: {fileID: 432527115}
-  alreadyBoughtTxt: {fileID: 591283572}
 --- !u!1 &757320118
 GameObject:
   m_ObjectHideFlags: 0
@@ -41552,6 +41466,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502823483}
   m_CullTransparentMesh: 0
+--- !u!1 &1504511558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504511560}
+  - component: {fileID: 1504511559}
+  m_Layer: 0
+  m_Name: IAP Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1504511559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504511558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7dd963c1a8b427b96975fa211478a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumePurchase: 1
+  dontDestroyOnLoad: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2010847144}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: BuyProduct
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: com.catastrophe.moneypack5000
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1504511560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504511558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 63.194008, y: 24.094027, z: 314.18314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511190201
 GameObject:
   m_ObjectHideFlags: 0
@@ -54850,10 +54827,8 @@ RectTransform:
   - {fileID: 1109049201}
   - {fileID: 1409007156}
   - {fileID: 222588709}
-  - {fileID: 6709940986788717093}
+  - {fileID: 2010847145}
   - {fileID: 381595588}
-  - {fileID: 755359983}
-  - {fileID: 386184844}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55761,6 +55736,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009770351}
   m_CullTransparentMesh: 0
+--- !u!1 &2010847143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2010847145}
+  - component: {fileID: 2010847144}
+  m_Layer: 0
+  m_Name: IAPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2010847144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010847143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4818e257443b3d43bb22a1016ef4529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buyNoAdsTxt: {fileID: 432527115}
+  alreadyBoughtNoAdsTxt: {fileID: 591283572}
+  priceNoAds: {fileID: 710558308}
+  doneNoAds: {fileID: 196003262}
+  buyExtraLifeTxt: {fileID: 6709940985729627472}
+  alreadyBoughtExtraLifeTxt: {fileID: 6709940986178976224}
+  priceExtraLife: {fileID: 6709940987069716589}
+  doneExtraLife: {fileID: 6709940987357655920}
+  purch: 5000
+  buyMoneyPackTxt: {fileID: 1387458215}
+  alreadyBoughtMoneyPackTxt: {fileID: 110474797}
+--- !u!4 &2010847145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010847143}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -9.353074, z: 0}
+  m_LocalScale: {x: 9.353074, y: 9.353074, z: 9.353074}
+  m_Children:
+  - {fileID: 6709940986788717093}
+  - {fileID: 755359983}
+  - {fileID: 386184844}
+  m_Father: {fileID: 1994722825}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2011472966
 GameObject:
   m_ObjectHideFlags: 0
@@ -110632,7 +110664,6 @@ GameObject:
   - component: {fileID: 6709940986012789304}
   - component: {fileID: 6709940986012789303}
   - component: {fileID: 6709940986012789302}
-  - component: {fileID: 6709940986012789305}
   m_Layer: 5
   m_Name: Leve2Button (1)
   m_TagString: Untagged
@@ -110704,7 +110735,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6709940986012789303}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2010847144}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: BuyProduct
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: com.catastrophe.extralife
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6709940986012789303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110744,42 +110787,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6709940986012789300}
   m_CullTransparentMesh: 0
---- !u!114 &6709940986012789305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709940986012789300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  productId: catastrophe_extra_life
-  buttonType: 0
-  consumePurchase: 0
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6709940986788717094}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ExtraLife
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  titleText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 0}
 --- !u!1 &6709940986175655891
 GameObject:
   m_ObjectHideFlags: 0
@@ -111095,7 +111102,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6709940986788717093}
-  - component: {fileID: 6709940986788717094}
   m_Layer: 5
   m_Name: ExtraLife
   m_TagString: Untagged
@@ -111111,8 +111117,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6709940986788717092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.559329, y: 1.481243, z: 1.481243}
+  m_LocalPosition: {x: 0, y: 0, z: 9.622504}
+  m_LocalScale: {x: 0.80821866, y: 0.15836965, z: 0.15836965}
   m_Children:
   - {fileID: 6709940986955608828}
   - {fileID: 6709940985840328972}
@@ -111124,31 +111130,14 @@ RectTransform:
   - {fileID: 6709940986012789301}
   - {fileID: 6709940986175655892}
   - {fileID: 1823461325}
-  m_Father: {fileID: 1994722825}
-  m_RootOrder: 10
+  m_Father: {fileID: 2010847145}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.97632, y: -126.834335}
+  m_AnchoredPosition: {x: -27.582016, y: -12.560715}
   m_SizeDelta: {x: 170.41287, y: 465.62256}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6709940986788717094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709940986788717092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4af49d49b85bbc4cabca59c5682cc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPurchased: 0
-  purchaseName: extraLife
-  purch: 0
-  buyTxt: {fileID: 6709940985729627472}
-  alreadyBoughtTxt: {fileID: 6709940986178976224}
 --- !u!1 &6709940986922643014
 GameObject:
   m_ObjectHideFlags: 0
