@@ -20,8 +20,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     [SerializeField] private GameObject doneExtraLife;
     [Header("Money Pack 5000")]
     [SerializeField] private int purch;
-    [SerializeField] private GameObject buyMoneyPackTxt;
-    [SerializeField] private GameObject alreadyBoughtMoneyPackTxt;
+/*    [SerializeField] private GameObject buyMoneyPackTxt;
+    [SerializeField] private GameObject alreadyBoughtMoneyPackTxt;*/
 
 
     IStoreController m_StoreController;
@@ -34,11 +34,11 @@ public class IAPManager : MonoBehaviour, IStoreListener
     {
         InitializePurchasing();
 
-        //if (PlayerPrefs.HasKey("firstStart") == false)
-        //{
-        //    PlayerPrefs.SetInt("firstStart", 1);
-        //    RestoreMyProduct();
-        //}
+/*        if (PlayerPrefs.HasKey("firstStart") == false)
+        {
+            PlayerPrefs.SetInt("firstStart", 1);
+            RestoreMyProduct();
+        }*/
 
         RestoreVariable();
     }
@@ -105,18 +105,22 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     private void Product_NoAds()
     {
-        PlayerPrefs.SetInt("adsRemoved", 0);
+        PlayerPrefs.SetInt("adsRemoved", 1);
         buyNoAdsTxt.SetActive(false);
         alreadyBoughtNoAdsTxt.SetActive(true);
+        priceNoAds.SetActive(false);
+        doneNoAds.SetActive(true);
 
     }
 
     private void Product_ExtraLife()
     {
-        PlayerPrefs.SetInt("extraLife", 0);
+        PlayerPrefs.SetInt("extraLife", 1);
         SoundManager.snd.PlaybuySounds();
         buyExtraLifeTxt.SetActive(false);
         alreadyBoughtExtraLifeTxt.SetActive(true);
+        priceExtraLife.SetActive(false);
+        doneExtraLife.SetActive(true);
         Debug.Log("!!!--- Extra Life Added ---!!!");
     }
 
@@ -126,8 +130,6 @@ public class IAPManager : MonoBehaviour, IStoreListener
         TotalScore = TotalScore + purch;
         Debug.Log("!!!--- TotalScore + MoneyPack 5000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
-        buyMoneyPackTxt.SetActive(false);
-        alreadyBoughtMoneyPackTxt.SetActive(true);
         PlayerPrefs.SetInt("TotalScore", TotalScore);
     }
 
@@ -148,16 +150,16 @@ public class IAPManager : MonoBehaviour, IStoreListener
     }
 
 
-    //public void RestoreMyProduct()
-    //{
-    //    if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(noAds).hasReceipt)
-    //    {
-    //        Product_NoAds();
-    //    }
+/*    public void RestoreMyProduct()
+    {
+        if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(noAds).hasReceipt)
+        {
+            
+        }
 
-    //    if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(extraLife).hasReceipt)
-    //    {
-    //        Product_ExtraLife();
-    //    }
-    //}
+        if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(extraLife).hasReceipt)
+        {
+           
+        }
+    }*/
 }

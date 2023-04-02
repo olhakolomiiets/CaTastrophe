@@ -54,7 +54,7 @@ public class TimeBonus : MonoBehaviour
 
         for (int i = 0; i < bonusIdPref.Length; i++)
         {
-            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {secText}";
+            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {Lean.Localization.LeanLocalization.GetTranslationText("Seconds")}";
         }
         sm.UpdateBonusScore += CheckForTimeBonuses;
     }
@@ -73,7 +73,7 @@ public class TimeBonus : MonoBehaviour
                 done[i].SetActive(true);
                 timer.AddSecondsToTimer(secAdd[i]);                
             }
-            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {secText}";
+            textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {Lean.Localization.LeanLocalization.GetTranslationText("Seconds")}";
         }
     }
     

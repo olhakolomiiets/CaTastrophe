@@ -181,6 +181,11 @@ public class PassivePowerUp : MonoBehaviour
             {
                 power.SetNewAmount(10f);
             }
+            if (PlayerPrefs.HasKey("firstInitPassivePowerUp") == false)
+            {
+                PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
+                power.SetNewAmount(10f);
+            }
             // Debug.Log("Load SecAfterExit !!!!!!!!!!    " + LoadPowerWhenWasOut() + " * 0.00083333f" + " = " + (LoadPowerWhenWasOut() * 0.01666667f) + " Cat is " + power.name);
         }
     }
