@@ -29,7 +29,9 @@ public class Interstitial : MonoBehaviour
         adInterstitial = new InterstitialAd(idInterstitial);
         AdRequest request = AdRequestBuild();
         adInterstitial.LoadAd(request);
-        
+        lastAdTime = Time.time;
+        Debug.Log("ShowInterstitialWithDelayBetweenAds " + lastAdTime);
+
         adInterstitial.OnAdLoaded += this.HandleOnAdLoaded;
         adInterstitial.OnAdOpening += this.HandleOnAdOpening;
         adInterstitial.OnAdClosed += this.HandleOnAdClosed;
@@ -48,8 +50,6 @@ public class Interstitial : MonoBehaviour
             if (adInterstitial.IsLoaded())
             {
                 adInterstitial.Show();
-                lastAdTime = Time.time;
-                Debug.Log("ShowInterstitialWithDelayBetweenAds " + lastAdTime);
             }
         }
     }

@@ -13,22 +13,27 @@ public class IAPManager : MonoBehaviour, IStoreListener
     [SerializeField] private GameObject alreadyBoughtNoAdsTxt;
     [SerializeField] private GameObject priceNoAds;
     [SerializeField] private GameObject doneNoAds;
+
     [Header("Extra Life")]
     [SerializeField] private GameObject buyExtraLifeTxt;
     [SerializeField] private GameObject alreadyBoughtExtraLifeTxt;
     [SerializeField] private GameObject priceExtraLife;
     [SerializeField] private GameObject doneExtraLife;
+
     [Header("Money Pack 5000")]
     [SerializeField] private int purch;
-/*    [SerializeField] private GameObject buyMoneyPackTxt;
-    [SerializeField] private GameObject alreadyBoughtMoneyPackTxt;*/
 
+    [Header("Powers To Restore")]
+    [SerializeField] private float powersToRestore;
 
-    IStoreController m_StoreController;
+    private static IStoreController _storeController;
+    private static IExtensionProvider _extensionProvider;
 
     private string noAds = "com.catastrophe.noads";
     private string extraLife = "com.catastrophe.extralife";
     private string moneyPack5000 = "com.catastrophe.moneypack5000";
+    private string powerRestore = "com.catastrophe.powerstorestore";
+    
 
     void Start()
     {
@@ -50,6 +55,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(noAds, ProductType.NonConsumable);
         builder.AddProduct(extraLife, ProductType.NonConsumable);
         builder.AddProduct(moneyPack5000, ProductType.Consumable);
+        builder.AddProduct(powerRestore, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
     }
@@ -76,7 +82,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     public void BuyProduct(string productName)
     {
-        m_StoreController.InitiatePurchase(productName);
+        _storeController.InitiatePurchase(productName);
     }
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
@@ -96,6 +102,11 @@ public class IAPManager : MonoBehaviour, IStoreListener
         if (product.definition.id == moneyPack5000)
         {
             Product_MoneyPack5000();
+        }
+
+        if (product.definition.id == powerRestore)
+        {
+            Product_PowersToRestore();
         }
 
         Debug.Log($"Purchase Complete - Product: {product.definition.id}");
@@ -132,6 +143,14 @@ public class IAPManager : MonoBehaviour, IStoreListener
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
     }
+    private void Product_PowersToRestore()
+    {
+        powersToRestore = PlayerPrefs.GetFloat("countPowersToRestore");
+        powersToRestore++;
+        PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
+        Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
+        SoundManager.snd.PlaybuySounds();
+    }
 
     public void OnInitializeFailed(InitializationFailureReason error)
     {
@@ -146,7 +165,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
         Debug.Log("In-App Purchasing successfully initialized");
-        m_StoreController = controller;
+        _storeController = controller;
+        _extensionProvider = extensions;
     }
 
 

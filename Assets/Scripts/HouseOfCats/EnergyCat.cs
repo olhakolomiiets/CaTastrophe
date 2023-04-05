@@ -202,6 +202,13 @@ public class EnergyCat : MonoBehaviour, IClickable
         }
     }
 
+    public void EnergyRestore()
+    {
+            powerSO.SetNewAmount(maxEnergy);
+            slider.value = maxEnergy;
+            value.text = maxEnergy.ToString();
+    }
+
     // private void OnDisable()
     // {
     //     PassivePowerUp.instance.ValueChangeBy.RemoveListener(method);
