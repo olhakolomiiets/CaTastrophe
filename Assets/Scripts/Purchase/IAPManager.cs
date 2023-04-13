@@ -20,18 +20,23 @@ public class IAPManager : MonoBehaviour, IStoreListener
     [SerializeField] private GameObject priceExtraLife;
     [SerializeField] private GameObject doneExtraLife;
 
-    [Header("Money Pack 5000")]
-    [SerializeField] private int purch;
+    [Header("Money Packs")]
+    [SerializeField] private int buy2K;
+    [SerializeField] private int buy5K;
+    [SerializeField] private int buy10K;
 
     [Header("Powers To Restore")]
     [SerializeField] private float powersToRestore;
+    [SerializeField] private int amountPowersToRestore;
 
     private static IStoreController _storeController;
     private static IExtensionProvider _extensionProvider;
 
     private string noAds = "com.catastrophe.noads";
     private string extraLife = "com.catastrophe.extralife";
+    private string moneyPack2000 = "com.catastrophe.moneypack2000";
     private string moneyPack5000 = "com.catastrophe.moneypack5000";
+    private string moneyPack10000 = "com.catastrophe.moneypack10000";
     private string powerRestore = "com.catastrophe.powerstorestore";
     
 
@@ -56,6 +61,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(extraLife, ProductType.NonConsumable);
         builder.AddProduct(moneyPack5000, ProductType.Consumable);
         builder.AddProduct(powerRestore, ProductType.Consumable);
+        builder.AddProduct(moneyPack2000, ProductType.Consumable);
+        builder.AddProduct(moneyPack10000, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
     }
@@ -99,9 +106,19 @@ public class IAPManager : MonoBehaviour, IStoreListener
             Product_ExtraLife();
         }
 
+        if (product.definition.id == moneyPack2000)
+        {
+            Product_MoneyPack2000();
+        }
+
         if (product.definition.id == moneyPack5000)
         {
             Product_MoneyPack5000();
+        }
+
+        if (product.definition.id == moneyPack10000)
+        {
+            Product_MoneyPack10000();
         }
 
         if (product.definition.id == powerRestore)
@@ -135,18 +152,36 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log("!!!--- Extra Life Added ---!!!");
     }
 
+    private void Product_MoneyPack2000()
+    {
+        TotalScore = PlayerPrefs.GetInt("TotalScore");
+        TotalScore = TotalScore + buy2K;
+        Debug.Log("!!!--- TotalScore + MoneyPack 2000 ---!!! " + TotalScore);
+        SoundManager.snd.PlaybuySounds();
+        PlayerPrefs.SetInt("TotalScore", TotalScore);
+    }
+
     private void Product_MoneyPack5000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + purch;
+        TotalScore = TotalScore + buy5K;
         Debug.Log("!!!--- TotalScore + MoneyPack 5000 ---!!! " + TotalScore);
+        SoundManager.snd.PlaybuySounds();
+        PlayerPrefs.SetInt("TotalScore", TotalScore);
+    }
+
+    private void Product_MoneyPack10000()
+    {
+        TotalScore = PlayerPrefs.GetInt("TotalScore");
+        TotalScore = TotalScore + buy10K;
+        Debug.Log("!!!--- TotalScore + MoneyPack 10000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
     }
     private void Product_PowersToRestore()
     {
         powersToRestore = PlayerPrefs.GetFloat("countPowersToRestore");
-        powersToRestore++;
+        powersToRestore = powersToRestore + amountPowersToRestore;
         PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
         Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
         SoundManager.snd.PlaybuySounds();
