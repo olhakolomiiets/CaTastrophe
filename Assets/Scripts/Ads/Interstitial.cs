@@ -39,8 +39,10 @@ public class Interstitial : MonoBehaviour
 
     public void ShowInterstitialAd()
     {
-        if (adInterstitial.IsLoaded())
+        if (adInterstitial.IsLoaded() && PlayerPrefs.GetInt("adsRemoved") == 0)
+        {
             adInterstitial.Show();
+        }
     }
 
     public void ShowInterstitialWithDelayBetweenAds()
@@ -90,18 +92,4 @@ public class Interstitial : MonoBehaviour
         adInterstitial.OnAdOpening -= this.HandleOnAdOpening;
         adInterstitial.OnAdClosed -= this.HandleOnAdClosed;
     }
-
-/*    void ShowAd()
-    {
-        if (PlayerPrefs.GetInt("adsRemoved") == 0)
-        {
-            counter++;
-            if (counter == 3)
-            {
-                counter = 0;
-                ShowInterstitialAd();
-            }
-        }
-    }*/
-
 }

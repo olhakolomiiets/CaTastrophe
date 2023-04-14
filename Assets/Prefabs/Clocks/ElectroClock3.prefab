@@ -82,6 +82,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9215608210703885292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +112,7 @@ GameObject:
   - component: {fileID: -7114204011270037930}
   - component: {fileID: 6943600146741688916}
   - component: {fileID: 8061926601131074576}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: ElectroClock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +154,7 @@ MonoBehaviour:
   shopIdPref: clockDestroy
   isTimeBonus: 0
   bonusIdPref: 
+  _shakesCamera: 0
 --- !u!50 &6943600146741688916
 Rigidbody2D:
   serializedVersion: 4
@@ -201,7 +203,7 @@ GameObject:
   - component: {fileID: 6827750297842987289}
   - component: {fileID: 8032614289282121036}
   - component: {fileID: 5451655260037871914}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: MicrowaveImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,8 +217,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5847493473100950515}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.106, y: 0.034, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.10599905, y: 0.03399989, z: 0}
   m_LocalScale: {x: 0.79807705, y: 0.79807705, z: 0.79807705}
   m_Children:
   - {fileID: 7587089931037447398}
@@ -238,6 +240,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -348,6 +351,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -393,7 +397,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9000198381294380648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7997031, y: 0.72735715, z: 1.0843432}
   m_Children: []
