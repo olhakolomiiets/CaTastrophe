@@ -1,33 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class CameraSwitch : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera vCam1;
-    [SerializeField] private CinemachineVirtualCamera vCam2;
+    [SerializeField] private List<CinemachineVirtualCamera> cameras;
+    private int activeCameraIndex = 0;
 
-    private bool firstCamera = true;
+    private void Start()
+    {
+        // Set the priority of the first camera to be the highest.
+        cameras[0].Priority = 10;
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            SwitchPriority();
+            SwitchCamera();
         }
-    }
-    private void SwitchPriority()
-    {
-        if(firstCamera)
-        {
-            vCam1.Priority = 0;
-            vCam2.Priority = 1;
-        }
-        else
-        {
-            vCam1.Priority = 1;
-            vCam2.Priority = 0;
-        }
-        firstCamera = !firstCamera;
     }
 
+    private void SwitchCamera()
+    {
+        // Set the priority of the current camera to be the lowest.
+        cameras[activeCameraIndex].Priority = 0;
+
+        // Increment the index to switch to the next camera.
+        activeCameraIndex++;
+        if (activeCameraIndex >= cameras.Count)
+        {
+            activeCameraIndex = 0;
+        }
+
+        // Set the priority of the new camera to be the highest.
+        cameras[activeCameraIndex].Priority = 10;
+    }
 }
