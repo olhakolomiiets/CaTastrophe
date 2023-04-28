@@ -72,5 +72,17 @@ public class VideoManager : MonoBehaviour
                 animator.SetBool("lowPower5", false);
             }
         }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            if (animator.GetBool("AdsSadLook") == false)
+            {
+                animator.SetBool("AdsSadLook", true);
+            }
+            else
+            {
+                animator.SetBool("AdsSadLook", false);
+            }
+        }
     }
 }
