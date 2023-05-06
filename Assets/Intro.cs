@@ -5,8 +5,8 @@ using UnityEngine;
 public class Intro : MonoBehaviour
 {
 
-    public GameObject intro;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject intro;
+
     void Start()
     {
         if (PlayerPrefs.GetInt("Intro") == 0)
@@ -15,13 +15,6 @@ public class Intro : MonoBehaviour
             PlayerPrefs.SetInt("Intro", 1);
             InitializationPrefs();
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void InitializationPrefs()
@@ -33,6 +26,5 @@ public class Intro : MonoBehaviour
         PlayerPrefs.SetInt("AwardPaintUsed", 0);
         PlayerPrefs.SetInt("AwardHeavyObj", 0);
         PlayerPrefs.SetInt("CatsIsYoursAchieve", 0);
-        PlayerPrefs.SetInt("AwardSherlock", 0);
     }
 }

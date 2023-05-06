@@ -10,6 +10,11 @@ public class MyAchieveManager : MonoBehaviour
     private GameObject _Achieves;
     private GameObject _AchievesHouses;
 
+
+    [SerializeField] private List<AchieveSO> allAchievesSO = new List<AchieveSO>();
+    [SerializeField] private GameObject _allAwardsGrid;
+    private IEnumerator coroutine;
+
     void Awake()
     {
 
@@ -29,14 +34,14 @@ public class MyAchieveManager : MonoBehaviour
 
     void Start()
     {
-        foreach (Transform child in _Achieves.transform)
+/*        foreach (Transform child in _Achieves.transform)
         {
             allAchieves.Add(child);
         }
         foreach (var x in allAchieves)
         {
             // Debug.Log(x.ToString());
-        }
+        }*/
         foreach (Transform child in _AchievesHouses.transform)
         {
             housesAchieves.Add(child);
@@ -45,10 +50,17 @@ public class MyAchieveManager : MonoBehaviour
         {
             // Debug.Log(x.ToString());
         }
+
+
+        for (int i = 0; i < allAchievesSO.Count; i++)
+        {
+            GameObject newPrefabInstance1 = Instantiate(allAchievesSO[i].AchieveLvl1, _allAwardsGrid.transform);
+        }
     }
+
     void Update()
     {
-        StartCoroutine(CheckAhiveCorr());
+        //StartCoroutine(CheckAhiveCorr());
         StartCoroutine(CheckAchiveHouses());
     }
     IEnumerator CheckAchiveHouses()
@@ -73,7 +85,7 @@ public class MyAchieveManager : MonoBehaviour
             }
         }
     }
-    IEnumerator CheckAhiveCorr()
+/*    IEnumerator CheckAhiveCorr()
     {
         for (int i = 0; i < allAchieves.Count; i++)
 
@@ -94,7 +106,74 @@ public class MyAchieveManager : MonoBehaviour
                 }
             }
         }
+    }*/
+    IEnumerator CheckAhiveCorr1()
+    {
+        while (true) // loop infinitely
+        {
+            for (int i = 0; i < allAchievesSO.Count; i++)
+
+            {
+                if (allAchievesSO[i].GetAchieveScore() >= allAchievesSO[i].TargetNumberLvl1)
+                {
+
+                    if (PlayerPrefs.GetInt("AchievementState_1" + i) == 0)
+                    {
+                        PlayerPrefs.SetInt("AchievementState_1" + i, 1);
+
+                        GameObject newPrefabInstance = Instantiate(allAchievesSO[i].AchieveLvl1, _allAwardsGrid.transform);
+                        yield return new WaitForSeconds(3f);
+                        Destroy(newPrefabInstance);
+
+                        Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    }
+                }
+                if (allAchievesSO[i].GetAchieveScore() >= allAchievesSO[i].TargetNumberLvl2)
+                {
+
+                    if (PlayerPrefs.GetInt("AchievementState_2" + i) == 0)
+                    {
+                        PlayerPrefs.SetInt("AchievementState_2" + i, 1);
+
+                        GameObject newPrefabInstance = Instantiate(allAchievesSO[i].AchieveLvl1, _allAwardsGrid.transform);
+                        yield return new WaitForSeconds(3f);
+                        Destroy(newPrefabInstance);
+
+                        Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    }
+                }
+                if (allAchievesSO[i].GetAchieveScore() >= allAchievesSO[i].TargetNumberLvl3)
+                {
+
+                    if (PlayerPrefs.GetInt("AchievementState_3" + i) == 0)
+                    {
+                        PlayerPrefs.SetInt("AchievementState_3" + i, 1);
+
+                        GameObject newPrefabInstance = Instantiate(allAchievesSO[i].AchieveLvl1, _allAwardsGrid.transform);
+                        yield return new WaitForSeconds(3f);
+                        Destroy(newPrefabInstance);
+
+                        Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    }
+                }
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
+
+    
+
+    void OnEnable()
+    {
+        coroutine = CheckAhiveCorr1();
+        StartCoroutine(coroutine);
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(coroutine);
+    }
+
     public void ResetAchieves()
     {
         PlayerPrefs.SetInt("VaseAchieve", 0);

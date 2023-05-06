@@ -5,12 +5,14 @@ using UnityEngine;
 public class AwardStreetManager : MonoBehaviour
 {
     public static AwardStreetManager instance = null;
-    public List<Transform> allAchieves = new List<Transform>();
-    private GameObject _Achieves;
+
+    [SerializeField] private List<AchieveSO> allAchievesSO = new List<AchieveSO>();
+    [SerializeField] private GameObject _allAwardsGrid;
+    private IEnumerator coroutine;
 
     void Awake()
     {
-        _Achieves = gameObject.transform.GetChild(0).gameObject;
+
         if (instance == null)
         {
             instance = this;
@@ -22,41 +24,72 @@ public class AwardStreetManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        foreach (Transform child in _Achieves.transform)
-        {
-            allAchieves.Add(child);
-        }
-        // foreach (var x in allAchieves)
-        // {
-        //     // Debug.Log(x.ToString());
-        // }
-    }
-    void Update()
-    {
-        StartCoroutine(CheckAhiveCorr());
-    }
 
-    IEnumerator CheckAhiveCorr()
+    IEnumerator CheckAhiveCorr1()
     {
-        for (int i = 0; i < allAchieves.Count; i++)
-
+        while (true) // loop infinitely
         {
-            if (allAchieves[i].GetComponent<AchieveForManager>().realNumber >= allAchieves[i].GetComponent<AchieveForManager>().TargetNumber)
+            for (int i = 0; i < allAchievesSO.Count; i++)
+
             {
-                if (PlayerPrefs.GetInt("AchievementStateStreet_" + i) != 1)
+                if (allAchievesSO[i].GetAchieveScore() >= allAchievesSO[i].TargetNumberLvl1)
                 {
-                    PlayerPrefs.SetInt("AchievementStateStreet_" + i, 1);
-                    allAchieves[i].gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                    allAchieves[i].gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                    yield return new WaitForSeconds(3f);
-                    allAchieves[i].gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    allAchieves[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
-                    Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    if (PlayerPrefs.GetInt("AchievementState_1" + i) == 0)
+                    {
+                        PlayerPrefs.SetInt("AchievementState_1" + i, 1);
+
+                        GameObject newPrefabInstance = Instantiate(allAchievesSO[i].AchieveLvl1, _allAwardsGrid.transform);
+                        yield return new WaitForSeconds(3f);
+                        Destroy(newPrefabInstance);
+
+                        Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    }
+                }
+                if (allAchievesSO[i].GetAchieveScore() >= allAchievesSO[i].TargetNumberLvl2)
+                {
+
+                    if (PlayerPrefs.GetInt("AchievementState_2" + i) == 0)
+                    {
+                        PlayerPrefs.SetInt("AchievementState_2" + i, 1);
+
+                        GameObject newPrefabInstance = Instantiate(allAchievesSO[i].AchieveLvl2, _allAwardsGrid.transform);
+                        yield return new WaitForSeconds(3f);
+                        Destroy(newPrefabInstance);
+
+                        Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    }
+                }
+                if (allAchievesSO[i].GetAchieveScore() >= allAchievesSO[i].TargetNumberLvl3)
+                {
+
+                    if (PlayerPrefs.GetInt("AchievementState_3" + i) == 0)
+                    {
+                        PlayerPrefs.SetInt("AchievementState_3" + i, 1);
+
+                        GameObject newPrefabInstance = Instantiate(allAchievesSO[i].AchieveLvl3, _allAwardsGrid.transform);
+                        yield return new WaitForSeconds(3f);
+                        Destroy(newPrefabInstance);
+
+                        Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
+                    }
                 }
             }
+            yield return new WaitForSeconds(1);
+            Debug.Log("ААААЧЧЧЧИИВВВВКККАААА under yield return");
         }
+    }
+
+
+
+    void OnEnable()
+    {
+        coroutine = CheckAhiveCorr1();
+        StartCoroutine(coroutine);
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(coroutine);
     }
 }
