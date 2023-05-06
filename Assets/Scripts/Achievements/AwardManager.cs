@@ -47,6 +47,15 @@ public class AwardManager : MonoBehaviour
         _camera.enabled = true;
     }
 
+/*    private void Start()
+    {
+        GameObject newPrefabInstance1 = Instantiate(rightAchievesSO[0].AchieveLvl1, _rightAwardsGrid.transform);
+        GameObject particlesPrefabInstance1 = Instantiate(_particlesStarsAchieve, newPrefabInstance1.transform);
+
+        GameObject newPrefabInstance = Instantiate(leftAchievesSO[6].AchieveLvl1, _leftAwardsGrid.transform);
+        GameObject particlesPrefabInstance = Instantiate(_particlesStarsAchieve, newPrefabInstance.transform);
+    }*/
+
     IEnumerator CheckAhiveCorrRightGrid()
     {
         while (true)
