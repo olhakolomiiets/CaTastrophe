@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerHintTimeUp : MonoBehaviour
 {    
-    void Start()
+/*    void Start()
     {   
         StartCoroutine(ShowPowerHint());
     }
@@ -21,5 +21,5 @@ public class PowerHintTimeUp : MonoBehaviour
                     gameObject.transform.GetChild(1).gameObject.SetActive(false);
                     Debug.Log("ААААЧЧЧЧИИВВВВКККАААА");
                 }
-            }
+            }*/
     }

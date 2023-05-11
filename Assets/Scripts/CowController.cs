@@ -57,15 +57,15 @@ public class CowController : MonoBehaviour
     private float energyCat;
     public GameObject lowPower;
     private bool lowPowerModeON;
-    private Button jump;
-    private EventTrigger left;
-    private EventTrigger right;
+    [SerializeField] private Button jump;
+    [SerializeField] private EventTrigger left;
+    [SerializeField] private EventTrigger right;
     private RigidbodyConstraints2D originalConstraints;
     public GameObject activeCollaider;
     private bool isWaiting;
-    private Button leftButton;
-    private Button rightButton;
-    private Button doButton;
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button rightButton;
+    [SerializeField] private Button doButton;
     public FloatSO catPower;
     public bool isUiJumpPressed;
 
@@ -357,19 +357,23 @@ public class CowController : MonoBehaviour
     {
         left.enabled = false;
         right.enabled = false;
-        leftButton.enabled = false;
-        rightButton.enabled = false;
+        leftButton.interactable = false;
+        rightButton.interactable = false;
         jump.interactable = false;
         doButton.interactable = false;
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------------------------------- DisableAllControlButtons --------------!");
     }
     public void EnableAllControlButtons()
     {
         left.enabled = true;
         right.enabled = true;
-        leftButton.enabled = true;
-        rightButton.enabled = true;
+        leftButton.interactable = true;
+        rightButton.interactable = true;
         jump.interactable = true;
         doButton.interactable = true;
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------------------------------- EnableAllControlButtons --------------!");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -405,129 +409,135 @@ public class CowController : MonoBehaviour
             transform.parent = null;
     }
     private IEnumerator LowPower1()
-    {
+    {        
+        DisableAllControlButtons();
         OnButtonUp();
-        left.enabled = false;
-        right.enabled = false;
-        leftButton.enabled = false;
-        rightButton.enabled = false;
-        jump.interactable = false;
-        doButton.interactable = false;
+
         yield return new WaitForSeconds(0.4f);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        // rb.isKinematic = true;
+
         anim.SetBool("lowPower", true);
-        yield return new WaitForSeconds(6f);
-        // rb.isKinematic = false;
+
+        yield return new WaitForSeconds(4.5f);
+
         rb.constraints = originalConstraints;
         anim.SetBool("lowPower", false);
-        // left.enabled = true;
-        // right.enabled = true;
-        leftButton.enabled = true;
-        rightButton.enabled = true;
-        jump.interactable = true;
-        doButton.interactable = true;
+
+        yield return new WaitForSeconds(1.5f);
+        EnableAllControlButtons();
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower1");
+
+        isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);
+        
     }
     private IEnumerator LowPower2()
     {
+        DisableAllControlButtons();
         OnButtonUp();
+
         yield return new WaitForSeconds(0.4f);
-        // rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        left.enabled = false;
-        right.enabled = false;
-        leftButton.enabled = false;
-        rightButton.enabled = false;
-        jump.interactable = false;
-        doButton.interactable = false;
+
         anim.SetBool("lowPower2", true);
-        yield return new WaitForSeconds(6f);
-        // rb.isKinematic = false;
+
+        yield return new WaitForSeconds(5.3f);
+
         rb.constraints = originalConstraints;
         anim.SetBool("lowPower2", false);
-        left.enabled = true;
-        right.enabled = true;
-        leftButton.enabled = true;
-        rightButton.enabled = true;
-        jump.interactable = true;
-        doButton.interactable = true;
+
+        yield return new WaitForSeconds(1.5f);
+        EnableAllControlButtons();
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower2");
+
+        isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);
+        
     }
     private IEnumerator LowPower3()
     {
+        DisableAllControlButtons();
         OnButtonUp();
+
         yield return new WaitForSeconds(0.4f);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        left.enabled = false;
-        right.enabled = false;
-        leftButton.enabled = false;
-        rightButton.enabled = false;
-        jump.interactable = false;
-        doButton.interactable = false;
+
         anim.SetBool("lowPower3", true);
-        yield return new WaitForSeconds(6f);
+
+        yield return new WaitForSeconds(5.5f);
+
         rb.constraints = originalConstraints;
         anim.SetBool("lowPower3", false);
-        left.enabled = true;
-        right.enabled = true;
-        leftButton.enabled = true;
-        rightButton.enabled = true;
-        jump.interactable = true;
-        doButton.interactable = true;
+
+        yield return new WaitForSeconds(1.5f);
+        EnableAllControlButtons();
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower3");
+
+        isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);
     }
     private IEnumerator LowPower4()
-    {
+    {        
+        DisableAllControlButtons();
         OnButtonUp();
+
         yield return new WaitForSeconds(0.4f);
+
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        left.enabled = false;
-        right.enabled = false;
-        leftButton.enabled = false;
-        rightButton.enabled = false;
-        jump.interactable = false;
-        doButton.interactable = false;
+
         anim.SetBool("lowPower4", true);
-        yield return new WaitForSeconds(4f);
+
+        yield return new WaitForSeconds(3.5f);
+
         rb.constraints = originalConstraints;
         anim.SetBool("lowPower4", false);
-        left.enabled = true;
-        right.enabled = true;
-        leftButton.enabled = true;
-        rightButton.enabled = true;
-        jump.interactable = true;
-        doButton.interactable = true;
+
+        yield return new WaitForSeconds(1.5f);
+        EnableAllControlButtons();
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower4");
+
+        isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);
+        
     }
     private IEnumerator LowPower5()
-    {
+    {       
+        DisableAllControlButtons();
         OnButtonUp();
+
         yield return new WaitForSeconds(0.4f);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        left.enabled = false;
-        right.enabled = false;
-        leftButton.enabled = false;
-        rightButton.enabled = false;
-        jump.interactable = false;
-        doButton.interactable = false;
+
+
         anim.SetBool("lowPower5", true);
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(4.5f);
+
         rb.constraints = originalConstraints;
         anim.SetBool("lowPower5", false);
-        left.enabled = true;
-        right.enabled = true;
-        leftButton.enabled = true;
-        rightButton.enabled = true;
-        jump.interactable = true;
-        doButton.interactable = true;
+
+        yield return new WaitForSeconds(1.5f);
+        EnableAllControlButtons();
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower5");
+
         isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);
+        
     }
     IEnumerator waiter()
     {
         isWaiting = true;
-        int wait_time = UnityEngine.Random.Range(10, 15);
+        int wait_time = UnityEngine.Random.Range(7, 13);
         int courutineIndex = UnityEngine.Random.Range(1, 6);
         yield return new WaitForSeconds(wait_time);
         OnButtonUp();
@@ -553,7 +563,7 @@ public class CowController : MonoBehaviour
                 break;
         }
         print("I started courutine " + courutineIndex + "after " + wait_time + " sec ");
-        isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
+/*        isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);*/
     }
 }

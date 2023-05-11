@@ -20,6 +20,7 @@ public class AwardManager : MonoBehaviour
     [Header("Other")]
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _particlesStarsAchieve;
+    [SerializeField] private GameObject _powerShopHint;
 
     #endregion
 
@@ -28,6 +29,7 @@ public class AwardManager : MonoBehaviour
     private IEnumerator coroutineRightGrid;
     private IEnumerator coroutineHouses;
     private IEnumerator coroutineLeftGrid;
+    private IEnumerator coroutinePowerShopHint;
     #endregion
 
 
@@ -190,17 +192,34 @@ public class AwardManager : MonoBehaviour
         }
     }
 
-
+    IEnumerator CheckPowerShopHintTimeUpLeftGrid()
+    {
+        while (true)
+        {
+            if (PlayerPrefs.GetInt("AreAvailablePower") == 1)
+            {
+                PlayerPrefs.SetInt("AreAvailablePower", 0);
+                GameObject newPrefabInstance = Instantiate(_powerShopHint, _leftAwardsGrid.transform);
+                GameObject particlesPrefabInstance = Instantiate(_particlesStarsAchieve, newPrefabInstance.transform);
+                yield return new WaitForSeconds(3f);
+                Destroy(newPrefabInstance);
+                Destroy(particlesPrefabInstance);
+            }
+        yield return new WaitForSeconds(1);
+        }
+    }
 
     void OnEnable()
     {
         coroutineHouses = CheckHousesAhiveCorrRightGrid();
         coroutineRightGrid = CheckAhiveCorrRightGrid();
         coroutineLeftGrid = CheckAhiveCorrLeftGrid();
+        coroutinePowerShopHint = CheckPowerShopHintTimeUpLeftGrid();
 
         StartCoroutine(coroutineHouses);
         StartCoroutine(coroutineRightGrid);
         StartCoroutine(coroutineLeftGrid);
+        StartCoroutine(coroutinePowerShopHint);
     }
 
     void OnDisable()
@@ -208,5 +227,6 @@ public class AwardManager : MonoBehaviour
         StopCoroutine(coroutineHouses);
         StopCoroutine(coroutineRightGrid);
         StopCoroutine(coroutineLeftGrid);
+        StopCoroutine(coroutinePowerShopHint);
     }
 }

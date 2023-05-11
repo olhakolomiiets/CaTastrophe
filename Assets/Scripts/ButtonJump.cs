@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class ButtonJump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private CowController controller;
+    [SerializeField] private Button jumpButton;
     // public bool buttonPressed;
     void Start()
     {
@@ -18,7 +19,10 @@ public class ButtonJump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        controller.isUiJumpPressed = true;
+        if(jumpButton.interactable == true)
+        {
+            controller.isUiJumpPressed = true;
+        }       
     }
 
     public void OnPointerUp(PointerEventData eventData)
