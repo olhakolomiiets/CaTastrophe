@@ -66,37 +66,37 @@ public class PassivePowerUp : MonoBehaviour
                     {
                         catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
-                        Debug.Log("ToiletSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
+                        //Debug.Log("ToiletSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Toilet2SpeeUp == true)
                     {
                         catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
-                        Debug.Log("Toilet2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
+                        //Debug.Log("Toilet2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Toilet3SpeeUp == true)
                     {
                         catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
-                        Debug.Log("Toilet3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
+                        //Debug.Log("Toilet3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (FoodSpeeUp == true)
                     {
                         catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
-                        Debug.Log("FoodSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
+                        //Debug.Log("FoodSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Food2SpeeUp == true)
                     {
                         catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
-                        Debug.Log("Food2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
+                        //Debug.Log("Food2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Food3SpeeUp == true)
                     {
                         catPower.ChangeAmountBy(0.00083333f);
                         ValueChangeBy?.Invoke(0f);
-                        Debug.Log("Food3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
+                        //Debug.Log("Food3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                 }
             }
@@ -108,13 +108,13 @@ public class PassivePowerUp : MonoBehaviour
     {
         if (hasFocus)
         {
-            Debug.Log("Load OnOnFocus Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Debug.Log("Load OnOnFocus Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             LoadAllPowers();
             PlayerPrefs.SetInt("BoolForSave", 0);
         }
         else
         {
-            Debug.Log("Save OnOnFocus Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Debug.Log("Save OnOnFocus Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             SaveAllPowers();
         }
     }
@@ -124,12 +124,12 @@ public class PassivePowerUp : MonoBehaviour
         if (pauseStatus)
         {
             SaveAllPowers();
-            Debug.Log("Save OnOnPause Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Debug.Log("Save OnOnPause Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else
         {
             LoadAllPowers();
-            Debug.Log("Load OnOnPause Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Debug.Log("Load OnOnPause Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
     }
 
@@ -137,7 +137,7 @@ public class PassivePowerUp : MonoBehaviour
     {
         SaveAllPowers();
         PlayerPrefs.SetInt("BoolForSave", 1);
-        Debug.Log("Save OnDestroy Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //Debug.Log("Save OnDestroy Passive AllPowers !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     private void SaveAllPowers()
@@ -160,22 +160,22 @@ public class PassivePowerUp : MonoBehaviour
             power.SetNewAmount(PlayerPrefs.GetFloat(power.name + "FloatSO"));
             if (power.Value < 10f)
             {
-                Debug.Log("Power value before load ===== " + power.Value + " to cat " + power.nameCat);
+                //Debug.Log("Power value before load ===== " + power.Value + " to cat " + power.nameCat);
                 power.ChangeAmountBy(LoadPowerWhenWasOut() * 0.00083333f);
-                Debug.Log("points Passive when Exit " + (LoadPowerWhenWasOut() * 0.00083333f));
+                //Debug.Log("points Passive when Exit " + (LoadPowerWhenWasOut() * 0.00083333f));
                 power.ChangeAmountBy(toiletPointsWhenWereExit);
                 power.ChangeAmountBy(toiletPoints2WhenWereExit);
                 power.ChangeAmountBy(toiletPoints3WhenWereExit);
                 power.ChangeAmountBy(foodPointsWhenWereExit);
                 power.ChangeAmountBy(foodPoints2WhenWereExit);
                 power.ChangeAmountBy(foodPoints3WhenWereExit);
-                Debug.Log("ToiletPointsWhenWereExit in POWERUP " + toiletPointsWhenWereExit);
+/*                Debug.Log("ToiletPointsWhenWereExit in POWERUP " + toiletPointsWhenWereExit);
                 Debug.Log("ToiletPoints2WhenWereExit in POWERUP " + toiletPoints2WhenWereExit);
                 Debug.Log("ToiletPoints3WhenWereExit in POWERUP " + toiletPoints3WhenWereExit);
                 Debug.Log("FoodPointsWhenWereExit in POWERUP " + foodPointsWhenWereExit);
                 Debug.Log("FoodPoints2WhenWereExit in POWERUP " + foodPoints2WhenWereExit);
                 Debug.Log("FoodPoints3WhenWereExit in POWERUP " + foodPoints3WhenWereExit);
-                Debug.Log("SO value after Load is ===== " + power.Value + " to cat " + power.nameCat);
+                Debug.Log("SO value after Load is ===== " + power.Value + " to cat " + power.nameCat);*/
             }
             if (power.Value >= 10)
             {

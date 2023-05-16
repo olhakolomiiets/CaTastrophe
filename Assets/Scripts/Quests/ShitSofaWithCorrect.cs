@@ -44,7 +44,7 @@ public class ShitSofaWithCorrect : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(inventory.HasFullSlots());
+        //Debug.Log(inventory.HasFullSlots());
         if (Used == false && inventory.HasFullSlots() && PlayerPrefs.GetInt("sofaShit") == 1)
         {
             if (other.CompareTag("Player"))

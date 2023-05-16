@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TimerForToilet : MonoBehaviour, IClickable
 {
-    public float msToiletTime = 60f;
+    public float msToiletTime;
     public GameObject toiletButtonYes;
     public GameObject shitIco;
     public GameObject toiletDirtyImg;
@@ -25,6 +25,7 @@ public class TimerForToilet : MonoBehaviour, IClickable
     {
         Application.runInBackground = false;
         ConnectPowerForToilet();
+        msToiletTime = toiletPowerComponent.GetMsToiletTime();
     }
 
     private void OnEnable()
@@ -39,8 +40,9 @@ public class TimerForToilet : MonoBehaviour, IClickable
     }
     void Update()
     {
-        if (toiletPowerComponent.ToiletTimer() > msToiletTime)
+        if (toiletPowerComponent.ToiletTimer() >= msToiletTime)
         {
+            toiletSlider.value = toiletPowerComponent.ToiletTimer();
             if (!setCleaned)
             {
                 toiletButtonYes.SetActive(true);

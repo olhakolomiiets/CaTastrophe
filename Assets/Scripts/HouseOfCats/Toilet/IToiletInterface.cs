@@ -6,4 +6,6 @@ using System.Collections;
 public interface IToiletInterface
 {
     float ToiletTimer();
+
+    float GetMsToiletTime();
 }

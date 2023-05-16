@@ -24,7 +24,7 @@ public class StateStriking : State
     }
     public override Type UpdateState()
     {
-        if (houseCat.IsCatStriking()==false)
+        if (houseCat.IsCatStriking() == false)
         {                
             Type priorityState = base.UpdateState();
             if (priorityState != null)

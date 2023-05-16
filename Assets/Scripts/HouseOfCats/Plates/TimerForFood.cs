@@ -45,37 +45,33 @@ public class TimerForFood : MonoBehaviour, IClickable
             foodIcons[1].IconOn();
             foodIcons[2].IconOn();
         }
+
     }
 
     void Update()
     {
-        // if (platePowerComponent != null)
-        // {
             if (platePowerComponent.FoodTimer() >= platePowerComponent.GetMsFoodTime())
             {
-                if (isPlateFull)
-                {
-                    FoodIconsOff();
-                }
+            if (isPlateFull)
+            {
+                FoodIconsOff();
+            }
             }
             else
             {
-                var countdown = platePowerComponent.GetMsFoodTime() - platePowerComponent.FoodTimer();
-                uiTextTimer.text = countdown.ToString("F0");
-                // Debug.Log("???----------Start timer " + uiTextTimer.text);
-                if (!isPlateFull)
-                {
-                    foodButtonYes.SetActive(true);
-                    foodInPlateImg.SetActive(true);
-                    isPlateFull = true;
-                }
+            var countdown = platePowerComponent.GetMsFoodTime() - platePowerComponent.FoodTimer();
+
+            float minutes = Mathf.FloorToInt(countdown / 60);
+            float seconds = Mathf.FloorToInt(countdown % 60);
+            uiTextTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+            if (!isPlateFull)
+            {
+                foodButtonYes.SetActive(true);
+                foodInPlateImg.SetActive(true);
+                isPlateFull = true;
             }
-        // }
-        // else if (!powerConnected)
-        // {
-        //     ConnectPowerForFood();
-        //     powerConnected = true;
-        // }
+        }
     }
 
     public void FoodIconsOff()
@@ -103,21 +99,17 @@ public class TimerForFood : MonoBehaviour, IClickable
         {
             checkStarts = true;
         }
-        if (platePowerComponent.FoodTimer() > platePowerComponent.GetMsFoodTime())
+        if (platePowerComponent.FoodTimer() >= platePowerComponent.GetMsFoodTime())
         {
-            uiTextTimer.text = "";
-            foodInPlateImg.SetActive(false);
             return true;
         }
         else
         {
-            foodInPlateImg.SetActive(true);
             return false;
         }
     }
     public void Click()
     {
-        isPlateFull = true;
         foodButtonYes.SetActive(true);
         SendAddFoodEvent();
     }
@@ -139,18 +131,15 @@ public class TimerForFood : MonoBehaviour, IClickable
     {
         if (floor == 2)
         {
-            platePowerComponent = GameObject.FindObjectOfType<PowerForFood2>();
-            // Debug.Log("!!!---------- PlatePowerComponent " + GameObject.FindObjectOfType<PowerForFood2>().name);
+            platePowerComponent = GameObject.FindObjectOfType<PowerForFood2>(); 
         }
         else if (floor == 3)
         {
             platePowerComponent = GameObject.FindObjectOfType<PowerForFood3>();
-            // Debug.Log("!!!---------- PlatePowerComponent " + GameObject.FindObjectOfType<PowerForFood3>().name);
         }
         else
         {
             platePowerComponent = GameObject.FindObjectOfType<PowerForFood>();
-            // Debug.Log("!!!---------- PlatePowerComponent " + GameObject.FindObjectOfType<PowerForFood>().name);
         }
     }
 

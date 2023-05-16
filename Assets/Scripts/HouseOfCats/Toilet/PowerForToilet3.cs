@@ -8,11 +8,12 @@ public class PowerForToilet3 : MonoBehaviour, IToiletInterface
 {
     public static PowerForToilet3 instance;
     [SerializeField] private List<FloatSO> catPowersSO;
+    [SerializeField] private ToiletTimerSO _toiletTimerSO;
     public string timeWhenToiletCleanedPref;
     public string exitTimeToiletPref;
     public string secondsLeftToiletPref;
     public string ToiletUpgradePrefFloor;
-    public float msToiletTime = 60f;
+    public float msToiletTime;
     public float toiletTimer = 0;
     public float secondsWhenWereExit;
     public float secondsLeft;
@@ -48,15 +49,15 @@ public class PowerForToilet3 : MonoBehaviour, IToiletInterface
         var purch = PlayerPrefs.GetInt(ToiletUpgradePrefFloor, 0);
         if (purch == 0)
         {
-            msToiletTime = 60f;
+            msToiletTime = _toiletTimerSO.MsToiletTimeLvl1;
         }
         if (purch == 1)
         {
-            msToiletTime = 120f;
+            msToiletTime = _toiletTimerSO.MsToiletTimeLvl2;
         }
         if (purch == 2)
         {
-            msToiletTime = 180f;
+            msToiletTime = _toiletTimerSO.MsToiletTimeLvl3;
         }
     }
 
@@ -248,6 +249,11 @@ public class PowerForToilet3 : MonoBehaviour, IToiletInterface
     public float ToiletTimer()
     {
         return toiletTimer;
+    }
+
+    public float GetMsToiletTime()
+    {
+        return msToiletTime;
     }
 
     private IEnumerator DebugLogToiletSec()

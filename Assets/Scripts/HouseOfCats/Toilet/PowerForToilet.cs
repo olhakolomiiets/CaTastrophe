@@ -8,11 +8,12 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
 {
     public static PowerForToilet instance;
     [SerializeField] private List<FloatSO> catPowersSO;
+    [SerializeField] private ToiletTimerSO _toiletTimerSO;
     public string timeWhenToiletCleanedPref;
     public string exitTimeToiletPref;
     public string secondsLeftToiletPref;
     public string ToiletUpgradePrefFloor;
-    public float msToiletTime = 60f;
+    public float msToiletTime;
     public float toiletTimer = 0;
     public float secondsLeft;
     public float toiletTimerLeft;
@@ -41,7 +42,7 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         {
             Load();
         }
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!! Awake POwerToilet");
+        //Debug.Log("!!!!!!!!!!!!!!!!!!!!! Awake POwerToilet");
     }
 
     public void UpdateMsToiletTime()
@@ -49,27 +50,27 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         var purch = PlayerPrefs.GetInt(ToiletUpgradePrefFloor, 0);
         if (purch == 0)
         {
-            msToiletTime = 60f;
+            msToiletTime = _toiletTimerSO.MsToiletTimeLvl1;
         }
         if (purch == 1)
         {
-            msToiletTime = 120f;
+            msToiletTime = _toiletTimerSO.MsToiletTimeLvl2;
         }
         if (purch == 2)
         {
-            msToiletTime = 180f;
+            msToiletTime = _toiletTimerSO.MsToiletTimeLvl3;
         }
     }
     void Start()
     {
-        StartCoroutine(DebugLogToiletSec());
+        //StartCoroutine(DebugLogToiletSec());
         TimerForToilet.ToiletAddSand += AddSand;
-        Debug.Log("SUB");
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!! Start POwerToilet");
+        //Debug.Log("SUB");
+        //Debug.Log("!!!!!!!!!!!!!!!!!!!!! Start POwerToilet");
     }
     private void OnEnable()
     {
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!! OnEnable POwerToilet");
+        //Debug.Log("!!!!!!!!!!!!!!!!!!!!! OnEnable POwerToilet");
     }
 
     void Update()
@@ -94,30 +95,30 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         toiletTimer = 0;
         secForToiletAll = 0;
         PlayerPrefs.SetString(timeWhenToiletCleanedPref, System.DateTime.Now.ToBinary().ToString());
-        Debug.Log(" Toilet EVENT AddSand in PowerForToilet ----------------------------------- Sand ADDED");
+        //Debug.Log(" Toilet EVENT AddSand in PowerForToilet ----------------------------------- Sand ADDED");
         PlayerPrefs.SetString("timeWhenRepairObjectOrToiletCleanedPref1", System.DateTime.Now.ToBinary().ToString());
     }
 
     public void Save()
     {
         PlayerPrefs.SetString(exitTimeToiletPref, System.DateTime.Now.ToBinary().ToString());
-        Debug.Log(" Before Save toiletTimer1 " + toiletTimer + "  And msToiletTime is  -  " + msToiletTime);
+        //Debug.Log(" Before Save toiletTimer1 " + toiletTimer + "  And msToiletTime is  -  " + msToiletTime);
         if (toiletTimer > msToiletTime)
         {
             PlayerPrefs.SetFloat(secondsLeftToiletPref, msToiletTime);
-            Debug.Log(" Save to secondsLeftToiletPref in Toilet1 " + msToiletTime);
+            //Debug.Log(" Save to secondsLeftToiletPref in Toilet1 " + msToiletTime);
         }
         else if (toiletTimer < msToiletTime)
         {
             PlayerPrefs.SetFloat(secondsLeftToiletPref, toiletTimer);
-            Debug.Log(" Save to secondsLeftToiletPref in Toilet1 " + toiletTimer);
+            //Debug.Log(" Save to secondsLeftToiletPref in Toilet1 " + toiletTimer);
         }
         saved = true;
     }
 
     public void Load()
     {
-        Debug.Log("!________________________________________________________ LOOOOOOOAAAAAAADDDDDDD " + this.gameObject.name);
+        //Debug.Log("!________________________________________________________ LOOOOOOOAAAAAAADDDDDDD " + this.gameObject.name);
         long tempExitTimeToilet = 0;
         if (PlayerPrefs.HasKey(exitTimeToiletPref))
         {
@@ -142,20 +143,20 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         else
         {
             toiletTimer = PlayerPrefs.GetFloat(secondsLeftToiletPref);
-            Debug.Log("!________________________________________________________ Load to ToiletTimer " + toiletTimer);
+            //Debug.Log("!________________________________________________________ Load to ToiletTimer " + toiletTimer);
             secondsLeft = msToiletTime - (toiletTimer + secAfterExit);
             if (secondsLeft < 0)
             {
                 secondsLeft = 0;
             }
-            Debug.Log("!________________________________________________________ Load to SecondsLeft " + secondsLeft);
+            //Debug.Log("!________________________________________________________ Load to SecondsLeft " + secondsLeft);
             var toiletSecondsWhenWereExit = msToiletTime - toiletTimer - secondsLeft;
-            Debug.Log("!________________________________________________________ Load to secondsToiletLeft " + toiletSecondsWhenWereExit);
+            //Debug.Log("!________________________________________________________ Load to secondsToiletLeft " + toiletSecondsWhenWereExit);
             secondsWhenWereExit = (int)toiletSecondsWhenWereExit;
         }
 
         toiletTimer = msToiletTime - secondsLeft;
-        Debug.Log("!________________________________________________________ Load to ToiletTimer " + toiletTimer);
+        //Debug.Log("!________________________________________________________ Load to ToiletTimer " + toiletTimer);
 
         secForToiletAll = (float)toiletTimer;
         TimeSpan timer = TimeSpan.FromSeconds(rawTime);
@@ -163,9 +164,9 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
 
         if (secAfterExit <= secondsWhenWereExit)
         {
-            Debug.Log(" if secAfterExit " + secAfterExit + " < secondsToiletLeft " + secondsWhenWereExit);
+            //Debug.Log(" if secAfterExit " + secAfterExit + " < secondsToiletLeft " + secondsWhenWereExit);
             pointsWhenWereExit = secAfterExit * 0.00083333f;
-            Debug.Log("pointsWhenWereExit " + pointsWhenWereExit);
+            //Debug.Log("pointsWhenWereExit " + pointsWhenWereExit);
             if (pointsWhenWereExit > 0)
             {
                 foreach (FloatSO catPower in catPowersSO)
@@ -173,14 +174,14 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
                     if (catPower.Value < 10)
                     {
                         PassivePowerUp.toiletPointsWhenWereExit = pointsWhenWereExit;
-                        Debug.Log("Toilet Points when you was absent Timer NotFinished " + pointsWhenWereExit + " to Cat " + catPower.name);
+                        //Debug.Log("Toilet Points when you was absent Timer NotFinished " + pointsWhenWereExit + " to Cat " + catPower.name);
                     }
                 }
             }
         }
         if (secAfterExit > secondsWhenWereExit)
         {
-            Debug.Log(" Toilet if secAfterExit " + secAfterExit + " > secondsToiletLeft " + secondsWhenWereExit);
+            //Debug.Log(" Toilet if secAfterExit " + secAfterExit + " > secondsToiletLeft " + secondsWhenWereExit);
             if (secondsWhenWereExit > 0)
             {
                 float pointsForActiveToilet = secondsWhenWereExit * 0.00083333f;
@@ -193,8 +194,7 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
                         if (catPower.Value < 10)
                         {
                             PassivePowerUp.toiletPointsWhenWereExit = pointsWhenWereExit;
-                            Debug.Log("Toilet Points when you was absent Timer Finished " + pointsWhenWereExit + " to Cat " + catPower.name + " Where exit time "
-                            + secAfterExit + " and Toilet Timer left - " + secondsWhenWereExit);
+                            //Debug.Log("Toilet Points when you was absent Timer Finished " + pointsWhenWereExit + " to Cat " + catPower.name + " Where exit time " + secAfterExit + " and Toilet Timer left - " + secondsWhenWereExit);
                         }
                     }
                 }
@@ -213,7 +213,7 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
             if (saved)
             {
                 Load();
-                Debug.Log("Load OnOnFocus POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                //Debug.Log("Load OnOnFocus POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
         }
         // else
@@ -228,14 +228,14 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         if (pauseStatus)
         {
             Save();
-            Debug.Log("Save OnOnPause POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Debug.Log("Save OnOnPause POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else
         {
             if (saved)
             {
                 Load();
-                Debug.Log("Load OnOnPause POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                //Debug.Log("Load OnOnPause POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
         }
 
@@ -244,13 +244,13 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
     private void OnDisable()
     {
         TimerForToilet.ToiletAddSand -= AddSand;
-        StopCoroutine(DebugLogToiletSec());
+        //StopCoroutine(DebugLogToiletSec());
     }
 
     private void OnDestroy()
     {
         Save();
-        Debug.Log("Save OnDestroy POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //Debug.Log("Save OnDestroy POwerToilet !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public float ToiletTimer()
@@ -258,15 +258,20 @@ public class PowerForToilet : MonoBehaviour, IToiletInterface
         return toiletTimer;
     }
 
-    private IEnumerator DebugLogToiletSec()
+    public float GetMsToiletTime()
     {
-        while (true)
-        {
-            if (!toggle)
-            {
-                Debug.Log("toiletTimer         " + toiletTimer);
-            }
-            yield return new WaitForSeconds(1f);
-        }
+        return msToiletTime;
     }
+
+    /*    private IEnumerator DebugLogToiletSec()
+        {
+            while (true)
+            {
+                if (!toggle)
+                {
+                    Debug.Log("toiletTimer         " + toiletTimer);
+                }
+                yield return new WaitForSeconds(1f);
+            }
+        }*/
 }

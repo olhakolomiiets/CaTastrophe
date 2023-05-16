@@ -11,7 +11,7 @@ public class BrokeWhenOut : MonoBehaviour
     private int secAfterExit;
     private int toiletTimer;
     private float secondsToiletLeft;
-    public float msToiletTime = 60f;
+    public float msToiletTime;
     public Text brokeTxt2;
     public Text brokeTxt3;
     public Text brokeItem1;
