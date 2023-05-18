@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CatPlaceInHouse : MonoBehaviour
 {
+    public Transform catSpawnPositionY; 
     public Transform chair;
     public Transform plate;
     public Transform foodPlaceLeft;

@@ -77,7 +77,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("brownfatcat") == 1 && PlayerPrefs.GetInt("brownfatcatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(catBrown, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catBrown, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarBrown;
@@ -86,7 +86,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("brownfatcat") == 1 && PlayerPrefs.GetInt("brownfatcatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("brownfatcatPlace")];
-            cat = Instantiate(catBrown, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catBrown, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarBrown;
@@ -97,7 +97,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("tigerfatcat") == 1 && PlayerPrefs.GetInt("tigerfatcatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(catTiger, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catTiger, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarTiger;
@@ -106,7 +106,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("tigerfatcat") == 1 && PlayerPrefs.GetInt("tigerfatcatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("tigerfatcatPlace")];
-            cat = Instantiate(catTiger, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catTiger, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarTiger;
@@ -117,7 +117,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("beigefatcat") == 1 && PlayerPrefs.GetInt("beigefatcatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(catBeige, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catBeige, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarBeige;
@@ -126,7 +126,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("beigefatcat") == 1 && PlayerPrefs.GetInt("beigefatcatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("beigefatcatPlace")];
-            cat = Instantiate(catBeige, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catBeige, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarBeige;
@@ -137,7 +137,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("greyfatcat") == 1 && PlayerPrefs.GetInt("greyfatcatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(catGrey, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catGrey, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarGrey;
@@ -146,7 +146,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("greyfatcat") == 1 && PlayerPrefs.GetInt("greyfatcatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("greyfatcatPlace")];
-            cat = Instantiate(catGrey, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catGrey, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarGrey;
@@ -157,7 +157,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("whitefatcat") == 1 && PlayerPrefs.GetInt("whitefatcatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(catWhite, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catWhite, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarWhite;
@@ -166,7 +166,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("whitefatcat") == 1 && PlayerPrefs.GetInt("whitefatcatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("whitefatcatPlace")];
-            cat = Instantiate(catWhite, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(catWhite, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarWhite;
@@ -177,7 +177,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("SlimCat") == 1 && PlayerPrefs.GetInt("SlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCat, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCat, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCat;
@@ -186,7 +186,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("SlimCat") == 1 && PlayerPrefs.GetInt("SlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("SlimCatPlace")];
-            cat = Instantiate(slimCat, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCat, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCat;
@@ -197,7 +197,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("SOSlimCat") == 1 && PlayerPrefs.GetInt("SOSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCatSO, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatSO, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatSO;
@@ -206,7 +206,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("SOSlimCat") == 1 && PlayerPrefs.GetInt("SOSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("SOSlimCatPlace")];
-            cat = Instantiate(slimCatSO, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatSO, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatSO;
@@ -217,7 +217,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("SSlimCat") == 1 && PlayerPrefs.GetInt("SSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCatS, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatS, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatS;
@@ -226,7 +226,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("SSlimCat") == 1 && PlayerPrefs.GetInt("SSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("SSlimCatPlace")];
-            cat = Instantiate(slimCatS, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatS, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatS;
@@ -237,7 +237,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("RSlimCat") == 1 && PlayerPrefs.GetInt("RSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCatR, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatR, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatR;
@@ -246,7 +246,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("RSlimCat") == 1 && PlayerPrefs.GetInt("RSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("RSlimCatPlace")];
-            cat = Instantiate(slimCatR, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatR, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatR;
@@ -257,7 +257,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("GSlimCat") == 1 && PlayerPrefs.GetInt("GSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCatG, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatG, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatG;
@@ -266,7 +266,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("GSlimCat") == 1 && PlayerPrefs.GetInt("GSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("GSlimCatPlace")];
-            cat = Instantiate(slimCatG, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatG, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatG;
@@ -277,7 +277,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("DGSlimCat") == 1 && PlayerPrefs.GetInt("DGSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCatDG, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatDG, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatDG;
@@ -286,7 +286,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("DGSlimCat") == 1 && PlayerPrefs.GetInt("DGSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("DGSlimCatPlace")];
-            cat = Instantiate(slimCatDG, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatDG, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatDG;
@@ -297,7 +297,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("BSlimCat") == 1 && PlayerPrefs.GetInt("BSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCatB, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatB, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatB;
@@ -306,7 +306,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("BSlimCat") == 1 && PlayerPrefs.GetInt("BSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("BSlimCatPlace")];
-            cat = Instantiate(slimCatB, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCatB, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCatB;
@@ -317,7 +317,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("3BSlimCat") == 1 && PlayerPrefs.GetInt("3BSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCat3B, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCat3B, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCat3B;
@@ -326,7 +326,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("3BSlimCat") == 1 && PlayerPrefs.GetInt("3BSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("3BSlimCatPlace")];
-            cat = Instantiate(slimCat3B, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCat3B, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCat3B;
@@ -337,7 +337,7 @@ public class CatInstantiator : MonoBehaviour
         if (PlayerPrefs.GetInt("DSOSlimCat") == 1 && PlayerPrefs.GetInt("DSOSlimCatPlace") == 0)
         {
             placeForCat = FreePlaceInHouse();
-            cat = Instantiate(slimCaDSO, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCaDSO, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCaDSO;
@@ -346,7 +346,7 @@ public class CatInstantiator : MonoBehaviour
         else if (PlayerPrefs.GetInt("DSOSlimCat") == 1 && PlayerPrefs.GetInt("DSOSlimCatPlace") > 0)
         {
             placeForCat = catPlases[PlayerPrefs.GetInt("DSOSlimCatPlace")];
-            cat = Instantiate(slimCaDSO, new Vector3(placeForCat.chair.transform.position.x, placeForCat.chair.transform.position.y, 0), Quaternion.identity);
+            cat = Instantiate(slimCaDSO, new Vector3(Random.Range(-40, 200), placeForCat.catSpawnPositionY.transform.position.y, 0), Quaternion.identity);
             catScript = cat.GetComponent<HouseCat>();
             CopyPlaceParameters();
             catScript.barTop = topBarslimCaDSO;
