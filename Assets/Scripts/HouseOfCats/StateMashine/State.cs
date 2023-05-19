@@ -21,7 +21,7 @@ public abstract class State
             if (houseCat.animFinished)
             {
                 houseCat.animFinished = false;
-                stateIndex = UnityEngine.Random.Range(1, 10);
+                stateIndex = UnityEngine.Random.Range(1, 11);
                 switch (stateIndex)
                 {
                     case 1:
@@ -51,6 +51,9 @@ public abstract class State
                     case 9:
                         houseCat.sportTimer = UnityEngine.Random.Range(4, 9);
                         return typeof(StateSport);
+                    case 10:
+                        houseCat.sadTimer = UnityEngine.Random.Range(8, 12);
+                        return typeof(StateSad);
                     default:
                         houseCat.sleepTimer = UnityEngine.Random.Range(7, 16);
                         return typeof(StateSleep);

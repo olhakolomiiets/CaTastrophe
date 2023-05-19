@@ -534,11 +534,37 @@ public class CowController : MonoBehaviour
         print("isWaiting Set to - " + isWaiting);
         
     }
+    private IEnumerator LowPower6()
+    {
+        DisableAllControlButtons();
+        OnButtonUp();
+
+        yield return new WaitForSeconds(0.4f);
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+
+        anim.SetBool("lowPower6", true);
+
+        yield return new WaitForSeconds(6f);
+
+        rb.constraints = originalConstraints;
+        anim.SetBool("lowPower6", false);
+
+        yield return new WaitForSeconds(1.5f);
+        EnableAllControlButtons();
+
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower6");
+
+        isWaiting = false;
+        print("isWaiting Set to - " + isWaiting);
+
+    }
     IEnumerator waiter()
     {
         isWaiting = true;
-        int wait_time = UnityEngine.Random.Range(7, 13);
-        int courutineIndex = UnityEngine.Random.Range(1, 6);
+        int wait_time = UnityEngine.Random.Range(6, 11);
+        int courutineIndex = UnityEngine.Random.Range(1, 7);
         yield return new WaitForSeconds(wait_time);
         OnButtonUp();
         switch (courutineIndex)
@@ -557,6 +583,9 @@ public class CowController : MonoBehaviour
                 break;
             case 5:
                 StartCoroutine(LowPower5());
+                break;
+            case 6:
+                StartCoroutine(LowPower6());
                 break;
             default:
                 StartCoroutine(LowPower1());

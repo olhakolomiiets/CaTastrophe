@@ -20,6 +20,7 @@ public class StateSleep : State
         houseCat.isDrinking = false;
         houseCat.isSporting = false;
         houseCat.isStriking= false;
+        houseCat.isSad = false;
         houseCat.isSleeping = true;
     }
     public override Type UpdateState()

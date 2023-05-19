@@ -13,6 +13,7 @@ public class HouseCat : MonoBehaviour, IClickable
     public float poopTimer;
     public float hideTimer;
     public float barpTimer;
+    public float sadTimer;
     public float playTimer;
     public float drinkTimer;
     public float sportTimer;
@@ -46,6 +47,7 @@ public class HouseCat : MonoBehaviour, IClickable
     private int goDrink;
     private int goSport;
     private int goStrike;
+    private int goSad;
     public bool isEating;
     public bool isBarping;
     public bool isSleeping;
@@ -56,6 +58,7 @@ public class HouseCat : MonoBehaviour, IClickable
     public bool isDrinking;
     public bool isSporting;
     public bool isStriking;
+    public bool isSad;
     private SortingGroup catSortingGroup;
     public static Rigidbody2D rb;
     // public BoxCollider2D col;
@@ -80,6 +83,7 @@ public class HouseCat : MonoBehaviour, IClickable
            {typeof(StateEat), new StateEat(this)},
            {typeof(StateSleep), new StateSleep(this)},
            {typeof(StateWashing), new StateWashing(this)},
+           {typeof(StateSad), new StateSad(this)},
            {typeof(StatePoop), new StatePoop(this)},
            {typeof(StateBarp), new StateBarp(this)},
            {typeof(StatePlaying), new StatePlaying(this)},
@@ -132,6 +136,10 @@ public class HouseCat : MonoBehaviour, IClickable
         if (isBarping)
         {
             StartCoroutine(GoBarp());
+        }
+        if (isSad)
+        {
+            StartCoroutine(GoSad());
         }
         if (isPlaying)
         {
@@ -399,6 +407,46 @@ public class HouseCat : MonoBehaviour, IClickable
             StartCoroutine(Barp());
         }
     }
+
+    IEnumerator GoSad()
+    {
+        yield return new WaitForSeconds(2f);
+        if (transform.position.x > (chair.position.x - 5f))
+        {
+            goSad = 2;
+        }
+        else if (transform.position.x < (chair.position.x - 5f))
+        {
+            goSad = 1;
+        }
+        else if (transform.position.x == (chair.position.x - 5f))
+        {
+            goSad = 3;
+        }
+        if (transform.position.x > (chair.position.x - 5f) + 0.01)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (transform.position.x < (chair.position.x - 5f) - 0.01)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (goSad == 1)
+        {
+
+            anim.SetBool("isRunning", true);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3((chair.position.x - 5f), transform.position.y, transform.position.z), 5 * Time.deltaTime);
+        }
+        else if (goBarp == 2)
+        {
+            anim.SetBool("isRunning", true);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3((chair.position.x - 5f), transform.position.y, transform.position.z), 5 * Time.deltaTime);
+        }
+        else if (goSad == 3)
+        {
+            StartCoroutine(Sad());
+        }
+    }
     IEnumerator GoPlay()
     {
         yield return new WaitForSeconds(2f);
@@ -661,6 +709,25 @@ public class HouseCat : MonoBehaviour, IClickable
             anim.SetBool("isBarping", false);
         }
           else if (barpTimer < -3)
+        {
+            animFinished = true;
+        }
+    }
+
+    IEnumerator Sad()
+    {
+        if (isSad)
+        {
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isSad", true);
+            sadTimer -= 1 * Time.deltaTime;
+        }
+        yield return new WaitForSeconds(1f);
+        if (!isSad)
+        {
+            anim.SetBool("isSad", false);
+        }
+        else if (sadTimer < -3)
         {
             animFinished = true;
         }

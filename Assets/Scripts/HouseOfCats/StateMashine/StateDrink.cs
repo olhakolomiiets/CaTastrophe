@@ -21,6 +21,7 @@ public class StateDrink : State
         houseCat.isEating = false;
         houseCat.isSporting = false;
         houseCat.isStriking = false;
+        houseCat.isSad = false;
         houseCat.isDrinking = true;
     }
     public override Type UpdateState()

@@ -20,6 +20,7 @@ public class StateStriking : State
         houseCat.isDrinking = false;
         houseCat.isSporting = false;
         houseCat.isWashing = false;
+        houseCat.isSad = false;
         houseCat.isStriking = true;
     }
     public override Type UpdateState()

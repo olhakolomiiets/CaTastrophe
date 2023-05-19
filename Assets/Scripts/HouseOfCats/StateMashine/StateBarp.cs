@@ -20,6 +20,7 @@ public class StateBarp : State
         houseCat.isDrinking = false;
         houseCat.isSporting = false;
         houseCat.isStriking = false;
+        houseCat.isSad = false;
         houseCat.isBarping = true;
     }
     public override Type UpdateState()

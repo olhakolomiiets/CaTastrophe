@@ -20,6 +20,7 @@ public class StatePoop : State
         houseCat.isDrinking = false;
         houseCat.isSporting = false;
         houseCat.isStriking= false;
+        houseCat.isSad = false;
         houseCat.isPooping = true;
     }
     public override Type UpdateState()

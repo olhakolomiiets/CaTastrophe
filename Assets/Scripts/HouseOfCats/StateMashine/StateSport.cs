@@ -22,6 +22,7 @@ public class StateSport : State
         houseCat.isDrinking = false;
         houseCat.isSleeping = false;
         houseCat.isStriking= false;
+        houseCat.isSad = false;
         houseCat.isSporting = true;
 
     }

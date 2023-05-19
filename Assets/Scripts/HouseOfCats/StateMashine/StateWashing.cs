@@ -22,6 +22,7 @@ public class StateWashing : State
         houseCat.isDrinking = false;
         houseCat.isSporting = false;
         houseCat.isStriking = false;
+        houseCat.isSad = false;
         houseCat.isWashing = true;
     }
     public override Type UpdateState()
