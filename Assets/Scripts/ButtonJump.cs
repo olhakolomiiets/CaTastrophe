@@ -19,7 +19,7 @@ public class ButtonJump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(jumpButton.interactable == true)
+        if(jumpButton.interactable)
         {
             controller.isUiJumpPressed = true;
         }       

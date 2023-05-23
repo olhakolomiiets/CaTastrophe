@@ -37,8 +37,6 @@ public class TimeBonus : MonoBehaviour
     private int[] secAdd;
     private Text[] textBonus;
     public delegate void TimeBonusDelegate();
-    // public Text timeSec;
-    public string secText;
 
     private void Awake()
     {
@@ -48,15 +46,13 @@ public class TimeBonus : MonoBehaviour
         secAdd = new int[] { secAdd1, secAdd2, secAdd3 };
         textBonus = new Text[] { textBonus1, textBonus2, textBonus3 };
         completed = new bool[] { completed1, completed2, completed3 };
-        secText = Lean.Localization.LeanLocalization.GetTranslationText("Seconds");
-        //secText = timeSec.text.ToString();
-        
+
+        sm.UpdateBonusScore += CheckForTimeBonuses;
 
         for (int i = 0; i < bonusIdPref.Length; i++)
         {
             textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {Lean.Localization.LeanLocalization.GetTranslationText("Seconds")}";
-        }
-        sm.UpdateBonusScore += CheckForTimeBonuses;
+        }       
     }
 
     private void OnEnable()
@@ -76,35 +72,6 @@ public class TimeBonus : MonoBehaviour
             textBonus[i].text = $"{PlayerPrefs.GetInt(bonusIdPref[i])}/{HowMany[i]}    +{secAdd[i]} {Lean.Localization.LeanLocalization.GetTranslationText("Seconds")}";
         }
     }
-    
-
-    // private void CheckForTimeBonuses()
-    // {
-    //     if (PlayerPrefs.GetInt(bonusIdPref1) == HowMany1 && !completed1)
-    //     {
-    //         textBonus1.text = $"{PlayerPrefs.GetInt(bonusIdPref1)}/{HowMany1}    +{secAdd1} sec";
-    //         completed1 = true;
-    //         done1.SetActive(true);
-    //         timer.AddSecondsToTimer(secAdd1);
-    //     }
-    //     if (PlayerPrefs.GetInt(bonusIdPref2) == HowMany2 && !completed2)
-    //     {
-    //         textBonus2.text = $"{PlayerPrefs.GetInt(bonusIdPref2)}/{HowMany2}    +{secAdd2} sec";
-    //         completed2 = true;
-    //         done2.SetActive(true);
-    //         timer.AddSecondsToTimer(secAdd2);
-    //     }
-    //     if (PlayerPrefs.GetInt(bonusIdPref3) == HowMany3 && !completed3)
-    //     {
-    //         textBonus3.text = $"{PlayerPrefs.GetInt(bonusIdPref3)}/{HowMany3}    +{secAdd3} sec";
-    //         completed3 = true;
-    //         done3.SetActive(true);
-    //         timer.AddSecondsToTimer(secAdd3);
-    //     }
-    //     textBonus1.text = $"{PlayerPrefs.GetInt(bonusIdPref1)}/{HowMany1}    +{secAdd1} sec";
-    //     textBonus2.text = $"{PlayerPrefs.GetInt(bonusIdPref2)}/{HowMany2}    +{secAdd2} sec";
-    //     textBonus3.text = $"{PlayerPrefs.GetInt(bonusIdPref3)}/{HowMany3}    +{secAdd3} sec";
-    // }
 
     private void OnDestroy()
     {

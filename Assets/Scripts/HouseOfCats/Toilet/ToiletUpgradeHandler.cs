@@ -22,38 +22,16 @@ public class ToiletUpgradeHandler : MonoBehaviour, IClickable
     void Start()
     {
         purch = PlayerPrefs.GetInt(ToiletUpgradePrefFloor, 0);
-        // Debug.Log("PlayerPrefs.GetInt(ppnamePower) " + purch);
-        TotalScore = PlayerPrefs.GetInt("TotalScore");
-        if (purch == 0)
-        {
-            toiletLevel1.SetActive(true);
-            toiletLevel2.SetActive(false);
-            toiletLevel3.SetActive(false);
-            onFocus.toiletTimerActive = 1;
-        }
-        if (purch == 1)
-        {
-            toiletLevel1.SetActive(false);
-            toiletLevel2.SetActive(true);
-            toiletLevel3.SetActive(false);
-            // toilet2.Click();
-            onFocus.toiletTimerActive = 2;
-        }
-        if (purch == 2)
-        {
-            toiletLevel1.SetActive(false);
-            toiletLevel2.SetActive(false);
-            toiletLevel3.SetActive(true);
-            // toilet3.Click();
-            onFocus.toiletTimerActive = 3;
-        }
+        UpdateToiletLevel();
 
         TotalScore = PlayerPrefs.GetInt("TotalScore");
     }
+
     public void Click()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         purch = PlayerPrefs.GetInt(ToiletUpgradePrefFloor, 0);
+
         if (TotalScore >= price && purch == 0)
         {
             Instantiate(upgradeParticles, new Vector3(transform.position.x, transform.position.y + yCorrection, 0), Quaternion.identity);
@@ -78,6 +56,8 @@ public class ToiletUpgradeHandler : MonoBehaviour, IClickable
         }
         purch = PlayerPrefs.GetInt(ToiletUpgradePrefFloor, 0);
 
+        UpdateToiletLevel();
+
         switch (floor)
         {
         case 3:
@@ -98,5 +78,30 @@ public class ToiletUpgradeHandler : MonoBehaviour, IClickable
     public void ResetToilet()
     {
         PlayerPrefs.SetInt(ToiletUpgradePrefFloor, 0);
+    }
+
+    public void UpdateToiletLevel()
+    {
+        if (purch == 0)
+        {
+            toiletLevel1.SetActive(true);
+            toiletLevel2.SetActive(false);
+            toiletLevel3.SetActive(false);
+            onFocus.toiletTimerActive = 1;
+        }
+        if (purch == 1)
+        {
+            toiletLevel1.SetActive(false);
+            toiletLevel2.SetActive(true);
+            toiletLevel3.SetActive(false);
+            onFocus.toiletTimerActive = 2;
+        }
+        if (purch == 2)
+        {
+            toiletLevel1.SetActive(false);
+            toiletLevel2.SetActive(false);
+            toiletLevel3.SetActive(true);
+            onFocus.toiletTimerActive = 3;
+        }
     }
 }

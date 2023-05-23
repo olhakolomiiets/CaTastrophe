@@ -11,7 +11,6 @@ public class StateSad : State
 
     public override void EnterState()
     {
-        houseCat.washingAnim = UnityEngine.Random.Range(1, 3);
         houseCat.jump = false;
         houseCat.isEating = false;
         houseCat.isHiding = false;
@@ -27,7 +26,7 @@ public class StateSad : State
     }
     public override Type UpdateState()
     {
-        if (houseCat.washTimer <= 0)
+        if (houseCat.sadTimer <= 0)
         {
             Type priorityState = base.UpdateState();
             if (priorityState != null)

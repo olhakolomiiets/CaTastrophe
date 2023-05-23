@@ -87,9 +87,13 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
+    #region "VibrationPatterns"
+
     public long[] patternLevel1 = { 0, 20, 30, 20, 10, 10, 10, 10, 10, 10, 10 };
     public long[] patternLevel2 = { 0, 20, 40, 30, 20, 10, 10, 10, 10, 10, 10, 10, 10 };
     public long[] patternLevel3 = { 0, 20, 30, 40, 50, 40, 30, 20, 10, 10, 10, 10, 10, 10, 10, 10 };
+
+    #endregion
 
 
 
@@ -97,6 +101,7 @@ public class CameraController : MonoBehaviour
     {
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
         FindPlayer(isLeft);
+        bottomLimit = player.position.y;
     }
 
     public void FindPlayer(bool playerIsLeft)
@@ -147,12 +152,14 @@ public class CameraController : MonoBehaviour
             Vector3 currentPosition = Vector3.Lerp(transform.position, target, dumping * Time.deltaTime);
             transform.position = currentPosition;
         }
+
         transform.position = new Vector3
         (
             Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
             Mathf.Clamp(transform.position.y, bottomLimit, upperLimit),
             Mathf.Clamp(transform.position.z, -100, 200)
         );
+
         if (floor1)
         {
             if (bottomLimit < bottomLimitFloor1)

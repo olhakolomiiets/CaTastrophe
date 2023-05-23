@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,14 +18,15 @@ public class UIManager : MonoBehaviour
     private GameTimer timerMy;
     private CowController player;
     private Rigidbody2D rbPlayer;
-    public Transform playerPos;
+    [SerializeField] private List<Transform> playerPositions;
+    private static int previousPosition;
     public GameObject[] players;
     int sceneIndex;
     public GameObject loadingScreen;
     public Slider bar;
     private void Awake()
     {
-        player = Instantiate(players[PlayerPrefs.GetInt("Player")], playerPos.position, Quaternion.identity).GetComponent<CowController>();
+        player = Instantiate(players[PlayerPrefs.GetInt("Player")], ChooseStartPlayerPosition().position, Quaternion.identity).GetComponent<CowController>();
         rbPlayer = player.transform.GetComponentInParent<Rigidbody2D>();
     }
     public void Start()
@@ -33,6 +35,27 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("timeBonus2", 0);
         PlayerPrefs.SetInt("timeBonus3", 0);
         timerMy = FindObjectOfType<GameTimer>();
+    }
+
+    private Transform ChooseStartPlayerPosition()
+    {
+        int positionIndex;
+        if (playerPositions.Count > 1)
+        {
+            do
+            {
+                positionIndex = Random.Range(0, playerPositions.Count);
+            }
+            while (positionIndex == previousPosition);
+
+            previousPosition = positionIndex;
+        }
+        else
+        {
+            positionIndex = 0;
+        }
+
+        return playerPositions[positionIndex];
     }
     public void PauseOn()
     {

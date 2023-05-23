@@ -22,6 +22,7 @@ public class BrokeWhenOut : MonoBehaviour
     public TimerForToilet toilet;
     public string timeWhenToiletCleanedPref;
     public int floor;
+    [SerializeField] private TimeBeforeItemsBreakSO _timeBeforeItemsBreak;
 
     private void Awake()
     {
@@ -80,7 +81,7 @@ public class BrokeWhenOut : MonoBehaviour
         brokeTxt2.text = $"Start cheking secAfterAddToilet ==== {secAfterAddToilet} ";
         brokeTxt3.text = $"TimeWhenToiletCleaned before check == {addedTimeToilet} ";
         // Debug.Log("++++++++++++++++++++++++++++++++++++ secondsToiletLeft > secAfterExit " + secondsToiletLeft + " > " + secAfterExit);
-        if (secAfterAddToilet > 30f + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy1" + floor) != 1)
+        if (secAfterAddToilet > _timeBeforeItemsBreak.Item1 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy1" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
             {
@@ -98,7 +99,7 @@ public class BrokeWhenOut : MonoBehaviour
                 PlayerPrefs.SetInt("stuffToDestroy1" + floor, 1);
             }
         }
-        if (secAfterAddToilet > 60f + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy2" + floor) != 1)
+        if (secAfterAddToilet > _timeBeforeItemsBreak.Item2 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy2" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
             {
@@ -116,7 +117,7 @@ public class BrokeWhenOut : MonoBehaviour
                 PlayerPrefs.SetInt("stuffToDestroy2" + floor, 1);
             }
         }
-        if (secAfterAddToilet > 90f + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy3" + floor) != 1)
+        if (secAfterAddToilet > _timeBeforeItemsBreak.Item3 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy3" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
             {
@@ -134,7 +135,7 @@ public class BrokeWhenOut : MonoBehaviour
                 PlayerPrefs.SetInt("stuffToDestroy3" + floor, 1);
             }
         }
-        if (secAfterAddToilet > 120f + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy4" + floor) != 1)
+        if (secAfterAddToilet > _timeBeforeItemsBreak.Item4 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy4" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
             {
@@ -152,7 +153,7 @@ public class BrokeWhenOut : MonoBehaviour
                 PlayerPrefs.SetInt("stuffToDestroy4" + floor, 1);
             }
         }
-        if (secAfterAddToilet > 150f + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy5" + floor) != 1)
+        if (secAfterAddToilet > _timeBeforeItemsBreak.Item5 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy5" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
             {
@@ -170,7 +171,7 @@ public class BrokeWhenOut : MonoBehaviour
                 PlayerPrefs.SetInt("stuffToDestroy5" + floor, 1);
             }
         }
-        if (secAfterAddToilet > 180f + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy6" + floor) != 1)
+        if (secAfterAddToilet > _timeBeforeItemsBreak.Item6 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy6" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
             {

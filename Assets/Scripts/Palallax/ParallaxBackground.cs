@@ -36,7 +36,7 @@ using UnityEngine;
      {
          foreach (ParallaxLayer layer in parallaxLayers)
        {
-           layer.Move(delta);
+                layer.Move(delta);         
        }
    }
  }

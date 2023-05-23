@@ -1979,6 +1979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: -0.07
+  isVisible: 0
+  distanceToPlayer: 20
 --- !u!212 &99947986
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7728,6 +7730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826106739983744198, guid: 2688fe71f25edeb4da4eeba09efac58a,
+        type: 3}
+      propertyPath: distanceToPlayer
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1065372350, guid: 2688fe71f25edeb4da4eeba09efac58a, type: 3}
@@ -15193,7 +15200,8 @@ MonoBehaviour:
   panelWin: {fileID: 1705830692}
   panelTimeUp: {fileID: 198151532}
   powerManager: {fileID: 0}
-  playerPos: {fileID: 2142421675}
+  playerPositions:
+  - {fileID: 2142421675}
   players:
   - {fileID: 7108288223983141083, guid: 61c18ebaa9252374cb5e1326ed33d64d, type: 3}
   - {fileID: 6195436267837379574, guid: abedb8d6c9295c447893e5ae12dbbaaf, type: 3}
@@ -46370,6 +46378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: -0.07
+  isVisible: 0
+  distanceToPlayer: 0
 --- !u!212 &1637489034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76226,6 +76236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: -0.07
+  isVisible: 0
+  distanceToPlayer: 20
 --- !u!1 &4789021980908182600
 GameObject:
   m_ObjectHideFlags: 0

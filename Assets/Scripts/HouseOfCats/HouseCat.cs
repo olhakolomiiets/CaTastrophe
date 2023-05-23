@@ -437,7 +437,7 @@ public class HouseCat : MonoBehaviour, IClickable
             anim.SetBool("isRunning", true);
             transform.position = Vector3.MoveTowards(transform.position, new Vector3((chair.position.x - 5f), transform.position.y, transform.position.z), 5 * Time.deltaTime);
         }
-        else if (goBarp == 2)
+        else if (goSad == 2)
         {
             anim.SetBool("isRunning", true);
             transform.position = Vector3.MoveTowards(transform.position, new Vector3((chair.position.x - 5f), transform.position.y, transform.position.z), 5 * Time.deltaTime);

@@ -11,7 +11,7 @@ public class StateDrink : State
     }
     public override void EnterState()
     {
-        houseCat.jump = true;
+        houseCat.jump = false;
         houseCat.isSleeping = false;
         houseCat.isHiding = false;
         houseCat.isWashing = false;
