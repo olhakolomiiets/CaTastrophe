@@ -7,17 +7,21 @@ public class ToiletUpgradeHandler : MonoBehaviour, IClickable
     public GameObject toiletLevel1;
     public GameObject toiletLevel2;
     public GameObject toiletLevel3;
-    // public TimerForToilet toilet2;
-    // public TimerForToilet toilet3;
     public string ToiletUpgradePrefFloor;
-    public int price;
-    public int price2;
+    [SerializeField] private UpgradePricesSO _upgradePrices;
+    [SerializeField] private UpgradeToiletUI _upgradeToiletUI; 
     public int purch;
     public int floor;
     private int TotalScore;
     public FocusScript onFocus;
     public GameObject upgradeParticles;
     public float yCorrection;
+
+    #region Properties
+
+    public UpgradePricesSO UpgradePrices => _upgradePrices;
+
+    #endregion
 
     void Start()
     {
@@ -29,28 +33,33 @@ public class ToiletUpgradeHandler : MonoBehaviour, IClickable
 
     public void Click()
     {
+        _upgradeToiletUI.CurrentToiletUpgradeHandler = this; 
+        _upgradeToiletUI.gameObject.SetActive(true);
+    }
+    public void Upgrade()
+    {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         purch = PlayerPrefs.GetInt(ToiletUpgradePrefFloor, 0);
 
-        if (TotalScore >= price && purch == 0)
+        if (TotalScore >= _upgradePrices.UpgradePriceToiletLvl2 && purch == 0)
         {
             Instantiate(upgradeParticles, new Vector3(transform.position.x, transform.position.y + yCorrection, 0), Quaternion.identity);
             PlayerPrefs.SetInt(ToiletUpgradePrefFloor, 1);
             toiletLevel1.SetActive(false);
             toiletLevel2.SetActive(true);
             toiletLevel3.SetActive(false);
-            TotalScore = TotalScore - price;
+            TotalScore = TotalScore - _upgradePrices.UpgradePriceToiletLvl2;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
         }
-        if (TotalScore >= price2 && purch == 1)
+        if (TotalScore >= _upgradePrices.UpgradePriceToiletLvl3 && purch == 1)
         {
             Instantiate(upgradeParticles, new Vector3(transform.position.x, transform.position.y + yCorrection, 0), Quaternion.identity);
             PlayerPrefs.SetInt(ToiletUpgradePrefFloor, 2);
             toiletLevel1.SetActive(false);
             toiletLevel2.SetActive(false);
             toiletLevel3.SetActive(true);
-            TotalScore = TotalScore - price2;
+            TotalScore = TotalScore - _upgradePrices.UpgradePriceToiletLvl3;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
         }
@@ -73,6 +82,8 @@ public class ToiletUpgradeHandler : MonoBehaviour, IClickable
             PowerForToilet.instance.UpdateMsToiletTime();
             break;
         }
+
+        _upgradeToiletUI.gameObject.SetActive(false);
     }
 
     public void ResetToilet()
