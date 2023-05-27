@@ -8,19 +8,23 @@ public class FoodUpgradeHandler : MonoBehaviour, IClickable
     public GameObject plateLevel2;
     public GameObject plateLevel3;
     public string PlateUpgradePrefFloor;
-    public int price;
-    public int price2;
+    [SerializeField] private UpgradePricesSO _upgradePrices;
+    [SerializeField] private UpgradePlateUI _upgradePlateUI;
     public int purch;
     private int TotalScore;
     public FocusScript onFocus;
     public GameObject upgradeParticles;
     public float yCorrection;
-
     [SerializeField] private TimerForFood foodTimerLvl1;
     [SerializeField] private TimerForFood foodTimerLvl2;
     [SerializeField] private TimerForFood foodTimerLvl3;
     [SerializeField] private int foodTimerActive = 0;
 
+    #region Properties
+
+    public UpgradePricesSO UpgradePrices => _upgradePrices;
+
+    #endregion
 
     private void Awake()
     {
@@ -29,35 +33,41 @@ public class FoodUpgradeHandler : MonoBehaviour, IClickable
         TotalScore = PlayerPrefs.GetInt("TotalScore");
     }
 
-
     public void Click()
+    {
+        _upgradePlateUI.CurrentFoodUpgradeHandler = this;
+        _upgradePlateUI.gameObject.SetActive(true);
+    }
+
+    public void Upgrade()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         purch = PlayerPrefs.GetInt(PlateUpgradePrefFloor, 0);
-        if (TotalScore >= price && purch == 0)
+        if (TotalScore >= _upgradePrices.UpgradePriceFoodPlateLvl2 && purch == 0)
         {
             Instantiate(upgradeParticles, new Vector3(transform.position.x, transform.position.y + yCorrection, 0), Quaternion.identity);
             PlayerPrefs.SetInt(PlateUpgradePrefFloor, 1);
             plateLevel1.SetActive(false);
             plateLevel2.SetActive(true);
             plateLevel3.SetActive(false);
-            TotalScore = TotalScore - price;
+            TotalScore = TotalScore - _upgradePrices.UpgradePriceFoodPlateLvl2;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
         }
-        if (TotalScore >= price2 && purch == 1)
+        if (TotalScore >= _upgradePrices.UpgradePriceFoodPlateLvl3 && purch == 1)
         {
             Instantiate(upgradeParticles, new Vector3(transform.position.x, transform.position.y + yCorrection, 0), Quaternion.identity);
             PlayerPrefs.SetInt(PlateUpgradePrefFloor, 2);
             plateLevel1.SetActive(false);
             plateLevel2.SetActive(false);
             plateLevel3.SetActive(true);
-            TotalScore = TotalScore - price2;
+            TotalScore = TotalScore - _upgradePrices.UpgradePriceFoodPlateLvl3;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
         }
         purch = PlayerPrefs.GetInt(PlateUpgradePrefFloor, 0);
         UpdatePlateLevel();
+        _upgradePlateUI.gameObject.SetActive(false);
     }
     public bool isFoodInPlate()
     {
