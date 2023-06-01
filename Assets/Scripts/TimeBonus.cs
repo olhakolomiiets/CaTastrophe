@@ -55,7 +55,7 @@ public class TimeBonus : MonoBehaviour
         }       
     }
 
-    private void OnEnable()
+    private void Start()
     {       
         CheckForTimeBonuses();
     }

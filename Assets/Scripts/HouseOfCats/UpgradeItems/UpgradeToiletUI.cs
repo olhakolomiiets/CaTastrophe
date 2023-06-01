@@ -18,6 +18,8 @@ public class UpgradeToiletUI : MonoBehaviour, IClickable
     [SerializeField] private Vector3 _arrowForScale;
     private Tweener tweenerArrow1;
     private Tweener tweenerArrow2;
+    private Vector3 _originalScaleArrow1;
+    private Vector3 _originalScaleArrow2;
 
     #endregion
 
@@ -27,7 +29,8 @@ public class UpgradeToiletUI : MonoBehaviour, IClickable
 
     private void Awake()
     {
-        
+        _originalScaleArrow1 = _arrow1.transform.localScale;
+        _originalScaleArrow2 = _arrow2.transform.localScale;
     }
     void Start()
     {
@@ -85,5 +88,8 @@ public class UpgradeToiletUI : MonoBehaviour, IClickable
     {
         tweenerArrow1.Kill();
         tweenerArrow2.Kill();
+
+        _arrow1.transform.localScale = _originalScaleArrow1;
+        _arrow2.transform.localScale = _originalScaleArrow2;
     }
 }
