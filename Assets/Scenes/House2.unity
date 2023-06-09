@@ -2258,6 +2258,7 @@ GameObject:
   - component: {fileID: 73019663}
   - component: {fileID: 73019662}
   - component: {fileID: 73019661}
+  - component: {fileID: 73019664}
   m_Layer: 0
   m_Name: _Ads
   m_TagString: Untagged
@@ -2274,7 +2275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 73019660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5218cf0af0cdd47bbf4d2a5a7de2b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fe43d53c2536c743a3f2495fec33495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delayBetweenAds: 240
@@ -2287,12 +2288,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 73019660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd0baec10ac30c438120d64ad2699e3, type: 3}
+  m_Script: {fileID: 11500000, guid: f1f76396852980a40bd2a767eb9f5f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonReward: {fileID: 240189960}
-  pauseButton: {fileID: 2058394904}
   panelLose: {fileID: 240189958}
+  pauseButton: {fileID: 2058394904}
+  _adController: {fileID: 73019664}
+  OnUserEarnedRewardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &73019663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2312,6 +2320,24 @@ RectTransform:
   m_AnchoredPosition: {x: 960, y: 539.7425}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &73019664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73019660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1ded1185a115c4b8a4ba065ff87d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUserEarnedRewardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &73940105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8742538545776668643, guid: 933627dfc9f5dd34c963417eff47b1a4,
@@ -11317,12 +11343,12 @@ PrefabInstance:
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ShowInterstitialWithDelayBetweenAds
+      value: LoadAndShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Interstitial, Assembly-CSharp
+      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -11782,8 +11808,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 73019661}
-        m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
-        m_MethodName: ShowInterstitialAd
+        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.InterstitialAdController,
+          Assembly-CSharp
+        m_MethodName: LoadAndShowInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32644,12 +32671,12 @@ PrefabInstance:
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ShowInterstitialWithDelayBetweenAds
+      value: LoadAndShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Interstitial, Assembly-CSharp
+      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -61108,7 +61135,6 @@ MonoBehaviour:
   secAdd3: 15
   done3: {fileID: 4491493477271913875}
   textBonus3: {fileID: 4491493478090396247}
-  secText: 
 --- !u!114 &246618573177733708
 MonoBehaviour:
   m_ObjectHideFlags: 0

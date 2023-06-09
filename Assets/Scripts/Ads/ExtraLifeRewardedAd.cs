@@ -1,66 +1,54 @@
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using GoogleMobileAds.Api;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
+using GoogleMobileAds;
+using GoogleMobileAds.Api;
+using GoogleMobileAds.Common;
+using UnityEngine.Events;
 
 public class ExtraLifeRewardedAd : MonoBehaviour
 {
-    private RewardBasedVideoAd adReward;
-    private string idApp, idReward;
+    #region EDITOR FIELDS
+
     [SerializeField] private Button buttonReward;
-    [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject panelLose;
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
+
+    #endregion
+
+    #region UNITY EVENTS
+
+    [HideInInspector] public UnityEvent OnUserEarnedRewardEvent;
+    [HideInInspector] public UnityEvent OnAdClosedEvent;
+
+    #endregion
+
+    #region PRIVATE FIELDS
+
     private bool _rewardedAdUsed;
+
+    #endregion
+
 
     private void OnEnable()
     {
         _rewardedAdUsed = false;
+
+        _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
+        _adController.OnAdClosedEvent.AddListener(RewardedAdClosed);
+
         Debug.Log("OnEnable ()");
     }
 
-    void Start()
-    {
-        //idApp = "ca-app-pub-4196164004824768~8007119707";
-        idApp = "ca-app-pub-3940256099942544/5224354917";
-        idReward = "ca-app-pub-3940256099942544/5224354917";
-
-        adReward = RewardBasedVideoAd.Instance;
-    }
-
-    public void RequestRewardAd()
-    {
-        AdRequest request = AdRequestBuild();
-        adReward.LoadAd(request, idReward);
-
-        adReward.OnAdLoaded += this.HandleOnRewardedAdLoaded;
-        adReward.OnAdRewarded += this.UserEarnedReward;
-        adReward.OnAdClosed += this.RewardedAdClosed;
-    }
-
-    AdRequest AdRequestBuild()
-    {
-        return new AdRequest.Builder().Build();
-    }
-
-    public void ShowRewardAd()
-    {
-        if (adReward.IsLoaded())
-            adReward.Show();
-        Debug.Log("adReward.Show ()");
-    }
-
-    public void HandleOnRewardedAdLoaded(object sender, EventArgs args)
-    {
-        ShowRewardAd();
-    }
-    public void UserEarnedReward (object sender, EventArgs args)
+    public void UserEarnedReward()
     {
         CowController.lives++;
         Debug.Log("User Earned Reward ()");
     }
-    public void RewardedAdClosed (object sender, EventArgs args)
+
+    public void RewardedAdClosed()
     {
         buttonReward.interactable = true;
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("GetLife")}";
@@ -70,18 +58,20 @@ public class ExtraLifeRewardedAd : MonoBehaviour
         _rewardedAdUsed = true;
         Debug.Log("Rewarded Ad Closed ()");
     }
+
     public void OnGetOneMoreLife()
     {
         buttonReward.interactable = false;
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
-        RequestRewardAd();
+        _adController.LoadAd();
+        _adController.ShowAd();
     }
 
     private void OnDisable()
     {
-        adReward.OnAdLoaded -= this.HandleOnRewardedAdLoaded;
-        adReward.OnAdRewarded -= this.UserEarnedReward;
-        adReward.OnAdClosed -= this.RewardedAdClosed;
+        _adController.OnUserEarnedRewardEvent.RemoveListener(UserEarnedReward);
+        _adController.OnAdClosedEvent.RemoveListener(RewardedAdClosed);
     }
+
 
 }

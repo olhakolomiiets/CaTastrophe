@@ -14,8 +14,8 @@ public class PurchaseManager : MonoBehaviour
     public GameObject buyTxt;
     public GameObject alreadyBoughtTxt;
 
-    private BannerView bannerAd;
-    private InterstitialAd interstitialAd;
+    //private BannerView bannerAd;
+    //private InterstitialAd interstitialAd;
     private bool adsDisabled = false;
 
     public void MoneyPack5000()

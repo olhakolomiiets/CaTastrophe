@@ -12419,8 +12419,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1330085940}
-        m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
-        m_MethodName: ShowInterstitialAd
+        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.InterstitialAdController,
+          Assembly-CSharp
+        m_MethodName: LoadAndShowInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20315,12 +20316,12 @@ PrefabInstance:
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ShowInterstitialWithDelayBetweenAds
+      value: LoadAndShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Interstitial, Assembly-CSharp
+      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -46558,8 +46559,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330085941}
-  - component: {fileID: 1330085940}
   - component: {fileID: 1330085939}
+  - component: {fileID: 1330085940}
+  - component: {fileID: 1330085942}
   m_Layer: 0
   m_Name: _Ads
   m_TagString: Untagged
@@ -46576,12 +46578,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330085938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd0baec10ac30c438120d64ad2699e3, type: 3}
+  m_Script: {fileID: 11500000, guid: f1f76396852980a40bd2a767eb9f5f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonReward: {fileID: 501601142}
-  pauseButton: {fileID: 2058394904}
   panelLose: {fileID: 501601140}
+  pauseButton: {fileID: 2058394904}
+  _adController: {fileID: 1330085942}
+  OnUserEarnedRewardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1330085940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46591,7 +46600,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330085938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5218cf0af0cdd47bbf4d2a5a7de2b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fe43d53c2536c743a3f2495fec33495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delayBetweenAds: 240
@@ -46609,6 +46618,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330085942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330085938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1ded1185a115c4b8a4ba065ff87d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUserEarnedRewardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1336191084
 GameObject:
   m_ObjectHideFlags: 0
@@ -69395,12 +69422,12 @@ PrefabInstance:
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ShowInterstitialWithDelayBetweenAds
+      value: LoadAndShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Interstitial, Assembly-CSharp
+      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -71547,7 +71574,6 @@ MonoBehaviour:
   secAdd3: 15
   done3: {fileID: 4491493478126239965}
   textBonus3: {fileID: 4491493477241837337}
-  secText: 
 --- !u!222 &246618573441981981
 CanvasRenderer:
   m_ObjectHideFlags: 0
