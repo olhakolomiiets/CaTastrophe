@@ -32,6 +32,7 @@ public class UpgradeItemIco : MonoBehaviour
     private void Start()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
+        _priceText.text = _itemPrice.ToString();
     }
 
     public void UpdateIco(string upgradeUnitPref, int unitId)

@@ -150,7 +150,7 @@ public class HouseCatUpgradeUnit : MonoBehaviour
 
     private void Scale(GameObject objectToScale)
     {
-        objectToScale.transform.DOScale(_itemForScale, 0.5f)
+        objectToScale.transform.DOScale(_itemForScale, 0.3f)
             .SetEase(Ease.InOutSine)
             .SetLoops(2, LoopType.Yoyo);
     }
