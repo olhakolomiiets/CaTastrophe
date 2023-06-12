@@ -11,14 +11,4 @@ public class BuyFloor : MonoBehaviour, IClickable
         buttonFloor1.SetActive(true);
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
