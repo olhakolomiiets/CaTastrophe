@@ -78,8 +78,8 @@ public class BrokeWhenOut : MonoBehaviour
         var difference = currentTime.Subtract(addedTimeToilet);
         var rawTime = (float)difference.TotalSeconds;
         var secAfterAddToilet = (int)rawTime; //возможно не учитывается время работы туалета
-        brokeTxt2.text = $"Start cheking secAfterAddToilet ==== {secAfterAddToilet} ";
-        brokeTxt3.text = $"TimeWhenToiletCleaned before check == {addedTimeToilet} ";
+        //brokeTxt2.text = $"Start cheking secAfterAddToilet ==== {secAfterAddToilet} ";
+        //brokeTxt3.text = $"TimeWhenToiletCleaned before check == {addedTimeToilet} ";
         // Debug.Log("++++++++++++++++++++++++++++++++++++ secondsToiletLeft > secAfterExit " + secondsToiletLeft + " > " + secAfterExit);
         if (secAfterAddToilet > _timeBeforeItemsBreak.Item1 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy1" + floor) != 1)
         {
