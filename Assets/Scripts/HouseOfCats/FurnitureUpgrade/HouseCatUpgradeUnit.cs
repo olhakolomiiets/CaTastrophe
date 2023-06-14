@@ -65,7 +65,7 @@ public class HouseCatUpgradeUnit : MonoBehaviour
         if (_furnitureUpgradeUI.activeSelf)
         {            
             _furnitureUpgradeUI.SetActive(false);
-            
+
         }
         else
         {
@@ -83,7 +83,7 @@ public class HouseCatUpgradeUnit : MonoBehaviour
 
                     _allIcoItems.Add(IcoInstance);
 
-                    _scrollGridGroupXAxis = 240 * _allUnitItems.Count;
+                    _scrollGridGroupXAxis = 245 * _allUnitItems.Count;
                     _scrollGridGroup.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _scrollGridGroupXAxis);
                 }                
             }
