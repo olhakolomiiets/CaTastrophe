@@ -34,12 +34,20 @@ public class ExtraLifeRewardedAd : MonoBehaviour
 
     private void OnEnable()
     {
-        _rewardedAdUsed = false;
-
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.OnAdClosedEvent.AddListener(RewardedAdClosed);
 
-        Debug.Log("OnEnable ()");
+        if (!_rewardedAdUsed)
+        {
+            _adController.LoadAd();
+            buttonReward.interactable = true;
+        }
+        else
+        {
+            buttonReward.interactable = false;
+        }
+
+        Debug.Log("OnEnable () ExtraLifeRewardedAd");
     }
 
     public void UserEarnedReward()
@@ -50,7 +58,6 @@ public class ExtraLifeRewardedAd : MonoBehaviour
 
     public void RewardedAdClosed()
     {
-        buttonReward.interactable = true;
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("GetLife")}";
         Time.timeScale = 1;
         panelLose.SetActive(false);
@@ -63,7 +70,6 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     {
         buttonReward.interactable = false;
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
-        _adController.LoadAd();
         _adController.ShowAd();
     }
 

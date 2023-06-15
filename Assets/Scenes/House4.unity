@@ -2393,6 +2393,7 @@ GameObject:
   - component: {fileID: 95909316}
   - component: {fileID: 95909317}
   - component: {fileID: 95909319}
+  - component: {fileID: 95909320}
   m_Layer: 0
   m_Name: _Ads
   m_TagString: Untagged
@@ -2422,6 +2423,7 @@ MonoBehaviour:
   OnAdClosedEvent:
     m_PersistentCalls:
       m_Calls: []
+  _rewardedAdUsed: 0
 --- !u!114 &95909317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,7 +2436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe43d53c2536c743a3f2495fec33495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenAds: 240
 --- !u!4 &95909318
 Transform:
   m_ObjectHideFlags: 0
@@ -2467,6 +2468,20 @@ MonoBehaviour:
   OnAdClosedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &95909320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95909315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d869a0ffea3f65a4ba6c7507c28bd12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenAds: 240
+  _adController: {fileID: 95909317}
 --- !u!1 &98654291
 GameObject:
   m_ObjectHideFlags: 0
@@ -11680,10 +11695,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 95909317}
-        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.InterstitialAdController,
-          Assembly-CSharp
-        m_MethodName: LoadAndShowInterstitialAd
+      - m_Target: {fileID: 95909320}
+        m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
+        m_MethodName: ShowInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35813,7 +35827,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 95909317}
+      objectReference: {fileID: 95909320}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -35832,12 +35846,12 @@ PrefabInstance:
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: LoadAndShowInterstitialAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
+      value: Interstitial, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -37382,7 +37396,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 95909317}
+      objectReference: {fileID: 95909320}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -37401,12 +37415,12 @@ PrefabInstance:
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: LoadAndShowInterstitialAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
+      value: Interstitial, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}

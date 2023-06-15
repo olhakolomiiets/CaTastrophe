@@ -43,7 +43,9 @@ public class GetCoinsRewardedAd : MonoBehaviour
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.OnAdClosedEvent.AddListener(RewardedAdClosed);
 
-        Debug.Log("OnEnable ()");
+        _adController.LoadAd();
+
+        Debug.Log("OnEnable () GetCoinsRewardedAd");
     }
 
     public void UserEarnedReward()
@@ -69,7 +71,6 @@ public class GetCoinsRewardedAd : MonoBehaviour
     {
         buttonReward.interactable = false;
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
-        _adController.LoadAd();
         _adController.ShowAd();
     }
 

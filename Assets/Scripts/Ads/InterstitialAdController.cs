@@ -15,21 +15,6 @@ namespace GoogleMobileAds.Sample
     public class InterstitialAdController : MonoBehaviour
     {
 
-        #region EDITOR FIELDS
-
-        [SerializeField, Range(1, 900)] private int delayBetweenAds = 240;
-
-
-        #endregion
-
-
-        #region PRIVATE FIELDS
-
-        private static float lastAdTime = Mathf.NegativeInfinity;
-
-        #endregion
-
-
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
         private const string _adUnitId = "ca-app-pub-3940256099942544/1033173712";
@@ -71,8 +56,6 @@ namespace GoogleMobileAds.Sample
 
             });
 
-            lastAdTime = Time.time;
-            Debug.Log("ShowInterstitialWithDelayBetweenAds " + lastAdTime);
         }
 
         public void ShowAd()
@@ -109,17 +92,7 @@ namespace GoogleMobileAds.Sample
             }
         }
 
-        public void LoadAndShowInterstitialAd()
-        {
-            if (PlayerPrefs.GetInt("adsRemoved") == 0)
-            {
-                if ((Time.time - lastAdTime) > (float)delayBetweenAds)
-                {
-                    LoadAd();
-                    ShowAd();
-                }
-            }
-        }
+
 
         private void RegisterEventHandlers(InterstitialAd ad)
         {

@@ -4940,10 +4940,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2080398749}
-        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.InterstitialAdController,
-          Assembly-CSharp
-        m_MethodName: LoadAndShowInterstitialAd
+      - m_Target: {fileID: 2080398746}
+        m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
+        m_MethodName: ShowInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -53703,9 +53702,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2080398747}
-  - component: {fileID: 2080398746}
   - component: {fileID: 2080398749}
   - component: {fileID: 2080398750}
+  - component: {fileID: 2080398746}
+  - component: {fileID: 2080398748}
   m_Layer: 8
   m_Name: _Ads
   m_TagString: Untagged
@@ -53714,6 +53714,34 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &2080398746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080398745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d869a0ffea3f65a4ba6c7507c28bd12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenAds: 240
+  _adController: {fileID: 2080398749}
+--- !u!4 &2080398747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080398745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.77, y: 14.74, z: 0}
+  m_LocalScale: {x: 0.41311, y: 0.41311, z: 0.41311}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080398748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53735,20 +53763,7 @@ MonoBehaviour:
   OnAdClosedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &2080398747
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080398745}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.77, y: 14.74, z: 0}
-  m_LocalScale: {x: 0.41311, y: 0.41311, z: 0.41311}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  _rewardedAdUsed: 0
 --- !u!114 &2080398749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53761,7 +53776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe43d53c2536c743a3f2495fec33495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenAds: 240
 --- !u!114 &2080398750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57469,7 +57483,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2080398746}
+      objectReference: {fileID: 2080398748}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -57619,7 +57633,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 2080398749}
+      objectReference: {fileID: 2080398746}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -57628,12 +57642,12 @@ PrefabInstance:
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: LoadAndShowInterstitialAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
+      value: Interstitial, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -57670,7 +57684,23 @@ PrefabInstance:
       propertyPath: translationName
       value: LoseText
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6435566158619604735, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 2080398750}
+    - target: {fileID: 7372236852708543788, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 2058394904}
+    - target: {fileID: 7372236852708543788, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 2080398750}
+    m_RemovedComponents:
+    - {fileID: 7372236852708543788, guid: b7b70c16cb3f7d4438264d7515688d18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7b70c16cb3f7d4438264d7515688d18, type: 3}
 --- !u!1 &896029863639672295 stripped
 GameObject:
@@ -77368,7 +77398,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 2080398749}
+      objectReference: {fileID: 2080398746}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -77377,12 +77407,12 @@ PrefabInstance:
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: LoadAndShowInterstitialAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: GoogleMobileAds.Sample.InterstitialAdController, Assembly-CSharp
+      value: Interstitial, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5440204987918437550, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}

@@ -1,7 +1,6 @@
 ﻿
 using UnityEngine;
 using Firebase;
-using Firebase.Auth;
 using Firebase.Analytics;
 using Firebase.Messaging;
 
@@ -10,11 +9,6 @@ public class Firebaseinit : MonoBehaviour
 {
     void Start()
     {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(continuationAction: task =>
-       {
-           FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
-       });
-
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             var dependencyStatus = task.Result;
@@ -33,7 +27,14 @@ public class Firebaseinit : MonoBehaviour
                   "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
                 // Firebase Unity SDK is not safe to use here.
             }
+
+
         });
+
+/*        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(continuationAction: task =>
+        {
+            FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
+        });*/
 
         Firebase.Messaging.FirebaseMessaging.TokenReceived += OnTokenReceived;
         Firebase.Messaging.FirebaseMessaging.MessageReceived += OnMessageReceived;
