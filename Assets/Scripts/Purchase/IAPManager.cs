@@ -9,23 +9,29 @@ public class IAPManager : MonoBehaviour, IStoreListener
     private int TotalScore;
 
     [Header("No Ads")]
+    [SerializeField] private GameObject noAdsWindow;
     [SerializeField] private GameObject buyNoAdsTxt;
     [SerializeField] private GameObject alreadyBoughtNoAdsTxt;
     [SerializeField] private GameObject priceNoAds;
     [SerializeField] private GameObject doneNoAds;
 
     [Header("Extra Life")]
+    [SerializeField] private GameObject extraLifeWindow;
     [SerializeField] private GameObject buyExtraLifeTxt;
     [SerializeField] private GameObject alreadyBoughtExtraLifeTxt;
     [SerializeField] private GameObject priceExtraLife;
     [SerializeField] private GameObject doneExtraLife;
 
     [Header("Money Packs")]
+    [SerializeField] private GameObject _2KCoinsWindow;
     [SerializeField] private int buy2K;
+    [SerializeField] private GameObject _5KCoinsWindow;
     [SerializeField] private int buy5K;
+    [SerializeField] private GameObject _10KCoinsWindow;
     [SerializeField] private int buy10K;
 
     [Header("Powers To Restore")]
+    [SerializeField] private GameObject restoreWindow;
     [SerializeField] private float powersToRestore;
     [SerializeField] private int amountPowersToRestore;
 
@@ -138,7 +144,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         alreadyBoughtNoAdsTxt.SetActive(true);
         priceNoAds.SetActive(false);
         doneNoAds.SetActive(true);
-
+        noAdsWindow.SetActive(false);
     }
 
     private void Product_ExtraLife()
@@ -149,6 +155,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         alreadyBoughtExtraLifeTxt.SetActive(true);
         priceExtraLife.SetActive(false);
         doneExtraLife.SetActive(true);
+        extraLifeWindow.SetActive(false);
         Debug.Log("!!!--- Extra Life Added ---!!!");
     }
 
@@ -159,6 +166,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log("!!!--- TotalScore + MoneyPack 2000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
+        _2KCoinsWindow.SetActive(false);
     }
 
     private void Product_MoneyPack5000()
@@ -168,6 +176,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log("!!!--- TotalScore + MoneyPack 5000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
+        _5KCoinsWindow.SetActive(false);
     }
 
     private void Product_MoneyPack10000()
@@ -177,6 +186,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log("!!!--- TotalScore + MoneyPack 10000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
+        _10KCoinsWindow.SetActive(false);
     }
     private void Product_PowersToRestore()
     {
@@ -185,6 +195,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
         Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
         SoundManager.snd.PlaybuySounds();
+        restoreWindow.SetActive(false);
     }
 
     public void OnInitializeFailed(InitializationFailureReason error)
