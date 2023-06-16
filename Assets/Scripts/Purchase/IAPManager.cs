@@ -41,26 +41,39 @@ public class IAPManager : MonoBehaviour, IStoreListener
     private string noAds = "com.catastrophe.noads";
     private string extraLife = "com.catastrophe.extralife";
     private string moneyPack2000 = "com.catastrophe.moneypack2000";
-    private string moneyPack5000 = "com.catastrophe.moneypack5000";
+    private string moneyPack5000 = "com.catastrophe.moneypack5k";
     private string moneyPack10000 = "com.catastrophe.moneypack10000";
     private string powerRestore = "com.catastrophe.powerstorestore";
-    
+
+    private string moneyPack5000ForPreRegistration = "com.catastrophe.moneypack5000";
+
 
     void Start()
     {
-        InitializePurchasing();
 
-/*        if (PlayerPrefs.HasKey("firstStart") == false)
+        if (_storeController == null)
         {
-            PlayerPrefs.SetInt("firstStart", 1);
-            RestoreMyProduct();
-        }*/
+            InitializePurchasing();
+        }
+
+        /*        if (PlayerPrefs.HasKey("firstStart") == false)
+                {
+                    PlayerPrefs.SetInt("firstStart", 1);
+                    RestoreMyProduct();
+                }*/
+
+
 
         RestoreVariable();
     }
 
     void InitializePurchasing()
     {
+        if (IsInitialized())
+        {
+            return;
+        }
+
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
         builder.AddProduct(noAds, ProductType.NonConsumable);
@@ -70,73 +83,96 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(moneyPack2000, ProductType.Consumable);
         builder.AddProduct(moneyPack10000, ProductType.Consumable);
 
+        builder.AddProduct(moneyPack5000ForPreRegistration, ProductType.Consumable);
+
         UnityPurchasing.Initialize(this, builder);
-    }
-
-    void RestoreVariable()
-    {
-        if (PlayerPrefs.HasKey("adsRemoved"))
-        {
-            buyNoAdsTxt.SetActive(false);
-            alreadyBoughtNoAdsTxt.SetActive(true);
-            priceNoAds.SetActive(false);
-            doneNoAds.SetActive(true);
-        }
-
-        if (PlayerPrefs.HasKey("extraLife"))
-        {
-            buyExtraLifeTxt.SetActive(false);
-            alreadyBoughtExtraLifeTxt.SetActive(true);
-            priceExtraLife.SetActive(false);
-            doneExtraLife.SetActive(true);
-        }
-
     }
 
     public void BuyProduct(string productName)
     {
-        _storeController.InitiatePurchase(productName);
+        if (IsInitialized())
+        {
+            Product product = _storeController.products.WithID(productName);
+
+            if (product != null && product.availableToPurchase)
+            {
+                Debug.Log(string.Format("Purchasing product asychronously: '{0}'", product.definition.id));
+                _storeController.InitiatePurchase(product);
+            }
+            else
+            {
+                Debug.Log("BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase");
+            }
+        }
+        else
+        {
+            Debug.Log("BuyProductID FAIL. Not initialized.");
+        }
     }
 
+    #region PURCHASE CONTROL
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         var product = args.purchasedProduct;
 
-        if (product.definition.id == noAds)
+        if (String.Equals(product.definition.id, noAds, StringComparison.Ordinal))
         {
-            Product_NoAds();
-        }
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-        if (product.definition.id == extraLife)
-        {
-            Product_ExtraLife();
+            if (PlayerPrefs.HasKey("adsRemoved") == false)
+            {
+                Product_NoAds();
+            }
         }
-
-        if (product.definition.id == moneyPack2000)
+        else if (String.Equals(product.definition.id, extraLife, StringComparison.Ordinal))
         {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
+            if (PlayerPrefs.HasKey("extraLife") == false)
+            {
+                Product_ExtraLife();
+            }           
+        }
+        else if (String.Equals(product.definition.id, moneyPack2000, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
             Product_MoneyPack2000();
         }
-
-        if (product.definition.id == moneyPack5000)
+        else if (String.Equals(product.definition.id, moneyPack5000, StringComparison.Ordinal))
         {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
             Product_MoneyPack5000();
         }
-
-        if (product.definition.id == moneyPack10000)
+        else if (String.Equals(product.definition.id, moneyPack10000, StringComparison.Ordinal))
         {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
             Product_MoneyPack10000();
         }
-
-        if (product.definition.id == powerRestore)
+        else if (String.Equals(product.definition.id, powerRestore, StringComparison.Ordinal))
         {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
             Product_PowersToRestore();
         }
+        else if (String.Equals(product.definition.id, moneyPack5000ForPreRegistration, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-        Debug.Log($"Purchase Complete - Product: {product.definition.id}");
+                Product_MoneyPack5000ForPreRegistration();
+        }
+        else
+        {
+            Debug.Log(string.Format("ProcessPurchase: FAIL. Unrecognized product: '{0}'", product.definition.id));
+        }
 
         return PurchaseProcessingResult.Complete;
     }
+    #endregion
 
+    #region IF PURCHASE SUCCESSFUL
     private void Product_NoAds()
     {
         PlayerPrefs.SetInt("adsRemoved", 1);
@@ -198,6 +234,48 @@ public class IAPManager : MonoBehaviour, IStoreListener
         restoreWindow.SetActive(false);
     }
 
+    private void Product_MoneyPack5000ForPreRegistration()
+    {
+        TotalScore = PlayerPrefs.GetInt("TotalScore");
+        TotalScore = TotalScore + 5000;
+        Debug.Log("!!!--- TotalScore + MoneyPack 5000 For Pre Registration ---!!! " + TotalScore);
+        SoundManager.snd.PlaybuySounds();
+        PlayerPrefs.SetInt("TotalScore", TotalScore);
+    }
+
+    void RestoreVariable()
+    {
+        if (PlayerPrefs.HasKey("adsRemoved"))
+        {
+            buyNoAdsTxt.SetActive(false);
+            alreadyBoughtNoAdsTxt.SetActive(true);
+            priceNoAds.SetActive(false);
+            doneNoAds.SetActive(true);
+        }
+
+        if (PlayerPrefs.HasKey("extraLife"))
+        {
+            buyExtraLifeTxt.SetActive(false);
+            alreadyBoughtExtraLifeTxt.SetActive(true);
+            priceExtraLife.SetActive(false);
+            doneExtraLife.SetActive(true);
+        }
+
+    }
+    #endregion
+
+    public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+    {
+        Debug.Log("In-App Purchasing successfully initialized");
+        _storeController = controller;
+        _extensionProvider = extensions;
+    }
+
+    private bool IsInitialized()
+    {
+        return _storeController != null && _extensionProvider != null;
+    }
+
     public void OnInitializeFailed(InitializationFailureReason error)
     {
         Debug.Log($"In-App Purchasing initialize failed: {error}");
@@ -208,24 +286,22 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureReason}");
     }
 
-    public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
-    {
-        Debug.Log("In-App Purchasing successfully initialized");
-        _storeController = controller;
-        _extensionProvider = extensions;
-    }
 
-
-/*    public void RestoreMyProduct()
-    {
-        if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(noAds).hasReceipt)
+    /*    public void RestoreMyProduct()
         {
-            
-        }
+            if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(noAds).hasReceipt)
+            {
 
-        if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(extraLife).hasReceipt)
-        {
-           
-        }
-    }*/
+            }
+
+            if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(extraLife).hasReceipt)
+            {
+
+            }
+
+                if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(moneyPack5000ForPreRegistration).hasReceipt)
+            {
+
+            }
+        }*/
 }
