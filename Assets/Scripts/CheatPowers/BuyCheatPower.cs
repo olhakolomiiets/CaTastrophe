@@ -84,7 +84,7 @@ public class BuyCheatPower : MonoBehaviour
     IEnumerator NoMoney()
     {
         noMoneyTag.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         noMoneyTag.SetActive(false);
     }
 }

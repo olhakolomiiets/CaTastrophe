@@ -11,11 +11,13 @@ public class TipsManager : MonoBehaviour
     [SerializeField] private GameObject tipSofa;
     [SerializeField] private GameObject tipSecondFloor;
     [SerializeField] private GameObject background;
+    [SerializeField] private GameObject tipFurniture;
     [SerializeField] private GameObject buyFloor;
     public RectTransform transform1;
     public RectTransform transform2;
     public RectTransform transform3;
     public RectTransform transform4;
+    public RectTransform transform5;
     [SerializeField] private Camera mainCamera;
 
 
@@ -45,6 +47,12 @@ public class TipsManager : MonoBehaviour
         mainCamera.transform.DOLocalMove(transform2.position, 0.7f);
         StartCoroutine(ChangeTips(tipToilet, tipSofa));
     }
+
+    public void ActiveTipFurniture()
+    {
+        mainCamera.transform.DOLocalMove(transform5.position, 0.7f);
+        StartCoroutine(ChangeTips(tipSofa, tipFurniture));
+    }
     public void ActiveTip2Floor()
     {       
         mainCamera.transform.DOLocalMove(transform3.position, 0.7f);
@@ -66,7 +74,7 @@ public class TipsManager : MonoBehaviour
     }
     IEnumerator Tip2Floor()
     {
-        tipSofa.SetActive(false);
+        tipFurniture.SetActive(false);
         yield return new WaitForSeconds(0.65f);
         buyFloor.SetActive(true);
         yield return new WaitForSeconds(0.1f);

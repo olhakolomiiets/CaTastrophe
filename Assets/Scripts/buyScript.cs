@@ -121,7 +121,7 @@ public class buyScript : MonoBehaviour
         string lastText = priceText.text;
         priceText.text = Lean.Localization.LeanLocalization.GetTranslationText("noMoney");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         priceText.text = lastText;
     }
     IEnumerator NoSpace()

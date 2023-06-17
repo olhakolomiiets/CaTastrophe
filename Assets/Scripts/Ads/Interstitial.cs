@@ -18,6 +18,11 @@ public class Interstitial : MonoBehaviour
 
     #endregion
 
+    private void OnEnable()
+    {       
+        PlayerPrefs.SetInt("HowManyGamesPlayed", PlayerPrefs.GetInt("HowManyGamesPlayed") + 1);
+    }
+
     void Start()
     {
         LoadInterstitialAd();
@@ -25,6 +30,11 @@ public class Interstitial : MonoBehaviour
 
     public void LoadInterstitialAd()
     {
+        if(PlayerPrefs.GetInt("HowManyGamesPlayed") < 5)
+        {
+            return;
+        }
+
         if (PlayerPrefs.GetInt("adsRemoved") == 0)
         {
             if ((Time.time - lastAdTime) > (float)delayBetweenAds)
