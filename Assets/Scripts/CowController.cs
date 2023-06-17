@@ -563,7 +563,7 @@ public class CowController : MonoBehaviour
     IEnumerator waiter()
     {
         isWaiting = true;
-        int wait_time = UnityEngine.Random.Range(6, 11);
+        int wait_time = UnityEngine.Random.Range(5, 9);
         int courutineIndex = UnityEngine.Random.Range(1, 7);
         yield return new WaitForSeconds(wait_time);
         OnButtonUp();
