@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class Interstitial : MonoBehaviour
     private void OnEnable()
     {       
         PlayerPrefs.SetInt("HowManyGamesPlayed", PlayerPrefs.GetInt("HowManyGamesPlayed") + 1);
+
+        var _playCount = PlayerPrefs.GetInt("HowManyGamesPlayed");
+
+        FirebaseAnalytics.LogEvent(name: "games_count");
     }
 
     void Start()

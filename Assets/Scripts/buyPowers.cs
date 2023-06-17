@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,6 +62,8 @@ public class buyPowers : MonoBehaviour
             alreadyBoughtTxt.SetActive(true);
             PlayerPrefs.SetInt("TotalScore", TotalScore);
             PlayerPrefs.SetInt("AwardPowersIsYours", PlayerPrefs.GetInt("AwardPowersIsYours") + 1);
+
+            FirebaseAnalytics.LogEvent(name: "buy_power", new Parameter(parameterName: "powers" , parameterValue: ppnamePower));
         }
         else if (isPurchased == false)
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,8 @@ public class buySand : MonoBehaviour, IClickable
             TotalScore = TotalScore - price;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
+
+            FirebaseAnalytics.LogEvent(name: "buy_sand", new Parameter(parameterName: "packs", parameterValue: "pack " + quantity));
         }
 
         else if (TotalScore < price)
@@ -46,7 +49,7 @@ public class buySand : MonoBehaviour, IClickable
 
         noMoneyTag.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
 
         noMoneyTag.SetActive(false);
     }

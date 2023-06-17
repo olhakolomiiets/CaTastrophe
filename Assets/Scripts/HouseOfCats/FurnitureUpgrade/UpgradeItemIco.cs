@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -104,6 +105,8 @@ public class UpgradeItemIco : MonoBehaviour
 
             UpgradeUnit.UpdateItems(this);
             UpgradeUnit.isActive = true;
+
+            FirebaseAnalytics.LogEvent(name: "buy_furniture", new Parameter(parameterName: "type ", parameterValue: _upgradeUnitPref + _unitId));
         }
         else if (PlayerPrefs.GetInt(_upgradeUnitPref + _unitId) == 1)
         {

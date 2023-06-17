@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,6 +86,8 @@ public class buyScript : MonoBehaviour
                     priceTag.SetActive(false);
                     PlayerPrefs.SetInt("CatsIsYoursAchieve", PlayerPrefs.GetInt("CatsIsYoursAchieve") + 1);
                     nameChange.SetActive(true);
+
+                    FirebaseAnalytics.LogEvent(name: "buy_cats", new Parameter(parameterName: "cats", parameterValue: ppname)); 
                 }
                 else
                 {

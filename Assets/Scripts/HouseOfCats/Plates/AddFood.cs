@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +35,8 @@ public class AddFood : MonoBehaviour, IClickable
                 {
                     PowerForFood.instance.iconsFood = PowerForFood.instance.iconsFood + 1;
                 }
+
+                FirebaseAnalytics.LogEvent(name: "add_food");
             }
             else
             {
@@ -47,6 +50,8 @@ public class AddFood : MonoBehaviour, IClickable
             {
                 PlayerPrefs.SetInt("TotalFood", allFood - 1);
                 foodTimer.Click();
+
+                FirebaseAnalytics.LogEvent(name: "add_Food");
 
             }
             else

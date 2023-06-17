@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,54 +35,7 @@ public class MenuLevels : MonoBehaviour
     public Slider bar;
     private int allStars;
     public Text allStarsText;
-    void Start()
-    {
-        // levelComplete = PlayerPrefs.GetInt("LevelComplete");
-        // Button[] listOfLevels = new Button[11]{ Leve2Button, Leve3Button, Leve4Button, Leve5Button,
-        // Leve6Button, Leve7Button, Leve8Button, Leve9Button, Leve10Button, Leve11Button, Leve12Button };
-        // switch (levelComplete)
-        // {
-        //     case 0:
-        //         for (int i = 0; i < listOfLevels.Length; i++)
-        //         {
-        //             listOfLevels[i].interactable = false;
-        //         }
-        //         break;
-        //     case 2:
-        //         setLevelActive(1, listOfLevels);
-        //         break;
-        //     case 3:
-        //         setLevelActive(2, listOfLevels);
-        //         break;
-        //     case 4:
-        //         setLevelActive(3, listOfLevels);
-        //         break;
-        //     case 5:
-        //         setLevelActive(4, listOfLevels);
-        //         break;
-        //     case 6:
-        //         setLevelActive(5, listOfLevels);
-        //         break;
-        //     case 7:
-        //         setLevelActive(6, listOfLevels);
-        //         break;
-        //     case 8:
-        //         setLevelActive(7, listOfLevels);
-        //         break;
-        //     case 9:
-        //         setLevelActive(8, listOfLevels);
-        //         break;
-        //     case 10:
-        //         setLevelActive(9, listOfLevels);
-        //         break;
-        //     case 11:
-        //         setLevelActive(10, listOfLevels);
-        //         break;
-        //     case 12:
-        //         setLevelActive(11, listOfLevels);
-        //         break;
-        // }
-    }
+
     private void Update()
     {
         allStars = PlayerPrefs.GetInt("AllStars");
@@ -92,6 +46,10 @@ public class MenuLevels : MonoBehaviour
         loadingScreen.SetActive(true);
         StartCoroutine(LoadAsync(level));
         PlayerPrefs.SetInt("LastOpenHouse", level);
+
+        FirebaseAnalytics.LogEvent(name: "open_house", new Parameter(parameterName: "levels", parameterValue: "level " + level));
+        
+
     }
     IEnumerator LoadAsync(int level)
     {

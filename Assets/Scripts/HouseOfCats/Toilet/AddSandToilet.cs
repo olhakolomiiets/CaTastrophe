@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class AddSandToilet : MonoBehaviour, IClickable
                 PlayerPrefs.SetInt("TotalSand", allSand - 1);
                 toiletTimer.Click();
                 toiletTimer.FillToilet();
+
+                FirebaseAnalytics.LogEvent(name: "add_sand_to_toilet");
             }
             else
             {

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using System;
+using Firebase.Analytics;
 
 public class CowController : MonoBehaviour
 {
@@ -155,6 +156,8 @@ public class CowController : MonoBehaviour
         {
             lowPower.SetActive(true);
             lowPowerModeON = true;
+
+            FirebaseAnalytics.LogEvent(name: "low_power_mode_on");
         }
     }
     private void Update()

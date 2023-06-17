@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Firebase.Analytics;
 
 public class BuyCheatPower : MonoBehaviour
 {
@@ -72,6 +72,9 @@ public class BuyCheatPower : MonoBehaviour
             PlayerPrefs.SetInt("TotalScore", TotalScore);
             _cheatPowerHandler.UpdateAllIcons();
             this.gameObject.SetActive(false);
+
+            FirebaseAnalytics.LogEvent(name: "buy_cheat_power", new Parameter(parameterName: "cheat_powers", parameterValue: ppNameCheatPower));
+
             // if(CheatPowerBoughtEvent != null)
             // CheatPowerBoughtEvent?.Invoke();
             // CheatPowerBought();
