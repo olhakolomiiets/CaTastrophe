@@ -40,6 +40,14 @@ public class PassivePowerUp : MonoBehaviour
 
     void Start()
     {
+        if (!PlayerPrefs.HasKey("firstInitPassivePowerUp"))
+        {
+            PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
+            SetAllPowestToMax();
+
+            Debug.Log("     O -----     SetAllPowestToMax     ----- O     ");
+        }
+
         LoadAllPowers();
         toiletPointsWhenWereExit = 0f;
         toiletPoints2WhenWereExit = 0f;
@@ -163,13 +171,15 @@ public class PassivePowerUp : MonoBehaviour
                 //Debug.Log("Power value before load ===== " + power.Value + " to cat " + power.nameCat);
                 power.ChangeAmountBy(LoadPowerWhenWasOut() * 0.00083333f);
                 //Debug.Log("points Passive when Exit " + (LoadPowerWhenWasOut() * 0.00083333f));
+
                 power.ChangeAmountBy(toiletPointsWhenWereExit);
                 power.ChangeAmountBy(toiletPoints2WhenWereExit);
                 power.ChangeAmountBy(toiletPoints3WhenWereExit);
                 power.ChangeAmountBy(foodPointsWhenWereExit);
                 power.ChangeAmountBy(foodPoints2WhenWereExit);
                 power.ChangeAmountBy(foodPoints3WhenWereExit);
-/*                Debug.Log("ToiletPointsWhenWereExit in POWERUP " + toiletPointsWhenWereExit);
+
+/*              Debug.Log("ToiletPointsWhenWereExit in POWERUP " + toiletPointsWhenWereExit);
                 Debug.Log("ToiletPoints2WhenWereExit in POWERUP " + toiletPoints2WhenWereExit);
                 Debug.Log("ToiletPoints3WhenWereExit in POWERUP " + toiletPoints3WhenWereExit);
                 Debug.Log("FoodPointsWhenWereExit in POWERUP " + foodPointsWhenWereExit);
@@ -181,12 +191,6 @@ public class PassivePowerUp : MonoBehaviour
             {
                 power.SetNewAmount(10f);
             }
-            if (PlayerPrefs.HasKey("firstInitPassivePowerUp") == false)
-            {
-                PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
-                power.SetNewAmount(10f);
-            }
-            // Debug.Log("Load SecAfterExit !!!!!!!!!!    " + LoadPowerWhenWasOut() + " * 0.00083333f" + " = " + (LoadPowerWhenWasOut() * 0.01666667f) + " Cat is " + power.name);
         }
     }
 
