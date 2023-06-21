@@ -1,39 +1,14 @@
+using Firebase.Analytics;
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Purchasing;
-using UnityEngine.UI;
 
 public class IAPManager : MonoBehaviour, IStoreListener
 {
+    public static IAPManager instance = null;
+
     private int TotalScore;
-
-    [Header("No Ads")]
-    [SerializeField] private GameObject noAdsWindow;
-    [SerializeField] private GameObject buyNoAdsTxt;
-    [SerializeField] private GameObject alreadyBoughtNoAdsTxt;
-    [SerializeField] private GameObject priceNoAds;
-    [SerializeField] private GameObject doneNoAds;
-
-    [Header("Extra Life")]
-    [SerializeField] private GameObject extraLifeWindow;
-    [SerializeField] private GameObject buyExtraLifeTxt;
-    [SerializeField] private GameObject alreadyBoughtExtraLifeTxt;
-    [SerializeField] private GameObject priceExtraLife;
-    [SerializeField] private GameObject doneExtraLife;
-
-    [Header("Money Packs")]
-    [SerializeField] private GameObject _2KCoinsWindow;
-    [SerializeField] private int buy2K;
-    [SerializeField] private GameObject _5KCoinsWindow;
-    [SerializeField] private int buy5K;
-    [SerializeField] private GameObject _10KCoinsWindow;
-    [SerializeField] private int buy10K;
-
-    [Header("Powers To Restore")]
-    [SerializeField] private GameObject restoreWindow;
-    [SerializeField] private float powersToRestore;
-    [SerializeField] private int amountPowersToRestore;
 
     private static IStoreController _storeController;
     private static IExtensionProvider _extensionProvider;
@@ -47,24 +22,35 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     private string moneyPack5000ForPreRegistration = "com.catastrophe.moneypack5000";
 
+    [HideInInspector] public UnityEvent PurchasedProductNoAds;
+    [HideInInspector] public UnityEvent PurchasedProductExtraLife;
+    [HideInInspector] public UnityEvent PurchasedProductMoneyPack2000;
+    [HideInInspector] public UnityEvent PurchasedProductMoneyPack5000;
+    [HideInInspector] public UnityEvent PurchasedProductMoneyPack10000;
+    [HideInInspector] public UnityEvent PurchasedProductPowersToRestore;
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
-
+        Debug.Log("     O -----     IAP Manager Start     ----- O     ");
         if (_storeController == null)
         {
-            InitializePurchasing();
+            Invoke("InitializePurchasing", 2f);
+            //InitializePurchasing();
         }
-
-        /*        if (PlayerPrefs.HasKey("firstStart") == false)
-                {
-                    PlayerPrefs.SetInt("firstStart", 1);
-                    RestoreMyProduct();
-                }*/
-
-
-
-        RestoreVariable();
     }
 
     void InitializePurchasing()
@@ -86,6 +72,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(moneyPack5000ForPreRegistration, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
+
+        Debug.Log("     O -----     IAP Manager InitializePurchasing     ----- O     ");
     }
 
     public void BuyProduct(string productName)
@@ -97,6 +85,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
             if (product != null && product.availableToPurchase)
             {
                 Debug.Log(string.Format("Purchasing product asychronously: '{0}'", product.definition.id));
+
                 _storeController.InitiatePurchase(product);
             }
             else
@@ -121,7 +110,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
             if (PlayerPrefs.HasKey("adsRemoved") == false)
             {
-                Product_NoAds();
+                PurchasedProductNoAds.Invoke();
             }
         }
         else if (String.Equals(product.definition.id, extraLife, StringComparison.Ordinal))
@@ -130,38 +119,38 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
             if (PlayerPrefs.HasKey("extraLife") == false)
             {
-                Product_ExtraLife();
+                PurchasedProductExtraLife.Invoke();
             }           
         }
         else if (String.Equals(product.definition.id, moneyPack2000, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-            Product_MoneyPack2000();
+            PurchasedProductMoneyPack2000.Invoke();
         }
         else if (String.Equals(product.definition.id, moneyPack5000, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-            Product_MoneyPack5000();
+            PurchasedProductMoneyPack5000.Invoke();
         }
         else if (String.Equals(product.definition.id, moneyPack10000, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-            Product_MoneyPack10000();
+            PurchasedProductMoneyPack10000.Invoke();
         }
         else if (String.Equals(product.definition.id, powerRestore, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-            Product_PowersToRestore();
+            PurchasedProductPowersToRestore.Invoke();
         }
         else if (String.Equals(product.definition.id, moneyPack5000ForPreRegistration, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-                Product_MoneyPack5000ForPreRegistration();
+            Product_MoneyPack5000ForPreRegistration();
         }
         else
         {
@@ -172,68 +161,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
     }
     #endregion
 
-    #region IF PURCHASE SUCCESSFUL
-    private void Product_NoAds()
-    {
-        PlayerPrefs.SetInt("adsRemoved", 1);
-        buyNoAdsTxt.SetActive(false);
-        alreadyBoughtNoAdsTxt.SetActive(true);
-        priceNoAds.SetActive(false);
-        doneNoAds.SetActive(true);
-        noAdsWindow.SetActive(false);
-    }
-
-    private void Product_ExtraLife()
-    {
-        PlayerPrefs.SetInt("extraLife", 1);
-        SoundManager.snd.PlaybuySounds();
-        buyExtraLifeTxt.SetActive(false);
-        alreadyBoughtExtraLifeTxt.SetActive(true);
-        priceExtraLife.SetActive(false);
-        doneExtraLife.SetActive(true);
-        extraLifeWindow.SetActive(false);
-        Debug.Log("!!!--- Extra Life Added ---!!!");
-    }
-
-    private void Product_MoneyPack2000()
-    {
-        TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + buy2K;
-        Debug.Log("!!!--- TotalScore + MoneyPack 2000 ---!!! " + TotalScore);
-        SoundManager.snd.PlaybuySounds();
-        PlayerPrefs.SetInt("TotalScore", TotalScore);
-        _2KCoinsWindow.SetActive(false);
-    }
-
-    private void Product_MoneyPack5000()
-    {
-        TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + buy5K;
-        Debug.Log("!!!--- TotalScore + MoneyPack 5000 ---!!! " + TotalScore);
-        SoundManager.snd.PlaybuySounds();
-        PlayerPrefs.SetInt("TotalScore", TotalScore);
-        _5KCoinsWindow.SetActive(false);
-    }
-
-    private void Product_MoneyPack10000()
-    {
-        TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + buy10K;
-        Debug.Log("!!!--- TotalScore + MoneyPack 10000 ---!!! " + TotalScore);
-        SoundManager.snd.PlaybuySounds();
-        PlayerPrefs.SetInt("TotalScore", TotalScore);
-        _10KCoinsWindow.SetActive(false);
-    }
-    private void Product_PowersToRestore()
-    {
-        powersToRestore = PlayerPrefs.GetFloat("countPowersToRestore");
-        powersToRestore = powersToRestore + amountPowersToRestore;
-        PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
-        Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
-        SoundManager.snd.PlaybuySounds();
-        restoreWindow.SetActive(false);
-    }
-
+    #region PRE-REGISTRATION BONUS   
     private void Product_MoneyPack5000ForPreRegistration()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
@@ -241,27 +169,10 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log("!!!--- TotalScore + MoneyPack 5000 For Pre Registration ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
+
+        FirebaseAnalytics.LogEvent(name: "bonus_received");
     }
 
-    void RestoreVariable()
-    {
-        if (PlayerPrefs.HasKey("adsRemoved"))
-        {
-            buyNoAdsTxt.SetActive(false);
-            alreadyBoughtNoAdsTxt.SetActive(true);
-            priceNoAds.SetActive(false);
-            doneNoAds.SetActive(true);
-        }
-
-        if (PlayerPrefs.HasKey("extraLife"))
-        {
-            buyExtraLifeTxt.SetActive(false);
-            alreadyBoughtExtraLifeTxt.SetActive(true);
-            priceExtraLife.SetActive(false);
-            doneExtraLife.SetActive(true);
-        }
-
-    }
     #endregion
 
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
@@ -281,27 +192,14 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log($"In-App Purchasing initialize failed: {error}");
     }
 
+    public void OnPurchaseComplete(Product product)
+    {
+        Debug.Log($"Purchase completed - Product: '{product.definition.id}'");
+    }
+
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
     {
         Debug.Log($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureReason}");
     }
 
-
-    /*    public void RestoreMyProduct()
-        {
-            if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(noAds).hasReceipt)
-            {
-
-            }
-
-            if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(extraLife).hasReceipt)
-            {
-
-            }
-
-                if (CodelessIAPStoreListener.Instance.StoreController.products.WithID(moneyPack5000ForPreRegistration).hasReceipt)
-            {
-
-            }
-        }*/
 }

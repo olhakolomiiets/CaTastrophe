@@ -36,19 +36,20 @@ public class PassivePowerUp : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (!PlayerPrefs.HasKey("firstInitPassivePowerUp"))
+        {
+            PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
+            SetAllPowesToMaxOnFirstInit();
+
+            Debug.Log("     O -----     Set All Powes To Max     ----- O     ");
+        }
     }
 
     void Start()
     {
-        if (!PlayerPrefs.HasKey("firstInitPassivePowerUp"))
-        {
-            PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
-            SetAllPowestToMax();
-
-            Debug.Log("     O -----     SetAllPowestToMax     ----- O     ");
-        }
-
         LoadAllPowers();
+
         toiletPointsWhenWereExit = 0f;
         toiletPoints2WhenWereExit = 0f;
         toiletPoints3WhenWereExit = 0f;
@@ -166,10 +167,15 @@ public class PassivePowerUp : MonoBehaviour
         foreach (FloatSO power in catPowersSO)
         {
             power.SetNewAmount(PlayerPrefs.GetFloat(power.name + "FloatSO"));
+
+            //Debug.Log("Power value on start load ===== " + power.Value + " to cat " + power.nameCat);
+
             if (power.Value < 10f)
             {
-                //Debug.Log("Power value before load ===== " + power.Value + " to cat " + power.nameCat);
+                //Debug.Log("Power value if power.Value < 10f ===== " + power.Value + " to cat " + power.nameCat);
+
                 power.ChangeAmountBy(LoadPowerWhenWasOut() * 0.00083333f);
+
                 //Debug.Log("points Passive when Exit " + (LoadPowerWhenWasOut() * 0.00083333f));
 
                 power.ChangeAmountBy(toiletPointsWhenWereExit);
@@ -187,8 +193,10 @@ public class PassivePowerUp : MonoBehaviour
                 Debug.Log("FoodPoints3WhenWereExit in POWERUP " + foodPoints3WhenWereExit);
                 Debug.Log("SO value after Load is ===== " + power.Value + " to cat " + power.nameCat);*/
             }
+
             if (power.Value >= 10)
             {
+                //Debug.Log("Power value if power.Value >= 10f ===== " + power.Value + " to cat " + power.nameCat);
                 power.SetNewAmount(10f);
             }
         }
@@ -197,6 +205,9 @@ public class PassivePowerUp : MonoBehaviour
     private int LoadPowerWhenWasOut()
     {
         var tempExitTime = Convert.ToInt64(PlayerPrefs.GetString("exitTimeForPowerPref"));
+
+        //Debug.Log("exitTimeForPowerPref ===== " + tempExitTime);
+
         var exitTimeToilet = DateTime.FromBinary(tempExitTime);
         var currentTime = DateTime.Now;
         var difference = currentTime.Subtract(exitTimeToilet);
@@ -210,6 +221,15 @@ public class PassivePowerUp : MonoBehaviour
         foreach (FloatSO power in catPowersSO)
         {
             power.SetNewAmount(10f);
+        }
+    }
+
+    public void SetAllPowesToMaxOnFirstInit()
+    {
+        foreach (FloatSO power in catPowersSO)
+        {
+            power.SetNewAmount(10f);
+            PlayerPrefs.SetFloat(power.name + "FloatSO", 10f);           
         }
     }
 }
