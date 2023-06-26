@@ -69,7 +69,12 @@ public class MenuLevels : MonoBehaviour
     }
     public void GiveMeMoney()
     {
-        PlayerPrefs.SetInt("TotalScore", 50000);
+        if (PlayerPrefs.GetInt("GiveMeMoneyFirstTime") == 0)
+        {
+            PlayerPrefs.SetInt("TotalScore", 5000);
+            PlayerPrefs.SetInt("GiveMeMoneyFirstTime", 1);
+        }
+
     }
     public void GiveExstraLife()
     {
