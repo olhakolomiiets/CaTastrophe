@@ -42,18 +42,19 @@ public class QuestExplainer : MonoBehaviour
         
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy") && PlayerPrefs.GetInt(explainerName) == 0)
             {
-
                 triggered = true;
-
             }
-        }
-        public void Resume () {
-            Time.timeScale = 1;
-            Canvas.SetActive(true);
+     }
 
-        }    
+    public void Resume ()
+    {
+         Time.timeScale = 1;
+        controller.isUiJumpPressed = false;
+        controller.isJumping = false;
+        Canvas.SetActive(true);
+    }    
         
-        }
+ }
 
     
 // PlateExplainerDone
