@@ -337,6 +337,18 @@ public class Dog : MonoBehaviour
         gameObject.tag = "EnemyDog";
         isShoked = false;
     }
+
+    public void WaitingTillNextBite()
+    {
+        StartCoroutine(DogBiteCat());
+    }
+    IEnumerator DogBiteCat()
+    {
+        gameObject.layer = LayerMask.NameToLayer("PassiveEnemy");
+        yield return new WaitForSeconds(2.5f);
+        stars.SetActive(false);
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
+    }
     IEnumerator DogIsEating()
     {
         gameObject.tag = "Destroyed";

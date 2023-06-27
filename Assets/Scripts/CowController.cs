@@ -383,6 +383,10 @@ public class CowController : MonoBehaviour
     {
         if (other.gameObject.tag == enemy1 | other.gameObject.tag == enemy2 | other.gameObject.tag == enemy3 | other.gameObject.tag == enemy4 | other.gameObject.tag == enemy5)
         {
+            if (other.gameObject.tag == enemy1)
+            {
+                other.gameObject.GetComponent<Dog>().WaitingTillNextBite();
+            }
             lives--;
             SoundManager.snd.PlayDamage();
             StartCoroutine(DamageImage());
