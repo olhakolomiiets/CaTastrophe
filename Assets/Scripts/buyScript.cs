@@ -68,9 +68,9 @@ public class buyScript : MonoBehaviour
         floor2Active = PlayerPrefs.GetInt("secondFloorBought");
         if (TotalScore >= price && isPurchased == false)
         {
-            if (allCatsYouHave < 5 && floor1Active == 0 && floor2Active == 0 ||
-                allCatsYouHave < 10 && floor1Active == 1 && floor2Active == 0 ||
-                allCatsYouHave < 15 && floor1Active == 1 && floor2Active == 1)
+            if (allCatsYouHave < 4 && floor1Active == 0 && floor2Active == 0 ||
+                allCatsYouHave < 9 && floor1Active == 1 && floor2Active == 0 ||
+                allCatsYouHave < 14 && floor1Active == 1 && floor2Active == 1)
             {
                 if (PlayerPrefs.GetInt("AllBrokeYouCantBuyCat1") == 0 &&
                 PlayerPrefs.GetInt("AllBrokeYouCantBuyCat2") == 0 &&
