@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Firebase.Analytics;
 
 public class GameTimer : MonoBehaviour
 {
@@ -65,6 +66,8 @@ public class GameTimer : MonoBehaviour
             if (sm.score >= _houseStars.Star1 && levelComplete < sceneIndex)
             {
                 PlayerPrefs.SetInt("LevelComplete", sceneIndex);
+
+                FirebaseAnalytics.LogEvent(name: "completed_level " + sceneIndex);
             }
             timeDisplay.text = ("00:00");
             _uiManager.TimeUp();

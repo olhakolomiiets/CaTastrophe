@@ -229,8 +229,6 @@ public class CowController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
-
         if (lives > numOfHearts)
         {
             lives = numOfHearts;
@@ -257,7 +255,7 @@ public class CowController : MonoBehaviour
             {
                 Camera.main.GetComponent<UIManager>().Lose();
                 PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
-                damageImage.SetActive(false);
+                damageImage.SetActive(false);                
             }
         }
         if (knockbackCount <= 0)
@@ -388,6 +386,9 @@ public class CowController : MonoBehaviour
                 other.gameObject.GetComponent<Dog>().WaitingTillNextBite();
             }
             lives--;
+            
+            FirebaseAnalytics.LogEvent(name: "cat_lose_life", new Parameter(parameterName: "enemies", parameterValue: other.gameObject.tag));
+
             SoundManager.snd.PlayDamage();
             StartCoroutine(DamageImage());
             knockbackCount = knockbackLenght;
@@ -396,6 +397,7 @@ public class CowController : MonoBehaviour
             else
                 knockFromRight = false;
         }
+
         if (other.gameObject.tag == "Robot")
             transform.parent = other.gameObject.transform;
     }

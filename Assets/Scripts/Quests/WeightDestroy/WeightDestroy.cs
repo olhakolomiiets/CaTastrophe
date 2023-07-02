@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,5 +59,7 @@ public class WeightDestroy : MonoBehaviour
             _mainCamera.isShakingLevel2 = true;
             PlayerPrefs.SetInt("AwardHeavyObj", PlayerPrefs.GetInt("AwardHeavyObj") + 1);
         }
+
+        FirebaseAnalytics.LogEvent(name: "use_heavy_weight");
     }
 }

@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,6 +63,8 @@ public class BustDestroy : MonoBehaviour
             print("hererererererererer");
             Destroy(gameObject);
         }
+
+        FirebaseAnalytics.LogEvent(name: "use_heavy_weight");
     }
 
 }

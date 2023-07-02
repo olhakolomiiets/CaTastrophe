@@ -81,6 +81,8 @@ public class PurchaseManager : MonoBehaviour
         priceNoAds.SetActive(false);
         doneNoAds.SetActive(true);
         noAdsWindow.SetActive(false);
+
+        FirebaseAnalytics.LogEvent(name: "no_ads_purchased");
     }
 
     private void ExtraLife()
@@ -93,6 +95,8 @@ public class PurchaseManager : MonoBehaviour
         doneExtraLife.SetActive(true);
         extraLifeWindow.SetActive(false);
         Debug.Log("!!!--- Extra Life Added ---!!!");
+
+        FirebaseAnalytics.LogEvent(name: "extra_life_purchased");
     }
 
     private void MoneyPack2000()
@@ -103,6 +107,8 @@ public class PurchaseManager : MonoBehaviour
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _2KCoinsWindow.SetActive(false);
+
+        FirebaseAnalytics.LogEvent(name: "money_pack_2k_purchased");
     }
 
     private void MoneyPack5000()
@@ -113,6 +119,8 @@ public class PurchaseManager : MonoBehaviour
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _5KCoinsWindow.SetActive(false);
+
+        FirebaseAnalytics.LogEvent(name: "money_pack_5k_purchased");
     }
 
     private void MoneyPack10000()
@@ -123,6 +131,8 @@ public class PurchaseManager : MonoBehaviour
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _10KCoinsWindow.SetActive(false);
+
+        FirebaseAnalytics.LogEvent(name: "money_pack_10k_purchased");
     }
     private void PowersToRestore()
     {
@@ -132,6 +142,8 @@ public class PurchaseManager : MonoBehaviour
         Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
         SoundManager.snd.PlaybuySounds();
         restoreWindow.SetActive(false);
+
+        FirebaseAnalytics.LogEvent(name: "powers_restore_purchased");
     }
 
     void RestoreVariable()

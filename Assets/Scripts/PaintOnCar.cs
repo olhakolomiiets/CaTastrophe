@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,6 +53,8 @@ public class PaintOnCar : MonoBehaviour
             paint = true;
             SoundManager.snd.PlayPaintSounds();
             PlayerPrefs.SetInt("AwardPaintUsed", PlayerPrefs.GetInt("AwardPaintUsed") + 1);
+
+            FirebaseAnalytics.LogEvent(name: "use_paint");
         }
     }
     IEnumerator WallSpots()

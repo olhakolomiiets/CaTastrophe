@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,6 +49,8 @@ public class PowersRestore : MonoBehaviour
             powersToRestore--;
             amountPowers.text = $"x{powersToRestore}";
             PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
+
+            FirebaseAnalytics.LogEvent(name: "restore_energy_count");
 
             if (powersToRestore == 0)
             {

@@ -54,5 +54,7 @@ public class Interstitial : MonoBehaviour
     public void ShowInterstitialAd()
     {
         _adController.ShowAd();
+
+        FirebaseAnalytics.LogEvent(name: "interstitial_ad_showed");
     }
 }

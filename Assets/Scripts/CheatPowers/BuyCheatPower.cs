@@ -73,7 +73,7 @@ public class BuyCheatPower : MonoBehaviour
             _cheatPowerHandler.UpdateAllIcons();
             this.gameObject.SetActive(false);
 
-            FirebaseAnalytics.LogEvent(name: "buy_cheat_power", new Parameter(parameterName: "cheat_powers", parameterValue: ppNameCheatPower));
+            FirebaseAnalytics.LogEvent(name: "buy_cheat_power " + ppNameCheatPower);
 
             // if(CheatPowerBoughtEvent != null)
             // CheatPowerBoughtEvent?.Invoke();

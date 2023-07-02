@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Analytics;
 
 public class UIManager : MonoBehaviour
 {
@@ -76,6 +77,7 @@ public class UIManager : MonoBehaviour
         panelLose.SetActive(true);
         Time.timeScale = 0;
         PauseButton.GetComponent<Button>().interactable = false;
+        FirebaseAnalytics.LogEvent(name: "cat_died");
     }
     public void TimeUp()
     {

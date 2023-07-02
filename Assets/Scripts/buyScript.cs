@@ -88,6 +88,11 @@ public class buyScript : MonoBehaviour
                     nameChange.SetActive(true);
 
                     FirebaseAnalytics.LogEvent(name: "buy_cats", new Parameter(parameterName: "cats", parameterValue: ppname)); 
+
+                    if (PlayerPrefs.GetInt("CatsIsYoursAchieve") == 3)
+                    {
+                        FirebaseAnalytics.LogEvent(name: "buy_3_cats", new Parameter(parameterName: "cats", parameterValue: ppname));
+                    }
                 }
                 else
                 {

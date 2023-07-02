@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +33,8 @@ public class CatchCat : MonoBehaviour
             CatObjectAnimationSwitch();
             Board.PosterOff();
             Board.SherlockQuestWin();
+
+            FirebaseAnalytics.LogEvent(name: "caught_cats", new Parameter(parameterName: "cats", parameterValue: CatchCatPref));
         }
     }
     public void CatObjectAnimationSwitch()

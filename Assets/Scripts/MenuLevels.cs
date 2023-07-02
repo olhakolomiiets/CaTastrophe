@@ -49,7 +49,6 @@ public class MenuLevels : MonoBehaviour
 
         FirebaseAnalytics.LogEvent(name: "open_house", new Parameter(parameterName: "levels", parameterValue: "level " + level));
         
-
     }
     IEnumerator LoadAsync(int level)
     {
@@ -73,6 +72,8 @@ public class MenuLevels : MonoBehaviour
         {
             PlayerPrefs.SetInt("TotalScore", 5000);
             PlayerPrefs.SetInt("GiveMeMoneyFirstTime", 1);
+
+            FirebaseAnalytics.LogEvent(name: "used_GiveMeMoney");
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,7 +68,6 @@ public class AwardManager : MonoBehaviour
             {
                 if (rightAchievesSO[i].GetAchieveScore() >= rightAchievesSO[i].TargetNumberLvl1)
                 {
-
                     if (PlayerPrefs.GetInt("AchievementState_1" + i) == 0)
                     {
                         PlayerPrefs.SetInt("AchievementState_1" + i, 1);
@@ -77,6 +77,17 @@ public class AwardManager : MonoBehaviour
                         yield return new WaitForSeconds(3f);
                         Destroy(newPrefabInstance);
                         Destroy(particlesPrefabInstance);
+
+                        if (i == 2)
+                        {
+                            FirebaseAnalytics.LogEvent(name: "bronze_sherlock_award");
+                        }
+
+                        if (i == 4)
+                        {
+                            FirebaseAnalytics.LogEvent(name: "completed_house" + rightAchievesSO[i].TargetNumberLvl1);
+                        }
+                       
                     }
                 }
                 if (rightAchievesSO[i].GetAchieveScore() >= rightAchievesSO[i].TargetNumberLvl2)
@@ -91,6 +102,16 @@ public class AwardManager : MonoBehaviour
                         yield return new WaitForSeconds(3f);
                         Destroy(newPrefabInstance);
                         Destroy(particlesPrefabInstance);
+
+                        if (i == 2)
+                        {
+                            FirebaseAnalytics.LogEvent(name: "silver_sherlock_award");
+                        }
+
+                        if (i == 4)
+                        {
+                            FirebaseAnalytics.LogEvent(name: "completed_house" + rightAchievesSO[i].TargetNumberLvl2);
+                        }
                     }
                 }
                 if (rightAchievesSO[i].GetAchieveScore() >= rightAchievesSO[i].TargetNumberLvl3)
@@ -105,6 +126,16 @@ public class AwardManager : MonoBehaviour
                         yield return new WaitForSeconds(3f);
                         Destroy(newPrefabInstance);
                         Destroy(particlesPrefabInstance);
+
+                        if (i == 2)
+                        {
+                            FirebaseAnalytics.LogEvent(name: "gold_sherlock_award");
+                        }
+
+                        if (i == 4)
+                        {
+                            FirebaseAnalytics.LogEvent(name: "completed_house" + rightAchievesSO[i].TargetNumberLvl3);
+                        }
                     }
                 }
             }

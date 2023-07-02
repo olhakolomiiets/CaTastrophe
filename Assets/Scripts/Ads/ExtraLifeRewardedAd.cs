@@ -6,6 +6,7 @@ using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 using UnityEngine.Events;
+using Firebase.Analytics;
 
 public class ExtraLifeRewardedAd : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     {
         CowController.lives++;
         Debug.Log("User Earned Reward ()");
+
     }
 
     public void RewardedAdClosed()
@@ -64,7 +66,10 @@ public class ExtraLifeRewardedAd : MonoBehaviour
         pauseButton.GetComponent<Button>().interactable = true;
         _rewardedAdUsed = true;
         Debug.Log("Rewarded Ad Closed ()");
+
+        FirebaseAnalytics.LogEvent(name: "got_life_for_ads");
     }
+
 
     public void OnGetOneMoreLife()
     {

@@ -6,6 +6,7 @@ using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 using UnityEngine.Events;
+using Firebase.Analytics;
 
 public class GetCoinsRewardedAd : MonoBehaviour
 {
@@ -65,6 +66,8 @@ public class GetCoinsRewardedAd : MonoBehaviour
         getCoinsForAdsWindow.SetActive(false);
         _rewardedAdUsed = true;
         Debug.Log("Rewarded Ad Closed ()");
+
+        FirebaseAnalytics.LogEvent(name: "got_250coins_for_ads");
     }
 
     public void GetCoins()
