@@ -18,6 +18,9 @@ public class StarsWin : MonoBehaviour
     [SerializeField] private Text textForStar1;
     [SerializeField] private Text textForStar2;
     [SerializeField] private Text textForStar3;
+
+    [SerializeField] private FeedbackSO feedbackSO;
+
     void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
@@ -43,11 +46,15 @@ public class StarsWin : MonoBehaviour
         {
             // star2.SetActive(true);
             StartCoroutine(StarWin2());
+
+            feedbackSO.ChangeValue(1);
         }
         if (sm.score >= houseStars.Star3)
         {
             // star3.SetActive(true);
             StartCoroutine(StarWin3());
+
+            feedbackSO.ChangeValue(1);
         }
         if (GetLevelScore() >= houseStars.Star1)
         {

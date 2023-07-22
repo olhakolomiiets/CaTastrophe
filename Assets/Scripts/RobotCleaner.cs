@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -169,6 +170,7 @@ public class RobotCleaner : MonoBehaviour
         if (collision.gameObject.tag.Equals("Undestroyed") && collision.relativeVelocity.magnitude > 6 && !isBroken)
         {
             StartCoroutine(BrokeCleaner());
+            FirebaseAnalytics.LogEvent(name: "robot_cleaner_broken");
         }
     }
     IEnumerator Stop()

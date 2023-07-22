@@ -59,7 +59,7 @@ public class EnergyCat : MonoBehaviour, IClickable
             return;
         }
         UpdateEnergy();
-        powerSO.ChangeAmountBy(-3f);
+        powerSO.ChangeAmountBy(-2f);
         // totalEnergy = totalEnergy - 3f;
         CheckBelowZero();
         PlayerPrefs.SetFloat(totalEnergyCatPref, totalEnergy);

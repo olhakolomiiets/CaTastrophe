@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -316,6 +317,8 @@ public class Dog : MonoBehaviour
             StartCoroutine(DogIsShoked());
             PlayerPrefs.SetInt("AwardDogsShoked", PlayerPrefs.GetInt("AwardDogsShoked") + 1);
             PlayDogDizzy();
+
+            FirebaseAnalytics.LogEvent(name: "dog_shocked");
         }
     }
     IEnumerator DogShok()

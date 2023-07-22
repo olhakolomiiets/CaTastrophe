@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,6 +68,8 @@ public class TurnOffLight : MonoBehaviour
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
         StartCoroutine(EyesLayerChanger());
+
+        FirebaseAnalytics.LogEvent(name: "light_turned_off");
     }
     public void OnTriggerExit2D(Collider2D other)
     {

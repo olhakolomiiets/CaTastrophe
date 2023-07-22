@@ -58,8 +58,10 @@ public class WeightDestroy : MonoBehaviour
             SoundManager.snd.PlayPaintSounds();
             _mainCamera.isShakingLevel2 = true;
             PlayerPrefs.SetInt("AwardHeavyObj", PlayerPrefs.GetInt("AwardHeavyObj") + 1);
+
+            FirebaseAnalytics.LogEvent(name: "use_heavy_weight");
         }
 
-        FirebaseAnalytics.LogEvent(name: "use_heavy_weight");
+        
     }
 }

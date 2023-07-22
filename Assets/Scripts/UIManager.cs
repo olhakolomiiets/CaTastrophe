@@ -1,11 +1,9 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
-using Firebase.Analytics;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,6 +23,7 @@ public class UIManager : MonoBehaviour
     int sceneIndex;
     public GameObject loadingScreen;
     public Slider bar;
+
     private void Awake()
     {
         player = Instantiate(players[PlayerPrefs.GetInt("Player")], ChooseStartPlayerPosition().position, Quaternion.identity).GetComponent<CowController>();
@@ -76,8 +75,7 @@ public class UIManager : MonoBehaviour
     {
         panelLose.SetActive(true);
         Time.timeScale = 0;
-        PauseButton.GetComponent<Button>().interactable = false;
-        FirebaseAnalytics.LogEvent(name: "cat_died");
+        PauseButton.GetComponent<Button>().interactable = false;       
     }
     public void TimeUp()
     {

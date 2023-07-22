@@ -62,9 +62,11 @@ public class BustDestroy : MonoBehaviour
             _mainCamera.isShakingLevel2 = true;
             print("hererererererererer");
             Destroy(gameObject);
+
+            FirebaseAnalytics.LogEvent(name: "use_heavy_weight");
         }
 
-        FirebaseAnalytics.LogEvent(name: "use_heavy_weight");
+        
     }
 
 }

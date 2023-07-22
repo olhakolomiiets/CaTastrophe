@@ -8,7 +8,7 @@ public class Interstitial : MonoBehaviour
 
     #region EDITOR FIELDS
 
-    [SerializeField, Range(1, 900)] private int delayBetweenAds = 240;
+    [SerializeField, Range(1, 900)] private int delayBetweenAds = 180;
     [SerializeField] private GoogleMobileAds.Sample.InterstitialAdController _adController;
 
     #endregion
@@ -35,7 +35,7 @@ public class Interstitial : MonoBehaviour
 
     public void LoadInterstitialAd()
     {
-        if(PlayerPrefs.GetInt("HowManyGamesPlayed") < 5)
+        if(PlayerPrefs.GetInt("HowManyGamesPlayed") < 3)
         {
             return;
         }

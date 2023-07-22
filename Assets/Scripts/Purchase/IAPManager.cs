@@ -22,12 +22,18 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     private string moneyPack5000ForPreRegistration = "com.catastrophe.moneypack5000";
 
+    private string specialOfferEnergyRestore = "com.catastrophe.specialofferenergyrecovery";
+    private string specialOfferMoneyPack3500 = "com.catastrophe.specialoffermoneypack3500";
+
     [HideInInspector] public UnityEvent PurchasedProductNoAds;
     [HideInInspector] public UnityEvent PurchasedProductExtraLife;
     [HideInInspector] public UnityEvent PurchasedProductMoneyPack2000;
     [HideInInspector] public UnityEvent PurchasedProductMoneyPack5000;
     [HideInInspector] public UnityEvent PurchasedProductMoneyPack10000;
     [HideInInspector] public UnityEvent PurchasedProductPowersToRestore;
+
+    [HideInInspector] public UnityEvent PurchasedSpecialOfferEnergyRecovery;
+    [HideInInspector] public UnityEvent PurchasedSpecialOfferMoneyPack3500;
 
 
     void Awake()
@@ -71,6 +77,9 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         builder.AddProduct(moneyPack5000ForPreRegistration, ProductType.Consumable);
 
+        builder.AddProduct(specialOfferEnergyRestore, ProductType.Consumable);
+        builder.AddProduct(specialOfferMoneyPack3500, ProductType.Consumable);
+
         UnityPurchasing.Initialize(this, builder);
 
         Debug.Log("     O -----     IAP Manager InitializePurchasing     ----- O     ");
@@ -111,6 +120,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
             if (PlayerPrefs.HasKey("adsRemoved") == false)
             {
                 PurchasedProductNoAds.Invoke();
+
+                FirebaseAnalytics.LogEvent(name: "no_ads_purchased");
             }
         }
         else if (String.Equals(product.definition.id, extraLife, StringComparison.Ordinal))
@@ -120,6 +131,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
             if (PlayerPrefs.HasKey("extraLife") == false)
             {
                 PurchasedProductExtraLife.Invoke();
+
+                FirebaseAnalytics.LogEvent(name: "extra_life_purchased");
             }           
         }
         else if (String.Equals(product.definition.id, moneyPack2000, StringComparison.Ordinal))
@@ -127,30 +140,50 @@ public class IAPManager : MonoBehaviour, IStoreListener
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             PurchasedProductMoneyPack2000.Invoke();
+
+            FirebaseAnalytics.LogEvent(name: "money_pack_2k_purchased");
         }
         else if (String.Equals(product.definition.id, moneyPack5000, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             PurchasedProductMoneyPack5000.Invoke();
+
+            FirebaseAnalytics.LogEvent(name: "money_pack_5k_purchased");
         }
         else if (String.Equals(product.definition.id, moneyPack10000, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             PurchasedProductMoneyPack10000.Invoke();
+
+            FirebaseAnalytics.LogEvent(name: "money_pack_10k_purchased");
         }
         else if (String.Equals(product.definition.id, powerRestore, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             PurchasedProductPowersToRestore.Invoke();
+
+            FirebaseAnalytics.LogEvent(name: "powers_restore_purchased");
         }
         else if (String.Equals(product.definition.id, moneyPack5000ForPreRegistration, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             Product_MoneyPack5000ForPreRegistration();
+        }
+        else if (String.Equals(product.definition.id, specialOfferEnergyRestore, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
+            PurchasedSpecialOfferEnergyRecovery.Invoke();
+        }
+        else if (String.Equals(product.definition.id, specialOfferMoneyPack3500, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
+            PurchasedSpecialOfferMoneyPack3500.Invoke();
         }
         else
         {

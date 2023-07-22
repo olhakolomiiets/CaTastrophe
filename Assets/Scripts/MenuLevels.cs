@@ -70,7 +70,7 @@ public class MenuLevels : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("GiveMeMoneyFirstTime") == 0)
         {
-            PlayerPrefs.SetInt("TotalScore", 5000);
+            PlayerPrefs.SetInt("TotalScore", 1000);
             PlayerPrefs.SetInt("GiveMeMoneyFirstTime", 1);
 
             FirebaseAnalytics.LogEvent(name: "used_GiveMeMoney");

@@ -70,6 +70,8 @@ public class CowController : MonoBehaviour
     public FloatSO catPower;
     public bool isUiJumpPressed;
 
+    private bool _eventSent;
+
     private void Awake()
     {
         #region SetupCheatPowers
@@ -255,7 +257,13 @@ public class CowController : MonoBehaviour
             {
                 Camera.main.GetComponent<UIManager>().Lose();
                 PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
-                damageImage.SetActive(false);                
+                damageImage.SetActive(false);
+
+                if (!_eventSent)
+                {
+                    FirebaseAnalytics.LogEvent(name: "cat_died");
+                    _eventSent = true;
+                }
             }
         }
         if (knockbackCount <= 0)
