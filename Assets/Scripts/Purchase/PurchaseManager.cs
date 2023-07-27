@@ -32,7 +32,7 @@ public class PurchaseManager : MonoBehaviour
 
     [Header("Powers To Restore")]
     [SerializeField] private GameObject restoreWindow;
-    [SerializeField] private float powersToRestore;
+    [SerializeField] private int powersToRestore;
     [SerializeField] private int amountPowersToRestore;
 
     [SerializeField] private IAPManager _purchaseController;
@@ -126,9 +126,9 @@ public class PurchaseManager : MonoBehaviour
     }
     private void PowersToRestore()
     {
-        powersToRestore = PlayerPrefs.GetFloat("countPowersToRestore");
+        powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
         powersToRestore = powersToRestore + amountPowersToRestore;
-        PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
+        PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
         Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
         SoundManager.snd.PlaybuySounds();
         restoreWindow.SetActive(false);       

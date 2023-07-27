@@ -24,6 +24,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     private string specialOfferEnergyRestore = "com.catastrophe.specialofferenergyrecovery";
     private string specialOfferMoneyPack3500 = "com.catastrophe.specialoffermoneypack3500";
+    private string specialOfferStarterPack = "com.catastrophe.starterpack";
 
     [HideInInspector] public UnityEvent PurchasedProductNoAds;
     [HideInInspector] public UnityEvent PurchasedProductExtraLife;
@@ -34,6 +35,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     [HideInInspector] public UnityEvent PurchasedSpecialOfferEnergyRecovery;
     [HideInInspector] public UnityEvent PurchasedSpecialOfferMoneyPack3500;
+    [HideInInspector] public UnityEvent PurchasedSpecialOfferStarterPack;
 
 
     void Awake()
@@ -79,6 +81,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         builder.AddProduct(specialOfferEnergyRestore, ProductType.Consumable);
         builder.AddProduct(specialOfferMoneyPack3500, ProductType.Consumable);
+        builder.AddProduct(specialOfferStarterPack, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
 
@@ -184,6 +187,12 @@ public class IAPManager : MonoBehaviour, IStoreListener
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             PurchasedSpecialOfferMoneyPack3500.Invoke();
+        }
+        else if (String.Equals(product.definition.id, specialOfferStarterPack, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
+            PurchasedSpecialOfferStarterPack.Invoke();
         }
         else
         {

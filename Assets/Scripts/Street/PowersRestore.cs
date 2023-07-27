@@ -11,7 +11,7 @@ public class PowersRestore : MonoBehaviour
     [SerializeField] private GameObject[] players;
     [SerializeField] private EnergyCat catEnergy;
     [SerializeField] private FloatSO catPowersSO;
-    [SerializeField] private float powersToRestore;
+    [SerializeField] private int powersToRestore;
     [SerializeField] private Text amountPowers;
     //[SerializeField] private GameObject particles;
 
@@ -19,7 +19,7 @@ public class PowersRestore : MonoBehaviour
     {
         catEnergy = players[PlayerPrefs.GetInt("Player")].transform.gameObject.GetComponent<EnergyCat>();
         catPowersSO = catEnergy.powerSO;
-        powersToRestore = PlayerPrefs.GetFloat("countPowersToRestore", powersToRestore);
+        powersToRestore = PlayerPrefs.GetInt("countPowersToRestore", powersToRestore);
 
         if (powersToRestore > 0)
         {
@@ -35,7 +35,7 @@ public class PowersRestore : MonoBehaviour
             PlayerPrefs.SetInt("firstPowerRestore", 1);
             powersToRestore++;
             amountPowers.text = $"x{powersToRestore}";
-            PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
+            PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
         }
     }
 
@@ -48,7 +48,7 @@ public class PowersRestore : MonoBehaviour
             catEnergy.EnergyRestore();
             powersToRestore--;
             amountPowers.text = $"x{powersToRestore}";
-            PlayerPrefs.SetFloat("countPowersToRestore", powersToRestore);
+            PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
 
             FirebaseAnalytics.LogEvent(name: "restore_energy_count");
 
@@ -58,6 +58,16 @@ public class PowersRestore : MonoBehaviour
                 //particles.SetActive(true);
                 //Instantiate(particles, transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    public void UpdateUI()
+    {
+        powersToRestore = PlayerPrefs.GetInt("countPowersToRestore", powersToRestore);
+        if (powersToRestore > 0)
+        {
+            powerRestoreButton.SetActive(true);
+            amountPowers.text = $"x{powersToRestore}";
         }
     }
 }
