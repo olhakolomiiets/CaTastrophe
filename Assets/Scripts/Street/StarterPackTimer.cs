@@ -17,7 +17,7 @@ public class StarterPackTimer : MonoBehaviour
     private DateTime _lastVisitDate;
     [SerializeField] private int _visitCount;
 
-    private int _days = 2;
+    private int _days = 1;
 
     private void Awake()
     {
@@ -73,7 +73,7 @@ public class StarterPackTimer : MonoBehaviour
         StartCoroutine(UpdateStarterPackTimer());      
         
     }
-    private void HideButton()
+    public void HideButton()
     {
         starterPack.SetActive(false);
     }

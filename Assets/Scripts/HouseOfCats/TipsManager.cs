@@ -11,6 +11,7 @@ public class TipsManager : MonoBehaviour
     [SerializeField] private GameObject tipSofa;
     [SerializeField] private GameObject tipSecondFloor;
     [SerializeField] private GameObject background;
+    [SerializeField] private GameObject buttonBlockBackground;
     [SerializeField] private GameObject tipFurniture;
     [SerializeField] private GameObject buyFloor;
     public RectTransform transform1;
@@ -27,6 +28,7 @@ public class TipsManager : MonoBehaviour
         {
             tipShop.SetActive(true);
             background.SetActive(true);
+            buttonBlockBackground.SetActive(true);
             PlayerPrefs.SetInt("CatHouseFirstMessages", 1);
         }
     }
@@ -62,6 +64,7 @@ public class TipsManager : MonoBehaviour
     {
         tipSecondFloor.SetActive(false);
         background.SetActive(false);
+        buttonBlockBackground.SetActive(false);
         buyFloor.SetActive(false);
         mainCamera.transform.DOLocalMove(transform4.position, 0.7f);
 

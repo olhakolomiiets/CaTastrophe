@@ -24,6 +24,7 @@ public class SpecialOffers : MonoBehaviour
     private int _food;
     private int _sand;
     [SerializeField] private PowersRestore energyRecovery;
+    [SerializeField] private StarterPackTimer _starterPackTimer;
 
 
     [Space(5)]
@@ -107,6 +108,10 @@ public class SpecialOffers : MonoBehaviour
 
         SoundManager.snd.PlaybuySounds();
         _starterPackWindow.SetActive(false);
+        _starterPackTimer.HideButton();
+
+        PlayerPrefs.SetInt("UserGotStarterPack", 1);
+
     }
 
     private void OnDisable()
