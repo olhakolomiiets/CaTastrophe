@@ -185,7 +185,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566515307788842089}
-  - component: {fileID: 566515307788937244}
   m_Layer: 0
   m_Name: DailyRewards
   m_TagString: Untagged
@@ -208,55 +207,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &566515307788937244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566515307788937243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a2a9fb703ae0046a3c05a1214e7def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  status: {fileID: 566515307782921629}
-  claimButton: {fileID: 566515307782921571}
-  rewardPref: {fileID: 4878967298890876200, guid: 47cceaf01c5f847439da6f98c8055fc1,
-    type: 3}
-  rewardsGrid: {fileID: 566515307808613109}
-  rewards:
-  - Type: 0
-    Value: 75
-    Name: coins
-  - Type: 1
-    Value: 5
-    Name: sand
-  - Type: 2
-    Value: 5
-    Name: food
-  - Type: 0
-    Value: 150
-    Name: coins
-  - Type: 3
-    Value: 2
-    Name: energy_recovery
-  - Type: 0
-    Value: 500
-    Name: coins
-  - Type: 2
-    Value: 10
-    Name: food
-  - Type: 1
-    Value: 10
-    Name: sand
-  - Type: 3
-    Value: 5
-    Name: energy_recovery
-  - Type: 0
-    Value: 1000
-    Name: coins
-  rewardPrefabs: []
 --- !u!1 &566515307788937245
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +942,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566515307788937244}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DailyRewards, Assembly-CSharp
         m_MethodName: ClaimReward
         m_Mode: 1

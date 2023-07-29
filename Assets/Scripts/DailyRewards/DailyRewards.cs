@@ -17,6 +17,9 @@ public class DailyRewards : MonoBehaviour
     [SerializeField] private List<DailyReward> rewards;
     [SerializeField] private List<DailyRewardPref> rewardPrefabs;
 
+    [Space(5)]
+    [SerializeField] private StreetRemainders streetRemainders;
+
     private int currentStreak
     {
         get => PlayerPrefs.GetInt("currentStreak", 0);
@@ -43,10 +46,10 @@ public class DailyRewards : MonoBehaviour
         }
     }
 
-    private bool canClaimReward;
+    public bool canClaimReward;
     private int maxStreakCount = 10;
-    private float claimCooldown = 24f / 24 / 60 / 2;
-    private float claimDeadline = 48f / 24 / 60 / 2;
+    private float claimCooldown = 12f;
+    private float claimDeadline = 24f;
 
     private bool receivedReward;
 
@@ -146,7 +149,11 @@ public class DailyRewards : MonoBehaviour
         currentStreak = (currentStreak + 1) % maxStreakCount;
 
         UpdateRewardsState();
+
+        if (streetRemainders != null)
+        {
+            streetRemainders.CheckDailyRewards();
+        }
+            
     }
-
-
 }

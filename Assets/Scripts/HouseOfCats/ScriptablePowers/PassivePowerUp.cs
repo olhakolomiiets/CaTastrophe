@@ -26,6 +26,13 @@ public class PassivePowerUp : MonoBehaviour
     public static float foodPoints2WhenWereExit;
     public static float foodPoints3WhenWereExit;
 
+    public  bool FoodSpeeUp2;
+    public  bool Food2SpeeUp2;
+    public  bool Food3SpeeUp2;
+    public  bool ToiletSpeeUp2;
+    public  bool Toilet2SpeeUp2;
+    public  bool Toilet3SpeeUp2;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,6 +51,8 @@ public class PassivePowerUp : MonoBehaviour
 
             Debug.Log("     O -----     Set All Powes To Max     ----- O     ");
         }
+
+        
     }
 
     void Start()
@@ -109,6 +118,12 @@ public class PassivePowerUp : MonoBehaviour
                     }
                 }
             }
+            FoodSpeeUp2 = FoodSpeeUp;
+            Food2SpeeUp2 = Food2SpeeUp;
+            Food3SpeeUp2 = Food3SpeeUp;
+            ToiletSpeeUp2 = ToiletSpeeUp;
+            Toilet2SpeeUp2 = Toilet2SpeeUp;
+            Toilet3SpeeUp2 = Toilet3SpeeUp;
             yield return new WaitForSeconds(1f);
         }
     }

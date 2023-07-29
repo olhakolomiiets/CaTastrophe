@@ -4,30 +4,22 @@ using UnityEngine;
 
 public class FirstPowerMessage : MonoBehaviour
 {
-    
-private GameObject message;
-    
-    
+
+    private GameObject message;
+
     void Start()
     {
         message = gameObject.transform.GetChild(0).gameObject;
-       
 
-        if ( PlayerPrefs.GetInt("FirstPowerMessage") == 0 && PlayerPrefs.GetInt("TotalScore") >= 50 && PlayerPrefs.GetInt("pillow") == 0 ){
-            StartCoroutine (FirstTipByPillow());
+        if (PlayerPrefs.GetInt("FirstPowerMessage") == 0 && PlayerPrefs.GetInt("TotalScore") >= 50 && PlayerPrefs.GetInt("pillow") == 0)
+        {
+            StartCoroutine(FirstTipByPillow());
             PlayerPrefs.SetInt("FirstPowerMessage", 1);
         }
-
-
-        
     }
-        IEnumerator FirstTipByPillow()
-    {   
+    IEnumerator FirstTipByPillow()
+    {
         yield return new WaitForSecondsRealtime(1.5f);
-        message.SetActive(true); 
+        message.SetActive(true);
     }
-        
-    }
-
-  
-
+}
