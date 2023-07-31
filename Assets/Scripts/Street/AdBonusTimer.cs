@@ -12,8 +12,8 @@ public class AdBonusTimer : MonoBehaviour
     [SerializeField] private int timerTime;
 
     [SerializeField] private int activationHour;
-    [SerializeField] private int activationMinute;
-    [SerializeField] private int activationSecond;
+    private int activationMinute;
+    private int activationSecond;
 
     private DateTime startTime;
     private DateTime endTime;

@@ -48,8 +48,8 @@ public class DailyRewards : MonoBehaviour
 
     public bool canClaimReward;
     private int maxStreakCount = 10;
-    private float claimCooldown = 12f;
-    private float claimDeadline = 24f;
+    private float claimCooldown = 24f;
+    private float claimDeadline = 48f;
 
     private bool receivedReward;
 

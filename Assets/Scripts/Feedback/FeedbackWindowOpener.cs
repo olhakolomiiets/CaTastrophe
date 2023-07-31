@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FeedbackWindowOpener : MonoBehaviour
 {
-    private const int _day = 1;
+    private const int _day = 4;
     private DateTime lastVisitDate;
     private int visitCount;
 

@@ -24,9 +24,7 @@ public class StreetRemainders : MonoBehaviour
 
     private bool isRemainderAlreadyShow = false;
 
-
-
-    void OnEnable()
+    void Start()
     {        
         Invoke("CheckToiletAndFood", 1.5f);
         //CheckToiletAndFood();
@@ -41,7 +39,7 @@ public class StreetRemainders : MonoBehaviour
             windowUIbackgr.SetActive(false);
             Remainder1Txt.SetActive(false);
             Remainder1Ico.SetActive(false);
-            isRemainderAlreadyShow = false;
+            //isRemainderAlreadyShow = false;
         }
         else
         {
@@ -57,7 +55,7 @@ public class StreetRemainders : MonoBehaviour
             windowUIbackgr.SetActive(false);
             Remainder2Txt.SetActive(false);
             Remainder2Ico.SetActive(false);
-            isRemainderAlreadyShow = false;
+            //isRemainderAlreadyShow = false;
         }
         else
         {
@@ -67,6 +65,7 @@ public class StreetRemainders : MonoBehaviour
             Remainder2Ico.SetActive(true);
             isRemainderAlreadyShow = true;
         }
+
     }
 
     public void CheckDailyRewards()
@@ -76,17 +75,22 @@ public class StreetRemainders : MonoBehaviour
             windowUIbackgr.SetActive(false);
             Remainder3Txt.SetActive(false);
             Remainder3Ico.SetActive(false);
-            isRemainderAlreadyShow = false;
+            //isRemainderAlreadyShow = false;
         }
         else
         {
             Remainder3Ico.SetActive(true);
             if (isRemainderAlreadyShow) return;
             windowUIbackgr.SetActive(true);
-            Remainder3Txt.SetActive(true);            
+            Remainder3Txt.SetActive(true);
             isRemainderAlreadyShow = true;
         }
 
+    }
+
+    public void CloseReminderUI()
+    {
+        windowUIbackgr.SetActive(false);
     }
 
 }
