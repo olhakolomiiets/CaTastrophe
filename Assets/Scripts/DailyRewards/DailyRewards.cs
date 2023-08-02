@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -145,6 +146,10 @@ public class DailyRewards : MonoBehaviour
                 break;
         }
 
+        var _rewardType = reward.Type.ToString();
+
+        FirebaseAnalytics.LogEvent(name: "daily_rewards", new Parameter(parameterName: "reward", parameterValue: _rewardType));
+
         lastClaimTime = DateTime.UtcNow;
         currentStreak = (currentStreak + 1) % maxStreakCount;
 
@@ -152,7 +157,7 @@ public class DailyRewards : MonoBehaviour
 
         if (streetRemainders != null)
         {
-            streetRemainders.CheckDailyRewards();
+            streetRemainders.UpdateDailyRewards();
         }
             
     }

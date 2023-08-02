@@ -24,22 +24,22 @@ public class StreetRemainders : MonoBehaviour
 
     private bool isRemainderAlreadyShow = false;
 
+    private void Awake()
+    {
+        isRemainderAlreadyShow = false;
+    }
+
     void Start()
     {        
         Invoke("CheckToiletAndFood", 1.5f);
-        //CheckToiletAndFood();
         Invoke("CheckDailyRewards", 2f);
-        //CheckDailyRewards();
     }
 
     public void CheckToiletAndFood()
     {
         if (PassivePowerUp.FoodSpeeUp == true || PassivePowerUp.Food2SpeeUp == true || PassivePowerUp.Food3SpeeUp == true)
         {
-            windowUIbackgr.SetActive(false);
-            Remainder1Txt.SetActive(false);
-            Remainder1Ico.SetActive(false);
-            //isRemainderAlreadyShow = false;
+
         }
         else
         {
@@ -52,10 +52,7 @@ public class StreetRemainders : MonoBehaviour
 
         if (PassivePowerUp.ToiletSpeeUp == true || PassivePowerUp.Toilet2SpeeUp == true || PassivePowerUp.Toilet3SpeeUp == true)
         {
-            windowUIbackgr.SetActive(false);
-            Remainder2Txt.SetActive(false);
-            Remainder2Ico.SetActive(false);
-            //isRemainderAlreadyShow = false;
+
         }
         else
         {
@@ -65,17 +62,27 @@ public class StreetRemainders : MonoBehaviour
             Remainder2Ico.SetActive(true);
             isRemainderAlreadyShow = true;
         }
-
     }
 
     public void CheckDailyRewards()
+    {
+        if (dailyRewards.canClaimReward)
+        {
+            Remainder3Ico.SetActive(true);
+            if (isRemainderAlreadyShow) return;
+            windowUIbackgr.SetActive(true);
+            Remainder3Txt.SetActive(true);
+            isRemainderAlreadyShow = true;
+        }
+    }
+
+    public void UpdateDailyRewards()
     {
         if (!dailyRewards.canClaimReward)
         {
             windowUIbackgr.SetActive(false);
             Remainder3Txt.SetActive(false);
             Remainder3Ico.SetActive(false);
-            //isRemainderAlreadyShow = false;
         }
         else
         {
@@ -85,7 +92,6 @@ public class StreetRemainders : MonoBehaviour
             Remainder3Txt.SetActive(true);
             isRemainderAlreadyShow = true;
         }
-
     }
 
     public void CloseReminderUI()

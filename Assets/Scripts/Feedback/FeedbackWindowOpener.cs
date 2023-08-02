@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System;
 using UnityEngine;
 
@@ -45,6 +46,7 @@ public class FeedbackWindowOpener : MonoBehaviour
     public void UserLeftFeedback()
     {
         PlayerPrefs.SetInt("UserLeftFeedback", 1);
+        FirebaseAnalytics.LogEvent(name: "user_left_feedback");
     }
 
 }

@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,6 +63,11 @@ public class StarterPackTimer : MonoBehaviour
 
         if (_visitCount >= _days)
         {
+            if (!PlayerPrefs.HasKey("UserGotStarterPack"))
+            {
+                FirebaseAnalytics.LogEvent(name: "activated_starter_pack");
+            }
+
             if (PlayerPrefs.GetInt("UserGotStarterPack") == 0)
             {
                 ActivateButton();
