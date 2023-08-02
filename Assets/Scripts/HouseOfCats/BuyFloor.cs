@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class BuyFloor : MonoBehaviour, IClickable
 {
-    [SerializeField] private GameObject buttonFloor1;
+    [SerializeField] private GameObject buttonFloorToOpen;
+    [SerializeField] private GameObject buttonFloorToClose; 
 
     public void Click()
     {
-        buttonFloor1.SetActive(true);
+        CloseAllBuyFloorWindows();
+        buttonFloorToOpen.SetActive(true);
+    }
+
+    public void CloseAllBuyFloorWindows()
+    {
+        buttonFloorToClose.SetActive(false);
     }
 
 }

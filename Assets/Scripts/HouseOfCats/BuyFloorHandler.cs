@@ -12,6 +12,7 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject toilet;
     [SerializeField] private GameObject foodPlate;
+    [SerializeField] private GameObject upgadeUnits;
     public static event FloorActiveToiletHandler.ToiletActiveFloorDelegate FloorBought;
     public static event FloorActiveFoodHandler.PlateActiveFloorDelegate FloorBoughtPlate;
     [SerializeField] private GameObject noMoneyTag;
@@ -42,6 +43,7 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
             button.SetActive(false);
             foodPlate.SetActive(true);
             toilet.SetActive(true);
+            upgadeUnits.SetActive(true);
             TotalScore = TotalScore - price;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
