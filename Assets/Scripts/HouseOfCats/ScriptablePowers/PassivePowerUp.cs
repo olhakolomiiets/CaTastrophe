@@ -82,37 +82,37 @@ public class PassivePowerUp : MonoBehaviour
                     ValueChangeBy?.Invoke(0f);
                     if (ToiletSpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.00083333f);
+                        catPower.ChangeAmountBy(0.000416665f);
                         ValueChangeBy?.Invoke(0f);
                         //Debug.Log("ToiletSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Toilet2SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.00083333f);
+                        catPower.ChangeAmountBy(0.000416665f);
                         ValueChangeBy?.Invoke(0f);
                         //Debug.Log("Toilet2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Toilet3SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.00083333f);
+                        catPower.ChangeAmountBy(0.000416665f);
                         ValueChangeBy?.Invoke(0f);
                         //Debug.Log("Toilet3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (FoodSpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.00083333f);
+                        catPower.ChangeAmountBy(0.000416665f);
                         ValueChangeBy?.Invoke(0f);
                         //Debug.Log("FoodSpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Food2SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.00083333f);
+                        catPower.ChangeAmountBy(0.000416665f);
                         ValueChangeBy?.Invoke(0f);
                         //Debug.Log("Food2SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
                     if (Food3SpeeUp == true)
                     {
-                        catPower.ChangeAmountBy(0.00083333f);
+                        catPower.ChangeAmountBy(0.000416665f);
                         ValueChangeBy?.Invoke(0f);
                         //Debug.Log("Food3SpeeUp == true I changed catPower.Value --- " + catPower.Value + " Cat name " + catPower.nameCat);
                     }
