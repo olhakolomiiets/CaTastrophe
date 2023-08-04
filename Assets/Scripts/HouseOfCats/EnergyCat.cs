@@ -28,21 +28,26 @@ public class EnergyCat : MonoBehaviour, IClickable
     public PowerPointManager powerPoints;
     public FloatSO powerSO;
 
+    [SerializeField] private Text textTotalRestore;
+
     void Start()
     {
-         if (gameObject.transform.GetChild(0).gameObject.activeInHierarchy)
+        if (gameObject.transform.GetChild(0).gameObject.activeInHierarchy)
         {
             PassivePowerUp.instance.ValueChangeBy.AddListener(method);  //check for othet type of event
             Debug.Log("SUB");
             Debug.Log("SUB         " + totalEnergyCatPref + "  subscribed ");
         }
-        Load();  
+        Load();
         if (transform.GetChild(0).gameObject.activeInHierarchy)
         {
-        // Debug.Log("+++++++++++++++++++++++++++++++ after Load totalEnergy of Cat " + totalEnergyCatPref  + " is " + totalEnergy);
-        totalEnergy = totalEnergy + powerPoints.pointsWhenYouWereAbsent / 2;
-        CheckBelowZero();
-        CheckMaxEnergy();
+            // Debug.Log("+++++++++++++++++++++++++++++++ after Load totalEnergy of Cat " + totalEnergyCatPref  + " is " + totalEnergy);
+            totalEnergy = totalEnergy + powerPoints.pointsWhenYouWereAbsent / 2;
+            CheckBelowZero();
+            CheckMaxEnergy();
+
+            Invoke("CheckFoodAndToilet", 0.5f);
+            //CheckFoodAndToilet();
         }
         // StartCoroutine(RestoreRoutine());
     }
@@ -66,7 +71,7 @@ public class EnergyCat : MonoBehaviour, IClickable
         // Debug.Log("+++++++++++++++++++++++++++++++Use In EnergyCat Substracted from " + totalEnergyCatPref  + " - 3 = " + PlayerPrefs.GetFloat(totalEnergyCatPref));
         UpdateEnergy();
 
-// Hided when was making new pause menu
+        // Hided when was making new pause menu
         // if (restoring == false)
         // {
         //     if (powerSO.Value + 3 == maxEnergy)
@@ -204,15 +209,83 @@ public class EnergyCat : MonoBehaviour, IClickable
 
     public void EnergyRestore()
     {
-            powerSO.SetNewAmount(maxEnergy);
-            slider.value = maxEnergy;
-            value.text = maxEnergy.ToString();
+        powerSO.SetNewAmount(maxEnergy);
+        slider.value = maxEnergy;
+        value.text = maxEnergy.ToString();
     }
 
-    // private void OnDisable()
-    // {
-    //     PassivePowerUp.instance.ValueChangeBy.RemoveListener(method);
-    //      Debug.Log("UNSUB    !!!!!!");
-    //     Debug.Log("UNSUB     !!!!!!    " + totalEnergyCatPref + "  subscribed ");
-    // }
+    private void CheckFoodAndToilet()
+    {
+        int trueCount = 0;
+        int toiletCount = 0;
+        int foodCount = 0;
+
+        if (PassivePowerUp.FoodSpeeUp)
+        {
+            trueCount++;
+            foodCount++;
+        }
+
+        if (PassivePowerUp.Food2SpeeUp)
+        {
+            trueCount++;
+            foodCount++;
+        }
+
+        if (PassivePowerUp.Food3SpeeUp)
+        {
+            trueCount++;
+            foodCount++;
+        }
+
+        if (PassivePowerUp.ToiletSpeeUp)
+        {
+            trueCount++;
+            toiletCount++;
+        }
+
+        if (PassivePowerUp.Toilet2SpeeUp)
+        {
+            trueCount++;
+            toiletCount++;
+        }
+
+        if (PassivePowerUp.Toilet3SpeeUp)
+        {
+            trueCount++;
+            toiletCount++;
+        }
+
+        switch (trueCount)
+        {
+            case 1:
+                textTotalRestore.text = $"{"+1.5"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+            case 2:
+                textTotalRestore.text = $" {"+2"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+            case 3:
+                textTotalRestore.text = $"{"+2.5"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+            case 4:
+                textTotalRestore.text = $"{"+3"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+            case 5:
+                textTotalRestore.text = $"{"+3.5"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+            case 6:
+                textTotalRestore.text = $"{"+4"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+            default:
+                textTotalRestore.text = $" {"+1"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                break;
+
+        }
+    }
 }

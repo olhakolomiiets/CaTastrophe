@@ -12,6 +12,13 @@ public class NameOfCatForGame : MonoBehaviour
     {
         int catIndex = PlayerPrefs.GetInt("Player");
         nameOfCat = PlayerPrefs.GetString("nameOfCat" + catIndex);
-        loadedName.text = nameOfCat;
+        if (nameOfCat == null || nameOfCat == "")
+        {            
+            loadedName.text = "Cat";
+        }
+        else
+        {
+            loadedName.text = nameOfCat;
+        }      
     }
 }
