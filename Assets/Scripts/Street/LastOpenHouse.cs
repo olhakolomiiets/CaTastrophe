@@ -5,13 +5,10 @@ using UnityEngine;
 public class LastOpenHouse : MonoBehaviour
 {
     [SerializeField] private RectTransform rectTransform;
-    //[SerializeField] private RectTransform[] housesTransform;
     
-    void Start()
+    void OnEnable()
     {
         int levelComplete = PlayerPrefs.GetInt("LastOpenHouse");
-        //rectTransform.offsetMin = new Vector2(-5212, 0);
-        //rectTransform.offsetMax = new Vector2(5212, 0);
 
         switch (levelComplete)
         {
@@ -54,7 +51,6 @@ public class LastOpenHouse : MonoBehaviour
             default:
             rectTransform.anchoredPosition = new Vector2(5212, 0);
             break;
-         }
-        
+         }       
     }
 }

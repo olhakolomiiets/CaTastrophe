@@ -63,12 +63,7 @@ public class StarterPackTimer : MonoBehaviour
 
         if (_visitCount >= _days)
         {
-            if (!PlayerPrefs.HasKey("UserGotStarterPack"))
-            {
-                FirebaseAnalytics.LogEvent(name: "activated_starter_pack");
-            }
-
-            if (PlayerPrefs.GetInt("UserGotStarterPack") == 0)
+            if (PlayerPrefs.GetInt("UserGotStarterPack") == 0 && PlayerPrefs.GetInt("StarterPackTimerEnded") == 0)
             {
                 ActivateButton();
             }
@@ -85,6 +80,7 @@ public class StarterPackTimer : MonoBehaviour
         {
             starterPackWindow.SetActive(true);
             PlayerPrefs.SetInt("StarterPackFirstOpen", 1);
+            FirebaseAnalytics.LogEvent(name: "activated_starter_pack");
         }
         starterPack.SetActive(true);
         StartCoroutine(UpdateStarterPackTimer());      
@@ -106,6 +102,8 @@ public class StarterPackTimer : MonoBehaviour
             if (timeRemaining.Ticks <= 0)
             {
                 HideButton();
+                PlayerPrefs.SetInt("StarterPackTimerEnded", 1);
+
                 yield break;
             }
 

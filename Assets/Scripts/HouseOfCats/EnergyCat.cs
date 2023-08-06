@@ -46,7 +46,7 @@ public class EnergyCat : MonoBehaviour, IClickable
             CheckBelowZero();
             CheckMaxEnergy();
 
-            Invoke("CheckFoodAndToilet", 0.5f);
+            Invoke("CheckFoodAndToilet", 0.05f);
             //CheckFoodAndToilet();
         }
         // StartCoroutine(RestoreRoutine());
@@ -263,7 +263,7 @@ public class EnergyCat : MonoBehaviour, IClickable
                 break;
 
             case 2:
-                textTotalRestore.text = $" {"+2"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                textTotalRestore.text = $"{"+2"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
                 break;
 
             case 3:
@@ -283,7 +283,7 @@ public class EnergyCat : MonoBehaviour, IClickable
                 break;
 
             default:
-                textTotalRestore.text = $" {"+1"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
+                textTotalRestore.text = $"{"+1"} {Lean.Localization.LeanLocalization.GetTranslationText("Per20min")}";
                 break;
 
         }

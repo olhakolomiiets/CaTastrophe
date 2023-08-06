@@ -1,11 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class FeedbackCollector : MonoBehaviour
 {
-    [SerializeField] private Text txtData;
+    [SerializeField] private TextMeshProUGUI txtData;
     [SerializeField] private Button btnSubmit;
     [SerializeField] private CollectionOption option;
 

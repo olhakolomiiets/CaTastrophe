@@ -12,13 +12,6 @@ public class BrokeWhenOut : MonoBehaviour
     private int toiletTimer;
     private float secondsToiletLeft;
     public float msToiletTime;
-    public Text brokeTxt2;
-    public Text brokeTxt3;
-    public Text brokeItem1;
-    public Text brokeItem2;
-    public Text brokeItem3;
-    public Text brokeItem4;
-    public Text brokeItem5;
     public TimerForToilet toilet;
     public string timeWhenToiletCleanedPref;
     public int floor;
@@ -72,15 +65,12 @@ public class BrokeWhenOut : MonoBehaviour
         {
             tempTimeToiletCleaned = Convert.ToInt64(PlayerPrefs.GetString(timeWhenToiletCleanedPref), null);
         }
-        // var tempTimeToiletCleaned = Convert.ToInt64(PlayerPrefs.GetString(timeWhenToiletCleanedPref), null);
         var addedTimeToilet = DateTime.FromBinary(tempTimeToiletCleaned);
         var currentTime = DateTime.Now;
         var difference = currentTime.Subtract(addedTimeToilet);
         var rawTime = (float)difference.TotalSeconds;
         var secAfterAddToilet = (int)rawTime; //возможно не учитывается время работы туалета
-        //brokeTxt2.text = $"Start cheking secAfterAddToilet ==== {secAfterAddToilet} ";
-        //brokeTxt3.text = $"TimeWhenToiletCleaned before check == {addedTimeToilet} ";
-        // Debug.Log("++++++++++++++++++++++++++++++++++++ secondsToiletLeft > secAfterExit " + secondsToiletLeft + " > " + secAfterExit);
+
         if (secAfterAddToilet > _timeBeforeItemsBreak.Item1 + msToiletTime && PlayerPrefs.GetInt("stuffToDestroy1" + floor) != 1)
         {
             if (stuffToDestroy1Floor.Count > 0)
@@ -95,7 +85,6 @@ public class BrokeWhenOut : MonoBehaviour
                 }
                 Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
-                brokeItem1.text = $"I've broke item1 {element.name}";
                 PlayerPrefs.SetInt("stuffToDestroy1" + floor, 1);
             }
         }
@@ -113,7 +102,6 @@ public class BrokeWhenOut : MonoBehaviour
                 }
                 Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
-                brokeItem2.text = $"I've broke item2 {element.name}";
                 PlayerPrefs.SetInt("stuffToDestroy2" + floor, 1);
             }
         }
@@ -131,7 +119,6 @@ public class BrokeWhenOut : MonoBehaviour
                 }
                 Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
-                brokeItem3.text = $"I've broke item3 {element.name}";
                 PlayerPrefs.SetInt("stuffToDestroy3" + floor, 1);
             }
         }
@@ -149,7 +136,6 @@ public class BrokeWhenOut : MonoBehaviour
                 }
                 Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
-                brokeItem4.text = $"I've broke item4 {element.name}";
                 PlayerPrefs.SetInt("stuffToDestroy4" + floor, 1);
             }
         }
@@ -167,7 +153,6 @@ public class BrokeWhenOut : MonoBehaviour
                 }
                 Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
-                brokeItem5.text = $"I've broke item5 {element.name}";
                 PlayerPrefs.SetInt("stuffToDestroy5" + floor, 1);
             }
         }
@@ -185,7 +170,6 @@ public class BrokeWhenOut : MonoBehaviour
                 }
                 Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
-                brokeItem5.text = $"I've broke item6 {element.name}";
                 PlayerPrefs.SetInt("stuffToDestroy6" + floor, 1);
             }
         }

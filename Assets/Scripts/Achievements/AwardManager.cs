@@ -33,9 +33,12 @@ public class AwardManager : MonoBehaviour
     private IEnumerator coroutinePowerShopHint;
     #endregion
 
-
     void Awake()
     {
+        coroutineHouses = CheckHousesAhiveCorrRightGrid();
+        coroutineRightGrid = CheckAhiveCorrRightGrid();
+        coroutineLeftGrid = CheckAhiveCorrLeftGrid();
+        coroutinePowerShopHint = CheckPowerShopHintTimeUpLeftGrid();
 
         if (instance == null)
         {
@@ -45,19 +48,19 @@ public class AwardManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
 
         _camera.enabled = true;
     }
 
-/*    private void Start()
+    void OnEnable()
     {
-        GameObject newPrefabInstance1 = Instantiate(rightAchievesSO[0].AchieveLvl1, _rightAwardsGrid.transform);
-        GameObject particlesPrefabInstance1 = Instantiate(_particlesStarsAchieve, newPrefabInstance1.transform);
-
-        GameObject newPrefabInstance = Instantiate(leftAchievesSO[6].AchieveLvl1, _leftAwardsGrid.transform);
-        GameObject particlesPrefabInstance = Instantiate(_particlesStarsAchieve, newPrefabInstance.transform);
-    }*/
+        StartCoroutine(coroutineHouses);
+        StartCoroutine(coroutineRightGrid);
+        StartCoroutine(coroutineLeftGrid);
+        StartCoroutine(coroutinePowerShopHint);
+    }
 
     IEnumerator CheckAhiveCorrRightGrid()
     {
@@ -238,19 +241,6 @@ public class AwardManager : MonoBehaviour
             }
         yield return new WaitForSeconds(1);
         }
-    }
-
-    void OnEnable()
-    {
-        coroutineHouses = CheckHousesAhiveCorrRightGrid();
-        coroutineRightGrid = CheckAhiveCorrRightGrid();
-        coroutineLeftGrid = CheckAhiveCorrLeftGrid();
-        coroutinePowerShopHint = CheckPowerShopHintTimeUpLeftGrid();
-
-        StartCoroutine(coroutineHouses);
-        StartCoroutine(coroutineRightGrid);
-        StartCoroutine(coroutineLeftGrid);
-        StartCoroutine(coroutinePowerShopHint);
     }
 
     void OnDisable()

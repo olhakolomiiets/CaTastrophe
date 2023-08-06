@@ -45,10 +45,10 @@ public class MenuLevels : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         StartCoroutine(LoadAsync(level));
+
         PlayerPrefs.SetInt("LastOpenHouse", level);
 
-        FirebaseAnalytics.LogEvent(name: "open_house", new Parameter(parameterName: "levels", parameterValue: "level " + level));
-        
+        FirebaseAnalytics.LogEvent(name: "open_house", new Parameter(parameterName: "levels", parameterValue: "level " + level));        
     }
     IEnumerator LoadAsync(int level)
     {
@@ -59,6 +59,7 @@ public class MenuLevels : MonoBehaviour
             yield return null;
         }
     }
+
     public void Reset()
     {
         Leve2Button.interactable = false;
@@ -66,6 +67,7 @@ public class MenuLevels : MonoBehaviour
         Total.text = "0";
         PlayerPrefs.DeleteAll();
     }
+
     public void GiveMeMoney()
     {
         if (PlayerPrefs.GetInt("GiveMeMoneyFirstTime") == 0)
@@ -75,24 +77,18 @@ public class MenuLevels : MonoBehaviour
 
             FirebaseAnalytics.LogEvent(name: "used_GiveMeMoney");
         }
+    }
 
-    }
-    public void GiveExstraLife()
-    {
-        PlayerPrefs.SetInt("extraLife", 1);
-    }
-    public void TakeBackExstraLife()
-    {
-        PlayerPrefs.SetInt("extraLife", 0);
-    }
     public void MainMenu()
     {
         SceneManager.LoadScene("main-menu");
     }
+
     public void QuitApp()
     {
         Application.Quit();
     }
+
     private void setLevelActive(int id, Button[] listOfLevels )
     {
         for (int i = 0; i < listOfLevels.Length; i++)
