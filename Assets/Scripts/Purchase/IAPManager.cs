@@ -26,6 +26,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     private string specialOfferMoneyPack3500 = "com.catastrophe.specialoffermoneypack3500";
     private string specialOfferStarterPack = "com.catastrophe.starterpack";
 
+    private string extraLifeSpecial = "com.catastrophe.specialofferextralife";
+
     [HideInInspector] public UnityEvent PurchasedProductNoAds;
     [HideInInspector] public UnityEvent PurchasedProductExtraLife;
     [HideInInspector] public UnityEvent PurchasedProductMoneyPack2000;
@@ -36,6 +38,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     [HideInInspector] public UnityEvent PurchasedSpecialOfferEnergyRecovery;
     [HideInInspector] public UnityEvent PurchasedSpecialOfferMoneyPack3500;
     [HideInInspector] public UnityEvent PurchasedSpecialOfferStarterPack;
+
+    [HideInInspector] public UnityEvent PurchasedProductExtraLifeSpecial;
 
 
     void Awake()
@@ -82,6 +86,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
         builder.AddProduct(specialOfferEnergyRestore, ProductType.Consumable);
         builder.AddProduct(specialOfferMoneyPack3500, ProductType.Consumable);
         builder.AddProduct(specialOfferStarterPack, ProductType.Consumable);
+
+        builder.AddProduct(extraLifeSpecial, ProductType.NonConsumable);
 
         UnityPurchasing.Initialize(this, builder);
 
@@ -193,6 +199,17 @@ public class IAPManager : MonoBehaviour, IStoreListener
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
             PurchasedSpecialOfferStarterPack.Invoke();
+        }
+        else if (String.Equals(product.definition.id, extraLifeSpecial, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
+
+            if (PlayerPrefs.HasKey("extraLife") == false)
+            {
+                PurchasedProductExtraLifeSpecial.Invoke();
+
+                FirebaseAnalytics.LogEvent(name: "extra_life_special_purchased");
+            }
         }
         else
         {

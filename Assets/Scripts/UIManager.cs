@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     public GameObject loadingScreen;
     public Slider bar;
 
+    [SerializeField] private UserCommunicationSO userCommunicationSO;
+
     private void Awake()
     {
         player = Instantiate(players[PlayerPrefs.GetInt("Player")], ChooseStartPlayerPosition().position, Quaternion.identity).GetComponent<CowController>();
@@ -75,7 +77,8 @@ public class UIManager : MonoBehaviour
     {
         panelLose.SetActive(true);
         Time.timeScale = 0;
-        PauseButton.GetComponent<Button>().interactable = false;       
+        PauseButton.GetComponent<Button>().interactable = false;
+        userCommunicationSO.ChangeValueExtraLifeSpecial(1);
     }
     public void TimeUp()
     {

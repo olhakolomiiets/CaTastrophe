@@ -27,6 +27,8 @@ public class StreetRemainders : MonoBehaviour
     private void Awake()
     {
         isRemainderAlreadyShow = false;
+
+        passivePowerUpManager = FindObjectOfType<PassivePowerUp>();
     }
 
     void Start()

@@ -10,7 +10,7 @@ public class FeedbackWindowOpener : MonoBehaviour
 
     [SerializeField] private GameObject feedbackWindow;
 
-    [SerializeField] private FeedbackSO feedbackSO;
+    [SerializeField] private UserCommunicationSO userCommunicationSO;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class FeedbackWindowOpener : MonoBehaviour
 
         if (visitCount >= _day)
         {
-            if (feedbackSO.AskForFeedback == 1 && PlayerPrefs.GetInt("UserLeftFeedback") == 0)
+            if (userCommunicationSO.AskForFeedback == 1 && PlayerPrefs.GetInt("UserLeftFeedback") == 0)
             {
                 feedbackWindow.SetActive(true);
             }
