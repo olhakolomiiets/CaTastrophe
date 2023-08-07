@@ -7,7 +7,7 @@ public class CheatPowersHandler : MonoBehaviour
     [SerializeField] private List<GameObject> cheatPowers;
     private int purch;
     [SerializeField] private GameObject[] cheatPowersInfo;
-
+    [SerializeField] private GameObject cheatPowersTip;
 
     void Start()
     {
@@ -54,6 +54,15 @@ public class CheatPowersHandler : MonoBehaviour
     private void OnDisable()
     {
         // BuyCheatPower.CheatPowerBought -= EventTest;
+    }
+
+    public void ShowTip()
+    {
+        if (PlayerPrefs.GetInt("ShowCheatPowerSetTip") == 0)
+        {
+            cheatPowersTip.SetActive(true);
+            PlayerPrefs.SetInt("ShowCheatPowerSetTip", 1);
+        }
     }
 
     public void ResetCheatPowers()

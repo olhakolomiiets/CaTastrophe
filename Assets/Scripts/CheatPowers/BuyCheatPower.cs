@@ -71,6 +71,7 @@ public class BuyCheatPower : MonoBehaviour
             alreadyBoughtTxt.SetActive(true);
             PlayerPrefs.SetInt("TotalScore", TotalScore);
             _cheatPowerHandler.UpdateAllIcons();
+            _cheatPowerHandler.ShowTip();
             this.gameObject.SetActive(false);
 
             FirebaseAnalytics.LogEvent(name: "buy_cheat_power " + ppNameCheatPower);
