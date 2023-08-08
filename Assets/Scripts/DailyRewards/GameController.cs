@@ -30,9 +30,6 @@ public class GameController : MonoBehaviour
         private set => PlayerPrefs.SetInt("countPowersToRestore", value);
     }
 
-    [SerializeField] private Text coinsText;
-    [SerializeField] private Text sandText;
-    [SerializeField] private Text foodText;
     [SerializeField] private PowersRestore energyRecovery;
 
 

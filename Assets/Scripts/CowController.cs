@@ -255,12 +255,15 @@ public class CowController : MonoBehaviour
             }
             if (lives < 1)
             {
-                Camera.main.GetComponent<UIManager>().Lose();
-                PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
-                damageImage.SetActive(false);
-
                 if (!_eventSent)
                 {
+                    Camera.main.GetComponent<UIManager>().Lose();
+                    PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
+
+                    Debug.Log("!!!--- AwardDiedTimes Pref ---!!! " + PlayerPrefs.GetInt("AwardDiedTimes"));
+
+                    damageImage.SetActive(false);
+
                     FirebaseAnalytics.LogEvent(name: "cat_died");
                     _eventSent = true;
                 }
