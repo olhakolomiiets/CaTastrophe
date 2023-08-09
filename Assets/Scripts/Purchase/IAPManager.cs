@@ -251,6 +251,11 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log($"In-App Purchasing initialize failed: {error}");
     }
 
+    public void OnInitializeFailed(InitializationFailureReason error, string message)
+    {
+        Debug.Log($"In-App Purchasing initialize failed: {error}, Message: {message}");
+    }
+
     public void OnPurchaseComplete(Product product)
     {
         Debug.Log($"Purchase completed - Product: '{product.definition.id}'");

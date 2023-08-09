@@ -92,6 +92,11 @@ public class PreRegistrationBonus : MonoBehaviour, IStoreListener
         Debug.Log($"In-App Purchasing initialize failed: {error}");
     }
 
+    public void OnInitializeFailed(InitializationFailureReason error, string message)
+    {
+        Debug.Log($"In-App Purchasing initialize failed: {error}, Message: {message}");
+    }
+
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
     {
         Debug.Log($"Purchase failed - Product: '{product.definition.id}', PurchaseFailureReason: {failureReason}");
