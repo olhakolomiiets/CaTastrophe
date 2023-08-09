@@ -46,6 +46,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -131,6 +132,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -328,12 +330,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: d33411377aab0d5409a6edf5a8a6d8a9,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &8867001212987742092
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -463,6 +466,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -544,6 +548,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -676,12 +681,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: 15eccf7b5a63d394d938319dc5a5cad7,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &8536894403432970538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -825,6 +831,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -907,6 +914,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -992,6 +1000,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1200,6 +1209,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1349,6 +1359,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1485,6 +1496,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1618,7 +1630,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567657229883851843}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
@@ -3709,6 +3721,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -5139,19 +5207,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -5325,17 +5394,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -6290,6 +6362,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6332,6 +6405,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
@@ -6431,6 +6506,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3678174136747627358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6512,6 +6588,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6528,7 +6605,7 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!95 &8498009103801690053
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6541,10 +6618,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!210 &8658935866009417848
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -6602,6 +6681,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6684,6 +6764,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6823,6 +6904,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6954,12 +7036,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 8
   destroyedVersion: {fileID: 476528267752627456, guid: 3b2b59f83cc52134499dbc37287f6611,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &7279290226886892976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7081,12 +7164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 7
   destroyedVersion: {fileID: 476528267752627456, guid: 15eccf7b5a63d394d938319dc5a5cad7,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &6382081096349579986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7159,6 +7243,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7290,12 +7375,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 7
   destroyedVersion: {fileID: 476528267752627456, guid: 3131d5a33836fb4438637e5dc7ff53de,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &6485079718940425780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7417,12 +7503,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 1
   destroyedVersion: {fileID: 476528267752627456, guid: d33411377aab0d5409a6edf5a8a6d8a9,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &6793354737947038919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7498,6 +7585,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7706,6 +7794,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7856,6 +7945,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7986,12 +8076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: dd0c5a7027e76e044b1186ac8a037322,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &6320789369870132566
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8064,6 +8155,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8195,12 +8287,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: a74c983108fd7394db04e04b9223ccea,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &5451214214326182809
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8275,6 +8368,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8645,12 +8739,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 4
   destroyedVersion: {fileID: 476528267752627456, guid: dd0c5a7027e76e044b1186ac8a037322,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &4825230262402123268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8725,6 +8820,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8858,6 +8954,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8997,6 +9094,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9127,12 +9225,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: 75f6c2210abd93d4abc0834359108683,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &4420656584542221256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9262,6 +9361,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9392,12 +9492,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 10
   destroyedVersion: {fileID: 476528267752627456, guid: 3b2b59f83cc52134499dbc37287f6611,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &3688827528800134647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9527,6 +9628,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9609,6 +9711,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9691,6 +9794,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9773,6 +9877,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9912,6 +10017,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9994,6 +10100,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10125,12 +10232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 1
   destroyedVersion: {fileID: 476528267752627456, guid: 3b2b59f83cc52134499dbc37287f6611,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &3127469276645109342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10317,6 +10425,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10448,12 +10557,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 10
   destroyedVersion: {fileID: 476528267752627456, guid: d33411377aab0d5409a6edf5a8a6d8a9,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &3268842208695424925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10811,6 +10921,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10941,12 +11052,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 4
   destroyedVersion: {fileID: 476528267752627456, guid: f8995cc0cb90da4409afa36ca5777c6a,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &2621388439187861572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11022,6 +11134,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -11171,6 +11284,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -11360,12 +11474,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: 4d2f6daf21e9983468124a91c79b20f8,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1799716487781851307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11558,12 +11673,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 6
   destroyedVersion: {fileID: 476528267752627456, guid: 3b2b59f83cc52134499dbc37287f6611,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1843693116183583977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11685,12 +11801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: a74c983108fd7394db04e04b9223ccea,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1929979477519160185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11812,12 +11929,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 7
   destroyedVersion: {fileID: 476528267752627456, guid: 75f6c2210abd93d4abc0834359108683,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1970889121034070990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11939,12 +12057,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: 56d992e1808b2c34e997a21517f0e2d2,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1981180712538108177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12017,6 +12136,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12236,12 +12356,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 8
   destroyedVersion: {fileID: 476528267752627456, guid: d33411377aab0d5409a6edf5a8a6d8a9,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &2291215173566991320
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12371,6 +12492,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12503,12 +12625,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 10
   destroyedVersion: {fileID: 476528267752627456, guid: d33411377aab0d5409a6edf5a8a6d8a9,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1424777398537504892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12644,12 +12767,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 1
   destroyedVersion: {fileID: 476528267752627456, guid: 3b2b59f83cc52134499dbc37287f6611,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &1636985827140792761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12782,6 +12906,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12981,12 +13106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 4
   destroyedVersion: {fileID: 476528267752627456, guid: f8995cc0cb90da4409afa36ca5777c6a,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &710256911446481048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13059,6 +13185,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13141,6 +13268,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13272,12 +13400,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 1
   destroyedVersion: {fileID: 476528267752627456, guid: d33411377aab0d5409a6edf5a8a6d8a9,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &940526051881902880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13350,6 +13479,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13481,12 +13611,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 5
   destroyedVersion: {fileID: 476528267752627456, guid: 3b2b59f83cc52134499dbc37287f6611,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &214807275159811371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13587,6 +13718,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.20392159, g: 0.7568628, b: 0.76470596, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13650,6 +13782,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13798,6 +13931,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13929,12 +14063,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a253cac2a57038d41a9a228456c90537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
+  points: 0
   magnitude: 7
   destroyedVersion: {fileID: 476528267752627456, guid: 56d992e1808b2c34e997a21517f0e2d2,
     type: 3}
   isTimeBonus: 0
   bonusIdPref: 
+  reuseCollisionCallbacks: 0
 --- !u!61 &517806963999715663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14032,6 +14167,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.54
       objectReference: {fileID: 0}
@@ -14044,6 +14189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
         type: 3}
@@ -14062,16 +14212,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -14084,11 +14224,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7299365699755204856, guid: 28d64f8aa7d632841a86d399a935ad1d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28d64f8aa7d632841a86d399a935ad1d, type: 3}
@@ -14107,6 +14242,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37
       objectReference: {fileID: 0}
@@ -14119,6 +14264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
         type: 3}
@@ -14137,16 +14287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -14159,11 +14299,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1459982443210476802, guid: 8ab9bf14e8bc17a45b402191a83624c4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9625
       objectReference: {fileID: 0}
     - target: {fileID: 1764033492043452081, guid: 8ab9bf14e8bc17a45b402191a83624c4,
         type: 3}

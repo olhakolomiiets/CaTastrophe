@@ -5,7 +5,6 @@ using UnityEngine;
 public class BookStandDestr : MonoBehaviour
 {
     [SerializeField]
-    public int points = 20;
     public GameObject destroyedVersion;
     public GameObject destroyedVersionLeft;
     private ScoreManager sm;
