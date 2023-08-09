@@ -68,6 +68,8 @@ public class SpecialOffers : MonoBehaviour
         SoundManager.snd.PlaybuySounds();
         restoreWindow.SetActive(false);
 
+        energyRecovery.UpdateUI();
+
         specialOffersTimer.SpecialOfferPurchased();
     }
 
