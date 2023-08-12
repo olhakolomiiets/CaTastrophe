@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class TipsManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class TipsManager : MonoBehaviour
     [SerializeField] private GameObject buttonBlockBackground;
     [SerializeField] private GameObject tipFurniture;
     [SerializeField] private GameObject buyFloor;
+    [SerializeField] private GameObject buyFloorButton;
     public RectTransform transform1;
     public RectTransform transform2;
     public RectTransform transform3;
@@ -59,6 +61,7 @@ public class TipsManager : MonoBehaviour
     {       
         mainCamera.transform.DOLocalMove(transform3.position, 0.7f);
         StartCoroutine(Tip2Floor());
+        buyFloorButton.SetActive(false);
     }
     public void ExitTip()
     {
@@ -67,6 +70,7 @@ public class TipsManager : MonoBehaviour
         buttonBlockBackground.SetActive(false);
         buyFloor.SetActive(false);
         mainCamera.transform.DOLocalMove(transform4.position, 0.7f);
+        buyFloorButton.SetActive(true);
 
     }
     IEnumerator ChangeTips(GameObject tipActive, GameObject tipInactive)

@@ -27,6 +27,10 @@ public class StreetRemainders : MonoBehaviour
     private void Awake()
     {
         isRemainderAlreadyShow = false;
+        if (PlayerPrefs.GetInt("FirstMessages") == 0)
+        {
+            isRemainderAlreadyShow = true;
+        }
 
         passivePowerUpManager = FindObjectOfType<PassivePowerUp>();
     }
