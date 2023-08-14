@@ -12,9 +12,20 @@ public class Intro : MonoBehaviour
         if (PlayerPrefs.GetInt("Intro") == 0)
         {
             intro.SetActive(true);
+            PauseOn();
             PlayerPrefs.SetInt("Intro", 1);
             InitializationPrefs();
         }
+    }
+
+    public void PauseOn()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void PauseOff()
+    {
+        Time.timeScale = 1;
     }
 
     private void InitializationPrefs()

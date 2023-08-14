@@ -143,6 +143,7 @@ public class PickUpFromPlate : MonoBehaviour
     }
     IEnumerator SpeedBoost()
     {
+        yield return new WaitForSecondsRealtime(2f);
         startTimer.SetCountDown(20);
         controller.normalSpeed = controller.normalSpeed + 2;
         yield return new WaitForSecondsRealtime(20.0f);
