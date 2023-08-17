@@ -8,15 +8,16 @@ public class FloorActiveFoodHandler : MonoBehaviour
     [SerializeField] private GameObject plate3Floor;
     public string PrefForFloor2;
     public string PrefForFloor3;
+
     public delegate void PlateActiveFloorDelegate();
-    
+
     private void Awake() 
     {
        UpdateActivePlates();   
     }
     private void OnEnable() 
     {
-        BuyFloorHandler.FloorBoughtPlate += UpdateActivePlates;
+        BuyFloorHandler.PlateActiveFloor += UpdateActivePlates;
     }
 
     private void UpdateActivePlates() 
@@ -29,5 +30,10 @@ public class FloorActiveFoodHandler : MonoBehaviour
         {
             plate3Floor.SetActive(true);
         }          
+    }
+
+    private void OnDisable()
+    {
+        BuyFloorHandler.PlateActiveFloor -= UpdateActivePlates;
     }
 }

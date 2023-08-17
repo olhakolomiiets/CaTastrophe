@@ -14,13 +14,10 @@ public class EnergyRestoreInfo : MonoBehaviour
     [SerializeField] private Text textRestoreFood;
     [SerializeField] private Text textRestoreToilet;
 
-
-    void Start()
+    void OnEnable()
     {
-        CheckFoodAndToilet();
-
+        Invoke("CheckFoodAndToilet", 0.03f);
     }
-
 
     private void CheckFoodAndToilet()
     {

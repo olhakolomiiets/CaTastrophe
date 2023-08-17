@@ -8,16 +8,16 @@ public class FloorActiveToiletHandler : MonoBehaviour
     [SerializeField] private GameObject toilet3Floor;
     public string PrefForFloor2;
     public string PrefForFloor3;
+
     public delegate void ToiletActiveFloorDelegate();
-    public static event ToiletActiveFloorDelegate ToiletActiveFloorEvent;
-    
+
     private void Awake() 
     {
        UpdateActiveToilets();   
     }
     private void OnEnable() 
     {
-        BuyFloorHandler.FloorBought += UpdateActiveToilets;
+        BuyFloorHandler.ToiletActiveFloor += UpdateActiveToilets;
     }
 
     private void UpdateActiveToilets() 
@@ -30,5 +30,10 @@ public class FloorActiveToiletHandler : MonoBehaviour
         {
             toilet3Floor.SetActive(true);
         }          
+    }
+
+    private void OnDisable()
+    {
+        BuyFloorHandler.ToiletActiveFloor -= UpdateActiveToilets;
     }
 }

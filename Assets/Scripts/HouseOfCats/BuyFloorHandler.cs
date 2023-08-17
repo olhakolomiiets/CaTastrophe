@@ -13,8 +13,11 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
     [SerializeField] private GameObject toilet;
     [SerializeField] private GameObject foodPlate;
     [SerializeField] private GameObject upgadeUnits;
-    public static event FloorActiveToiletHandler.ToiletActiveFloorDelegate FloorBought;
-    public static event FloorActiveFoodHandler.PlateActiveFloorDelegate FloorBoughtPlate;
+
+    public static event FloorActiveToiletHandler.ToiletActiveFloorDelegate ToiletActiveFloor;
+    public static event FloorActiveFoodHandler.PlateActiveFloorDelegate PlateActiveFloor;
+
+
     [SerializeField] private GameObject noMoneyTag;
 
     private void Awake()
@@ -28,9 +31,6 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
             toilet.SetActive(true);
         }
     }
-    void Start()
-    {
-    }
 
     public void Click()
     {
@@ -41,14 +41,17 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
             PlayerPrefs.SetInt(ppnamePower, 1);
             floor1.SetActive(false);
             button.SetActive(false);
+
+            ToiletActiveFloor.Invoke();
+            PlateActiveFloor.Invoke();
+
             foodPlate.SetActive(true);
             toilet.SetActive(true);
+
             upgadeUnits.SetActive(true);
             TotalScore = TotalScore - price;
             SoundManager.snd.PlaybuySounds();
             PlayerPrefs.SetInt("TotalScore", TotalScore);
-            FloorBought?.Invoke();
-            FloorBoughtPlate?.Invoke();
         }
         else if (TotalScore < price)
         {
@@ -59,7 +62,6 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
 
     IEnumerator NoMoney()
     {
-
         noMoneyTag.SetActive(true);
 
         yield return new WaitForSeconds(3f);
