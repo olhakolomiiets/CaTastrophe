@@ -14,10 +14,6 @@ public class FirstShopGuide : MonoBehaviour
             StartCoroutine(PillowPage());
             PlayerPrefs.SetInt("FirstShop", 1);
         }
-        /*         if ( PlayerPrefs.GetInt("OpenShop") == 0) {
-                     shop.SetActive(true);
-                    PlayerPrefs.SetInt("OpenShop", 1);
-                }*/
     }
 
 

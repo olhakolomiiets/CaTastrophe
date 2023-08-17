@@ -46,7 +46,7 @@ public class AdBonusTimer : MonoBehaviour
         }
         else
         {
-            if (day % 2 == 0 && hour >= activationHour && minute >= activationMinute && second >= activationSecond)
+            if (day % 2 == 0 && hour >= activationHour && minute >= activationMinute && second >= activationSecond && PlayerPrefs.GetInt("FirstShop") == 1)
             {
                 ActivateButton();              
             }
