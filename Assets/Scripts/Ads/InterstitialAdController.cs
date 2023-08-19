@@ -1,21 +1,13 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using GoogleMobileAds;
 using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 
 namespace GoogleMobileAds.Sample
 {
-    /// <summary>
-    /// Demonstrates how to use Google Mobile Ads interstitial ads.
-    /// </summary>
     [AddComponentMenu("GoogleMobileAds/InterstitialAdController")]
     public class InterstitialAdController : MonoBehaviour
     {
 
-        // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
         private const string _adUnitId = "ca-app-pub-4196164004824768/1541511210";
 #elif UNITY_IPHONE
@@ -91,9 +83,6 @@ namespace GoogleMobileAds.Sample
                 UnityEngine.Debug.Log(responseInfo);
             }
         }
-
-
-
         private void RegisterEventHandlers(InterstitialAd ad)
         {
             ad.OnAdPaid += (AdValue adValue) =>

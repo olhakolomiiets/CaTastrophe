@@ -72,6 +72,8 @@ public class CowController : MonoBehaviour
 
     private bool _eventSent;
 
+    [SerializeField] private GoogleMobileAds.Sample.BannerViewController _bannerController;
+
     private void Awake()
     {
         #region SetupCheatPowers
@@ -120,6 +122,8 @@ public class CowController : MonoBehaviour
     }
     void Start()
     {
+        _bannerController = FindAnyObjectByType<GoogleMobileAds.Sample.BannerViewController>();
+
         feetPos = gameObject.transform.Find("feetPos").transform;
         anim = GetComponent<Animator>();
         speed = 0f;
@@ -255,15 +259,16 @@ public class CowController : MonoBehaviour
             }
             if (lives < 1)
             {
+                Camera.main.GetComponent<UIManager>().Lose();
+                damageImage.SetActive(false);
+
                 if (!_eventSent)
                 {
-                    Camera.main.GetComponent<UIManager>().Lose();
+                    _bannerController.LoadAd();
+
                     PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
-
                     Debug.Log("!!!--- AwardDiedTimes Pref ---!!! " + PlayerPrefs.GetInt("AwardDiedTimes"));
-
-                    damageImage.SetActive(false);
-
+                   
                     FirebaseAnalytics.LogEvent(name: "cat_died");
                     _eventSent = true;
                 }

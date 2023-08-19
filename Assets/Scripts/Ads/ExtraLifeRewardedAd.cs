@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using GoogleMobileAds;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 using UnityEngine.Events;
 using Firebase.Analytics;
 
@@ -74,8 +69,16 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     public void OnGetOneMoreLife()
     {
         buttonReward.interactable = false;
-        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
-        _adController.ShowAd();
+
+        if (_adController._rewardedAd != null)
+        {
+            buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
+            _adController.ShowAd();
+        }
+        else
+        {
+            buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
+        }
     }
 
     private void OnDisable()

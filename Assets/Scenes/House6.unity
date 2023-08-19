@@ -17532,6 +17532,7 @@ MonoBehaviour:
   textForStar3: {fileID: 335867577}
   userCommunicationSO: {fileID: 11400000, guid: b5601da66479e6443a5fc0abf787383c,
     type: 2}
+  _bannerController: {fileID: 0}
 --- !u!1001 &326519965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23202,9 +23203,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 724812526}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 724812531}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -23212,8 +23233,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HideAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ExtraLifeRewardedAd, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 896029862642946424, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -23387,6 +23423,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6205156459948934638}
@@ -23397,6 +23443,16 @@ PrefabInstance:
       objectReference: {fileID: 1759449019}
     - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 724812531}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Restart
       objectReference: {fileID: 0}
@@ -23404,6 +23460,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: HideAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 896029864088330116, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -45096,6 +45167,7 @@ GameObject:
   - component: {fileID: 724812527}
   - component: {fileID: 724812529}
   - component: {fileID: 724812530}
+  - component: {fileID: 724812531}
   m_Layer: 8
   m_Name: _Ads
   m_TagString: Untagged
@@ -45183,6 +45255,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayBetweenAds: 180
   _adController: {fileID: 724812527}
+--- !u!114 &724812531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724812525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60905ae568ba52446b983825e7a32d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &727537843
 GameObject:
   m_ObjectHideFlags: 0
@@ -45819,6 +45903,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1759449019}
         m_TargetAssemblyTypeName: 
         m_MethodName: PlayButtonsSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 724812531}
+        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
+        m_MethodName: HideAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -92309,6 +92405,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6205156459948934638}
@@ -92319,6 +92425,16 @@ PrefabInstance:
       objectReference: {fileID: 1759449019}
     - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 724812531}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PauseOff
       objectReference: {fileID: 0}
@@ -92326,6 +92442,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: HideAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4233244351803930003, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -98937,6 +99068,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1759449019}
         m_TargetAssemblyTypeName: 
         m_MethodName: PlayButtonsSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 724812531}
+        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
+        m_MethodName: LoadAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

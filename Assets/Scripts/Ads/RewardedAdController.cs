@@ -28,8 +28,7 @@ namespace GoogleMobileAds.Sample
 
         #endregion
 
-        private RewardedAd _rewardedAd;
-
+        public RewardedAd _rewardedAd;
 
         public void LoadAd()
         {

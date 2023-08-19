@@ -21,8 +21,12 @@ public class StarsWin : MonoBehaviour
 
     [SerializeField] private UserCommunicationSO userCommunicationSO;
 
+    [SerializeField] private GoogleMobileAds.Sample.BannerViewController _bannerController;
+
     void Start()
     {
+        _bannerController.LoadAd();
+
         sm = FindObjectOfType<ScoreManager>();
         star1 = this.gameObject.transform.GetChild(1).gameObject;
         star2 = this.gameObject.transform.GetChild(4).gameObject;
