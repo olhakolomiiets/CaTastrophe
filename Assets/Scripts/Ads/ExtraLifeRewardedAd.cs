@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using Firebase.Analytics;
+using System.Collections;
 
 public class ExtraLifeRewardedAd : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ExtraLifeRewardedAd : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnUserEarnedRewardEvent;
     [HideInInspector] public UnityEvent OnAdClosedEvent;
+    [HideInInspector] public UnityEvent RewardedAdLoadedEvent;
+    [HideInInspector] public UnityEvent RewardedAdLoadedWithErrorEvent;
 
     #endregion
 
@@ -32,25 +35,22 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     {
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.OnAdClosedEvent.AddListener(RewardedAdClosed);
+        _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
+        _adController.RewardedAdLoadedWithErrorEvent.AddListener(RewardedAdWithError);
 
         if (!_rewardedAdUsed)
-        {
-            _adController.LoadAd();
+        {            
             buttonReward.interactable = true;
         }
         else
         {
             buttonReward.interactable = false;
         }
-
-        Debug.Log("OnEnable () ExtraLifeRewardedAd");
     }
 
     public void UserEarnedReward()
     {
         CowController.lives++;
-        Debug.Log("User Earned Reward ()");
-
     }
 
     public void RewardedAdClosed()
@@ -60,7 +60,6 @@ public class ExtraLifeRewardedAd : MonoBehaviour
         panelLose.SetActive(false);
         pauseButton.GetComponent<Button>().interactable = true;
         _rewardedAdUsed = true;
-        Debug.Log("Rewarded Ad Closed ()");
 
         FirebaseAnalytics.LogEvent(name: "got_life_for_ads");
     }
@@ -69,22 +68,27 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     public void OnGetOneMoreLife()
     {
         buttonReward.interactable = false;
+        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
-        if (_adController._rewardedAd != null)
-        {
-            buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
-            _adController.ShowAd();
-        }
-        else
-        {
-            buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
-        }
+        _adController.LoadAd();
+    }
+
+    public void ShowRewardedAd()
+    {
+        _adController.ShowAd();
+    }
+
+    public void RewardedAdWithError()
+    {
+        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
     }
 
     private void OnDisable()
     {
         _adController.OnUserEarnedRewardEvent.RemoveListener(UserEarnedReward);
         _adController.OnAdClosedEvent.RemoveListener(RewardedAdClosed);
+        _adController.RewardedAdLoadedEvent.RemoveListener(ShowRewardedAd);
+        _adController.RewardedAdLoadedWithErrorEvent.RemoveListener(RewardedAdWithError);
     }
 
 

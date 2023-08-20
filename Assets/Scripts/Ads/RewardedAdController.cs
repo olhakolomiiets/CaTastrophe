@@ -25,6 +25,8 @@ namespace GoogleMobileAds.Sample
 
         [HideInInspector] public UnityEvent OnUserEarnedRewardEvent;
         [HideInInspector] public UnityEvent OnAdClosedEvent;
+        [HideInInspector] public UnityEvent RewardedAdLoadedEvent;
+        [HideInInspector] public UnityEvent RewardedAdLoadedWithErrorEvent;
 
         #endregion
 
@@ -45,11 +47,13 @@ namespace GoogleMobileAds.Sample
             {
                 if (error != null)
                 {
+                    RewardedAdLoadedWithErrorEvent.Invoke();
                     Debug.LogError("Rewarded ad failed to load an ad with error : " + error);
                     return;
                 }
                 if (ad == null)
                 {
+                    RewardedAdLoadedWithErrorEvent.Invoke();
                     Debug.LogError("Unexpected error: Rewarded load event fired with null ad and null error.");
                     return;
                 }
@@ -59,6 +63,7 @@ namespace GoogleMobileAds.Sample
 
                 RegisterEventHandlers(ad);
 
+                RewardedAdLoadedEvent.Invoke();
             });
         }
 
@@ -98,8 +103,6 @@ namespace GoogleMobileAds.Sample
                 UnityEngine.Debug.Log(responseInfo);
             }
         }
-
-
 
         private void RegisterEventHandlers(RewardedAd ad)
         {

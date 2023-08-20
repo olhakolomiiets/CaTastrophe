@@ -13,6 +13,6 @@ public class StandardBannerAd : MonoBehaviour
 
     private void OnDisable()
     {
-        _adController.HideAd();
+        _adController.DestroyAd();
     }
 }
