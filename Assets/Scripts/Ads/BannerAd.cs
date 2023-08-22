@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardBannerAd : MonoBehaviour
+public class BannerAd : MonoBehaviour
 {
-    [SerializeField] private GoogleMobileAds.Sample.StandardBannerViewController _adController;
+    [SerializeField] private GoogleMobileAds.Sample.BannerViewController _adController;
 
     private void OnEnable()
     {

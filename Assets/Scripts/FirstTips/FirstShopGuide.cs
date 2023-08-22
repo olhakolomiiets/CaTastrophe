@@ -8,7 +8,9 @@ public class FirstShopGuide : MonoBehaviour
     public GameObject pillowPage;
     void Start()
     {
-        if (PlayerPrefs.GetInt("FirstShop") == 0 && PlayerPrefs.GetInt("TotalScore") >= 50 && PlayerPrefs.GetInt("pillow") == 0)
+        var _playCount = PlayerPrefs.GetInt("HowManyGamesPlayed");
+
+        if (_playCount >= 1 && PlayerPrefs.GetInt("FirstShop") == 0 && PlayerPrefs.GetInt("TotalScore") >= 50 && PlayerPrefs.GetInt("pillow") == 0)
         {
             shop.SetActive(true);
             StartCoroutine(PillowPage());

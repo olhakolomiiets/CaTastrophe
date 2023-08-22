@@ -2335,6 +2335,12 @@ MonoBehaviour:
   OnAdClosedEvent:
     m_PersistentCalls:
       m_Calls: []
+  RewardedAdLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedWithErrorEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &95909317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,6 +2383,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedWithErrorEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &95909320
@@ -9731,6 +9743,7 @@ GameObject:
   - component: {fileID: 198151533}
   - component: {fileID: 198151535}
   - component: {fileID: 198151534}
+  - component: {fileID: 198151536}
   m_Layer: 5
   m_Name: PanelTimeUp
   m_TagString: Untagged
@@ -9796,6 +9809,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198151532}
   m_CullTransparentMesh: 0
+--- !u!114 &198151536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198151532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defb6d818967f8443b43403f9a0a0b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _adController: {fileID: 95909321}
 --- !u!1 &201471823
 GameObject:
   m_ObjectHideFlags: 0
@@ -11621,18 +11647,6 @@ MonoBehaviour:
       - m_Target: {fileID: 95909320}
         m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
         m_MethodName: ShowInterstitialAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 95909321}
-        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
-        m_MethodName: DestroyAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35481,7 +35495,7 @@ PrefabInstance:
     - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -35733,6 +35747,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8143710553410658803, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 95909321}
     - target: {fileID: 9105325556546071246, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -37070,7 +37089,7 @@ PrefabInstance:
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -37235,7 +37254,7 @@ PrefabInstance:
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -37320,7 +37339,7 @@ PrefabInstance:
     - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -37372,6 +37391,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1465044183123036550, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 95909321}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7b70c16cb3f7d4438264d7515688d18, type: 3}
 --- !u!1 &714096173 stripped
@@ -38110,18 +38134,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1759449019}
         m_TargetAssemblyTypeName: 
         m_MethodName: PlayButtonsSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 95909321}
-        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
-        m_MethodName: DestroyAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

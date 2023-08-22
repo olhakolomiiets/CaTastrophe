@@ -3497,6 +3497,7 @@ GameObject:
   - component: {fileID: 198151533}
   - component: {fileID: 198151535}
   - component: {fileID: 198151534}
+  - component: {fileID: 198151536}
   m_Layer: 5
   m_Name: PanelTimeUp
   m_TagString: Untagged
@@ -3563,6 +3564,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198151532}
   m_CullTransparentMesh: 0
+--- !u!114 &198151536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198151532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defb6d818967f8443b43403f9a0a0b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _adController: {fileID: 2080398751}
 --- !u!1 &208575027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,18 +4865,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2080398746}
         m_TargetAssemblyTypeName: Interstitial, Assembly-CSharp
         m_MethodName: ShowInterstitialAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2080398751}
-        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
-        m_MethodName: DestroyAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18649,18 +18651,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1759449019}
         m_TargetAssemblyTypeName: 
         m_MethodName: PlayButtonsSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2080398751}
-        m_TargetAssemblyTypeName: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
-        m_MethodName: DestroyAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35603,28 +35593,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 896029863639672294}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1151071388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151071387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f76396852980a40bd2a767eb9f5f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonReward: {fileID: 896029863639672299}
-  panelLose: {fileID: 1151071387}
-  pauseButton: {fileID: 2058394904}
-  _adController: {fileID: 2080398750}
-  OnUserEarnedRewardEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAdClosedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!224 &1151071390 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 896029862642946424, guid: b7b70c16cb3f7d4438264d7515688d18,
@@ -52700,6 +52668,7 @@ GameObject:
   - component: {fileID: 2080398750}
   - component: {fileID: 2080398746}
   - component: {fileID: 2080398751}
+  - component: {fileID: 2080398748}
   m_Layer: 8
   m_Name: _Ads
   m_TagString: Untagged
@@ -52735,6 +52704,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080398748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080398745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f76396852980a40bd2a767eb9f5f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonReward: {fileID: 896029863639672299}
+  panelLose: {fileID: 1151071387}
+  pauseButton: {fileID: 2058394904}
+  _adController: {fileID: 2080398750}
+  OnUserEarnedRewardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedWithErrorEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2080398749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52763,6 +52760,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnAdClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedWithErrorEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2080398751
@@ -56171,7 +56174,7 @@ PrefabInstance:
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -56182,12 +56185,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2080398751}
+      objectReference: {fileID: 2080398748}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1151071388}
+      objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -56196,7 +56199,7 @@ PrefabInstance:
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DestroyAd
+      value: OnGetOneMoreLife
       objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -56206,7 +56209,7 @@ PrefabInstance:
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GoogleMobileAds.Sample.BannerViewController, Assembly-CSharp
+      value: ExtraLifeRewardedAd, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -56336,7 +56339,7 @@ PrefabInstance:
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 896029862824426831, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -56416,7 +56419,7 @@ PrefabInstance:
     - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 896029863952778274, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
@@ -56473,6 +56476,11 @@ PrefabInstance:
       propertyPath: translationName
       value: LoseText
       objectReference: {fileID: 0}
+    - target: {fileID: 1465044183123036550, guid: b7b70c16cb3f7d4438264d7515688d18,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 2080398751}
     - target: {fileID: 6435566158619604735, guid: b7b70c16cb3f7d4438264d7515688d18,
         type: 3}
       propertyPath: _adController
@@ -74320,6 +74328,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: CANCEL
       objectReference: {fileID: 0}
+    - target: {fileID: 2301852985865585706, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 2080398751}
     - target: {fileID: 3327765496693872553, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -74403,7 +74416,7 @@ PrefabInstance:
     - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4233244351564541809, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
@@ -74620,6 +74633,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8143710553410658803, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: _adController
+      value: 
+      objectReference: {fileID: 2080398751}
     - target: {fileID: 9105325556546071246, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target

@@ -57,11 +57,9 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     void Start()
     {
-        Debug.Log("     O -----     IAP Manager Start     ----- O     ");
         if (_storeController == null)
         {
             Invoke("InitializePurchasing", 2f);
-            //InitializePurchasing();
         }
     }
 
@@ -91,7 +89,6 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         UnityPurchasing.Initialize(this, builder);
 
-        Debug.Log("     O -----     IAP Manager InitializePurchasing     ----- O     ");
     }
 
     public void BuyProduct(string productName)
@@ -126,23 +123,21 @@ public class IAPManager : MonoBehaviour, IStoreListener
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-            if (PlayerPrefs.HasKey("adsRemoved") == false)
-            {
-                PurchasedProductNoAds.Invoke();
+            PurchasedProductNoAds.Invoke();
 
-                FirebaseAnalytics.LogEvent(name: "no_ads_purchased");
-            }
+            NoAds();
+
+            FirebaseAnalytics.LogEvent(name: "no_ads_purchased");
         }
         else if (String.Equals(product.definition.id, extraLife, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", product.definition.id));
 
-            if (PlayerPrefs.HasKey("extraLife") == false)
-            {
-                PurchasedProductExtraLife.Invoke();
+            PurchasedProductExtraLife.Invoke();
 
-                FirebaseAnalytics.LogEvent(name: "extra_life_purchased");
-            }           
+            ExtraLife();
+
+            FirebaseAnalytics.LogEvent(name: "extra_life_purchased");          
         }
         else if (String.Equals(product.definition.id, moneyPack2000, StringComparison.Ordinal))
         {
@@ -225,11 +220,20 @@ public class IAPManager : MonoBehaviour, IStoreListener
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + 5000;
-        Debug.Log("!!!--- TotalScore + MoneyPack 5000 For Pre Registration ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
 
         FirebaseAnalytics.LogEvent(name: "bonus_received");
+    }
+
+    private void NoAds()
+    {
+        PlayerPrefs.SetInt("adsRemoved", 1);
+    }
+
+    private void ExtraLife()
+    {
+        PlayerPrefs.SetInt("extraLife", 1);
     }
 
     #endregion

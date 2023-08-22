@@ -110,15 +110,6 @@ public class CowController : MonoBehaviour
         else activeCollaider.tag = "ActiveCollaider";
 
         #endregion
-
-        // int i = PlayerPrefs.GetInt("Player");
-        // energyCat = PlayerPrefs.GetFloat("totalEnergyCat" + i);
-    }
-    private void OnEnable()
-    {
-        // int i = PlayerPrefs.GetInt("Player");
-        // energyCat = PlayerPrefs.GetFloat("totalEnergyCat" + i);
-        // Debug.Log("Enable +++++++++++++++++++++++++++++++EnergyCat totalEnergyCat4 is " + PlayerPrefs.GetFloat("totalEnergyCat" + i) +" where i =" +i);
     }
     void Start()
     {

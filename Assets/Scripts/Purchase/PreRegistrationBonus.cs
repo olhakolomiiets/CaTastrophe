@@ -70,7 +70,6 @@ public class PreRegistrationBonus : MonoBehaviour, IStoreListener
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + 5000;
-        Debug.Log("!!!--- TotalScore + MoneyPack 5000 For Pre Registration ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
     }

@@ -57,8 +57,6 @@ public class PurchaseManager : MonoBehaviour
         _purchaseController.PurchasedProductMoneyPack5000.AddListener(MoneyPack5000);
         _purchaseController.PurchasedProductMoneyPack10000.AddListener(MoneyPack10000);
         _purchaseController.PurchasedProductPowersToRestore.AddListener(PowersToRestore);
-
-        Debug.Log("     O -----     Purchase Manager OnEnable     ----- O     ");
     }
     private void Start()
     {
@@ -69,8 +67,6 @@ public class PurchaseManager : MonoBehaviour
     {
         var _productNane = productName;
         _purchaseController.BuyProduct(_productNane);
-
-        Debug.Log("     O -----     Purchase Manager Buy Product     ----- O     " + _productNane);
     }
 
      private void NoAds()
@@ -91,15 +87,13 @@ public class PurchaseManager : MonoBehaviour
         alreadyBoughtExtraLifeTxt.SetActive(true);
         priceExtraLife.SetActive(false);
         doneExtraLife.SetActive(true);
-        extraLifeWindow.SetActive(false);
-        Debug.Log("!!!--- Extra Life Added ---!!!");        
+        extraLifeWindow.SetActive(false);     
     }
 
     private void MoneyPack2000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy2K;
-        Debug.Log("!!!--- TotalScore + MoneyPack 2000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _2KCoinsWindow.SetActive(false);       
@@ -108,8 +102,7 @@ public class PurchaseManager : MonoBehaviour
     private void MoneyPack5000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + buy5K;
-        Debug.Log("!!!--- TotalScore + MoneyPack 5000 ---!!! " + TotalScore);
+        TotalScore = TotalScore + buy5K;        
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _5KCoinsWindow.SetActive(false);       
@@ -119,7 +112,6 @@ public class PurchaseManager : MonoBehaviour
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy10K;
-        Debug.Log("!!!--- TotalScore + MoneyPack 10000 ---!!! " + TotalScore);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _10KCoinsWindow.SetActive(false);        
@@ -129,14 +121,13 @@ public class PurchaseManager : MonoBehaviour
         powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
         powersToRestore = powersToRestore + amountPowersToRestore;
         PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
-        Debug.Log("!!!--- Powers To Restore Added ---!!! " + powersToRestore);
         SoundManager.snd.PlaybuySounds();
         restoreWindow.SetActive(false);       
     }
 
     void RestoreVariable()
     {
-        if (PlayerPrefs.HasKey("adsRemoved"))
+        if (PlayerPrefs.GetInt("adsRemoved") == 1)
         {
             buyNoAdsTxt.SetActive(false);
             alreadyBoughtNoAdsTxt.SetActive(true);
@@ -144,14 +135,13 @@ public class PurchaseManager : MonoBehaviour
             doneNoAds.SetActive(true);
         }
 
-        if (PlayerPrefs.HasKey("extraLife"))
+        if (PlayerPrefs.GetInt("extraLife") == 1)
         {
             buyExtraLifeTxt.SetActive(false);
             alreadyBoughtExtraLifeTxt.SetActive(true);
             priceExtraLife.SetActive(false);
             doneExtraLife.SetActive(true);
         }
-
     }
 
     private void OnDisable()

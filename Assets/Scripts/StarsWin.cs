@@ -48,14 +48,12 @@ public class StarsWin : MonoBehaviour
         }
         if (sm.score >= houseStars.Star2)
         {
-            // star2.SetActive(true);
             StartCoroutine(StarWin2());
 
             userCommunicationSO.ChangeValue(1);
         }
         if (sm.score >= houseStars.Star3)
         {
-            // star3.SetActive(true);
             StartCoroutine(StarWin3());
 
             userCommunicationSO.ChangeValue(1);
