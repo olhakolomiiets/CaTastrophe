@@ -48,7 +48,7 @@ public class QuestExplainer : MonoBehaviour
 
     public void Resume ()
     {
-         Time.timeScale = 1;
+        Time.timeScale = 1;
         controller.isUiJumpPressed = false;
         controller.isJumping = false;
         Canvas.SetActive(true);

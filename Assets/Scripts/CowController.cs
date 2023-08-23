@@ -74,6 +74,8 @@ public class CowController : MonoBehaviour
 
     [SerializeField] private GoogleMobileAds.Sample.BannerViewController _bannerController;
 
+    public FixedJoystick joystick;
+
     private void Awake()
     {
         #region SetupCheatPowers
@@ -114,6 +116,7 @@ public class CowController : MonoBehaviour
     void Start()
     {
         _bannerController = FindAnyObjectByType<GoogleMobileAds.Sample.BannerViewController>();
+        joystick = FindAnyObjectByType<FixedJoystick>();
 
         feetPos = gameObject.transform.Find("feetPos").transform;
         anim = GetComponent<Animator>();
@@ -293,15 +296,19 @@ public class CowController : MonoBehaviour
         {
             OnButtonUp();
         }
+
+        if (joystick.Horizontal > 0)
+        {
+            speed = 0f;
+            OnRightButtonDown();
+        }
+        else if (joystick.Horizontal < 0)
+        {
+            speed = 0f;
+            OnLeftButtonDown();
+        }
+        else { OnButtonUp(); }
     }
-    // public void OnJumpbuttonDown()
-    // {
-    //     if (isGrounded == true)
-    //     {
-    //         rb.velocity = Vector2.up * jumpForce;
-    //         anim.SetTrigger("takeOff");
-    //     }
-    // }
 
     public void OnLeftButtonDown()
     {
@@ -323,6 +330,7 @@ public class CowController : MonoBehaviour
     {
         speed = 0f;
         anim.SetBool("isRunning", false);
+        joystick.OnPointerUp();
     }
 
     public void MovePlayerToRightForToiletQuest(bool goRight)
@@ -370,6 +378,9 @@ public class CowController : MonoBehaviour
         jump.interactable = false;
         doButton.interactable = false;
 
+        joystick.OnPointerUp();
+        joystick.enabled = false;
+
         Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------------------------------- DisableAllControlButtons --------------!");
     }
     public void EnableAllControlButtons()
@@ -380,6 +391,8 @@ public class CowController : MonoBehaviour
         rightButton.interactable = true;
         jump.interactable = true;
         doButton.interactable = true;
+
+        joystick.enabled = true;
 
         Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------------------------------- EnableAllControlButtons --------------!");
     }
