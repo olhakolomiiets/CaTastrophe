@@ -7118,7 +7118,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 369953978}
   m_OnClick:
     m_PersistentCalls:
@@ -22856,6 +22856,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004472155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 999654731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1004699181
 GameObject:
   m_ObjectHideFlags: 0
@@ -49753,6 +49765,7 @@ GameObject:
   - component: {fileID: 1891394183}
   - component: {fileID: 1891394187}
   - component: {fileID: 1891394188}
+  - component: {fileID: 1891394189}
   m_Layer: 5
   m_Name: CanvasOfGame
   m_TagString: Canvas
@@ -49887,6 +49900,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intro: {fileID: 267046488}
+--- !u!114 &1891394189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891394182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b944b1964b8f1c54f9ca78f889787aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButton: {fileID: 369953980}
+  rightButton: {fileID: 67554963}
+  joystick: {fileID: 1004472155}
 --- !u!1001 &1893710833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74473,6 +74501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 710487370798670951, guid: 83e0397d56371d64eb0fdce44b3dbee5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1075179405880547793, guid: 83e0397d56371d64eb0fdce44b3dbee5,
         type: 3}

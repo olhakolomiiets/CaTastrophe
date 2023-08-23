@@ -297,17 +297,20 @@ public class CowController : MonoBehaviour
             OnButtonUp();
         }
 
-        if (joystick.Horizontal > 0)
+        if (joystick != null)
         {
-            speed = 0f;
-            OnRightButtonDown();
+            if (joystick.Horizontal > 0)
+            {
+                speed = 0f;
+                OnRightButtonDown();
+            }
+            else if (joystick.Horizontal < 0)
+            {
+                speed = 0f;
+                OnLeftButtonDown();
+            }
+            else { OnButtonUp(); }
         }
-        else if (joystick.Horizontal < 0)
-        {
-            speed = 0f;
-            OnLeftButtonDown();
-        }
-        else { OnButtonUp(); }
     }
 
     public void OnLeftButtonDown()
@@ -330,7 +333,10 @@ public class CowController : MonoBehaviour
     {
         speed = 0f;
         anim.SetBool("isRunning", false);
-        joystick.OnPointerUp();
+        if (joystick != null)
+        {
+            joystick.OnPointerUp();
+        }      
     }
 
     public void MovePlayerToRightForToiletQuest(bool goRight)
