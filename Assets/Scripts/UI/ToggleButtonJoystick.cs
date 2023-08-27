@@ -7,7 +7,7 @@ public class ToggleButtonJoystick : MonoBehaviour
 {
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
-    [SerializeField] private FixedJoystick joystick;
+    [SerializeField] private Joystick joystick;
 
     void Awake()
     {

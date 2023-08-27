@@ -12,6 +12,8 @@ public class WantedBoard : MonoBehaviour
     public GameObject Stars;
     public int score;
 
+    [SerializeField] private GameObject _tipCloud;
+
     void Start()
     {
         catPosterWin = gameObject.transform.GetChild(11).gameObject;
@@ -76,12 +78,24 @@ public class WantedBoard : MonoBehaviour
         }
     }
 
-
     public void CatObjectsActivateAnimation()
     {
             for (var i = 0; i < AnimatedCatObjects.Length; i++)
             {
                 AnimatedCatObjects[i].CatObjectAnimationSwitch();
             }
+    }
+
+    public void TipOpen()
+    {
+        if (PlayerPrefs.GetInt("AwardSherlock") < 10)
+        {
+            _tipCloud.SetActive(true);
+        }
+    }
+
+    public void TipClose()
+    {
+        _tipCloud.SetActive(false);
     }
 }

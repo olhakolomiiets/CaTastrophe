@@ -51,17 +51,14 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     public void UserEarnedReward()
     {
         CowController.lives++;
+        FirebaseAnalytics.LogEvent(name: "got_life_for_ads");
     }
 
     public void RewardedAdClosed()
     {
-        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("GetLife")}";
-        Time.timeScale = 1;
         panelLose.SetActive(false);
         pauseButton.GetComponent<Button>().interactable = true;
-        _rewardedAdUsed = true;
-
-        FirebaseAnalytics.LogEvent(name: "got_life_for_ads");
+        _rewardedAdUsed = true;       
     }
 
 

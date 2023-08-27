@@ -74,7 +74,9 @@ public class CowController : MonoBehaviour
 
     [SerializeField] private GoogleMobileAds.Sample.BannerViewController _bannerController;
 
-    public FixedJoystick joystick;
+    public Joystick joystick;
+
+    private bool _playerMoves;
 
     private void Awake()
     {
@@ -116,7 +118,7 @@ public class CowController : MonoBehaviour
     void Start()
     {
         _bannerController = FindAnyObjectByType<GoogleMobileAds.Sample.BannerViewController>();
-        joystick = FindAnyObjectByType<FixedJoystick>();
+        joystick = FindAnyObjectByType<Joystick>();
 
         feetPos = gameObject.transform.Find("feetPos").transform;
         anim = GetComponent<Animator>();
@@ -309,7 +311,8 @@ public class CowController : MonoBehaviour
                 speed = 0f;
                 OnLeftButtonDown();
             }
-            else { OnButtonUp(); }
+            else if (!_playerMoves)
+            { OnButtonUp(); }
         }
     }
 
@@ -333,6 +336,7 @@ public class CowController : MonoBehaviour
     {
         speed = 0f;
         anim.SetBool("isRunning", false);
+
         if (joystick != null)
         {
             joystick.OnPointerUp();
@@ -341,6 +345,7 @@ public class CowController : MonoBehaviour
 
     public void MovePlayerToRightForToiletQuest(bool goRight)
     {
+        _playerMoves = goRight;
         if (goRight)
         {
             if (speed >= 0f)
@@ -353,20 +358,22 @@ public class CowController : MonoBehaviour
 
     public void MovePlayerToLeftForToiletQuest(bool goLeft)
     {
+        _playerMoves = goLeft;
         if (goLeft)
         {
             if (speed <= 0f)
             {
                 speed = -7f;
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                transform.eulerAngles = new Vector3(0, 180, 0);             
             }
         }
     }
 
     public void TurnPlayerForToiletQuest(bool turnPlayer)
     {
+        _playerMoves = false;
         if (turnPlayer)
-        {
+        {            
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
         else
@@ -384,10 +391,11 @@ public class CowController : MonoBehaviour
         jump.interactable = false;
         doButton.interactable = false;
 
-        joystick.OnPointerUp();
-        joystick.enabled = false;
-
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------------------------------- DisableAllControlButtons --------------!");
+        if (joystick != null)
+        {
+            joystick.OnPointerUp();
+            joystick.enabled = false;
+        }
     }
     public void EnableAllControlButtons()
     {
@@ -398,9 +406,10 @@ public class CowController : MonoBehaviour
         jump.interactable = true;
         doButton.interactable = true;
 
-        joystick.enabled = true;
-
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------------------------------------------------------------------- EnableAllControlButtons --------------!");
+        if (joystick != null)
+        {
+            joystick.enabled = true;
+        }     
     }
 
     private void OnCollisionEnter2D(Collision2D other)

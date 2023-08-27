@@ -29,6 +29,8 @@ public class BuyFloorHandler : MonoBehaviour, IClickable
             button.SetActive(false);
             foodPlate.SetActive(true);
             toilet.SetActive(true);
+
+            upgadeUnits.SetActive(true);
         }
     }
 
