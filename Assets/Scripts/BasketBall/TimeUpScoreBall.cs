@@ -11,10 +11,6 @@ public class TimeUpScoreBall : MonoBehaviour
     private BasketBallLogic basketBallLogic;
     private int totalScore;
 
-    void Start()
-    {
-
-    }
     private void OnEnable()
     {
         sm = FindObjectOfType<ScoreManager>();
@@ -23,11 +19,7 @@ public class TimeUpScoreBall : MonoBehaviour
         StartCoroutine("Counter");
         StartCoroutine("CounterTotal");
     }
-    void Update()
-    {
-        // StartCoroutine("Counter");
-        // StartCoroutine("CounterTotal");
-    }
+
     IEnumerator Counter()
     {
         for (int i = 0; i <= basketBallLogic.ballsScored; i += 1)
@@ -37,7 +29,6 @@ public class TimeUpScoreBall : MonoBehaviour
             yield return null;
         }
         scoreTimeUpText.text = basketBallLogic.ballsScored.ToString();
-
     }
 
     IEnumerator CounterTotal()

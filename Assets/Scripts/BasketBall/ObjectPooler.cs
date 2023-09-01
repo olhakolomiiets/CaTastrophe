@@ -63,4 +63,13 @@ public class ObjectPooler : MonoBehaviour
                 ball.SetActive(false);
         }
     }
+
+    public void DisableAllBallsPuffs()
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            GameObject ball = pooledObjects[i];
+            ball.SetActive(false);
+        }
+    }
 }

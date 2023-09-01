@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class BallCounter : MonoBehaviour
 {
-    [SerializeField] private BasketBallLogic basketBallLogic;   
-    void Start()
-    {
-        
-    }
+    [SerializeField] private BasketBallLogic basketBallLogic;
+    [SerializeField] private TopCollaiderChecker topCollaider;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (!topCollaider.topCollaiderEntered)
+        {
+            return;
+        }
         if (other.CompareTag("Ball") && !basketBallLogic.ballScored)
         {
-            Debug.Log("OnTriggerEnter2D__________________  ");
             basketBallLogic.UpdateBallsAmount();
+            topCollaider.topCollaiderEntered = false;
         }
     }
 }

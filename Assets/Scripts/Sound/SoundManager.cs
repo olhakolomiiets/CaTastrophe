@@ -35,6 +35,7 @@ private AudioClip[] DogWhiningSounds;
 private AudioClip[] RepairSoft;
 private AudioClip[] RepairHard;
 private AudioClip[] PlasticImpactBigSounds;
+private AudioClip[] BallHitNetSounds; 
 public AudioClip damage;
 private int randomSounds;
 
@@ -72,7 +73,7 @@ private int randomSounds;
         RepairSoft = Resources.LoadAll<AudioClip>("RepairSoft");
         RepairHard = Resources.LoadAll<AudioClip>("RepairHard");
         PlasticImpactBigSounds = Resources.LoadAll<AudioClip>("PlasticImpactsBig");
-        
+        BallHitNetSounds = Resources.LoadAll<AudioClip>("BallHitNet");
     }
 
     public void PlayVaseSounds()
@@ -220,5 +221,10 @@ private int randomSounds;
     {
         randomSounds = Random.Range(0,3);
         audioSrc.PlayOneShot(PlasticImpactBigSounds[randomSounds]);
+    }
+    public void PlayBallHitNetSounds()
+    {
+        randomSounds = Random.Range(0, 1);
+        audioSrc.PlayOneShot(BallHitNetSounds[randomSounds]);
     }
 }
