@@ -19,6 +19,7 @@ public class BasketBallLogic : MonoBehaviour
     private CowController controller;
     [SerializeField] private float jumpForce;
     [SerializeField] private float gravityScale;
+    [SerializeField] private float speed;
     [SerializeField] private Text scoreDisplay;
     public int ballsScored;
     public bool ballScored = false;
@@ -40,6 +41,7 @@ public class BasketBallLogic : MonoBehaviour
     void Start()
     {
         controller.jumpForce = jumpForce;
+        controller.normalSpeed = speed;
         controller.transform.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         sm = FindObjectOfType<ScoreManager>();
         btnActive = btn.transform.GetChild(0).gameObject;
@@ -70,6 +72,7 @@ public class BasketBallLogic : MonoBehaviour
         if (ball != null)
         {
             ball.transform.position = spawnBallPoint.position;
+            StartCoroutine(HoldTheBall(ball));
             ball.SetActive(true);
         }
         Debug.Log("__________________ create  " + ball.name);
@@ -97,5 +100,12 @@ public class BasketBallLogic : MonoBehaviour
             Debug.Log("StartCoroutine __________________ ");
             removeBalls = StartCoroutine("RemoveAllBalls");
         }
+    }
+
+    private IEnumerator HoldTheBall(GameObject ball) 
+    {
+        ball.GetComponent<Rigidbody2D>().isKinematic = true;
+        yield return new WaitForSeconds(0.7f);
+        ball.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }
