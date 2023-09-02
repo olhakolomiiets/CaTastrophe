@@ -25,7 +25,10 @@ public class Clock : MonoBehaviour
         int secondsInt = int.Parse(System.DateTime.UtcNow.ToString("ss"));
         int minutesInt = int.Parse(System.DateTime.UtcNow.ToString("mm"));
         int hoursInt = int.Parse(System.DateTime.UtcNow.ToLocalTime().ToString("hh"));
-        // print(hoursInt + " : " + minutesInt +  " : " + secondsInt);
+        if (hoursInt == 12)
+        {
+            hoursInt = 0;
+        }
 
         iTween.RotateTo(secondHand, iTween.Hash("z", secondsInt * 6 * -1, "time", 1, "easetype", "easeOutQuint"));
         iTween.RotateTo(minuteHand, iTween.Hash("z", minutesInt * 6 * -1, "time", 1, "easetype", "easeOutElastic"));

@@ -58,6 +58,7 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     {
         panelLose.SetActive(false);
         pauseButton.GetComponent<Button>().interactable = true;
+        Time.timeScale = 1;
         _rewardedAdUsed = true;       
     }
 
