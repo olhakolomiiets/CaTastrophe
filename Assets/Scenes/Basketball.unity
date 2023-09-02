@@ -3511,7 +3511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289329349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.99, y: 2.61, z: 1.04}
+  m_LocalPosition: {x: 54.99, y: 2.61, z: 0}
   m_LocalScale: {x: 0.15779386, y: 2.551266, z: 2.1251068}
   m_Children: []
   m_Father: {fileID: 1373549647}
@@ -18373,7 +18373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985133701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.86, y: 2.65, z: 1.04}
+  m_LocalPosition: {x: 40.86, y: 2.65, z: 0}
   m_LocalScale: {x: 0.1972365, y: 2.2891426, z: 2.1251068}
   m_Children: []
   m_Father: {fileID: 1373549647}
@@ -40263,7 +40263,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1851211224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1759449019}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayBasketJumpSounds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1851211224
 MonoBehaviour:
   m_ObjectHideFlags: 0

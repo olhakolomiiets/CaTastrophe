@@ -62,7 +62,7 @@ public class BasketBallLogic : MonoBehaviour
         {
             UpdateBall();
             Used = true;
-            SoundManager.snd.PlayLongCatSounds();           
+            SoundManager.snd.PlayPopSounds();           
             ballScored = false;
         }
     }
