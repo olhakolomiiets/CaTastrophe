@@ -32,7 +32,6 @@ public class QuestExplainer : MonoBehaviour
                 Time.timeScale = 0;
                 PlayerPrefs.SetInt(explainerName, 1);
                 controller.OnButtonUp();
-
             }
         }
     }  

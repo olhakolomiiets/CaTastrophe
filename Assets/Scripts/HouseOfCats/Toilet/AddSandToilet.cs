@@ -14,7 +14,6 @@ public class AddSandToilet : MonoBehaviour, IClickable
     {
         allSand = PlayerPrefs.GetInt("TotalSand");
         SoundManager.snd.PlayButtonsSound();
-        Debug.Log("PUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUSHHHHHHHHHHHHHHHHH");
         if (toiletTimer.isCleaned == true)
         {
             if (allSand > 0)

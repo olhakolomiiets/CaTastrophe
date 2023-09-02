@@ -223,12 +223,10 @@ public class Dog : MonoBehaviour
     {
         if (transform.position.x > pointPatrol.position.x + areaOfHunting)
         {
-            // StartCoroutine(DogDelayCorrutine2());
             movingRight = false;
         }
         else if (transform.position.x < pointPatrol.position.x - areaOfHunting)
         {
-            // StartCoroutine(DogDelayCorrutine1());
             movingRight = true;
         }
         if (movingRight)

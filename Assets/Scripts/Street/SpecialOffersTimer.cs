@@ -6,24 +6,23 @@ using UnityEngine.UI;
 
 public class SpecialOffersTimer : MonoBehaviour
 {
+    #region EDITOR FIELDS
     [SerializeField] private GameObject energyRecovery;
     [SerializeField] private GameObject buyCoins;
-
     [SerializeField] private GameObject powersRestore;
-
     [SerializeField] private Text energyRecoveryTimerText;
     [SerializeField] private Text buyCoinsTimerText;
-
     [SerializeField] private int timerTime;
-
     [SerializeField] private int activationHour;
     [SerializeField] private int activationMinute;
     [SerializeField] private int activationSecond;
+    #endregion
 
+    #region PRIVATE FIELDS
     private DateTime startTime;
     private DateTime endTime;
-
     private DateTime lastExecutionDate;
+    #endregion
 
     private void Awake()
     {
@@ -56,8 +55,6 @@ public class SpecialOffersTimer : MonoBehaviour
                 ActivateButton();              
             }
         }
-
-        Debug.Log("!_______________ Day - " +day + " Hour - " + hour + " Minute - " + minute + " Second - " + second);
     }
 
     private void ActivateButton()
@@ -123,5 +120,4 @@ public class SpecialOffersTimer : MonoBehaviour
         PlayerPrefs.SetString("DateOfLastSpecialOffer", dateString);
         HideButton();
     }
-
 }

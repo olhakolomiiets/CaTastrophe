@@ -44,6 +44,7 @@ public class CatInstantiator : MonoBehaviour
     }
     void Start()
     {
+        CheckBlackCat();
         CheckBrownCat();
         CheckTigerCat();
         CheckBeigeCat();
@@ -58,8 +59,6 @@ public class CatInstantiator : MonoBehaviour
         ChecBSlimCat();
         Check3BSlimCat();
         CheckDSOSlimCat();
-        CheckBlackCat();
-
     }
     private CatPlaceInHouse FreePlaceInHouse()
     {

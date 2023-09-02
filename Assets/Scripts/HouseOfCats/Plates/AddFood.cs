@@ -14,7 +14,6 @@ public class AddFood : MonoBehaviour, IClickable
 
     public void Click()
     {
-        Debug.Log("PUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUSHHHHHHHHHHHHHHHHH");
         allFood = PlayerPrefs.GetInt("TotalFood");
 
         if (foodTimer.isPlateFull == true && FreeFoodIco() != null)
@@ -59,7 +58,6 @@ public class AddFood : MonoBehaviour, IClickable
                 StartCoroutine(NoFood());
             }
         }
-        // else StartCoroutine(NoFood());
     }
 
     IEnumerator NoFood()

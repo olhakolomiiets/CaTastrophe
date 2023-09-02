@@ -39,9 +39,7 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
     }
     void Start()
     {
-        StartCoroutine(DebugLogPlateSec());
         TimerForFood.Plate2AddFood += AddFood;
-        Debug.Log("SUB");
     }
 
     void Update()
@@ -76,24 +74,19 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
         foodTimer = 0;
         secForFoodAll = 0;
         PlayerPrefs.SetString(timeWhenFoodAddPref, System.DateTime.Now.ToBinary().ToString());
-        Debug.Log("Plate2 EVENT AddFood in PowerForFood ----------------------------------- Food ADDED");
     }
 
     public void Save()
     {
         PlayerPrefs.SetString(exitTimeFoodPref, System.DateTime.Now.ToBinary().ToString());
-        Debug.Log(" Before Save foodTimer2 " + foodTimer + "  And msFoodTime is  -  " + msFoodTime);
         if (foodTimer >= msFoodTime)
         {
             PlayerPrefs.SetFloat(secondsLeftFoodPref, secondsLeft);
-            Debug.Log(" Save to secondsLeftFoodPref in Plate2 " + secondsLeft);
         }
         else if (foodTimer < msFoodTime)
         {
             var foodTimerAndIcons = secondsLeft + msFoodTime * iconsFood;
             PlayerPrefs.SetFloat(secondsLeftFoodPref, foodTimerAndIcons);
-            // PlayerPrefs.SetFloat(secondsLeftFoodPref, foodTimer);
-            Debug.Log(" Save to secondsLeftFoodPref in Plate2 " + foodTimerAndIcons);
         }
     }
 
@@ -111,7 +104,6 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
         secAfterExit = (int)rawTime;
 
         var totalSecondsFoodLeft = PlayerPrefs.GetFloat(secondsLeftFoodPref);
-        Debug.Log("!!________________________________________________________ Load to totalSecondsFoodLeft " + totalSecondsFoodLeft);
         if (totalSecondsFoodLeft > secAfterExit)
         {
             var SecFoodWithoutSecExit = (int)totalSecondsFoodLeft - secAfterExit;
@@ -120,7 +112,6 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
                 iconsFood = SecFoodWithoutSecExit / ((int)msFoodTime);
             }
             else iconsFood = 0;
-            Debug.Log("!________________________________________________________  Load to IconsFood " + iconsFood);
             secondsLeft = (SecFoodWithoutSecExit - (msFoodTime * iconsFood));
         }
         else
@@ -128,18 +119,14 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
             iconsFood = 0;
             secondsLeft = 0;
         }
-        Debug.Log("!________________________________________________________ Load to SecondsLeft " + secondsLeft);
         foodTimer = msFoodTime - secondsLeft;
-        Debug.Log("!________________________________________________________ Load to FoodTimer " + foodTimer);
         secondsWhenWereExit = totalSecondsFoodLeft - secondsLeft;
         secForFoodAll = (float)foodTimer;
         TimeSpan timer = TimeSpan.FromSeconds(rawTime);
 
         if (secAfterExit < secondsWhenWereExit)
         {
-            Debug.Log(" if secAfterExit " + secAfterExit + " < secondsWhenWereExit " + secondsWhenWereExit);
             pointsWhenWereExit = secAfterExit * 0.00083333f;
-            Debug.Log("pointsWhenWereExit " + pointsWhenWereExit);
             if (pointsWhenWereExit > 0)
             {
                 foreach (FloatSO catPower in catPowersSO)
@@ -147,14 +134,12 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
                     if (catPower.Value < 10)
                     {
                         PassivePowerUp.foodPoints2WhenWereExit = pointsWhenWereExit;
-                        Debug.Log("Plate2 Points when you was absent Timer NotFinished " + pointsWhenWereExit + " to Cat " + catPower.name);
                     }
                 }
             }
         }
         if (secAfterExit > secondsWhenWereExit)
         {
-            Debug.Log(" Plate2 if secAfterExit " + secAfterExit + " > secondsWhenWereExit " + secondsWhenWereExit);
             if (secondsWhenWereExit > 0)
             {
                 float pointsForActiveFood = secondsWhenWereExit * 0.00083333f;
@@ -167,8 +152,6 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
                         if (catPower.Value < 10)
                         {
                             PassivePowerUp.foodPoints2WhenWereExit = pointsWhenWereExit;
-                            Debug.Log("Plate2 Points when you was absent Timer Finished " + pointsWhenWereExit + " to Cat " + catPower.name + " Where exit time "
-                            + secAfterExit + " and Plate Timer left - " + secondsWhenWereExit);
                         }
                     }
                 }
@@ -184,12 +167,10 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
         if (focusStatus)
         {
             Load();
-            Debug.Log("Load OnOnFocus POwerFood !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else
         {
             Save();
-            Debug.Log("Save OnOnFocus POwerFood !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
     }
 
@@ -198,25 +179,21 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
         if (pauseStatus)
         {
             Save();
-            Debug.Log("Save OnOnPause POwerFood !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else
         {
             Load();
-            Debug.Log("Load OnOnPause POwerFood !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
     }
 
     private void OnDisable()
     {
         TimerForFood.Plate2AddFood -= AddFood;
-        StopCoroutine(DebugLogPlateSec());
     }
 
     private void OnDestroy()
     {
         Save();
-        Debug.Log("Save OnDestroy POwerFood !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public float FoodTimer()
@@ -232,17 +209,4 @@ public class PowerForFood2 : MonoBehaviour, IPlateInterface
     {
         return msFoodTime;
     }
-
-    private IEnumerator DebugLogPlateSec()
-    {
-        while (true)
-        {
-            if (!toggle)
-            {
-                Debug.Log("foodTimer         " + secondsLeft);
-            }
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
 }

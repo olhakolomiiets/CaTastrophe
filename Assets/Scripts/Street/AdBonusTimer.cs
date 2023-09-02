@@ -6,19 +6,20 @@ using UnityEngine.UI;
 
 public class AdBonusTimer : MonoBehaviour
 {
+    #region EDITOR FIELDS
     [SerializeField] private GameObject getCoinsButton;
     [SerializeField] private Text timerText;
-
     [SerializeField] private int timerTime;
-
     [SerializeField] private int activationHour;
+    #endregion
+
+    #region PRIVATE FIELDS
     private int activationMinute;
     private int activationSecond;
-
     private DateTime startTime;
     private DateTime endTime;
-
     private DateTime lastExecutionDate;
+    #endregion
 
     private void Awake()
     {
@@ -51,8 +52,6 @@ public class AdBonusTimer : MonoBehaviour
                 ActivateButton();              
             }
         }
-
-        Debug.Log("!_______________ Day - " +day + " Hour - " + hour + " Minute - " + minute + " Second - " + second);
     }
 
     private void ActivateButton()

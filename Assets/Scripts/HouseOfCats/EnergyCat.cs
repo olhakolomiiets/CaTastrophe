@@ -35,26 +35,20 @@ public class EnergyCat : MonoBehaviour, IClickable
         if (gameObject.transform.GetChild(0).gameObject.activeInHierarchy)
         {
             PassivePowerUp.instance.ValueChangeBy.AddListener(method);  //check for othet type of event
-            Debug.Log("SUB");
-            Debug.Log("SUB         " + totalEnergyCatPref + "  subscribed ");
         }
         Load();
         if (transform.GetChild(0).gameObject.activeInHierarchy)
-        {
-            // Debug.Log("+++++++++++++++++++++++++++++++ after Load totalEnergy of Cat " + totalEnergyCatPref  + " is " + totalEnergy);
+        {            
             totalEnergy = totalEnergy + powerPoints.pointsWhenYouWereAbsent / 2;
             CheckBelowZero();
             CheckMaxEnergy();
 
-            Invoke("CheckFoodAndToilet", 0.05f);
-            //CheckFoodAndToilet();
+            Invoke("CheckFoodAndToilet", 0.1f);
         }
-        // StartCoroutine(RestoreRoutine());
     }
 
     public void method(float powerSO)
     {
-        // Debug.Log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ");
         UpdateEnergy();
     }
     public void UseEnergy()
@@ -65,28 +59,14 @@ public class EnergyCat : MonoBehaviour, IClickable
         }
         UpdateEnergy();
         powerSO.ChangeAmountBy(-2f);
-        // totalEnergy = totalEnergy - 3f;
         CheckBelowZero();
         PlayerPrefs.SetFloat(totalEnergyCatPref, totalEnergy);
-        // Debug.Log("+++++++++++++++++++++++++++++++Use In EnergyCat Substracted from " + totalEnergyCatPref  + " - 3 = " + PlayerPrefs.GetFloat(totalEnergyCatPref));
         UpdateEnergy();
-
-        // Hided when was making new pause menu
-        // if (restoring == false)
-        // {
-        //     if (powerSO.Value + 3 == maxEnergy)
-        //     {
-        //         nextEnergyTime = AddDuration(DateTime.Now, restoreDuration);
-        //     }
-        //     StartCoroutine(RestoreRoutine());
-        // }
     }
     private IEnumerator RestoreRoutine()
     {
         UpdateTimer();
-        // UpdateEnergy();
         restoring = true;
-        // Debug.Log("+++++++++++++++++++++++++++++++powerSO.Value " + totalEnergyCatPref + " = " + powerSO.Value);
         while (powerSO.Value < maxEnergy)
         {
             DateTime currentTime = DateTime.Now;
@@ -99,9 +79,6 @@ public class EnergyCat : MonoBehaviour, IClickable
                     if (foodSpeeUp == false)
                     {
                         isAdding = true;
-                        // powerSO.ChangeAmountBy(0.01666667f);
-                        //totalEnergy = totalEnergy + 0.01666667f; //1 in minute
-                        // Debug.Log("+++++++++++++++++++++++++++++++In EnergyCat total Energy Update " + totalEnergyCatPref + " = " + powerSO.Value);
                         DateTime timeToAdd = lastAddedTime > counter ? lastAddedTime : counter;
                         counter = AddDuration(timeToAdd, restoreDuration);
                     }
@@ -130,7 +107,6 @@ public class EnergyCat : MonoBehaviour, IClickable
             }
 
             UpdateTimer();
-            // UpdateEnergy();
             Save();
             yield return new WaitForSeconds(1f);
         }
@@ -148,12 +124,7 @@ public class EnergyCat : MonoBehaviour, IClickable
     }
     public void UpdateEnergy()
     {
-        // slider.value = (int)totalEnergy;
-        // Debug.Log("+++++++++++++++++++++++++++++++ slider.value = ");
-        // var x = (int)totalEnergy;
-        // value.text = x.ToString();
         slider.value = (int)powerSO.Value;
-        // Debug.Log("+++++++++++++++++++++++++++++++ slider.value = " + (int)powerSO.Value + " name " + powerSO.name);
         var x = (int)powerSO.Value;
         value.text = x.ToString();
     }
@@ -164,7 +135,6 @@ public class EnergyCat : MonoBehaviour, IClickable
     public void Load()
     {
         totalEnergy = PlayerPrefs.GetFloat(totalEnergyCatPref, 10);
-        // Debug.Log("+++++++++++++++++++++++++++++++Load In EnergyCat totalEnergyCatPref   " + totalEnergyCatPref  + " = " + PlayerPrefs.GetFloat(totalEnergyCatPref));
         nextEnergyTime = StringToDate(PlayerPrefs.GetString(nextEnergyTimeCatPref));
         lastAddedTime = StringToDate(PlayerPrefs.GetString(lastAddedTimeCatPref));
 
@@ -172,7 +142,6 @@ public class EnergyCat : MonoBehaviour, IClickable
     public void Save()
     {
         PlayerPrefs.SetFloat(totalEnergyCatPref, totalEnergy);
-        // Debug.Log("+++++++++++++++++++++++++++++++Save In EnergyCat totalEnergyCatPref   " + totalEnergyCatPref  + " = " + PlayerPrefs.GetFloat(totalEnergyCatPref));
         PlayerPrefs.SetString(nextEnergyTimeCatPref, nextEnergyTime.ToString());
         PlayerPrefs.SetString(lastAddedTimeCatPref, lastAddedTime.ToString());
     }

@@ -215,7 +215,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
     }
     #endregion
 
-    #region PRE-REGISTRATION BONUS   
+    #region PURCHASES RESTORE METHODS   
     private void Product_MoneyPack5000ForPreRegistration()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");

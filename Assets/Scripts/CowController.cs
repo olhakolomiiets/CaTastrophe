@@ -152,8 +152,6 @@ public class CowController : MonoBehaviour
             lives = 3;
             hearts[3].enabled = false;
         }
-        Debug.Log("+++++++++++++++++++++++++++++++EnergyCat totalEnergyCat0 is " + PlayerPrefs.GetFloat("totalEnergyCat0"));
-        Debug.Log("+++++++++++++++++++++++++++++++EnergyCat totalEnergyCat4 is " + PlayerPrefs.GetFloat("totalEnergyCat4"));
         if (catPower.Value <= 0.05f)
         {
             lowPower.SetActive(true);
@@ -263,7 +261,6 @@ public class CowController : MonoBehaviour
                     _bannerController.LoadAd();
 
                     PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
-                    Debug.Log("!!!--- AwardDiedTimes Pref ---!!! " + PlayerPrefs.GetInt("AwardDiedTimes"));
                    
                     FirebaseAnalytics.LogEvent(name: "cat_died");
                     _eventSent = true;
@@ -471,11 +468,7 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EnableAllControlButtons();
 
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower1");
-
-        isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
-        
+        isWaiting = false;       
     }
     private IEnumerator LowPower2()
     {
@@ -496,11 +489,7 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EnableAllControlButtons();
 
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower2");
-
-        isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
-        
+        isWaiting = false;       
     }
     private IEnumerator LowPower3()
     {
@@ -521,10 +510,7 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EnableAllControlButtons();
 
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower3");
-
         isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
     }
     private IEnumerator LowPower4()
     {        
@@ -546,11 +532,7 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EnableAllControlButtons();
 
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower4");
-
-        isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
-        
+        isWaiting = false;        
     }
     private IEnumerator LowPower5()
     {       
@@ -560,7 +542,6 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
 
         anim.SetBool("lowPower5", true);
 
@@ -572,11 +553,7 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EnableAllControlButtons();
 
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower5");
-
-        isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
-        
+        isWaiting = false;        
     }
     private IEnumerator LowPower6()
     {
@@ -598,11 +575,7 @@ public class CowController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EnableAllControlButtons();
 
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!----------------------------------------------------------------------LowPower6");
-
         isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);
-
     }
     IEnumerator waiter()
     {
@@ -635,8 +608,5 @@ public class CowController : MonoBehaviour
                 StartCoroutine(LowPower1());
                 break;
         }
-        print("I started courutine " + courutineIndex + "after " + wait_time + " sec ");
-/*        isWaiting = false;
-        print("isWaiting Set to - " + isWaiting);*/
     }
 }

@@ -24,7 +24,7 @@ public class BrokeWhenOut : MonoBehaviour
     }
     void Start()
     {
-        CheckArray(); // Start?
+        CheckArray();
         StartCoroutine(CheckForDestroy());
     }
     public void CheckArray()
@@ -78,12 +78,6 @@ public class BrokeWhenOut : MonoBehaviour
                 int i = UnityEngine.Random.Range(0, stuffToDestroy1Floor.Count);
                 var element = stuffToDestroy1Floor[i];
                 element.BrakeObject();
-
-                foreach (var x in stuffToDestroy1Floor)
-                {
-                    Debug.Log(x.ToString());
-                }
-                Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
                 PlayerPrefs.SetInt("stuffToDestroy1" + floor, 1);
             }
@@ -95,12 +89,6 @@ public class BrokeWhenOut : MonoBehaviour
                 int i = UnityEngine.Random.Range(0, stuffToDestroy1Floor.Count);
                 var element = stuffToDestroy1Floor[i];
                 element.BrakeObject();
-
-                foreach (var x in stuffToDestroy1Floor)
-                {
-                    Debug.Log(x.ToString());
-                }
-                Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
                 PlayerPrefs.SetInt("stuffToDestroy2" + floor, 1);
             }
@@ -112,12 +100,6 @@ public class BrokeWhenOut : MonoBehaviour
                 int i = UnityEngine.Random.Range(0, stuffToDestroy1Floor.Count);
                 var element = stuffToDestroy1Floor[i];
                 element.BrakeObject();
-
-                foreach (var x in stuffToDestroy1Floor)
-                {
-                    Debug.Log(x.ToString());
-                }
-                Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
                 PlayerPrefs.SetInt("stuffToDestroy3" + floor, 1);
             }
@@ -129,12 +111,6 @@ public class BrokeWhenOut : MonoBehaviour
                 int i = UnityEngine.Random.Range(0, stuffToDestroy1Floor.Count);
                 var element = stuffToDestroy1Floor[i];
                 element.BrakeObject();
-
-                foreach (var x in stuffToDestroy1Floor)
-                {
-                    Debug.Log(x.ToString());
-                }
-                Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
                 PlayerPrefs.SetInt("stuffToDestroy4" + floor, 1);
             }
@@ -146,12 +122,6 @@ public class BrokeWhenOut : MonoBehaviour
                 int i = UnityEngine.Random.Range(0, stuffToDestroy1Floor.Count);
                 var element = stuffToDestroy1Floor[i];
                 element.BrakeObject();
-
-                foreach (var x in stuffToDestroy1Floor)
-                {
-                    Debug.Log(x.ToString());
-                }
-                Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
                 PlayerPrefs.SetInt("stuffToDestroy5" + floor, 1);
             }
@@ -163,12 +133,6 @@ public class BrokeWhenOut : MonoBehaviour
                 int i = UnityEngine.Random.Range(0, stuffToDestroy1Floor.Count);
                 var element = stuffToDestroy1Floor[i];
                 element.BrakeObject();
-
-                foreach (var x in stuffToDestroy1Floor)
-                {
-                    Debug.Log(x.ToString());
-                }
-                Debug.Log("------------------------------------------------------------------------------" + stuffToDestroy1Floor.Count);
                 stuffToDestroy1Floor.RemoveAt(i);
                 PlayerPrefs.SetInt("stuffToDestroy6" + floor, 1);
             }
@@ -178,16 +142,13 @@ public class BrokeWhenOut : MonoBehaviour
     {
         CheckArray();
         PlayerPrefs.SetInt("SecondsLeftToiletForDestroyStuff" + floor, toilet.toiletTimer);
-        Debug.Log("if (stuffToDestroy1Floor.Count < 1)---------------------------------------------------" + stuffToDestroy1Floor.Count);
         if (stuffToDestroy1Floor.Count < 1)
         {
             PlayerPrefs.SetInt("AllBrokeYouCantBuyCat" + floor, 1);
-            Debug.Log("AllBrokeYouCantBuyCat-------------------------save 1----------------------------------------------------- " + floor);
         }
         else
         {
             PlayerPrefs.SetInt("AllBrokeYouCantBuyCat" + floor, 0);
-            Debug.Log("AllBrokeYouCantBuyCat-------------------------save 0----------------------------------------------------- " + floor);
         }
     }
     private void OnApplicationQuit()

@@ -11,7 +11,6 @@ public class CleanUp : MonoBehaviour, IClickable
 
     public void Click()
     {
-        Debug.Log("PUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUSHHHHHHHHHHHHHHHHH");
         SoundManager.snd.PlayButtonsSound();
         toiletTimer.Clean();
         ToiletCleanUp?.Invoke();
