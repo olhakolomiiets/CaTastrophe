@@ -23,6 +23,7 @@ public class BasketBallLogic : MonoBehaviour
     [SerializeField] private Text scoreDisplay;
     [SerializeField] private GameObject _ball;
     [SerializeField] private GameObject _scoreAnim;
+    [SerializeField] private Animator _netAnim;
     public int ballsScored;
     public bool ballScored = false;
 
@@ -39,6 +40,7 @@ public class BasketBallLogic : MonoBehaviour
     public void UpdateBallsAmount()
     {
         ballsScored++;
+        _netAnim.SetTrigger("Play");
         _scoreAnim.SetActive(true);
         SoundManager.snd.PlayBallHitNetSounds();
         scoreDisplay.text = ballsScored.ToString();
