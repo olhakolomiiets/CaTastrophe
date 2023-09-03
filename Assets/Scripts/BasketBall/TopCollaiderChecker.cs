@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TopCollaiderChecker : MonoBehaviour
 {
-    [SerializeField] private BasketBallLogic basketBallLogic;
     public bool topCollaiderEntered;
 
     private void Start()

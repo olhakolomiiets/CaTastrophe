@@ -45,6 +45,7 @@ public class BasketBallLogic : MonoBehaviour
         SoundManager.snd.PlayBallHitNetSounds();
         scoreDisplay.text = ballsScored.ToString();
         ballScored = true;
+        Invoke("Do", 1.5f);
     }
 
     void Start()
