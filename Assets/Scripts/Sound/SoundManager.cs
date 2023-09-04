@@ -38,6 +38,8 @@ private AudioClip[] PlasticImpactBigSounds;
 private AudioClip[] BallHitNetSounds;
 private AudioClip[] BasketJumpSounds;
 private AudioClip[] PopSounds;
+private AudioClip[] BirdHitSounds;
+
 public AudioClip damage;
 private int randomSounds;
 
@@ -78,6 +80,7 @@ private int randomSounds;
         BallHitNetSounds = Resources.LoadAll<AudioClip>("BallHitNet");
         BasketJumpSounds = Resources.LoadAll<AudioClip>("BasketJump");
         PopSounds = Resources.LoadAll<AudioClip>("POPSounds");
+        BirdHitSounds = Resources.LoadAll<AudioClip>("BirdHitSounds");
     }
 
     public void PlayVaseSounds()
@@ -242,5 +245,11 @@ private int randomSounds;
     {
         randomSounds = Random.Range(0, 5);
         audioSrc.PlayOneShot(PopSounds[randomSounds]);
+    }
+
+    public void PlayBirdHitSounds()
+    {
+        randomSounds = Random.Range(0, 3);
+        audioSrc.PlayOneShot(BirdHitSounds[randomSounds]);
     }
 }

@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OnTriggerStartAnimLogic : MonoBehaviour
 {
     [SerializeField] private Animator _anim;
-    private bool coroutineIsRunning = false;
+    public bool coroutineIsRunning = false;
     [SerializeField] private string tag;
+    [SerializeField] private float timeBeforeNextTrigger;
+    public UnityEvent triggerEntered;
 
     private void Start()
     {
@@ -18,14 +22,14 @@ public class OnTriggerStartAnimLogic : MonoBehaviour
         if (!coroutineIsRunning && other.CompareTag(tag))
         {
             StartCoroutine(MyCoroutine());
+            triggerEntered?.Invoke();
         }
     }
     private IEnumerator MyCoroutine()
     {
         coroutineIsRunning = true;
-        //yield return new WaitForSeconds(1f);
         _anim.SetTrigger("Play");
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(timeBeforeNextTrigger);
         coroutineIsRunning = false;
     }
 }
