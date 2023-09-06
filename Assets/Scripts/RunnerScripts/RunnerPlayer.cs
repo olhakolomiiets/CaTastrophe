@@ -46,11 +46,12 @@ public class RunnerPlayer : MonoBehaviour
 
         if (isGrounded || groundDistance <= jumpGroundThreshold)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || isUiJumpPressed)
+            if (Input.GetKeyDown(KeyCode.Space) || isUiJumpPressed && isHoldingJump)
             {
                 isGrounded = false;
                 velocity.y = jumpVelocity;
                 isHoldingJump = true;
+                isUiJumpPressed = true;
                 holdJumpTimer = 0;
 
                 if (fall != null)
@@ -60,15 +61,14 @@ public class RunnerPlayer : MonoBehaviour
                     cameraController.StopShaking();
                 }
             }
+            else { isHoldingJump = false; }
         }
 
         if (Input.GetKeyUp(KeyCode.Space) || !isUiJumpPressed)
         {
+            isUiJumpPressed = false;
             isHoldingJump = false;
         }
-
-
-
     }
 
     private void FixedUpdate()

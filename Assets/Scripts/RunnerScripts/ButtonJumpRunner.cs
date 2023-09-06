@@ -14,14 +14,13 @@ public class ButtonJumpRunner : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(jumpButton.interactable)
-        {
-            controller.isUiJumpPressed = true;
-        }       
+        controller.isUiJumpPressed = true;
+        controller.isHoldingJump = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         controller.isUiJumpPressed = false;
+        controller.isHoldingJump = false;
     }
 }

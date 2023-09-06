@@ -15,6 +15,8 @@ public class Ground : MonoBehaviour
 
     public Obstacle boxTemplate;
 
+    public List<GameObject> groundsList;
+
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<RunnerPlayer>();
@@ -63,7 +65,9 @@ public class Ground : MonoBehaviour
 
     void generateGround()
     {
-        GameObject go = Instantiate(gameObject);
+        
+        GameObject go = Instantiate(gameObject);        
+
         BoxCollider2D goCollider = go.GetComponent<BoxCollider2D>();
         Vector2 pos;
 
@@ -93,6 +97,7 @@ public class Ground : MonoBehaviour
         go.transform.position = pos;
 
         Ground goGround = go.GetComponent<Ground>();
+        goGround.ChangeSprite(goGround);
         goGround.groundHeight = go.transform.position.y + (goCollider.size.y / 2);
 
 
@@ -126,6 +131,22 @@ public class Ground : MonoBehaviour
             {
                 Obstacle o = box.GetComponent<Obstacle>();
                 fall.obstacles.Add(o);
+            }
+        }
+    }
+
+    private void ChangeSprite(Ground ground)
+    {
+        int groundNum = Random.Range(0, 3);
+        for (int i = 0; i < ground.groundsList.Count; i++)
+        {
+            if (i == groundNum)
+            {
+                ground.groundsList[i].SetActive(true);
+            }
+            else
+            {
+                ground.groundsList[i].SetActive(false);
             }
         }
     }
