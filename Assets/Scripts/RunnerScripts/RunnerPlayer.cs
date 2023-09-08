@@ -34,13 +34,47 @@ public class RunnerPlayer : MonoBehaviour
 
     public bool isUiJumpPressed;
 
+    [SerializeField] private List<GameObject> cats;
+
+    private Animator catAnim;
+
     void Start()
     {
         cameraController = Camera.main.GetComponent<CameraControllerRunner>();
+        ActivateCat();
+
+    }
+
+    private void ActivateCat()
+    {
+        for (int i = 0; i < cats.Count; i++)
+        {
+            if (i == PlayerPrefs.GetInt("Player"))
+            {
+                cats[i].SetActive(true);
+                catAnim = cats[i].GetComponent<Animator>();
+            }
+            else
+            {
+                cats[i].SetActive(false);
+            }
+        }
     }
 
     void Update()
     {
+
+        if (isUiJumpPressed && isHoldingJump)
+        {
+            catAnim.SetBool("Jump", true);
+            catAnim.SetBool("Run", false);
+        }
+        else 
+        {
+            catAnim.SetBool("Jump", false);
+            catAnim.SetBool("Run", true);
+        };
+
         Vector2 pos = transform.position;
         float groundDistance = Mathf.Abs(pos.y - groundHeight);
 
@@ -49,6 +83,7 @@ public class RunnerPlayer : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || isUiJumpPressed && isHoldingJump)
             {
                 isGrounded = false;
+                
                 velocity.y = jumpVelocity;
                 isHoldingJump = true;
                 isUiJumpPressed = true;
@@ -119,6 +154,7 @@ public class RunnerPlayer : MonoBehaviour
                         pos.y = groundHeight;
                         velocity.y = 0;
                         isGrounded = true;
+                        
                     }
 
                     fall = ground.GetComponent<GroundFall>();

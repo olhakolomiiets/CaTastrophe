@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
 
     public void Quit()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("menu-levels");
     }
 
     public void Retry()

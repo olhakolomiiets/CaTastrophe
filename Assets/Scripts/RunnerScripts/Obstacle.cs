@@ -11,18 +11,6 @@ public class Obstacle : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<RunnerPlayer>();
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     private void FixedUpdate()
     {
         Vector2 pos = transform.position;

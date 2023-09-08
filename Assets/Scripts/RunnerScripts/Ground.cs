@@ -14,6 +14,7 @@ public class Ground : MonoBehaviour
     bool didGenerateGround = false;
 
     public Obstacle boxTemplate;
+    public List<GameObject> birdTemplate;
 
     public List<GameObject> groundsList;
 
@@ -133,6 +134,7 @@ public class Ground : MonoBehaviour
                 fall.obstacles.Add(o);
             }
         }
+        CreateBird(fall, goGround, go, goCollider);
     }
 
     private void ChangeSprite(Ground ground)
@@ -147,6 +149,29 @@ public class Ground : MonoBehaviour
             else
             {
                 ground.groundsList[i].SetActive(false);
+            }
+        }
+    }
+
+    private void CreateBird(GroundFall fall, Ground goGround, GameObject go, BoxCollider2D goCollider)
+    {
+        int obstacleNum = Random.Range(0, 3);
+        int obstacleBirdType = Random.Range(0, 2);
+        for (int i = 0; i < obstacleNum; i++)
+        {
+            GameObject bird = Instantiate(birdTemplate[obstacleBirdType]);
+            float y = goGround.groundHeight;
+            float halfWidth = goCollider.size.x / 2 - 1;
+            float left = go.transform.position.x - halfWidth;
+            float right = go.transform.position.x + halfWidth;
+            float x = Random.Range(left, right);
+            Vector2 boxPos = new Vector2(x, y);
+            bird.transform.position = boxPos;
+
+            if (fall != null)
+            {
+                Obstacle o = bird.GetComponent<Obstacle>();
+                fall.obstacles.Add(o);
             }
         }
     }
