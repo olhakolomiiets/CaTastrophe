@@ -7,40 +7,36 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     RunnerPlayer player;
-    Text distanceText;
+    [SerializeField] private Text distanceText;
 
-    GameObject results;
-    Text finalDistanceText;
+    [SerializeField] private GameObject results;
+    [SerializeField] private Text finalDistanceText;
+    [SerializeField] private Text bestDistanceText;
+
+    public int distance;
 
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<RunnerPlayer>();
-        distanceText = GameObject.Find("DistanceText").GetComponent<Text>();
-        results = GameObject.Find("Results");
-        finalDistanceText = GameObject.Find("FinalDistanceText").GetComponent<Text>();
-
         results.SetActive(false);
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        int distance = Mathf.FloorToInt(player.distance);
+        distance = Mathf.FloorToInt(player.distance);
         distanceText.text = distance + " m";
 
         if (player.isDead)
         {
             results.SetActive(true);
             finalDistanceText.text = distance + " m";
+            int bestDistance = PlayerPrefs.GetInt("RoofRunnerBestDistance");
+            if (distance >= bestDistance)
+            {
+                PlayerPrefs.SetInt("RoofRunnerBestDistance", distance);
+            }
+            bestDistanceText.text = PlayerPrefs.GetInt("RoofRunnerBestDistance") + "m";
         }
     }
-
 
     public void Quit()
     {
@@ -50,7 +46,5 @@ public class UIController : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("RoofRunner");
-    }
-
-    
+    }   
 }
