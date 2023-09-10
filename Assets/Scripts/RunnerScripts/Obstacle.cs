@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     RunnerPlayer player;
+    [SerializeField] private Animator obstacleAnim;
 
     private void Awake()
     {
@@ -22,5 +23,10 @@ public class Obstacle : MonoBehaviour
         }
 
         transform.position = pos;
+    }
+
+    public void PlayAnim()
+    {
+        obstacleAnim.SetTrigger("Play");
     }
 }

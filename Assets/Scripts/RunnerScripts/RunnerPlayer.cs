@@ -243,8 +243,10 @@ public class RunnerPlayer : MonoBehaviour
 
     void hitObstacle(Obstacle obstacle)
     {
-        Destroy(obstacle.gameObject);
-        velocity.x *= 0.7f;
+        obstacle.GetComponent<Collider2D>().enabled = false;
+        obstacle.PlayAnim();
+       //Destroy(obstacle.gameObject);
+       velocity.x *= 0.7f;
     }
 
 }
