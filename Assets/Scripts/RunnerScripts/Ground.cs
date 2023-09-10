@@ -24,6 +24,7 @@ public class Ground : MonoBehaviour
 
         collider = GetComponent<BoxCollider2D>();
         screenRight = Camera.main.transform.position.x * 2;
+        ChangeSprite(this);
     }
 
 
@@ -139,7 +140,7 @@ public class Ground : MonoBehaviour
 
     private void ChangeSprite(Ground ground)
     {
-        int groundNum = Random.Range(0, 3);
+        int groundNum = Random.Range(0, ground.groundsList.Count);
         for (int i = 0; i < ground.groundsList.Count; i++)
         {
             if (i == groundNum)
