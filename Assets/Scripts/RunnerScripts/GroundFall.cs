@@ -28,6 +28,15 @@ public class GroundFall : MonoBehaviour
         
         if (shouldFall)
         {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).gameObject.activeSelf == true)
+                {
+                    GameObject particles = transform.GetChild(i).GetChild(0).gameObject;
+                    particles.SetActive(true);
+                }
+            }
+
             Vector2 pos = transform.position;
             float fallAmount = fallSpeed * Time.fixedDeltaTime;
             pos.y -= fallAmount;

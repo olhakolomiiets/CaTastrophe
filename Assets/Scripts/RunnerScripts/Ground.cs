@@ -10,10 +10,9 @@ public class Ground : MonoBehaviour
     public float groundRight;
     public float screenRight;
     BoxCollider2D collider;
-
     bool didGenerateGround = false;
 
-    public Obstacle boxTemplate;
+    public List<Obstacle> boxTemplates;
     public List<GameObject> birdTemplate;
 
     public List<GameObject> groundsList;
@@ -120,7 +119,9 @@ public class Ground : MonoBehaviour
         int obstacleNum = Random.Range(0, 4);
         for (int i=0; i<obstacleNum; i++)
         {
-            GameObject box = Instantiate(boxTemplate.gameObject);
+            int randomNum = Random.Range(0, boxTemplates.Count);
+            GameObject box = Instantiate(boxTemplates[randomNum].gameObject);
+
             float y = goGround.groundHeight;
             float halfWidth = goCollider.size.x / 2 - 1;
             float left = go.transform.position.x - halfWidth;
