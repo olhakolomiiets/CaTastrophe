@@ -22,7 +22,7 @@ public class BasketBallHeadLogic : MonoBehaviour
     [SerializeField] private Text scoreDisplay;
     [SerializeField] private GameObject _ball;
     [SerializeField] private GameObject _scoreAnim;
-    //[SerializeField] private Animator _netAnim;
+    [SerializeField] private Animator catPitchAnim;
     public int ballsScored;
     public bool ballScored = false;
     [SerializeField] private Slider slider;
@@ -64,8 +64,6 @@ public class BasketBallHeadLogic : MonoBehaviour
     public void UpdateSlider()
     {
         slider.value = slider.value + 10;
-        //var x = (int)powerSO.Value;
-        //value.text = x.ToString();
     }
 
     
@@ -86,13 +84,14 @@ public class BasketBallHeadLogic : MonoBehaviour
         float randomX = UnityEngine.Random.Range(minX, maxX);
 
         // Set the position of spawnBallPoint with the random X value
-        Vector3 newPosition = spawnBallPoint.position;
-        newPosition.x = randomX;
-        spawnBallPoint.position = newPosition;
+       // Vector3 newPosition = spawnBallPoint.position;
+       // newPosition.x = randomX;
+       // spawnBallPoint.position = newPosition;
 
         MakeBallPuff();
         Rigidbody2D ballRB = _ball.transform.GetComponent<Rigidbody2D>();
         ballRB.velocity = new Vector3(0f, 0f, 0f);
+        ballRB.angularVelocity = 0f;
         //ballRB.angularVelocity = new Vector3(0f, 0f, 0f);
         _ball.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         _ball.transform.position = spawnBallPoint.position;
@@ -111,10 +110,18 @@ public class BasketBallHeadLogic : MonoBehaviour
 
     private IEnumerator HoldTheBall(GameObject ball) 
     {
-        ball.GetComponent<Rigidbody2D>().isKinematic = true;
+        Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
+        float randomX = UnityEngine.Random.Range(4, 10);
+        float randomY = UnityEngine.Random.Range(4, 10);
+
+        ballRb.isKinematic = true;
         yield return new WaitForSeconds(0.7f);
-        ball.GetComponent<Rigidbody2D>().isKinematic = false;
-        yield return new WaitForSeconds(1f);
+        ballRb.isKinematic = false;
+        catPitchAnim.SetTrigger("Play");
+        yield return new WaitForSeconds(0.5f);
+
+        ballRb.velocity = new Vector2(randomX, randomY);
+
         ObjectPooler.SharedInstance.DisableAllBallsPuffs();
         Used = false;
         _scoreAnim.SetActive(false);
@@ -129,7 +136,7 @@ public class BasketBallHeadLogic : MonoBehaviour
             {
                 slider.value = 0;
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
         }
     }
 
