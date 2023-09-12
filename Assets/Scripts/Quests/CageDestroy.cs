@@ -34,7 +34,7 @@ public class CageDestroy : MonoBehaviour
         Vector3 vel = rb.velocity;
         // Debug.Log("Неразбился" + collision.relativeVelocity.magnitude);
 
-        if (collision.gameObject.tag.Equals("Floor") && collision.relativeVelocity.magnitude > magnitude && isBroke == false)
+        if (collision.gameObject.tag.Equals("Floor") && collision.relativeVelocity.magnitude > magnitude && isBroke == false || collision.gameObject.tag.Equals("Ball"))
         {
             sm.DestroyBonus(points);
             Broke();

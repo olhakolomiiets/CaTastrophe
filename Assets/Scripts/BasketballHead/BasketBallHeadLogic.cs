@@ -22,6 +22,7 @@ public class BasketBallHeadLogic : MonoBehaviour
     [SerializeField] private Text scoreDisplay;
     [SerializeField] private GameObject _ball;
     [SerializeField] private GameObject _scoreAnim;
+    [SerializeField] private GameObject _minusScoreAnim;
     [SerializeField] private Animator catPitchAnim;
     public int ballsScored;
     public bool ballScored = false;
@@ -125,6 +126,7 @@ public class BasketBallHeadLogic : MonoBehaviour
         ObjectPooler.SharedInstance.DisableAllBallsPuffs();
         Used = false;
         _scoreAnim.SetActive(false);
+        _minusScoreAnim.SetActive(false);
     }
 
     private IEnumerator ChillOut()
@@ -132,9 +134,14 @@ public class BasketBallHeadLogic : MonoBehaviour
         while (true)
         {
             slider.value = slider.value - 1;
-            if (slider.value <=0)
+            
+            if (slider.value <= 0)
             {
                 slider.value = 0;
+            }
+            else
+            {
+                _minusScoreAnim.SetActive(true);
             }
             yield return new WaitForSeconds(5f);
         }
