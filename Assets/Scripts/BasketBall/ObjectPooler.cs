@@ -72,4 +72,15 @@ public class ObjectPooler : MonoBehaviour
             ball.SetActive(false);
         }
     }
+
+    public void DisableFeatherPuff(GameObject feather)
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (feather = pooledObjects[i])
+            {
+                feather.SetActive(false);
+            }
+        }
+    }
 }

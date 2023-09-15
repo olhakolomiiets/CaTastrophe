@@ -609,4 +609,8 @@ public class CowController : MonoBehaviour
                 break;
         }
     }
+    public void StartWashing()
+    {
+        StartCoroutine(LowPower1());
+    }
 }
