@@ -63,7 +63,7 @@ public class BirdsCatcherLogic : MonoBehaviour
         GameObject bird;
         float birdDuration;
         float waveAmplitude;       
-        float birdPoopRandom = Random.Range(0, 3);
+        float birdPoopRandom = Random.Range(0, 2);
         float poopTime;
         if (enemyOrBird == 0)
         {
@@ -99,7 +99,14 @@ public class BirdsCatcherLogic : MonoBehaviour
             birdWaveMove.startTime = Time.time;          
             birdWaveMove.duration = birdDuration;
             birdWaveMove.waveAmplitude = waveAmplitude;
-            birdWaveMove.poopTime = poopTime;
+            if (birdPoopRandom == 0)
+            {
+                birdWaveMove.poopTime = poopTime;
+            }
+            else
+            {
+                birdWaveMove.poopTime = 0f;
+            }
             bird.SetActive(true);
             birdWaveMove.isMoving = true;
         }
@@ -110,7 +117,7 @@ public class BirdsCatcherLogic : MonoBehaviour
         GameObject groundEnemy;
         float enemyDuration;
         groundEnemy = ObjectPooler.SharedInstance.GetPooledObject("EnemyGround");
-        enemyDuration = Random.Range(3, 5);
+        enemyDuration = Random.Range(5, 7);
         if (groundEnemy != null)
         {
             EnemyGround enemyGround = groundEnemy.transform.GetComponent<EnemyGround>();

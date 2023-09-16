@@ -38,6 +38,11 @@ public class WaveMove : MonoBehaviour
             {
                 if (timeElapsed >= poopTime && !alreadyPooped)
                 {
+                    if(poopTime == 0)
+                    {
+                        alreadyPooped = true;
+                        return;
+                    }
                     var poop = ObjectPooler.SharedInstance.GetPooledObject("Poop");
                     poop.gameObject.transform.position = this.transform.position;
                     poop.SetActive(true);

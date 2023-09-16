@@ -44,7 +44,7 @@ public class CowController : MonoBehaviour
     private Image[] hearts = new Image[4];
     public Sprite HeartFull;
     public Sprite HeartEmpty;
-    private Animator anim;
+    public Animator anim;
     private GameObject LivesHearts;
     public float knockback;
     public float knockbackLenght = 0.3f;
@@ -611,6 +611,28 @@ public class CowController : MonoBehaviour
     }
     public void StartWashing()
     {
-        StartCoroutine(LowPower1());
+        StartCoroutine(WashingFast());
+    }
+
+    private IEnumerator WashingFast()
+    {
+        DisableAllControlButtons();
+        OnButtonUp();
+
+        yield return new WaitForSeconds(0.2f);
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        anim.SetBool("lowPower", true);
+
+        yield return new WaitForSeconds(2.5f);
+
+        rb.constraints = originalConstraints;
+        anim.SetBool("lowPower", false);
+
+        yield return new WaitForSeconds(1f);
+        EnableAllControlButtons();
+        isWaiting = false;
+        anim.speed = 1;
     }
 }
