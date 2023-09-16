@@ -74,11 +74,27 @@ public class BirdsCatcherLogic : MonoBehaviour
         }
         else 
         {
-            bird = ObjectPooler.SharedInstance.GetPooledObject("Robot");
+            float birdType = Random.Range(0, 3);
+            switch (birdType)
+            {
+                case 1:
+                    bird = ObjectPooler.SharedInstance.GetPooledObject("PoolObject1");
+                    break;
+                case 2:
+                    bird = ObjectPooler.SharedInstance.GetPooledObject("PoolObject2");
+                    break;
+                case 3:
+                    bird = ObjectPooler.SharedInstance.GetPooledObject("PoolObject3");
+                    break;
+                default:
+                    bird = ObjectPooler.SharedInstance.GetPooledObject("PoolObject3");
+                    break;
+            }
             birdDuration = Random.Range(2, 4);
             waveAmplitude = Random.Range(1, 4);
             poopTime = Random.Range(0.7f, birdDuration - 0.5f);
         }
+
         if (bird != null)
         {
             WaveMove birdWaveMove = bird.transform.GetComponent<WaveMove>();
@@ -107,6 +123,7 @@ public class BirdsCatcherLogic : MonoBehaviour
             {
                 birdWaveMove.poopTime = 0f;
             }
+            bird.transform.position = birdWaveMove.startTransform.position;
             bird.SetActive(true);
             birdWaveMove.isMoving = true;
         }

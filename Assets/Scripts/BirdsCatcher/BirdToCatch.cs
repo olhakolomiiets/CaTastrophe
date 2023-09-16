@@ -63,7 +63,22 @@ public class BirdToCatch : MonoBehaviour
 
     private void MakeFeatherPuff()
     {
-        featherPuff = ObjectPooler.SharedInstance.GetPooledObject("EnemyFan");
+        switch (this.gameObject.tag)
+        {
+            case "PoolObject1":
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject5");
+                break;
+            case "PoolObject2":
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject6");
+                break;
+            case "PoolObject3":
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject4");
+                break;
+            default:
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject6");
+                break;
+        }
+        //featherPuff = ObjectPooler.SharedInstance.GetPooledObject("EnemyFan");
         if (featherPuff != null)
         {
             featherPuff.transform.position = transform.position;

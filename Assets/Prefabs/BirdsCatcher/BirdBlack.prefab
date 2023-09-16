@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6917071607189928992}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: BirdWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8593314643226258199}
   - component: {fileID: 2039059475726044291}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: 'BirdWingImg '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4078723313617379421, guid: b782a3657ab9e0243b78cbd08e1af933,
+  m_Sprite: {fileID: -4477880633012311631, guid: b782a3657ab9e0243b78cbd08e1af933,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1751943995236813361}
   - component: {fileID: 4817309877063493089}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: BirdAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4416398169495044408}
   - component: {fileID: 726293716329133890}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: BirdTorsoImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,9 +273,9 @@ GameObject:
   - component: {fileID: 5391647766546181713}
   - component: {fileID: 5391647766546181712}
   - component: {fileID: 4496853988743570833}
-  m_Layer: 13
-  m_Name: BirdEnemy
-  m_TagString: EnemyPlant
+  m_Layer: 0
+  m_Name: BirdBlack
+  m_TagString: PoolObject3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   tag: Player
   featherPuff: {fileID: 0}
   _birdsCatcherLogic: {fileID: 0}
-  isEnemy: 1
+  isEnemy: 0
 --- !u!114 &5391647766546181712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   minBirdTimeWaiting: 5
   maxBirdTimeWaiting: 15
   isMoving: 1
+  poopTime: 0
 --- !u!61 &4496853988743570833
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -344,7 +345,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.039476037, y: -0.0000008940697}
