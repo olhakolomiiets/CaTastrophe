@@ -19,9 +19,6 @@ public class RunnerStarsWin : MonoBehaviour
     void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
-        star1 = this.gameObject.transform.GetChild(1).gameObject;
-        star2 = this.gameObject.transform.GetChild(4).gameObject;
-        star3 = this.gameObject.transform.GetChild(7).gameObject;
         textForStar1.text = runnerStars.Star1.ToString();
         textForStar2.text = runnerStars.Star2.ToString();
         textForStar3.text = runnerStars.Star3.ToString();
