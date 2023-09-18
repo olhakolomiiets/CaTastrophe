@@ -11,7 +11,7 @@ public class HeadHitCounter : MonoBehaviour
     {
         if (other.CompareTag("Ball") && !basketBallLogic.ballScored)
         {
-            basketBallLogic.UpdateBallsAmount();
+            basketBallLogic.UpdateBallsAmount(10);
         }
     }
 }

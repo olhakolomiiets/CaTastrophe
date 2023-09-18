@@ -50,7 +50,7 @@ public class BasketBallHeadLogic : MonoBehaviour
         btnActive.SetActive(true);
     }
 
-    public void UpdateBallsAmount()
+    public void UpdateBallsAmount(float addToSlider)
     {
         ballsScored++;
         //_netAnim.SetTrigger("Play");
@@ -59,12 +59,12 @@ public class BasketBallHeadLogic : MonoBehaviour
         scoreDisplay.text = ballsScored.ToString();
         ballScored = true;
         Invoke("Do", 1.5f);
-        UpdateSlider();
+        UpdateSlider(addToSlider);
     }
 
-    public void UpdateSlider()
+    public void UpdateSlider(float addToSlider)
     {
-        slider.value = slider.value + 10;
+        slider.value = slider.value + addToSlider;
     }
 
     

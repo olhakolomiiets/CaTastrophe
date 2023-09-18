@@ -153,6 +153,7 @@ public class BirdsCatcherLogic : MonoBehaviour
             }
             enemyGround.startTime = Time.time;
             enemyGround.duration = enemyDuration;
+            groundEnemy.transform.position = enemyGround.startTransform.position;
             groundEnemy.GetComponent<BoxCollider2D>().isTrigger = false;
             groundEnemy.SetActive(true);
         }
