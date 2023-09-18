@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float dumping = 1.5f;
     [SerializeField] private Vector2 offset = new Vector2(2f, 1f);
     [SerializeField] private bool isLeft;
+    [SerializeField] private bool randomPlayerPos;
     private Transform player;
     private int lastX;
 
@@ -95,13 +96,14 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
-
-
     void Start()
     {
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
         FindPlayer(isLeft);
-        //bottomLimit = player.position.y;
+        if (randomPlayerPos)
+        {
+            bottomLimit = player.position.y;
+        }
     }
 
     public void FindPlayer(bool playerIsLeft)
@@ -114,7 +116,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
+            transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);            
         }
     }
 
