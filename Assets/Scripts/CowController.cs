@@ -625,12 +625,12 @@ public class CowController : MonoBehaviour
 
         anim.SetBool("lowPower", true);
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
 
         rb.constraints = originalConstraints;
         anim.SetBool("lowPower", false);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         EnableAllControlButtons();
         isWaiting = false;
         anim.speed = 1;

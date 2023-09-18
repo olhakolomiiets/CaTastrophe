@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class BirdsCatcherLogic : MonoBehaviour
 {
     [Header("Birds Settings")]
-    public float minSpawnTime = 1f; 
-    public float maxSpawnTime = 5f; 
+    public float minSpawnTime; 
+    public float maxSpawnTime; 
     public Transform LeftStartTransform;
     public Transform RightStartTransform; 
     private float nextSpawnTime;
 
     [Header("Enemy Ground Settings")]
-    public float minSpawnTimeEnemyGround = 7f;
-    public float maxSpawnTimeEnemyGround = 15f;
+    public float minSpawnTimeEnemyGround;
+    public float maxSpawnTimeEnemyGround;
     public Transform LeftStartTransformEnemyGround;
     public Transform RightStartTransformEnemyGround;
     private float nextSpawnTimeEnemyGround;
@@ -43,7 +43,6 @@ public class BirdsCatcherLogic : MonoBehaviour
         controller.normalSpeed = speed;
         controller.transform.GetComponent<Rigidbody2D>().gravityScale = gravityScale;        
         MakeBird();
-        MakeGroundEnemy();
         // Initialize the first spawn time
         nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
         nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);
@@ -68,7 +67,7 @@ public class BirdsCatcherLogic : MonoBehaviour
         if (enemyOrBird == 0)
         {
             bird = ObjectPooler.SharedInstance.GetPooledObject("EnemyPlant");
-            birdDuration = Random.Range(1.5f, 2.5f);
+            birdDuration = Random.Range(2f, 2.5f);
             waveAmplitude = Random.Range(1, 5);
             poopTime = Random.Range(0.7f, birdDuration - 0.5f);
         }
