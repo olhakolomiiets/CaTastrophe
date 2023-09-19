@@ -46,6 +46,12 @@ public class BasketBallLogic : MonoBehaviour
         scoreDisplay.text = ballsScored.ToString();
         ballScored = true;
         Invoke("Do", 1.5f);
+
+        int bestResult = PlayerPrefs.GetInt("BasketballBestResult");
+        if (ballsScored >= bestResult)
+        {
+            PlayerPrefs.SetInt("BasketballBestResult", ballsScored);
+        }
     }
 
     void Start()

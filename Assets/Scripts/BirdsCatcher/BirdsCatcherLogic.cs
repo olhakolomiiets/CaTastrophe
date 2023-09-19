@@ -54,6 +54,12 @@ public class BirdsCatcherLogic : MonoBehaviour
         _scoreAnim.SetActive(true);
         SoundManager.snd.PlayBallHitNetSounds();
         scoreDisplay.text = birdsCatched.ToString();
+
+        int bestResult = PlayerPrefs.GetInt("BirdCatcherBestResult");
+        if (birdsCatched >= bestResult)
+        {
+            PlayerPrefs.SetInt("BirdCatcherBestResult", birdsCatched);
+        }
     }
 
     private void MakeBird()
