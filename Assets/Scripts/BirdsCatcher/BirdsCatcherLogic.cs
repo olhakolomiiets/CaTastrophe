@@ -30,6 +30,14 @@ public class BirdsCatcherLogic : MonoBehaviour
     [SerializeField] private Text scoreDisplay;
     public int birdsCatched;
 
+    [Header("Squirrel Settings")]
+    [SerializeField] private GameObject squirrel;
+    [SerializeField] private Transform startTransform;
+    [SerializeField] private Transform endTransform;
+    public float moveDuration = 2.0f;
+    private bool isMoving = false;
+    private float nextSquirrelTime;
+
     private void Awake()
     {
        
@@ -182,6 +190,48 @@ public class BirdsCatcherLogic : MonoBehaviour
             // Calculate the next spawn time
             nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);
         }
+        if (Time.time >= nextSquirrelTime)
+        {
+            StartCoroutine("SquirrelCoroutine");
+
+            // Calculate the next spawn time
+            nextSquirrelTime = Time.time + Random.Range(18, 25);
+        }
     }
 
+    private IEnumerator SquirrelCoroutine()
+    {
+
+            // Move from start to end
+            yield return MoveSquirrel(startTransform, endTransform, moveDuration);
+
+            // Wait for a random return duration
+            float returnDuration = Random.Range(5, 6);
+            yield return new WaitForSeconds(returnDuration);
+
+            // Move back to start
+            yield return MoveSquirrel(endTransform, startTransform, moveDuration);
+
+    }
+
+    private IEnumerator MoveSquirrel(Transform from, Transform to, float duration)
+    {
+        isMoving = true;
+        float startTime = Time.time;
+        float journeyLength = Vector3.Distance(from.position, to.position);
+
+        while (Time.time < startTime + duration)
+        {
+            float distanceCovered = (Time.time - startTime) * journeyLength / duration;
+            float fractionOfJourney = distanceCovered / journeyLength;
+
+            squirrel.transform.position = Vector3.Lerp(from.position, to.position, fractionOfJourney);
+            yield return null;
+        }
+
+        // Ensure the object reaches the exact destination
+        squirrel.transform.position = to.position;
+
+        isMoving = false;
+    }
 }
