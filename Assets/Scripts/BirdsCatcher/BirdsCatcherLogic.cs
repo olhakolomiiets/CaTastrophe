@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BirdsCatcherLogic : MonoBehaviour
+public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
 {
     [Header("Birds Settings")]
     public float minSpawnTime; 
@@ -233,5 +233,10 @@ public class BirdsCatcherLogic : MonoBehaviour
         squirrel.transform.position = to.position;
 
         isMoving = false;
+    }
+
+    public int MiniGameScore()
+    {
+        return birdsCatched;
     }
 }

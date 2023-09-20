@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WallObjectsFallLogic : MonoBehaviour
+public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
 {
     [Header("Other")]
 
@@ -201,6 +201,11 @@ public class WallObjectsFallLogic : MonoBehaviour
         // Ensure the object reaches the exact destination
         thrownObject.transform.position = endTransform.position;
         isMoving = false;
+    }
+
+    public int MiniGameScore()
+    {
+        return objectsCollected;
     }
 
 }

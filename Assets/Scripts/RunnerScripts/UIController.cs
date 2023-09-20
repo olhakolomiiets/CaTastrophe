@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIController : MonoBehaviour
+public class UIController : MonoBehaviour, IMiniGamesScore
 {
     RunnerPlayer player;
     [SerializeField] private Text distanceText;
@@ -46,5 +46,10 @@ public class UIController : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("RoofRunner");
-    }   
+    }
+
+    public int MiniGameScore()
+    {
+        return distance;
+    }
 }

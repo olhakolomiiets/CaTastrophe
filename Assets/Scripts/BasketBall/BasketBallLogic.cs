@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEditor;
 using System;
 
-public class BasketBallLogic : MonoBehaviour
+public class BasketBallLogic : MonoBehaviour, IMiniGamesScore
 {
 
     public bool Used;
@@ -127,5 +127,10 @@ public class BasketBallLogic : MonoBehaviour
         ObjectPooler.SharedInstance.DisableAllBallsPuffs();
         Used = false;
         _scoreAnim.SetActive(false);
+    }
+
+    public int MiniGameScore()
+    {
+        return ballsScored;
     }
 }
