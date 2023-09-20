@@ -635,4 +635,16 @@ public class CowController : MonoBehaviour
         isWaiting = false;
         anim.speed = 1;
     }
+
+    public void LooseLife()
+    {
+        StartCoroutine(DamageImage());
+        SoundManager.snd.PlayDamage();
+        lives--; 
+    }
+
+    public void AddLife()
+    {       
+        lives++;
+    }
 }
