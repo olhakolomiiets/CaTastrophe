@@ -66,11 +66,12 @@ public class WaveMoveBasket : MonoBehaviour
 
     private void MakeFeatherPuff()
     {
-        GameObject featherPuff = ObjectPooler.SharedInstance.GetPooledObject("EnemyFan");
+        GameObject featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject6");
         if (featherPuff != null)
         {
             featherPuff.transform.position = transform.position;
             featherPuff.SetActive(true);
+            StartCoroutine(FeatherDeactivator(featherPuff));
         }
     }
 
@@ -81,6 +82,12 @@ public class WaveMoveBasket : MonoBehaviour
         transform.position = startTransform.position;
         isMoving = true; // Allow movement to start again
         startTime = Time.time;
+    }
+
+    private IEnumerator FeatherDeactivator(GameObject featherPuff)
+    {
+        yield return new WaitForSeconds(4);
+        featherPuff.SetActive(false);
     }
 
     private void OnDisable()
