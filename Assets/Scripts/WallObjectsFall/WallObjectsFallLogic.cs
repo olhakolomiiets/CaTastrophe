@@ -23,6 +23,8 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     public Transform endTransform4;
     public Transform startTransform5;
     public Transform endTransform5;
+    public Transform startTransform6;
+    public Transform endTransform6;
 
     public float duration = 1.0f;
     public float throwHeight = 5.0f;
@@ -31,7 +33,8 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     private float nextSpawnTimeBottle;
     private float nextSpawnTimeChicken;
     private float nextSpawnTimeMoney;
-    
+    private float nextSpawnTimeBall;
+
     private bool isMoving = false;
 
     private float startTime;
@@ -50,10 +53,11 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
         startTime = Time.time;
         initialPosition = startTransform.position;
 
-        nextSpawnTimeVase = Time.time + Random.Range(2, 3);
-        nextSpawnTimeVase2 = Time.time + Random.Range(2, 3);
+        nextSpawnTimeVase = Time.time + Random.Range(2.5f, 3.5f);
+        nextSpawnTimeVase2 = Time.time + Random.Range(2.5f, 3.5f);
         nextSpawnTimeBottle = Time.time + Random.Range(2, 4);
-        nextSpawnTimeChicken = Time.time + Random.Range(2, 4);
+        nextSpawnTimeChicken = Time.time + Random.Range(2.5f, 4);
+        nextSpawnTimeBall = Time.time + Random.Range(1, 2);
     }
 
     public void UpdateCollectedAmount()
@@ -119,6 +123,28 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             nextSpawnTimeBottle = Time.time + Random.Range(2, 4);
         }
 
+        if (Time.time >= nextSpawnTimeBall)
+        {
+            GameObject throwObject;
+            throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject6");
+            startTime = Time.time;
+            initialPosition = startTransform.position;
+            throwObject.transform.position = startTransform.position;
+            var heavyObject = throwObject.GetComponent<HeavyObjectWall>();
+            var sprite = heavyObject.sprite;
+            var rb = heavyObject.rb;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            heavyObject.collider2d.enabled = true;
+            Color initialColor = sprite.color;
+            sprite.color = new Color(initialColor.r, initialColor.g, initialColor.b, 1f);
+            sprite.sortingOrder = -2;
+            throwObject.SetActive(true);
+            StartCoroutine(MoveObject(throwObject, startTransform6, endTransform6, sprite));
+
+            // Calculate the next spawn time
+            nextSpawnTimeBall = Time.time + Random.Range(2, 4);
+        }
+
         if (Time.time >= nextSpawnTimeChicken)
         {
             GameObject throwObject;
@@ -162,7 +188,6 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     {
         // Generate a random rotation angle around the Z-axis
         float randomRotation = Random.Range(0f, 360f);
-
         // Apply the rotation to the GameObject
         thrownObject.transform.rotation = Quaternion.Euler(0f, 0f, randomRotation);
 
@@ -170,13 +195,13 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
         float startTime = Time.time;
 
         float randomX = UnityEngine.Random.Range(-57.47f, -37.5f);
-        sprite.sortingOrder = -2;
-
+  
         // Set the position of spawnBallPoint with the random X value
         Vector3 newPosition = endTransform.position;
         newPosition.x = randomX;
         endTransform.position = newPosition;
 
+        sprite.sortingOrder = -2;
         float journeyLength = Vector3.Distance(startTransform.position, endTransform.position);
 
         while (Time.time - startTime < 1.0f)

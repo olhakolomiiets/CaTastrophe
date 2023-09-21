@@ -20,10 +20,12 @@ public class ObjectToCollect : MonoBehaviour
             if (isAddingLife)
             {
                 collision.GetComponent<CowController>().AddLife();
+                SoundManager.snd.PlayEatSounds();
             }
             else
             {
-                _wallObjectsFallLogic.UpdateCollectedAmount();                
+                _wallObjectsFallLogic.UpdateCollectedAmount();
+                SoundManager.snd.PlayCollectCoinSound();
             }
             this.gameObject.SetActive(false);
         }

@@ -63,12 +63,13 @@ public class CowController : MonoBehaviour
     [SerializeField] private EventTrigger right;
     private RigidbodyConstraints2D originalConstraints;
     public GameObject activeCollaider;
-    private bool isWaiting;
+    public bool isWaiting;
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
     [SerializeField] private Button doButton;
     public FloatSO catPower;
     public bool isUiJumpPressed;
+    public GameObject starsShoked;
 
     private bool _eventSent;
 
@@ -632,6 +633,35 @@ public class CowController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         EnableAllControlButtons();
+        isWaiting = false;
+        anim.speed = 1;
+    }
+
+    public void StartShoking()
+    {
+        StartCoroutine(CatShoked());
+    }
+
+    private IEnumerator CatShoked()
+    {
+        DisableAllControlButtons();
+        OnButtonUp();
+
+        yield return new WaitForSeconds(0.2f);
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        starsShoked.SetActive(true);
+        SoundManager.snd.PlayDizzySounds();
+        anim.SetBool("Shoked", true);
+
+        yield return new WaitForSeconds(2f);
+
+        rb.constraints = originalConstraints;
+        anim.SetBool("Shoked", false);
+        starsShoked.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        EnableAllControlButtons();
+
         isWaiting = false;
         anim.speed = 1;
     }
