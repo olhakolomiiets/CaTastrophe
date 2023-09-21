@@ -78,7 +78,6 @@ public class BirdCatcherStarWin : MonoBehaviour
         }
         else
         {
-            Debug.Log("return 000000000000000000000000");
             return 0;
         }
     }

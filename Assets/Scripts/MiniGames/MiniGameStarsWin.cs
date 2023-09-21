@@ -23,6 +23,11 @@ public class MiniGameStarsWin : MonoBehaviour
     [SerializeField] private Text textForStar3;
 
     [Space(5)]
+    [SerializeField] private string _bestResultPrefs;
+    [SerializeField] private Text bestResultText;
+    [SerializeField] private Text _text;
+
+    [Space(5)]
     public IMiniGamesScore miniGameComponent;
     [SerializeField] GameObject _objectWithInterface;
 
@@ -37,6 +42,8 @@ public class MiniGameStarsWin : MonoBehaviour
         textForStar1.text = miniGameStars.Star1.ToString();
         textForStar2.text = miniGameStars.Star2.ToString();
         textForStar3.text = miniGameStars.Star3.ToString();
+
+        bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)} {_text.text}";
 
         PlayerPrefs.SetInt("LevelStars" + levelIndex, _gameScore);
 

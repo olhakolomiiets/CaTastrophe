@@ -38,11 +38,6 @@ public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
     private bool isMoving = false;
     private float nextSquirrelTime;
 
-    private void Awake()
-    {
-       
-    }
-
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CowController>();

@@ -31,6 +31,7 @@ public class MiniGameStars : MonoBehaviour
         textForStar1.text = _miniGame.Star1.ToString();
         textForStar2.text = _miniGame.Star2.ToString();
         textForStar3.text = _miniGame.Star3.ToString();
+
         bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)} {_text.text}";
 
 
