@@ -3643,6 +3643,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0963306, y: 9.597923}
   m_EdgeRadius: 0
+--- !u!1 &308424148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308424149}
+  m_Layer: 0
+  m_Name: TransformEnd7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &308424149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308424148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -57.47, y: 10.06, z: -0.5176505}
+  m_LocalScale: {x: 0.43521, y: 0.43521, z: 0.43521}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &309964800
 GameObject:
   m_ObjectHideFlags: 0
@@ -18568,6 +18598,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &926410277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 926410278}
+  m_Layer: 0
+  m_Name: TransformStart7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &926410278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926410277}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48.06, y: 7.64, z: -0.5176505}
+  m_LocalScale: {x: 0.43521, y: 0.43521, z: 0.43521}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954505211
 GameObject:
   m_ObjectHideFlags: 0
@@ -35383,6 +35443,10 @@ MonoBehaviour:
     objectToPool: {fileID: 3940784853660166688, guid: e63ee7512cae9494fb8482102a259e27,
       type: 3}
     shouldExpand: 0
+  - amountToPool: 5
+    objectToPool: {fileID: 3940784853660166688, guid: 50c2f945f7249b9469aa633300604fbf,
+      type: 3}
+    shouldExpand: 0
   pooledObjects: []
 --- !u!4 &1608902403
 Transform:
@@ -50374,8 +50438,10 @@ MonoBehaviour:
   endTransform5: {fileID: 1864414018}
   startTransform6: {fileID: 452457240}
   endTransform6: {fileID: 2011579132}
+  startTransform7: {fileID: 926410278}
+  endTransform7: {fileID: 308424149}
   duration: 1
-  throwHeight: 5
+  throwHeight: 4
   scoreDisplay: {fileID: 777322709}
   objectsCollected: 0
 --- !u!4 &2100473209

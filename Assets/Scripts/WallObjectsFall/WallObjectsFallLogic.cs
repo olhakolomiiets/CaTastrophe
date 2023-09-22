@@ -25,6 +25,8 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     public Transform endTransform5;
     public Transform startTransform6;
     public Transform endTransform6;
+    public Transform startTransform7;
+    public Transform endTransform7;
 
     public float duration = 1.0f;
     public float throwHeight = 5.0f;
@@ -34,6 +36,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     private float nextSpawnTimeChicken;
     private float nextSpawnTimeMoney;
     private float nextSpawnTimeBall;
+    private float nextSpawnTimeHeavyObj;
 
     private bool isMoving = false;
 
@@ -54,7 +57,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
         initialPosition = startTransform.position;
 
         nextSpawnTimeVase = Time.time + Random.Range(2.5f, 3.5f);
-        nextSpawnTimeVase2 = Time.time + Random.Range(2.5f, 3.5f);
+        nextSpawnTimeVase2 = Time.time + Random.Range(1.5f, 3.5f);
         nextSpawnTimeBottle = Time.time + Random.Range(2, 4);
         nextSpawnTimeChicken = Time.time + Random.Range(2.5f, 4);
         nextSpawnTimeBall = Time.time + Random.Range(1, 2);
@@ -88,7 +91,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             StartCoroutine(MoveObject(throwObject, startTransform, endTransform, sprite));
 
             // Calculate the next spawn time
-            nextSpawnTimeVase = Time.time + Random.Range(2, 3);
+            nextSpawnTimeVase = Time.time + Random.Range(2, 5);
         }
 
         if (Time.time >= nextSpawnTimeVase2)
@@ -104,7 +107,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             StartCoroutine(MoveObject(throwObject, startTransform4, endTransform4, sprite));
 
             // Calculate the next spawn time
-            nextSpawnTimeVase2 = Time.time + Random.Range(2, 3);
+            nextSpawnTimeVase2 = Time.time + Random.Range(2, 5);
         }
 
         if (Time.time >= nextSpawnTimeBottle)
@@ -120,7 +123,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             StartCoroutine(MoveObject(throwObject, startTransform2, endTransform2, sprite));
 
             // Calculate the next spawn time
-            nextSpawnTimeBottle = Time.time + Random.Range(2, 4);
+            nextSpawnTimeBottle = Time.time + Random.Range(2, 5);
         }
 
         if (Time.time >= nextSpawnTimeBall)
@@ -142,7 +145,29 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             StartCoroutine(MoveObject(throwObject, startTransform6, endTransform6, sprite));
 
             // Calculate the next spawn time
-            nextSpawnTimeBall = Time.time + Random.Range(2, 4);
+            nextSpawnTimeBall = Time.time + Random.Range(2, 3);
+        }
+
+        if (Time.time >= nextSpawnTimeHeavyObj)
+        {
+            GameObject throwObject;
+            throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject7");
+            startTime = Time.time;
+            initialPosition = startTransform.position;
+            throwObject.transform.position = startTransform.position;
+            var heavyObject = throwObject.GetComponent<HeavyObjectWall>();
+            var sprite = heavyObject.sprite;
+            var rb = heavyObject.rb;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            heavyObject.collider2d.enabled = true;
+            Color initialColor = sprite.color;
+            sprite.color = new Color(initialColor.r, initialColor.g, initialColor.b, 1f);
+            sprite.sortingOrder = -2;
+            throwObject.SetActive(true);
+            StartCoroutine(MoveObject(throwObject, startTransform7, endTransform7, sprite));
+
+            // Calculate the next spawn time
+            nextSpawnTimeHeavyObj = Time.time + Random.Range(2, 3);
         }
 
         if (Time.time >= nextSpawnTimeChicken)
@@ -161,7 +186,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             StartCoroutine(MoveObject(throwObject, startTransform3, endTransform3, sprite));
 
             // Calculate the next spawn time
-            nextSpawnTimeChicken = Time.time + Random.Range(2, 4);
+            nextSpawnTimeChicken = Time.time + Random.Range(10, 12);
         }
 
         if (Time.time >= nextSpawnTimeMoney)
@@ -180,7 +205,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             StartCoroutine(MoveObject(throwObject, startTransform5, endTransform5, sprite));
 
             // Calculate the next spawn time
-            nextSpawnTimeMoney = Time.time + Random.Range(1.2f, 2);
+            nextSpawnTimeMoney = Time.time + Random.Range(1.2f, 1.6f);
         }
     }
 

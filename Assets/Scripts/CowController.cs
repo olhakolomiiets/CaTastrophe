@@ -651,7 +651,7 @@ public class CowController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         starsShoked.SetActive(true);
-        SoundManager.snd.PlayDizzySounds();
+        SoundManager.snd.PlayDizzySoundsShort();
         anim.SetBool("Shoked", true);
 
         yield return new WaitForSeconds(2f);
