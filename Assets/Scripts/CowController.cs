@@ -316,6 +316,7 @@ public class CowController : MonoBehaviour
 
     public void OnLeftButtonDown()
     {
+        OnButtonUp(); // Added for WallFalling mini game controls
         if (speed <= 0f)
         {
             speed = -normalSpeed;
@@ -324,6 +325,7 @@ public class CowController : MonoBehaviour
     }
     public void OnRightButtonDown()
     {
+        OnButtonUp(); // Added for WallFalling mini game controls
         if (speed >= 0f)
         {
             speed = normalSpeed;

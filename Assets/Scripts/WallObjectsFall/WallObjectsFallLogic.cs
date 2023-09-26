@@ -45,6 +45,9 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     [SerializeField] private Text scoreDisplay;
     public int objectsCollected;
 
+    [SerializeField] private Text coinTotalDisplay;
+    public int coinTotal;
+
     private void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CowController>();
@@ -191,6 +194,9 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
 
         if (Time.time >= nextSpawnTimeMoney)
         {
+            coinTotal++;
+            coinTotalDisplay.text = coinTotal.ToString();
+
             GameObject throwObject;
             throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject5");
             var ObjectToCollect = throwObject.GetComponent<ObjectToCollect>();
@@ -202,10 +208,10 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
             var sprite = ObjectToCollect.sprite;
             sprite.sortingOrder = -2;
             throwObject.SetActive(true);
-            StartCoroutine(MoveObject(throwObject, startTransform5, endTransform5, sprite));
+            StartCoroutine(MoveObject(throwObject, startTransform5, endTransform5, sprite));            
 
             // Calculate the next spawn time
-            nextSpawnTimeMoney = Time.time + Random.Range(1.2f, 1.6f);
+            nextSpawnTimeMoney = Time.time + Random.Range(1.1f, 1.2f);
         }
     }
 
