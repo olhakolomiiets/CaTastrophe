@@ -301,13 +301,13 @@ public class CowController : MonoBehaviour
         {
             if (joystick.Horizontal > 0)
             {
-                speed = 0f;
-                OnRightButtonDown();
+                speed = normalSpeed;
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else if (joystick.Horizontal < 0)
             {
-                speed = 0f;
-                OnLeftButtonDown();
+                speed = -normalSpeed;
+                transform.eulerAngles = new Vector3(0, 180, 0);
             }
             else if (!_playerMoves)
             { OnButtonUp(); }
