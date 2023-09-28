@@ -38,6 +38,9 @@ public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
     private bool isMoving = false;
     private float nextSquirrelTime;
 
+    [SerializeField] private Text birdTotalDisplay;
+    public int birdTotal; 
+
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CowController>();
@@ -101,6 +104,11 @@ public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
             birdDuration = Random.Range(2, 4);
             waveAmplitude = Random.Range(1, 4);
             poopTime = Random.Range(0.7f, birdDuration - 0.5f);
+
+            birdTotal++;
+            birdTotalDisplay.text = birdTotal.ToString();
+
+
         }
 
         if (bird != null)
