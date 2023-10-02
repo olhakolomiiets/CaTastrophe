@@ -28,5 +28,6 @@ public class Obstacle : MonoBehaviour
     public void PlayAnim()
     {
         obstacleAnim.SetTrigger("Play");
+        SoundManager.snd.PlayDamage();
     }
 }

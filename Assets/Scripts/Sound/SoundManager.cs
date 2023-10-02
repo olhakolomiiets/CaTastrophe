@@ -43,6 +43,7 @@ public class SoundManager : MonoBehaviour
     private AudioClip BirdPoopHardSound;
     private AudioClip CollectCoinSound;
     private AudioClip[] DizzySoundsShort;
+    private AudioClip[] BuildingCollapse;
 
     public AudioClip damage;
     private int randomSounds;
@@ -89,6 +90,7 @@ public class SoundManager : MonoBehaviour
         BirdPoopHardSound = Resources.Load<AudioClip>("BirdsPoopSounds/BirPoopSplat");
         CollectCoinSound = Resources.Load<AudioClip>("CoinSounds/collect-coin01");
         DizzySoundsShort = Resources.LoadAll<AudioClip>("DizzySoundsShort");
+        BuildingCollapse = Resources.LoadAll<AudioClip>("BuildingCollapse");
     }
 
     public void PlayVaseSounds()
@@ -189,7 +191,7 @@ public class SoundManager : MonoBehaviour
     public void PlayDamage()
     {
 
-        randomSounds = Random.Range(0, 2);
+        randomSounds = Random.Range(0, 3);
         audioSrc.PlayOneShot(CatDamageSounds[randomSounds]);
     }
     public void PlayScratchSounds()
@@ -280,5 +282,11 @@ public class SoundManager : MonoBehaviour
     {
         randomSounds = Random.Range(0, 2);
         audioSrc.PlayOneShot(DizzySoundsShort[randomSounds]);
+    }
+
+    public void PlayBuildingCollapseSounds() 
+    {
+        randomSounds = Random.Range(0, 2);
+        audioSrc.PlayOneShot(BuildingCollapse[randomSounds]);
     }
 }

@@ -11,16 +11,18 @@ public class GroundFall : MonoBehaviour
     public RunnerPlayer player;
     public List<Obstacle> obstacles = new List<Obstacle>();
 
+    public AudioSource audioSrc;
+    private bool isPlaying;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSrc = this.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        isPlaying = false;
     }
 
     private void FixedUpdate()
@@ -59,6 +61,11 @@ public class GroundFall : MonoBehaviour
                 }
             }
             transform.position = pos;
+            if (!isPlaying)
+            {
+                audioSrc.Play();
+                isPlaying = true;
+            }
         }
         else
         {
@@ -68,5 +75,10 @@ public class GroundFall : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnDisable()
+    {
+        audioSrc.Stop();
     }
 }

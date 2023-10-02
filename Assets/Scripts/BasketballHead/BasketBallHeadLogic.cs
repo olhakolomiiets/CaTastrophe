@@ -27,6 +27,7 @@ public class BasketBallHeadLogic : MonoBehaviour
     public int ballsScored;
     public bool ballScored = false;
     [SerializeField] private Slider slider;
+    [SerializeField] private GameTimer timer;
 
     public float minX = -5f; 
     public float maxX = 5f;
@@ -65,6 +66,10 @@ public class BasketBallHeadLogic : MonoBehaviour
     public void UpdateSlider(float addToSlider)
     {
         slider.value = slider.value + addToSlider;
+        if (slider.value >= 100f)
+        {
+            timer.StopTimer();
+        }
     }
 
     

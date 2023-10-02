@@ -133,7 +133,7 @@ public class Ground : MonoBehaviour
             if (fall != null)
             {
                 Obstacle o = box.GetComponent<Obstacle>();
-                fall.obstacles.Add(o);
+                fall.obstacles.Add(o);               
             }
         }
         CreateBird(fall, goGround, go, goCollider);

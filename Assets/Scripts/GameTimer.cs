@@ -22,6 +22,7 @@ public class GameTimer : MonoBehaviour
     public GameObject canvas;
     private Animator anim;
     private UIManager _uiManager;
+    private TimeSpan elapsedTime;
     private void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -49,6 +50,7 @@ public class GameTimer : MonoBehaviour
     {
         timeDelta = Time.timeSinceLevelLoad - timer;
         TimeSpan t = TimeSpan.FromSeconds(timeDelta);
+        elapsedTime = t;
         if (timeDelta < 0.0)
         {
             timeDisplay.text = t.ToString(@"mm\:ss");
@@ -85,4 +87,11 @@ public class GameTimer : MonoBehaviour
         anim.SetTrigger("Add");
         timer = timer + sec;
     }
+
+    public void StopTimer()
+    {
+        timeDisplay.text = elapsedTime.ToString(@"mm\:ss");
+        _uiManager.TimeUp();
+    }
+
 }
