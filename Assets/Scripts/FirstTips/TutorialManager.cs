@@ -89,4 +89,18 @@ public class TutorialManager : MonoBehaviour
         FinishButton.SetActive(false);
         PlayerPrefs.SetInt(prefForTutorial, 1);
     }
+
+    public void StartTutorialAgain() 
+    {
+        nextButton.interactable = true;
+        prevButton.interactable = false;
+
+        if (tutorialTips.Count > 0)
+        {
+            background.SetActive(true);
+            tutorialTips[currentIndex].SetActive(true);
+            DisableAllExceptCurrent(currentIndex);
+        }
+    }
+
 }
