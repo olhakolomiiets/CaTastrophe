@@ -25,6 +25,7 @@ public class TutorialManager : MonoBehaviour
 
         if (tutorialTips.Count > 0)
         {
+            Time.timeScale = 0;
             background.SetActive(true);
             tutorialTips[currentIndex].SetActive(true);
             DisableAllExceptCurrent(currentIndex);
@@ -78,6 +79,7 @@ public class TutorialManager : MonoBehaviour
     public void Finish()
     {
         background.SetActive(false);
+        Time.timeScale = 1;
 
         foreach (GameObject obj in tutorialTips)
         {
@@ -92,6 +94,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorialAgain() 
     {
+        Time.timeScale = 0;
         nextButton.interactable = true;
         prevButton.interactable = false;
 
