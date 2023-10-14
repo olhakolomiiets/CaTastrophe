@@ -18,7 +18,7 @@ public class UIController : MonoBehaviour, IMiniGamesScore
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<RunnerPlayer>();
-        results.SetActive(false);
+        //results.SetActive(false);
     }
     void Update()
     {
@@ -34,13 +34,15 @@ public class UIController : MonoBehaviour, IMiniGamesScore
             {
                 PlayerPrefs.SetInt("RoofRunnerBestDistance", distance);
             }
-            bestDistanceText.text = PlayerPrefs.GetInt("RoofRunnerBestDistance") + "m";
+            bestDistanceText.text = PlayerPrefs.GetInt("RoofRunnerBestDistance") + " m";
         }
     }
 
     public void Quit()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("menu-levels");
+        
     }
 
     public void Retry()

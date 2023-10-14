@@ -91,7 +91,7 @@ public class GameTimer : MonoBehaviour
     public void StopTimer()
     {
         timeDisplay.text = elapsedTime.ToString(@"mm\:ss");
-        _uiManager.TimeUp();
+        //_uiManager.TimeUp();
     }
 
 }

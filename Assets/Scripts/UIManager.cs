@@ -142,7 +142,8 @@ public class UIManager : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene("main-menu");
+        SceneManager.LoadScene("menu-levels");
+        Time.timeScale = 1;
     }
     public void ToTheCity()
     {

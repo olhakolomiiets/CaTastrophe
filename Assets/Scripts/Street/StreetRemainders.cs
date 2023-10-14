@@ -35,6 +35,11 @@ public class StreetRemainders : MonoBehaviour
         passivePowerUpManager = FindObjectOfType<PassivePowerUp>();
     }
 
+    private void OnEnable()
+    {
+        Time.timeScale = 1;
+    }
+
     void Start()
     {        
         Invoke("CheckToiletAndFood", 1.5f);

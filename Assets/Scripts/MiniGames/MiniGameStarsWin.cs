@@ -11,6 +11,7 @@ public class MiniGameStarsWin : MonoBehaviour
 
     [Space(5)]
     public int levelIndex;
+    [SerializeField] private GameObject _miniGameRewards;
 
     [Space(5)]
     [SerializeField] private GameObject star1;
@@ -25,26 +26,46 @@ public class MiniGameStarsWin : MonoBehaviour
     [Space(5)]
     [SerializeField] private string _bestResultPrefs;
     [SerializeField] private Text bestResultText;
-    [SerializeField] private Text _text;
 
     [Space(5)]
     public IMiniGamesScore miniGameComponent;
     [SerializeField] GameObject _objectWithInterface;
 
+    [Space(5)]
+    [SerializeField] private Text resultText;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private float multiplier;
+
     private int _gameScore;
+    private int _coins;
+    private int _totalScore;
+
+    [SerializeField] private bool isRoofRunner;
+
+    private void OnEnable()
+    {
+        miniGameComponent = _objectWithInterface.GetComponents<Component>().OfType<IMiniGamesScore>().FirstOrDefault();
+        _gameScore = miniGameComponent.MiniGameScore();
+
+        _coins = (int)(_gameScore * multiplier);
+
+        StartCoroutine("Counter");
+        StartCoroutine("CounterTotal");
+
+        _totalScore = PlayerPrefs.GetInt("TotalScore");
+        _totalScore = _totalScore + _coins;
+        PlayerPrefs.SetInt("TotalScore", _totalScore);
+    }
 
     void Start()
     {
-        miniGameComponent = _objectWithInterface.GetComponents<Component>().OfType<IMiniGamesScore>().FirstOrDefault();
-
-        _gameScore = miniGameComponent.MiniGameScore();
-
         textForStar1.text = miniGameStars.Star1.ToString();
         textForStar2.text = miniGameStars.Star2.ToString();
         textForStar3.text = miniGameStars.Star3.ToString();
 
-        bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)} {_text.text}";
+        bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)}";
 
+        if (PlayerPrefs.GetInt("LevelStars" + levelIndex) < _gameScore)
         PlayerPrefs.SetInt("LevelStars" + levelIndex, _gameScore);
 
         if (_gameScore >= miniGameStars.Star1)
@@ -81,6 +102,8 @@ public class MiniGameStarsWin : MonoBehaviour
                 PlayerPrefs.SetInt("LevelStar3" + levelIndex, 1);
             }
         }
+
+        _miniGameRewards.SetActive(true);
     }
 
     public int GetLevelScore()
@@ -111,5 +134,45 @@ public class MiniGameStarsWin : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1.5f);
         star3.SetActive(true);
+    }
+
+    IEnumerator Counter()
+    {
+        if (isRoofRunner)
+        {
+            for (int i = 0; i <= _gameScore; i += 4)
+            {
+                resultText.text = i.ToString();
+
+                yield return null;
+            }
+        }
+        else
+        {
+            for (int i = 0; i <= _gameScore; i += 1)
+            {
+                resultText.text = i.ToString();
+
+                yield return null;
+            }
+        }
+        resultText.text = _gameScore.ToString();
+    }
+
+    IEnumerator CounterTotal()
+    {
+        for (int i = 0; i <= _coins; i += 1)
+        {
+            scoreText.text = i.ToString();
+
+            yield return null;
+        }
+        scoreText.text = _coins.ToString();
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("Counter");
+        StopCoroutine("CounterTotal");
     }
 }

@@ -20,7 +20,6 @@ public class MiniGameStars : MonoBehaviour
     [Space(5)]
     [SerializeField] private string _bestResultPrefs;
     [SerializeField] private Text bestResultText;
-    [SerializeField] private Text _text;
 
     [Space(5)]
     public int levelIndex;
@@ -32,7 +31,7 @@ public class MiniGameStars : MonoBehaviour
         textForStar2.text = _miniGame.Star2.ToString();
         textForStar3.text = _miniGame.Star3.ToString();
 
-        bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)} {_text.text}";
+        bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)}";
 
 
         if (GetLevelScore() >= _miniGame.Star1)
