@@ -10173,7 +10173,7 @@ RectTransform:
   m_GameObject: {fileID: 530499988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3542854, y: 0.33071682, z: 0.33071682}
+  m_LocalScale: {x: 1.6, y: 0.28, z: 0.33071682}
   m_Children: []
   m_Father: {fileID: 1599070342}
   m_RootOrder: 0
@@ -10196,7 +10196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.35303193, b: 0.002491996, a: 1}
+  m_Color: {r: 1, g: 0.32941177, b: 0.007843138, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10204,7 +10204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 290b6fc8f2581734383d9ddae92a916b, type: 3}
+    m_Font: {fileID: 12800000, guid: fd222106b22c04c458b91cc0738abe60, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 1
@@ -37673,15 +37673,15 @@ MonoBehaviour:
     type: 3}
   rewardsGrid: {fileID: 1464478213254388666}
   rewards:
-  - Type: 0
-    Value: 10
-    Name: coins
   - Type: 3
-    Value: 2
+    Value: 1
     Name: energy_recovery
-  - Type: 1
+  - Type: 3
     Value: 3
-    Name: sand
+    Name: energy_recovery
+  - Type: 3
+    Value: 5
+    Name: energy_recovery
   rewardPrefabs: []
 --- !u!224 &1464478213254388666
 RectTransform:

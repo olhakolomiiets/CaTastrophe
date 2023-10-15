@@ -70,11 +70,11 @@ public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
 
     private void MakeBird()
     {
-        float enemyOrBird = Random.Range(0, 3);
+        float enemyOrBird = Random.Range(0, 4);
         GameObject bird;
         float birdDuration;
         float waveAmplitude;       
-        float birdPoopRandom = Random.Range(0, 2);
+        float birdPoopRandom = Random.Range(0, 3);
         float poopTime;
         if (enemyOrBird == 0)
         {
