@@ -1,34 +1,88 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MiniGameUIManager : MonoBehaviour
 {
-    [Space(5)]
+    [Header("Info")]
     [SerializeField] private GameObject infoWindow;
     [SerializeField] private Text gameName;
     [SerializeField] private Text infoText;
 
-    [Space(5)]
-    [SerializeField] private GameObject BirdCatcherStartWindow;
+    [Header("Bird Catcher")]
+    [SerializeField] private GameObject birdCatcherStartWindow;
     [SerializeField] private int needLevel2;
+    [SerializeField] private GameObject birdCatcheMsg;
+    [SerializeField] private Text birdCatcherFirstTxt;
+    [SerializeField] private Text birdCatcherReminderTxt;
 
-    [Space(5)]
-    [SerializeField] private GameObject BasketballStartWindow;
+    [Header("Basketball")]
+    [SerializeField] private GameObject basketballStartWindow;
     [SerializeField] private int needLevel3;
+    [SerializeField] private GameObject basketballMsg;
+    [SerializeField] private Text basketballFirstTxt;
+    [SerializeField] private Text basketballReminderTxt;
 
-    [Space(5)]
-    [SerializeField] private GameObject RoofRunnerStartWindow;
+    [Header("Roof Runner")]
+    [SerializeField] private GameObject runnerStartWindow;
     [SerializeField] private int needLevel4;
+    [SerializeField] private GameObject runnerMsg;
+    [SerializeField] private Text runnerFirstTxt;
+    [SerializeField] private Text runnerReminderTxt;
 
-    [Space(5)]
-    [SerializeField] private GameObject WallStartWindow;
+    [Header("Wall")]
+    [SerializeField] private GameObject wallStartWindow;
     [SerializeField] private int needLevel5;
+    [SerializeField] private GameObject wallMsg;
+    [SerializeField] private Text wallFirstTxt;
+    [SerializeField] private Text wallReminderTxt;
 
-    [Space(5)]
-    [SerializeField] private GameObject HeadBasketballStartWindow;
+    [Header("Basketball Head")]
+    [SerializeField] private GameObject headBallStartWindow;
     [SerializeField] private int needLevel6;
+    [SerializeField] private GameObject headBallMsg;
+    [SerializeField] private Text headBallFirstTxt;
+    [SerializeField] private Text headBallReminderTxt;
 
     private int _levelIndex;
+
+    private List<GameObject> _msg;
+    private List<Text> _firstTxt;
+    private List<Text> _reminders;
+    private List<int> _levels;
+
+    private void Awake()
+    {
+        _msg = new List<GameObject> { birdCatcheMsg, basketballMsg, runnerMsg, wallMsg, headBallMsg };
+        _firstTxt = new List<Text> { birdCatcherFirstTxt, basketballFirstTxt, runnerFirstTxt, wallFirstTxt, headBallFirstTxt };
+        _reminders = new List<Text> { birdCatcherReminderTxt, basketballReminderTxt, runnerReminderTxt, wallReminderTxt, headBallReminderTxt };
+        _levels = new List<int> { needLevel2, needLevel3, needLevel4, needLevel5, needLevel6 };
+    }
+
+    private void Start()
+    {
+        DateTime now = DateTime.Now;
+        int day = now.Day;
+
+
+        for (int i = 0; i < _reminders.Count; i++)
+        {
+            if (PlayerPrefs.GetInt("LevelStar1" + _levels[i]) >= 1)
+            {               
+                if (PlayerPrefs.GetInt("MiniGameFirstMessage" + _levels[i]) == 0)
+                {
+                    _msg[i].SetActive(true);
+                    _firstTxt[i].gameObject.SetActive(true);
+                }                    
+                else if (day % 2 != 0)
+                {
+                    _msg[i].SetActive(true);
+                    _reminders[i].gameObject.SetActive(true);
+                }
+            }
+        }
+    }
 
     public void OpenMiniGame(int miniGameNumber)
     {        
@@ -38,7 +92,8 @@ public class MiniGameUIManager : MonoBehaviour
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel2);
                 if (_levelIndex >= 1)
                 {
-                    BirdCatcherStartWindow.SetActive(true);
+                    birdCatcherStartWindow.SetActive(true);
+                    PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel2, 1);
                 }                    
                 else
                 {
@@ -50,7 +105,10 @@ public class MiniGameUIManager : MonoBehaviour
             case 2:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel3);
                 if (_levelIndex >= 1)
-                { BasketballStartWindow.SetActive(true); }
+                { 
+                    basketballStartWindow.SetActive(true);
+                    PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel3, 1);
+                }
                 else
                 {
                     infoWindow.SetActive(true);
@@ -61,7 +119,10 @@ public class MiniGameUIManager : MonoBehaviour
             case 3:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel4);
                 if (_levelIndex >= 1)
-                { RoofRunnerStartWindow.SetActive(true); }
+                { 
+                    runnerStartWindow.SetActive(true);
+                    PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel4, 1);
+                }
                 else
                 {
                     infoWindow.SetActive(true);
@@ -72,7 +133,10 @@ public class MiniGameUIManager : MonoBehaviour
             case 4:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel5);
                 if (_levelIndex >= 1)
-                { WallStartWindow.SetActive(true); }
+                { 
+                    wallStartWindow.SetActive(true);
+                    PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel5, 1);
+                }
                 else
                 {
                     infoWindow.SetActive(true);
@@ -83,7 +147,10 @@ public class MiniGameUIManager : MonoBehaviour
             case 5:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel6);
                 if (_levelIndex >= 1)
-                { HeadBasketballStartWindow.SetActive(true); }
+                { 
+                    headBallStartWindow.SetActive(true);
+                    PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel6, 1);
+                }
                 else
                 {
                     infoWindow.SetActive(true);
