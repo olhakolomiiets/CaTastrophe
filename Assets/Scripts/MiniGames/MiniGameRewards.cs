@@ -50,10 +50,7 @@ public class MiniGameRewards : MonoBehaviour
 
     private void InitPrefabs()
     {
-        rewardPrefabs = new List<MiniGameRewardPref>();
-
-        for (int i = 0; i < maxRewardsCount; i++)
-            rewardPrefabs.Add(Instantiate(rewardPref, rewardsGrid, false));
+        StartCoroutine(InitPrefabsRoutine());
     }
 
     private void UpdateRewardUI()
@@ -61,6 +58,17 @@ public class MiniGameRewards : MonoBehaviour
         for (int i = 0; i < rewardPrefabs.Count; i++)
         {
             rewardPrefabs[i].SetRewardData(activeRewards[i], rewards[i], levelStars[i]);
+        }
+    }
+
+    IEnumerator InitPrefabsRoutine()
+    {
+        rewardPrefabs = new List<MiniGameRewardPref>();
+
+        for (int i = 0; i < maxRewardsCount; i++)
+        {
+            rewardPrefabs.Add(Instantiate(rewardPref, rewardsGrid, false));
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

@@ -38,8 +38,8 @@ public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
     private bool isMoving = false;
     private float nextSquirrelTime;
 
-    [SerializeField] private Text birdTotalDisplay;
-    public int birdTotal; 
+    //[SerializeField] private Text birdTotalDisplay;
+    //public int birdTotal; 
 
     void Start()
     {
@@ -105,8 +105,8 @@ public class BirdsCatcherLogic : MonoBehaviour, IMiniGamesScore
             waveAmplitude = Random.Range(1, 4);
             poopTime = Random.Range(0.7f, birdDuration - 0.5f);
 
-            birdTotal++;
-            birdTotalDisplay.text = birdTotal.ToString();
+            //birdTotal++;
+            //birdTotalDisplay.text = birdTotal.ToString();
 
 
         }
