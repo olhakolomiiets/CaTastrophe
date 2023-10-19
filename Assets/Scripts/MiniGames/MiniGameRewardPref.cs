@@ -22,7 +22,7 @@ public class MiniGameRewardPref : MonoBehaviour
     private int star;
     private string levelStarsPrefs;
 
-    public void SetRewardData(int activeStar, MiniGameReward miniGameReward, string levelStars)
+    public void SetRewardData(int activeStar, MiniGameReward miniGameReward, string levelStars, bool isRewardShow)
     {
         reward = miniGameReward;
         star = activeStar;
@@ -37,7 +37,7 @@ public class MiniGameRewardPref : MonoBehaviour
         {
             doneIcon.SetActive(false);
 
-            if (star == 1)
+            if (star == 1 || isRewardShow)
                 claimButton.SetActive(true);
             else
                 claimButton.SetActive(false);

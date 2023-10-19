@@ -119,7 +119,7 @@ public class MiniGameUIManager : MonoBehaviour
             case 3:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel4);
                 if (_levelIndex >= 1)
-                { 
+                {
                     runnerStartWindow.SetActive(true);
                     PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel4, 1);
                 }

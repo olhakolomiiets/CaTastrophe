@@ -11,7 +11,8 @@ public class MiniGameStarsWin : MonoBehaviour
 
     [Space(5)]
     public int levelIndex;
-    [SerializeField] private GameObject _miniGameRewards;
+    [SerializeField] private MiniGameRewards _miniGameRewards;
+
 
     [Space(5)]
     [SerializeField] private GameObject star1;
@@ -71,7 +72,9 @@ public class MiniGameStarsWin : MonoBehaviour
         if (_gameScore >= miniGameStars.Star1)
         {
             StartCoroutine(StarWin1());
+            miniGameStars.SetCatMood(true);
         }
+        else miniGameStars.SetCatMood(false);
         if (_gameScore >= miniGameStars.Star2)
         {
             StartCoroutine(StarWin2());
@@ -86,24 +89,31 @@ public class MiniGameStarsWin : MonoBehaviour
             if (PlayerPrefs.GetInt("LevelStar1" + levelIndex) == 0)
             {
                 PlayerPrefs.SetInt("LevelStar1" + levelIndex, 1);
+                miniGameStars.SetIsReward1Show(true);
             }
+            else miniGameStars.SetIsReward1Show(false);
+
         }
         if (GetLevelScore() >= miniGameStars.Star2)
         {
             if (PlayerPrefs.GetInt("LevelStar2" + levelIndex) == 0)
             {
                 PlayerPrefs.SetInt("LevelStar2" + levelIndex, 1);
+                miniGameStars.SetIsReward2Show(true);
             }
+            else miniGameStars.SetIsReward2Show(false);
         }
         if (GetLevelScore() >= miniGameStars.Star3)
         {
             if (PlayerPrefs.GetInt("LevelStar3" + levelIndex) == 0)
             {
                 PlayerPrefs.SetInt("LevelStar3" + levelIndex, 1);
+                miniGameStars.SetIsReward3Show(true);
             }
+            else miniGameStars.SetIsReward3Show(false);
         }
 
-        _miniGameRewards.SetActive(true);
+        _miniGameRewards.gameObject.SetActive(true);
     }
 
     public int GetLevelScore()

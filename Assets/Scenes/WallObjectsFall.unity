@@ -37669,7 +37669,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 20
+  miniGameStars: {fileID: 11400000, guid: cd197b28a849b0c40ba478c1b2e4d635, type: 2}
   rewardPref: {fileID: 7766126539441019215, guid: 9714ea15db6da3a4a87e78a4b20f28db,
+    type: 3}
+  rewardPrefStreet: {fileID: 7766126539441019215, guid: 80970848da8ef38488eb9aa20948403a,
     type: 3}
   rewardsGrid: {fileID: 1464478213254388666}
   rewards:
@@ -37683,6 +37686,11 @@ MonoBehaviour:
     Value: 5
     Name: energy_recovery
   rewardPrefabs: []
+  sadCatHead: {fileID: 7837409424504208848, guid: dc0181b9968b83c42b0e280a544de227,
+    type: 3}
+  happyCatHead: {fileID: 7837409424504208848, guid: 15076ffc845f6a3409c502e4536a50fe,
+    type: 3}
+  isStreet: 0
 --- !u!224 &1464478213254388666
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38116,7 +38124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGameStars: {fileID: 11400000, guid: cd197b28a849b0c40ba478c1b2e4d635, type: 2}
   levelIndex: 20
-  _miniGameRewards: {fileID: 1464478213254388667}
+  _miniGameRewards: {fileID: 1464478213254388661}
   star1: {fileID: 1464478213960880678}
   star2: {fileID: 1464478214075052097}
   star3: {fileID: 1464478213302838812}
