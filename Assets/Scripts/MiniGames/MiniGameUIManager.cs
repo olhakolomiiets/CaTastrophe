@@ -16,6 +16,7 @@ public class MiniGameUIManager : MonoBehaviour
     [SerializeField] private GameObject birdCatcheMsg;
     [SerializeField] private Text birdCatcherFirstTxt;
     [SerializeField] private Text birdCatcherReminderTxt;
+    private static bool _wasReminderShown1;
 
     [Header("Basketball")]
     [SerializeField] private GameObject basketballStartWindow;
@@ -23,6 +24,7 @@ public class MiniGameUIManager : MonoBehaviour
     [SerializeField] private GameObject basketballMsg;
     [SerializeField] private Text basketballFirstTxt;
     [SerializeField] private Text basketballReminderTxt;
+    private static bool _wasReminderShown2;
 
     [Header("Roof Runner")]
     [SerializeField] private GameObject runnerStartWindow;
@@ -30,6 +32,7 @@ public class MiniGameUIManager : MonoBehaviour
     [SerializeField] private GameObject runnerMsg;
     [SerializeField] private Text runnerFirstTxt;
     [SerializeField] private Text runnerReminderTxt;
+    private static bool _wasReminderShown3;
 
     [Header("Wall")]
     [SerializeField] private GameObject wallStartWindow;
@@ -37,6 +40,7 @@ public class MiniGameUIManager : MonoBehaviour
     [SerializeField] private GameObject wallMsg;
     [SerializeField] private Text wallFirstTxt;
     [SerializeField] private Text wallReminderTxt;
+    private static bool _wasReminderShown4;
 
     [Header("Basketball Head")]
     [SerializeField] private GameObject headBallStartWindow;
@@ -44,6 +48,7 @@ public class MiniGameUIManager : MonoBehaviour
     [SerializeField] private GameObject headBallMsg;
     [SerializeField] private Text headBallFirstTxt;
     [SerializeField] private Text headBallReminderTxt;
+    private static bool _wasReminderShown5;
 
     private int _levelIndex;
 
@@ -52,12 +57,16 @@ public class MiniGameUIManager : MonoBehaviour
     private List<Text> _reminders;
     private List<int> _levels;
 
+    private static bool[] _wasReminderShown = new bool[] { _wasReminderShown1, _wasReminderShown2, _wasReminderShown3, _wasReminderShown4, _wasReminderShown5 };
+
     private void Awake()
     {
         _msg = new List<GameObject> { birdCatcheMsg, basketballMsg, runnerMsg, wallMsg, headBallMsg };
         _firstTxt = new List<Text> { birdCatcherFirstTxt, basketballFirstTxt, runnerFirstTxt, wallFirstTxt, headBallFirstTxt };
         _reminders = new List<Text> { birdCatcherReminderTxt, basketballReminderTxt, runnerReminderTxt, wallReminderTxt, headBallReminderTxt };
         _levels = new List<int> { needLevel2, needLevel3, needLevel4, needLevel5, needLevel6 };
+
+        //_wasReminderShown = new bool[] { _wasReminderShown1, _wasReminderShown2, _wasReminderShown3, _wasReminderShown4, _wasReminderShown5 };
     }
 
     private void Start()
@@ -66,7 +75,7 @@ public class MiniGameUIManager : MonoBehaviour
         int day = now.Day;
 
 
-        for (int i = 0; i < _reminders.Count; i++)
+        for (int i = 0; i < _msg.Count; i++)
         {
             if (PlayerPrefs.GetInt("LevelStar1" + _levels[i]) >= 1)
             {               
@@ -75,10 +84,17 @@ public class MiniGameUIManager : MonoBehaviour
                     _msg[i].SetActive(true);
                     _firstTxt[i].gameObject.SetActive(true);
                 }                    
-                else if (day % 2 != 0)
+                else if (day % 2 != 0 && i % 2 !=0 && !_wasReminderShown[i])
                 {
                     _msg[i].SetActive(true);
                     _reminders[i].gameObject.SetActive(true);
+                    _wasReminderShown[i] = true;
+                }                
+                else if (day % 2 == 0 && i % 2 == 0 && !_wasReminderShown[i])
+                {
+                    _msg[i].SetActive(true);
+                    _reminders[i].gameObject.SetActive(true);
+                    _wasReminderShown[i] = true;
                 }
             }
         }

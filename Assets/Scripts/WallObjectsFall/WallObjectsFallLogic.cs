@@ -45,7 +45,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
     [SerializeField] private Text scoreDisplay;
     public int objectsCollected;
 
-    [SerializeField] private Text coinTotalDisplay;
+    //[SerializeField] private Text coinTotalDisplay;
     public int coinTotal;
 
     private void Start()
@@ -195,7 +195,7 @@ public class WallObjectsFallLogic : MonoBehaviour, IMiniGamesScore
         if (Time.time >= nextSpawnTimeMoney)
         {
             coinTotal++;
-            coinTotalDisplay.text = coinTotal.ToString();
+            //coinTotalDisplay.text = coinTotal.ToString();
 
             GameObject throwObject;
             throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject5");

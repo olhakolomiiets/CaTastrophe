@@ -6,6 +6,8 @@ public class MiniGameController : MonoBehaviour
 
     public static MiniGameController Instance;
 
+    [SerializeField] private PowersRestore energyRecovery;
+
     public int Coins
     {
         get => PlayerPrefs.GetInt("TotalScore", 0);
@@ -53,6 +55,9 @@ public class MiniGameController : MonoBehaviour
     public void AddEnergy(int value)
     {
         Energy += value;
+
+        if(energyRecovery != null)
+            energyRecovery.UpdateUI();
     }
 
 }
