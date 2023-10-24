@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Firebase.Analytics;
 
 public class MiniGameStarsWin : MonoBehaviour
 {
@@ -72,17 +73,20 @@ public class MiniGameStarsWin : MonoBehaviour
         if (_gameScore >= miniGameStars.Star1)
         {
             miniGameStars.SetCatMood(true);
+            FirebaseAnalytics.LogEvent(name: "star1_miniGame_" + levelIndex);
             StartCoroutine(StarWin1());           
         }
         else miniGameStars.SetCatMood(false);
 
         if (_gameScore >= miniGameStars.Star2)
         {
+            FirebaseAnalytics.LogEvent(name: "star2_miniGame_" + levelIndex);
             StartCoroutine(StarWin2());
         }
 
         if (_gameScore >= miniGameStars.Star3)
         {
+            FirebaseAnalytics.LogEvent(name: "star3_miniGame_" + levelIndex);
             StartCoroutine(StarWin3());
         }
 

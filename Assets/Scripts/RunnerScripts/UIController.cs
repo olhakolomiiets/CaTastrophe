@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Firebase.Analytics;
 
 public class UIController : MonoBehaviour, IMiniGamesScore
 {
@@ -48,6 +49,8 @@ public class UIController : MonoBehaviour, IMiniGamesScore
     public void Retry()
     {
         SceneManager.LoadScene("RoofRunner");
+
+        FirebaseAnalytics.LogEvent(name: "restart_runner");
     }
 
     public int MiniGameScore()

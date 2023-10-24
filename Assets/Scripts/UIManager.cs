@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Analytics;
 
 public class UIManager : MonoBehaviour
 {
@@ -109,6 +110,17 @@ public class UIManager : MonoBehaviour
         PauseButton.GetComponent<Button>().interactable = true;
         PlayerPrefs.SetInt("AreAvailablePower", 0);
     }
+
+    public void MiniGameRestart(string _miniGameName)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+        PauseButton.GetComponent<Button>().interactable = true;
+        PlayerPrefs.SetInt("AreAvailablePower", 0);
+
+        FirebaseAnalytics.LogEvent(name: "restart_" + _miniGameName);
+    }
+
     public void NextLevelWin()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
