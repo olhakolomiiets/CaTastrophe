@@ -65,8 +65,6 @@ public class MiniGameUIManager : MonoBehaviour
         _firstTxt = new List<Text> { birdCatcherFirstTxt, basketballFirstTxt, runnerFirstTxt, wallFirstTxt, headBallFirstTxt };
         _reminders = new List<Text> { birdCatcherReminderTxt, basketballReminderTxt, runnerReminderTxt, wallReminderTxt, headBallReminderTxt };
         _levels = new List<int> { needLevel2, needLevel3, needLevel4, needLevel5, needLevel6 };
-
-        //_wasReminderShown = new bool[] { _wasReminderShown1, _wasReminderShown2, _wasReminderShown3, _wasReminderShown4, _wasReminderShown5 };
     }
 
     private void Start()
@@ -106,22 +104,26 @@ public class MiniGameUIManager : MonoBehaviour
         {
             case 1:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel2);
+                SoundManager.snd.PlayButtonsSound();
+
                 if (_levelIndex >= 1)
                 {
                     birdCatcherStartWindow.SetActive(true);
                     PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel2, 1);
-                }                    
+                }
                 else
                 {
                     infoWindow.SetActive(true);
                     gameName.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("BirdCatcherTitle")}";
                     infoText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("MiniGameMessage")} {"1"}";
-                }                               
+                }
                 break;
             case 2:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel3);
+                SoundManager.snd.PlayButtonsSound();
+
                 if (_levelIndex >= 1)
-                { 
+                {
                     basketballStartWindow.SetActive(true);
                     PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel3, 1);
                 }
@@ -134,6 +136,8 @@ public class MiniGameUIManager : MonoBehaviour
                 break;
             case 3:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel4);
+                SoundManager.snd.PlayButtonsSound();
+
                 if (_levelIndex >= 1)
                 {
                     runnerStartWindow.SetActive(true);
@@ -148,8 +152,10 @@ public class MiniGameUIManager : MonoBehaviour
                 break;
             case 4:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel5);
+                SoundManager.snd.PlayButtonsSound();
+
                 if (_levelIndex >= 1)
-                { 
+                {
                     wallStartWindow.SetActive(true);
                     PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel5, 1);
                 }
@@ -162,6 +168,8 @@ public class MiniGameUIManager : MonoBehaviour
                 break;
             case 5:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel6);
+                SoundManager.snd.PlayButtonsSound();
+
                 if (_levelIndex >= 1)
                 { 
                     headBallStartWindow.SetActive(true);

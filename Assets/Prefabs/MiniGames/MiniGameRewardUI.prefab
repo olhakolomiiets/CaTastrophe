@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3640587677553949648}
   - component: {fileID: 8668744828947354648}
   - component: {fileID: 3190863311785643492}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TextReward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6492604432329712036}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MiniGameRewardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,6 @@ RectTransform:
   m_Children:
   - {fileID: 7837409424515495802}
   - {fileID: 7837409424515495806}
-  - {fileID: 5922658976659990658}
   - {fileID: 4813129166829221940}
   m_Father: {fileID: 7837409424515495792}
   m_RootOrder: 0
@@ -129,7 +128,7 @@ GameObject:
   - component: {fileID: 4036322726587983022}
   - component: {fileID: 5230740577804619405}
   - component: {fileID: 2545055856326763393}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +205,7 @@ GameObject:
   - component: {fileID: 7226667905820907406}
   - component: {fileID: 8749106676773792605}
   - component: {fileID: 2344425493149548741}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +298,7 @@ GameObject:
   - component: {fileID: 5922658976659990658}
   - component: {fileID: 3687420271624086713}
   - component: {fileID: 2108353205853509571}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonClaim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,18 +312,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5609917286523297186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4036322726587983022}
   - {fileID: 5921981148064089557}
-  m_Father: {fileID: 6492604432329712036}
+  m_Father: {fileID: 7837409424515495792}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.00039005, y: 40.4}
+  m_AnchoredPosition: {x: -0.00039005, y: -59.6}
   m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3687420271624086713
@@ -415,7 +414,7 @@ GameObject:
   - component: {fileID: 4594085884245406396}
   - component: {fileID: 4954885166032136622}
   - component: {fileID: 5002955436236061794}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +507,7 @@ GameObject:
   - component: {fileID: 4813129166829221940}
   - component: {fileID: 5667718193833398520}
   - component: {fileID: 106573652251329775}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonClaimed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +529,7 @@ RectTransform:
   - {fileID: 5059917045023178372}
   - {fileID: 2650979508979495532}
   m_Father: {fileID: 6492604432329712036}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -639,10 +638,11 @@ RectTransform:
   m_GameObject: {fileID: 7837409424504208848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 1}
   m_Children:
   - {fileID: 6492604432329712036}
   - {fileID: 8119777491405319365}
+  - {fileID: 5922658976659990658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 7837409424515495802}
   - component: {fileID: 7837409424515532218}
   - component: {fileID: 7837409424497133628}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ImageReward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 7837409424515495806}
   - component: {fileID: 7837409424515532222}
   - component: {fileID: 7837409424497133618}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TextRewardBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 2650979508979495532}
   - component: {fileID: 8870224776939782962}
   - component: {fileID: 6790426770924168210}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 2078568788016647172}
   - component: {fileID: 4339119672778319535}
   - component: {fileID: 1559972493751275115}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

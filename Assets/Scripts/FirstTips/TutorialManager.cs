@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
         currentIndex = (currentIndex + 1) % tutorialTips.Count;
         tutorialTips[currentIndex].SetActive(true);
         DisableAllExceptCurrent(currentIndex);
+        SoundManager.snd.PlayButtonsSound();
 
         UpdateButtonStates();
     }
@@ -48,6 +49,7 @@ public class TutorialManager : MonoBehaviour
         currentIndex = (currentIndex - 1 + tutorialTips.Count) % tutorialTips.Count;
         tutorialTips[currentIndex].SetActive(true);
         DisableAllExceptCurrent(currentIndex);
+        SoundManager.snd.PlayButtonsSound();
 
         UpdateButtonStates();
     }
@@ -86,6 +88,7 @@ public class TutorialManager : MonoBehaviour
             obj.SetActive(false);
         }
 
+        SoundManager.snd.PlayButtonsSound();
         nextButton.gameObject.SetActive(false); 
         prevButton.gameObject.SetActive(false);
         FinishButton.SetActive(false);

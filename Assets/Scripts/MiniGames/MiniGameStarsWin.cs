@@ -67,18 +67,20 @@ public class MiniGameStarsWin : MonoBehaviour
         bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)}";
 
         if (PlayerPrefs.GetInt("LevelStars" + levelIndex) < _gameScore)
-        PlayerPrefs.SetInt("LevelStars" + levelIndex, _gameScore);
+            PlayerPrefs.SetInt("LevelStars" + levelIndex, _gameScore);
 
         if (_gameScore >= miniGameStars.Star1)
         {
-            StartCoroutine(StarWin1());
             miniGameStars.SetCatMood(true);
+            StartCoroutine(StarWin1());           
         }
         else miniGameStars.SetCatMood(false);
+
         if (_gameScore >= miniGameStars.Star2)
         {
             StartCoroutine(StarWin2());
         }
+
         if (_gameScore >= miniGameStars.Star3)
         {
             StartCoroutine(StarWin3());
@@ -92,8 +94,8 @@ public class MiniGameStarsWin : MonoBehaviour
                 miniGameStars.SetIsReward1Show(true);
             }
             else miniGameStars.SetIsReward1Show(false);
-
         }
+
         if (GetLevelScore() >= miniGameStars.Star2)
         {
             if (PlayerPrefs.GetInt("LevelStar2" + levelIndex) == 0)
@@ -103,6 +105,7 @@ public class MiniGameStarsWin : MonoBehaviour
             }
             else miniGameStars.SetIsReward2Show(false);
         }
+
         if (GetLevelScore() >= miniGameStars.Star3)
         {
             if (PlayerPrefs.GetInt("LevelStar3" + levelIndex) == 0)
@@ -113,9 +116,13 @@ public class MiniGameStarsWin : MonoBehaviour
             else miniGameStars.SetIsReward3Show(false);
         }
 
-        _miniGameRewards.gameObject.SetActive(true);
+        OnActiveMiniGameRewards();
     }
 
+    private void OnActiveMiniGameRewards()
+    {
+        _miniGameRewards.gameObject.SetActive(true);
+    }
     public int GetLevelScore()
     {
         if (PlayerPrefs.HasKey("LevelStars" + levelIndex))
@@ -150,7 +157,7 @@ public class MiniGameStarsWin : MonoBehaviour
     {
         if (isRoofRunner)
         {
-            for (int i = 0; i <= _gameScore; i += 4)
+            for (int i = 0; i <= _gameScore; i += 8)
             {
                 resultText.text = i.ToString();
 

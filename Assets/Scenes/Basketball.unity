@@ -9951,7 +9951,8 @@ MonoBehaviour:
   PauseButton: {fileID: 2058394904}
   panelLose: {fileID: 1151071387}
   panelWin: {fileID: 1705830692}
-  panelTimeUp: {fileID: 1151071387}
+  panelGetTime: {fileID: 1151071387}
+  panelTimeUp: {fileID: 4858890173719502738}
   powerManager: {fileID: 0}
   playerPositions:
   - {fileID: 2142421675}
@@ -11635,6 +11636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d254e44cdc58e1b4bb66ddca058f5fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energyRecovery: {fileID: 0}
 --- !u!1 &724275633
 GameObject:
   m_ObjectHideFlags: 0
@@ -23932,6 +23934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDisplay: {fileID: 1011978784}
   timer: 120
+  TimeUp: 0
   _houseStars: {fileID: 11400000, guid: da341fd28d846a541867dad5605e3496, type: 2}
   damageImage: {fileID: 756574142}
   canvas: {fileID: 1891394182}
@@ -32148,6 +32151,7 @@ MonoBehaviour:
   _adController: {fileID: 2080398750}
   gameTimer: {fileID: 1043261219}
   extraTime: 60
+  pauseButton: {fileID: 2058394904}
   OnUserEarnedRewardEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -43299,7 +43303,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 20, y: 20}
-  m_Spacing: {x: 5, y: 0}
+  m_Spacing: {x: 8, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &4858890173860314769
@@ -43373,7 +43377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4858890173955502112
 RectTransform:
   m_ObjectHideFlags: 0

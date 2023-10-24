@@ -22,22 +22,22 @@ public class MiniGameRewardPref : MonoBehaviour
     private int star;
     private string levelStarsPrefs;
 
-    public void SetRewardData(int activeStar, MiniGameReward miniGameReward, string levelStars, bool isRewardShow)
+    public void SetRewardDataForStreet(int activeStar, MiniGameReward miniGameReward, string levelStars)
     {
         reward = miniGameReward;
         star = activeStar;
         levelStarsPrefs = levelStars;
 
-        Debug.Log("levelStarsPrefs" + levelStarsPrefs);
+        Debug.Log("levelStarsPrefs " + levelStarsPrefs + "   " + PlayerPrefs.GetInt(levelStarsPrefs));
 
         rewardIcon.sprite = reward.Type == MiniGameReward.RewardType.COINS ? rewardCoins : reward.Type == MiniGameReward.RewardType.SAND ? rewardSand : reward.Type == MiniGameReward.RewardType.FOOD ? rewardFood : rewardEnergyRecovery;
-        rewardValue.text = reward.Value.ToString();
+        rewardValue.text = $"{"x"}" + reward.Value.ToString();
 
         if (PlayerPrefs.GetInt(levelStarsPrefs) < 2)
         {
             doneIcon.SetActive(false);
 
-            if (star == 1 || isRewardShow)
+            if (star == 1)
                 claimButton.SetActive(true);
             else
                 claimButton.SetActive(false);
@@ -47,6 +47,16 @@ public class MiniGameRewardPref : MonoBehaviour
             doneIcon.SetActive(true);
             claimButton.SetActive(false);
         }           
+    }    
+    public void SetRewardData(int activeStar, MiniGameReward miniGameReward, string levelStars)
+    {
+            reward = miniGameReward;
+            star = activeStar;
+            levelStarsPrefs = levelStars;
+
+            rewardIcon.sprite = reward.Type == MiniGameReward.RewardType.COINS ? rewardCoins : reward.Type == MiniGameReward.RewardType.SAND ? rewardSand : reward.Type == MiniGameReward.RewardType.FOOD ? rewardFood : rewardEnergyRecovery;
+            rewardValue.text = $"{"x"}" + reward.Value.ToString();
+            claimButton.SetActive(true);       
     }
 
     public void UpdateUI()
@@ -57,6 +67,8 @@ public class MiniGameRewardPref : MonoBehaviour
 
     public void ClaimReward()
     {
+        SoundManager.snd.PlayButtonsSound();
+
         switch (reward.Type)
         {
             case MiniGameReward.RewardType.COINS:

@@ -40,9 +40,9 @@ public class MiniGamesSO : ScriptableObject
         isReward3Show = isRewardShow;
     }    
     
-    public void SetCatMood(bool isCatSad)
+    public void SetCatMood(bool isCatMood)
     {
-        isCatHappy = isCatSad;
+        isCatHappy = isCatMood;
     }
 
 }

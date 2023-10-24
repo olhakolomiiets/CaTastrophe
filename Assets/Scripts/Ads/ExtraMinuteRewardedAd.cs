@@ -14,6 +14,7 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
     [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
     [SerializeField] private GameTimer gameTimer;
     [SerializeField] private int extraTime;
+    [SerializeField] private GameObject pauseButton;
 
     #endregion
 
@@ -66,10 +67,12 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
     public void RewardedAdClosed()
     {        
         Time.timeScale = 1;
-        rbPlayer.isKinematic = false;
-        rbPlayer.constraints = RigidbodyConstraints2D.None;
+        //rbPlayer.isKinematic = false;
+        //rbPlayer.constraints = RigidbodyConstraints2D.None;
         panelGetTime.SetActive(false);
-        _rewardedAdUsed = true;       
+        pauseButton.GetComponent<Button>().interactable = true;
+        _rewardedAdUsed = true;
+        gameTimer.TimeUp = false;
     }
 
 

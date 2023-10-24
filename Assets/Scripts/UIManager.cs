@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject PauseButton;
     [SerializeField] private GameObject panelLose;
     [SerializeField] private GameObject panelWin;
+    [SerializeField] private GameObject panelGetTime;
     [SerializeField] private GameObject panelTimeUp;
     [SerializeField] private PowerPointManager powerManager;
     private GameTimer timerMy;
@@ -83,8 +84,14 @@ public class UIManager : MonoBehaviour
     public void TimeUp()
     {
         panelTimeUp.SetActive(true);
-        rbPlayer.isKinematic = true;
-        rbPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
+        //rbPlayer.isKinematic = true;
+        //rbPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
+        StartCoroutine(TimesUp());
+        PauseButton.GetComponent<Button>().interactable = false;
+    }    
+    public void GetTime()
+    {
+        panelGetTime.SetActive(true);
         StartCoroutine(TimesUp());
         PauseButton.GetComponent<Button>().interactable = false;
     }

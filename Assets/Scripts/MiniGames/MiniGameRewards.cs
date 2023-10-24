@@ -39,7 +39,6 @@ public class MiniGameRewards : MonoBehaviour
 
     private bool[] isRewardsShow;
 
-
     private void Start()
     {
         _levelStar1 = "LevelStar1" + levelIndex;
@@ -50,22 +49,26 @@ public class MiniGameRewards : MonoBehaviour
         _star2 = PlayerPrefs.GetInt(_levelStar2);
         _star3 = PlayerPrefs.GetInt(_levelStar3);
 
-        activeRewards = new int[] { _star1, _star2, _star3 };
+        Debug.Log("Level Star 1 " + PlayerPrefs.GetInt(_levelStar1));
+        Debug.Log("Level Star 2 " + PlayerPrefs.GetInt(_levelStar2));
+        Debug.Log("Level Star 3 " + PlayerPrefs.GetInt(_levelStar3));
+
+        Debug.Log("is Rewards Show 1" + miniGameStars.IsReward1Show);
+        Debug.Log("is Rewards Show 2" + miniGameStars.IsReward2Show);
+        Debug.Log("is Rewards Show 3" + miniGameStars.IsReward3Show);
 
         levelStars = new string[] { _levelStar1, _levelStar2, _levelStar3 };
-
+        activeRewards = new int[] { _star1, _star2, _star3 };
         isRewardsShow = new bool[] { miniGameStars.IsReward1Show, miniGameStars.IsReward2Show, miniGameStars.IsReward3Show };
 
         InitPrefabs();       
-
         InitCatPrefab();
-
     }
 
     private void InitPrefabs()
     {
         if (!isStreet)
-            StartCoroutine(InitPrefabsRoutine());            
+            StartCoroutine(InitPrefabsRoutine());                      
         else InitPrefabsForStreet();
     }
 
@@ -80,29 +83,29 @@ public class MiniGameRewards : MonoBehaviour
 
         UpdateRewardUI();
     }
-
+    
     private void UpdateRewardUI()
     {
         for (int i = 0; i < rewardPrefabs.Count; i++)
         {
-            rewardPrefabs[i].SetRewardData(activeRewards[i], rewards[i], levelStars[i], isRewardsShow[i]);
+            rewardPrefabs[i].SetRewardDataForStreet(activeRewards[i], rewards[i], levelStars[i]);
         }
-    }    
-    
+    }          
 
     IEnumerator InitPrefabsRoutine()
     {
         rewardPrefabs = new List<MiniGameRewardPref>();
 
-        for (int i = 0; i < maxRewardsCount; i++)
+        for (int i = 0; i < maxRewardsCount; i++)            
         {
-            if (isRewardsShow[i])
+            if (isRewardsShow[i] == true)
             {
-                rewardPrefabs.Add(Instantiate(rewardPref, rewardsGrid, false));
+                var _prefab = Instantiate(rewardPref, rewardsGrid, false);
+                _prefab.SetRewardData(activeRewards[i], rewards[i], levelStars[i]);
+
                 yield return new WaitForSeconds(0.5f);                
-            }
+            }           
         }
-        UpdateRewardUI();
     }
 
     private void InitCatPrefab()
@@ -112,16 +115,12 @@ public class MiniGameRewards : MonoBehaviour
             if (isRewardsShow[i] == true)
                 return;
         }
+
         if (!isStreet)
         {
-            for (int i = 0; i < activeRewards.Length; i++)
-            {
-                if (miniGameStars.IsCatHappy)
+                if (miniGameStars.IsCatHappy == true)
                     Instantiate(happyCatHead, rewardsGrid);
                 else Instantiate(sadCatHead, rewardsGrid);
-                return;
-            }
-        }
-            
+        }            
     }
 }

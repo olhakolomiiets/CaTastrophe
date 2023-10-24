@@ -13,7 +13,7 @@ public class GameTimer : MonoBehaviour
     bool timerRunning = false;
     private float timeDelta = 0.0f;
     private ScoreManager sm;
-    private bool TimeUp;
+    [HideInInspector] public bool TimeUp;
     int sceneIndex;
     int levelComplete;
     // public int scoreForWin;
@@ -23,6 +23,10 @@ public class GameTimer : MonoBehaviour
     private Animator anim;
     private UIManager _uiManager;
     private TimeSpan elapsedTime;
+
+    private bool _isGetExtraTime;
+
+
     private void Start()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -72,7 +76,14 @@ public class GameTimer : MonoBehaviour
                 FirebaseAnalytics.LogEvent(name: "completed_level " + sceneIndex);
             }
             timeDisplay.text = ("00:00");
-            _uiManager.TimeUp();
+
+            if(!_isGetExtraTime && sceneIndex == 16)
+            {
+                _uiManager.GetTime();
+                _isGetExtraTime = true;
+            }               
+            else _uiManager.TimeUp();
+
             damageImage.SetActive(false);
             TimeUp = true;
         }
