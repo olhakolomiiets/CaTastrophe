@@ -15,6 +15,5 @@ public class DissapearDestroyVersion : MonoBehaviour
     {
         yield return new WaitForSeconds(destroyDuration);
         Destroy(this.gameObject);
-
     }
 }

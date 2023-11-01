@@ -23,7 +23,7 @@ public class WindowCityNight : MonoBehaviour
     private float startTime;
     private Vector3 initialPosition;
     [SerializeField] private GameObject target;
-    private CowController controller;
+    private CowController controller;   
 
     private void Start()
     {
@@ -32,13 +32,51 @@ public class WindowCityNight : MonoBehaviour
 
     public void CreateThrowObject()
     {
-        GameObject throwObject;
-        throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject1");
         startTime = Time.time;
         initialPosition = startTransform.position;
+        GameObject throwObject;
+        SpriteRenderer sprite;
+
+        float throwObjectRandom = Random.Range(0, 5);
+        if (throwObjectRandom == 0)
+        {
+            float objectType = Random.Range(0, 2);
+            switch (objectType)
+            {
+                case 0:
+                    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject7");
+                    break;
+                case 1:
+                    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject8");
+                    break;
+                default:
+                    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject7");
+                    break;
+            }
+            sprite = throwObject.GetComponent<BallForNightCity>().sprite;
+            sprite.sortingOrder = 19;
+        }
+        else
+        {
+            float objectType = Random.Range(0, 2);
+            switch (objectType)
+            {
+                case 0:
+                    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject1");
+                    break;
+                case 1:
+                    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject2");
+                    break;
+                default:
+                    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject1");
+                    break;
+            }
+            sprite = throwObject.GetComponent<DestroyVaseWall>().sprite;
+            sprite.sortingOrder = 19;        
+        }
+
         throwObject.transform.position = startTransform.position;
-        var sprite = throwObject.GetComponent<DestroyVaseWall>().sprite;
-        sprite.sortingOrder = 19;
+
         throwObject.SetActive(true);
 
         StartCoroutine(MoveObject(throwObject, startTransform, endTransform, sprite));
@@ -48,31 +86,12 @@ public class WindowCityNight : MonoBehaviour
     {
 
         StartCoroutine("PrepareThrowing");
-        //startTime = Time.time;
-        //initialPosition = startTransform.position;
-        //nextSpawnTimeVase = Time.time + Random.Range(2.5f, 3.5f);
     }
 
 
     void Update()
     {
-        // Check if it's time to spawn the prefab
-        //if (Time.time >= nextSpawnObjectTime)
-        //{
-        //    GameObject throwObject;
-        //    throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject1");
-        //    startTime = Time.time;
-        //    initialPosition = startTransform.position;
-        //    throwObject.transform.position = startTransform.position;
-        //    var sprite = throwObject.GetComponent<DestroyVaseWall>().sprite;
 
-        //    throwObject.SetActive(true);
-
-        //    StartCoroutine(MoveObject(throwObject, startTransform, endTransform, sprite));
-
-        //    // Calculate the next spawn time
-        //    //nextSpawnTimeVase = Time.time + Random.Range(2, 5);
-        //}
     }
 
     private IEnumerator PrepareThrowing()

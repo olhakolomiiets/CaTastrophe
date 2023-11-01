@@ -5,29 +5,40 @@ using UnityEngine.UI;
 
 public class NightCityQuest : MonoBehaviour
 {
-    public GameObject btnActive;
-    public Button btn;
-    public Animator[] dogFood;
-    //private Animator[] bull;
-    bool triggered = false;
+    [SerializeField] private GameObject btnActive;
+    [SerializeField] private Button btn;
+    [SerializeField] private Animator questAnimator;
+    private Animator playerAnimator;
+    [SerializeField] private string questActivation;
+    [SerializeField] private string questDone; 
+    private bool triggered = false;
     public bool Used;
     public NightCityLogic nightCityLogic;
+    private float nextActivateTime;
+    [SerializeField] private float minActivateTime;
+    [SerializeField] private float maxActivateTime; 
+
+    private void Start()
+    {
+        Used = true;
+        nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
 
     private void Update()
     {
-        //if (triggered)
-        //{
-        //    btn.onClick.AddListener(Do);
-        //}
-        //else if (!triggered)
-        //{
-        //    btn.onClick.RemoveListener(Do);
-        //}
+        if (Used == true)
+        {
+            if (Time.time >= nextActivateTime)
+            {
+                Used = false;
+                questAnimator.SetTrigger(questActivation);
+            }
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("-------------------------------------------------------------------");
         if (Used == false)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy") && !triggered)
@@ -53,24 +64,12 @@ public class NightCityQuest : MonoBehaviour
     {
         nightCityLogic.UpdateSlider(20f);
         Used = true;
+        questAnimator.SetTrigger(questDone);
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
-        //btn.GetComponent<StopMoveForDo>().StopMove();
-        //if (!Used)
-        //{
-        //    foreach (Animator anim in dogFood)
-        //    {
-        //        anim.SetTrigger("Done");
-        //    }
-        //    foreach (Animator anim in bull)
-        //    {
-        //        anim.SetTrigger("action1");
-        //    }
-        //    SoundManager.snd.PlayLongCatSounds();
-        //    PlayerPrefs.SetInt("dogFoodTipUsed", 1);
-        //    Used = true;
-        //    btn.onClick.RemoveListener(Do);
-        //    btnActive.SetActive(false);
-        //}
+        btn.GetComponent<StopMoveForDo>().StopMove();
+
+        // Calculate the next spawn time
+        nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
     }
 }
