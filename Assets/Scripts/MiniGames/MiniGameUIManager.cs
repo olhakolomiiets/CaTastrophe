@@ -50,6 +50,10 @@ public class MiniGameUIManager : MonoBehaviour
     [SerializeField] private Text headBallReminderTxt;
     private static bool _wasReminderShown5;
 
+    [Header("Night City")]
+    [SerializeField]
+    private GameObject nightCityStartWindow;
+
     private int _levelIndex;
 
     private List<GameObject> _msg;
@@ -181,6 +185,13 @@ public class MiniGameUIManager : MonoBehaviour
                     gameName.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("BasketballHeadTitle")}";
                     infoText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("MiniGameMessage")} {"5"}";
                 }
+                break;
+            case 6:
+                _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel6);
+                SoundManager.snd.PlayButtonsSound();
+
+                nightCityStartWindow.SetActive(true);
+
                 break;
         }
     }
