@@ -39329,6 +39329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1306777993}
   - component: {fileID: 1306777992}
+  - component: {fileID: 1306777994}
   m_Layer: 0
   m_Name: BirdQuest
   m_TagString: Untagged
@@ -39345,7 +39346,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1306777991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71855395a882ee545b371651f7f8ecd0, type: 3}
+  m_Script: {fileID: 11500000, guid: d82e17d7c76f9b847a13bf456b657d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnActive: {fileID: 783484682}
@@ -39357,14 +39358,14 @@ MonoBehaviour:
   Used: 0
   nightCityLogic: {fileID: 519536614}
   minActivateTime: 10
-  maxActivateTime: 15
-  minDeactivateTime: 6
+  maxActivateTime: 10
+  minDeactivateTime: 8
   maxDeactivateTime: 8
   IsNeedToMoveToPosition: 1
   startTransform: {fileID: 2139732413}
   endTransform: {fileID: 1750890060}
-  moveDuration: 7
-  transformToMove: {fileID: 5653974323974853801}
+  moveDuration: 2
+  transformToMove: {fileID: 1306777993}
 --- !u!4 &1306777993
 Transform:
   m_ObjectHideFlags: 0
@@ -39373,15 +39374,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306777991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -57.7, y: 25.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2139732413}
-  - {fileID: 1750890060}
   - {fileID: 5653974323974853801}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1306777994
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306777991}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1310023261
 GameObject:
   m_ObjectHideFlags: 0
@@ -51541,11 +51566,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750890059}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.19, y: -4.12, z: 0}
+  m_LocalPosition: {x: -59.24, y: -3.94, z: 0}
   m_LocalScale: {x: 0.51, y: 0.51, z: 0.51}
   m_Children: []
-  m_Father: {fileID: 1306777993}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1753801862
 GameObject:
@@ -62701,11 +62726,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139732412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.11, y: 22.45, z: 0}
+  m_LocalPosition: {x: -73.23, y: 20.69, z: 0}
   m_LocalScale: {x: 0.51, y: 0.51, z: 0.51}
   m_Children: []
-  m_Father: {fileID: 1306777993}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142421674
 GameObject:
@@ -63900,7 +63925,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5653974323974853801}
-  - component: {fileID: 7665989644165804170}
   m_Layer: 0
   m_Name: BirdBlack
   m_TagString: PoolObject3
@@ -72549,12 +72573,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944535659995726141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.02, y: 23.76, z: -0.5176505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 5502061599121252138}
   m_Father: {fileID: 1306777993}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5949797243116272573
 GameObject:
@@ -73116,32 +73140,6 @@ Transform:
   m_Father: {fileID: 5502061599121252138}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7665989644165804170
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944535659995726141}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.039476037, y: -0.0000008940697}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.6050165, y: 2.0262156}
-  m_EdgeRadius: 0
 --- !u!222 &7745037439403499544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75348,19 +75346,11 @@ MonoBehaviour:
   btn: {fileID: 1214254212}
   questAnimator: {fileID: 8802771379882695321}
   questActivation: Active
-  questDeactivation: Disable
   questDone: Done
   Used: 0
   nightCityLogic: {fileID: 519536614}
   minActivateTime: 10
   maxActivateTime: 15
-  minDeactivateTime: 4
-  maxDeactivateTime: 8
-  IsNeedToMoveToPosition: 0
-  startTransform: {fileID: 0}
-  endTransform: {fileID: 0}
-  moveDuration: 2
-  transformToMove: {fileID: 0}
 --- !u!61 &8802771380141042782
 BoxCollider2D:
   m_ObjectHideFlags: 0
