@@ -37,7 +37,7 @@ public class WindowCityNight : MonoBehaviour
         GameObject throwObject;
         SpriteRenderer sprite;
 
-        float throwObjectRandom = Random.Range(0, 5);
+        float throwObjectRandom = Random.Range(0, 6);
         if (throwObjectRandom == 0)
         {
             float objectType = Random.Range(0, 2);
