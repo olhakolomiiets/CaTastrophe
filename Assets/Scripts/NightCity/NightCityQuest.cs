@@ -68,7 +68,7 @@ public class NightCityQuest : MonoBehaviour
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
         btn.GetComponent<StopMoveForDo>().StopMove();
-
+        SoundManager.snd.PlayCatsFightLoudSounds();
         // Calculate the next spawn time
         nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
     }

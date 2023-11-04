@@ -44,6 +44,9 @@ public class SoundManager : MonoBehaviour
     private AudioClip CollectCoinSound;
     private AudioClip[] DizzySoundsShort;
     private AudioClip[] BuildingCollapse;
+    private AudioClip[] CatsFightLoudSounds;
+    private AudioClip[] CatsFightSounds;
+    private AudioClip[] OwlSounds; 
 
     public AudioClip damage;
     private int randomSounds;
@@ -91,6 +94,9 @@ public class SoundManager : MonoBehaviour
         CollectCoinSound = Resources.Load<AudioClip>("CoinSounds/collect-coin01");
         DizzySoundsShort = Resources.LoadAll<AudioClip>("DizzySoundsShort");
         BuildingCollapse = Resources.LoadAll<AudioClip>("BuildingCollapse");
+        CatsFightLoudSounds = Resources.LoadAll<AudioClip>("CatsFightLoudSounds");
+        CatsFightSounds = Resources.LoadAll<AudioClip>("CatsFightSounds");
+        OwlSounds = Resources.LoadAll<AudioClip>("OwlSounds");
     }
 
     public void PlayVaseSounds()
@@ -288,5 +294,23 @@ public class SoundManager : MonoBehaviour
     {
         randomSounds = Random.Range(0, 2);
         audioSrc.PlayOneShot(BuildingCollapse[randomSounds]);
+    }
+
+    public void PlayCatsFightLoudSounds()
+    {
+        randomSounds = Random.Range(0, 2);
+        audioSrc.PlayOneShot(CatsFightLoudSounds[randomSounds]);
+    }
+
+    public void PlayCatsFightSounds()
+    {
+        randomSounds = Random.Range(0, 2);
+        audioSrc.PlayOneShot(CatsFightSounds[randomSounds]);
+    }
+
+    public void PlayOwlSounds()
+    {
+        randomSounds = Random.Range(0, 2);
+        audioSrc.PlayOneShot(OwlSounds[randomSounds]);
     }
 }

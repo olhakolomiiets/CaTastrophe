@@ -12,6 +12,7 @@ public class BirdNightCityQuest : MonoBehaviour
     [SerializeField] private string questActivation;
     [SerializeField] private string questDeactivation;
     [SerializeField] private string questDone;
+    [SerializeField] private GameObject particlesForDo; 
     private bool triggered = false;
     public bool Used;
     public NightCityLogic nightCityLogic;
@@ -104,6 +105,8 @@ public class BirdNightCityQuest : MonoBehaviour
     {
         if (Used == false)
         {
+            particlesForDo?.SetActive(true);
+            SoundManager.snd.PlayCatsFightSounds();
             nightCityLogic.UpdateSlider(20f);
             Used = true;
             questAnimator.SetTrigger(questDone);
@@ -116,7 +119,7 @@ public class BirdNightCityQuest : MonoBehaviour
             if (IsNeedToMoveToPosition)
             {
                 moveToEnd = false;
-                moveCoroutine = StartCoroutine(MoveObjectToStart(1f));
+                moveCoroutine = StartCoroutine(MoveObjectToStart(2f));
             }
         }
     }
@@ -126,6 +129,7 @@ public class BirdNightCityQuest : MonoBehaviour
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(startTransform.position, endTransform.position);
         questAnimator.SetTrigger(questDeactivation);
+        SoundManager.snd.PlayOwlSounds();
 
         while (Time.time - startTime < moveDuration)
         {
@@ -147,7 +151,9 @@ public class BirdNightCityQuest : MonoBehaviour
         if (delay>0)
         {
             yield return new WaitForSeconds(delay);
+            particlesForDo?.SetActive(false);
         }
+        SoundManager.snd.PlayOwlSounds();
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(endTransform.position, startTransform.position);
         questAnimator.SetTrigger(questDeactivation);
