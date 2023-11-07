@@ -8,7 +8,8 @@ public class CarQuestNightCity : MonoBehaviour
     [SerializeField] private GameObject scoreAnimation;
     [SerializeField] private GameObject carLights;
     [SerializeField] private AudioSource carAudioSource;
-    [SerializeField] private AudioClip carSetAlarm; 
+    [SerializeField] private AudioClip carSetAlarm;
+    [SerializeField] private float pointsToSlider;
     private bool used;
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -17,7 +18,7 @@ public class CarQuestNightCity : MonoBehaviour
         {
             other.GetComponentInChildren<BallNightCityBehaviour>().MakeBallPuff();
             Debug.Log("------------------------------------");
-            nightCityLogic.UpdateSlider(10);
+            nightCityLogic.UpdateSlider(pointsToSlider);
             scoreAnimation.SetActive(true);
             used = true;
             StartCoroutine("StartAlarm");

@@ -35,6 +35,8 @@ public class BirdNightCityQuest : MonoBehaviour
     private bool moveToEnd = true;   // Flag to determine the movement direction
     private Coroutine moveCoroutine;
 
+    [SerializeField] private float pointsToSlider;
+
 
     private void Start()
     {
@@ -107,7 +109,7 @@ public class BirdNightCityQuest : MonoBehaviour
         {
             particlesForDo?.SetActive(true);
             SoundManager.snd.PlayCatsFightSounds();
-            nightCityLogic.UpdateSlider(20f);
+            nightCityLogic.UpdateSlider(pointsToSlider);
             Used = true;
             questAnimator.SetTrigger(questDone);
             btn.onClick.RemoveListener(Do);

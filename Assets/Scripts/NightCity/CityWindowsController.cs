@@ -10,31 +10,46 @@ public class CityWindowsController : MonoBehaviour
     [Header("Throwing Frequency")]
     [SerializeField] private float minThrowTime;
     [SerializeField] private float maxThrowTime;
-    [SerializeField] private float throwTimeLevel1;
-    [SerializeField] private float throwTimeLevel2;
-    [SerializeField] private float throwTimeLevel3;
-    [SerializeField] private float throwTimeLevel4;
+    [SerializeField] private float maxThrowTimeLevel1, minThrowTimeLevel1;
+    [SerializeField] private float maxThrowTimeLevel2, minThrowTimeLevel2;
+    [SerializeField] private float maxThrowTimeLevel3, minThrowTimeLevel3;
+    [SerializeField] private float maxThrowTimeLevel4, minThrowTimeLevel4;
 
+    private void Awake()
+    {
+        maxThrowTime = 180f;
+        minThrowTime = 180f;
+        nextThrowTime = Time.time + Random.Range(minThrowTime, maxThrowTime);
+    }
 
     public void UpdateThrowingFrequency(int sliderValue)
     {
-        if (sliderValue <= 20f && sliderValue !> 20)
+        if (sliderValue < 10f)
         {
-            maxThrowTime = throwTimeLevel1;
+            maxThrowTime = 180f;
+            minThrowTime = 180f;
+        }
+        if (sliderValue >= 10f && sliderValue < 20)
+        {
+            maxThrowTime = maxThrowTimeLevel1;
+            minThrowTime = minThrowTimeLevel1;
         }
         else if (sliderValue <= 40f && sliderValue > 20)
         {
-            maxThrowTime = throwTimeLevel2;
+            maxThrowTime = maxThrowTimeLevel2;
+            minThrowTime = minThrowTimeLevel2;
         }
         else if (sliderValue <= 70f && sliderValue > 40)
         {
-            maxThrowTime = throwTimeLevel3;
+            maxThrowTime = maxThrowTimeLevel3;
+            minThrowTime = minThrowTimeLevel3;
         }
         else if (sliderValue <= 100f && sliderValue > 70)
         {
-            maxThrowTime = throwTimeLevel4;
+            maxThrowTime = maxThrowTimeLevel4;
+            minThrowTime = minThrowTimeLevel4;
         }
-        //maxThrowTime = nextThrowTime;
+        nextThrowTime = Time.time + Random.Range(minThrowTime, maxThrowTime);
     }
 
     public void ThrowObjectFromRandomWindow() 

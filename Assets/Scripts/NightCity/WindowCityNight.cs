@@ -9,7 +9,6 @@ public class WindowCityNight : MonoBehaviour
     [SerializeField] private GameObject lightState;
     [SerializeField] private GameObject darkState; 
 
-
     [Header("Other")]
 
     [SerializeField] private Transform startTransform;
@@ -68,7 +67,7 @@ public class WindowCityNight : MonoBehaviour
         GameObject throwObject;
         SpriteRenderer sprite;
 
-        float throwObjectRandom = Random.Range(0, 6);
+        float throwObjectRandom = Random.Range(0, 8);
         if (throwObjectRandom == 0)
         {
             float objectType = Random.Range(0, 2);
@@ -85,6 +84,14 @@ public class WindowCityNight : MonoBehaviour
                     break;
             }
             sprite = throwObject.GetComponent<BallForNightCity>().sprite;
+            sprite.sortingOrder = 19;
+        }
+        else if (throwObjectRandom >= 1 && throwObjectRandom <= 3)
+        {
+            
+            throwObject = ObjectPooler.SharedInstance.GetPooledObject("PoolObject6");
+           
+            sprite = throwObject.GetComponent<HeavyObjectWall>().sprite;
             sprite.sortingOrder = 19;
         }
         else
@@ -150,12 +157,18 @@ public class WindowCityNight : MonoBehaviour
         isMoving = true;
         float startTime = Time.time;
 
-        float randomX = UnityEngine.Random.Range(-57.47f, -37.5f);
-
-        // Set the position of spawnBallPoint with the random X value
+        // Set the position with the random X value
+        float randomX = UnityEngine.Random.Range(-60f, -36.8f);     
         Vector3 newPosition = endTransform.position;
-        newPosition.x = controller.transform.position.x;
-        //newPosition.x = randomX;
+
+        float throwTargetX = Random.Range(0, 4);
+        if (throwTargetX == 0)
+        {
+            newPosition.x = randomX;
+        }
+        else newPosition.x = controller.transform.position.x;
+                
+
         endTransform.position = newPosition;
         target.SetActive(true);
 

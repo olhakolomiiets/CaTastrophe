@@ -17,6 +17,7 @@ public class CanQuestNightCity : MonoBehaviour
     public Transform startTransform;
     public Transform endTransform;
     public bool isMoving = false;
+    [SerializeField] private float pointsToSlider;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class CanQuestNightCity : MonoBehaviour
 
     public void Do()
     {
-        nightCityLogic.UpdateSlider(5f);
+        nightCityLogic.UpdateSlider(pointsToSlider);
         SoundManager.snd.PlayMetalStuffSounds();
         Used = true;
         btn.onClick.RemoveListener(Do);

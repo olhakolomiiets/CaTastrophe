@@ -10,13 +10,22 @@ public class NightCityQuest : MonoBehaviour
     [SerializeField] private Animator questAnimator;
     private Animator playerAnimator;
     [SerializeField] private string questActivation;
+    [SerializeField] private string questDeactivation;
     [SerializeField] private string questDone; 
     private bool triggered = false;
     public bool Used;
-    public NightCityLogic nightCityLogic;
-    private float nextActivateTime;
+    public NightCityLogic nightCityLogic;   
+    [SerializeField] private float pointsToSlider;
+    [SerializeField] private GameObject particlesForAnimation;
+
+    [Header("Random On/Off Quest")]
+
     [SerializeField] private float minActivateTime;
-    [SerializeField] private float maxActivateTime; 
+    [SerializeField] private float maxActivateTime;
+    [SerializeField] private float minDeactivateTime;
+    [SerializeField] private float maxDeactivateTime;
+    private float nextDeactivateTime;
+    private float nextActivateTime;
 
     private void Start()
     {
@@ -33,6 +42,19 @@ public class NightCityQuest : MonoBehaviour
             {
                 Used = false;
                 questAnimator.SetTrigger(questActivation);
+            }
+            nextDeactivateTime = Time.time + Random.Range(minDeactivateTime, maxDeactivateTime);
+        }
+        else
+        {
+            if (Time.time >= nextDeactivateTime)
+            {
+                Used = true;
+                triggered = false;
+                btnActive.SetActive(false);
+                btn.onClick.RemoveListener(Do);
+                questAnimator.SetTrigger(questDeactivation);
+                nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
             }
         }
     }
@@ -62,8 +84,9 @@ public class NightCityQuest : MonoBehaviour
 
     public void Do()
     {
-        nightCityLogic.UpdateSlider(20f);
-        Used = true;
+        StartCoroutine(AnimateParticles(3f));
+        nightCityLogic.UpdateSlider(pointsToSlider);
+        Used = true;       
         questAnimator.SetTrigger(questDone);
         btn.onClick.RemoveListener(Do);
         btnActive.SetActive(false);
@@ -71,5 +94,12 @@ public class NightCityQuest : MonoBehaviour
         SoundManager.snd.PlayCatsFightLoudSounds();
         // Calculate the next spawn time
         nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
+    }
+
+    private IEnumerator AnimateParticles(float duration)
+    {
+        particlesForAnimation.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        particlesForAnimation.SetActive(false);
     }
 }
