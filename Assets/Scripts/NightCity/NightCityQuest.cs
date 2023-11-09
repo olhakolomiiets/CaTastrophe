@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class NightCityQuest : MonoBehaviour
@@ -26,6 +28,9 @@ public class NightCityQuest : MonoBehaviour
     [SerializeField] private float maxDeactivateTime;
     private float nextDeactivateTime;
     private float nextActivateTime;
+
+    [Header("ForHide")]
+    [SerializeField] private HideForQuest hideScript;
 
     private void Start()
     {
@@ -99,7 +104,9 @@ public class NightCityQuest : MonoBehaviour
     private IEnumerator AnimateParticles(float duration)
     {
         particlesForAnimation.SetActive(true);
+        hideScript.HidingOn();
         yield return new WaitForSeconds(duration);
-        particlesForAnimation.SetActive(false);
+        hideScript.HidingOff();
+        particlesForAnimation.SetActive(false);       
     }
 }

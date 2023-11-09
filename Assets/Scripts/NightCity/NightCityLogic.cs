@@ -15,9 +15,17 @@ public class NightCityLogic : MonoBehaviour
     [SerializeField] private GameTimer timer;
     [SerializeField] private CityWindowsController windowsController;
 
+    [Header("Enemy Ground Settings")]
+    public float minSpawnTimeEnemyGround;
+    public float maxSpawnTimeEnemyGround;
+    public Transform LeftStartTransformEnemyGround;
+    public Transform RightStartTransformEnemyGround;
+    private float nextSpawnTimeEnemyGround;
+
     private void Start()
     {
         SetupPlayer();
+        nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);
     }
 
     private void SetupPlayer()
@@ -43,4 +51,45 @@ public class NightCityLogic : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Time.time >= nextSpawnTimeEnemyGround)
+        {
+            MakeGroundEnemy();
+
+            // Calculate the next spawn time
+            nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);
+        }
+    }
+
+    private void MakeGroundEnemy()
+    {
+        GameObject groundEnemy;
+        float enemyDuration;
+        groundEnemy = ObjectPooler.SharedInstance.GetPooledObject("EnemyGround");
+        enemyDuration = Random.Range(5, 7);
+        if (groundEnemy != null)
+        {
+            EnemyGround enemyGround = groundEnemy.transform.GetComponent<EnemyGround>();
+            //enemyGround.birdsCatcherLogic = this;
+            float sideToSpawn = Random.Range(0, 2);
+            if (sideToSpawn == 0)
+            {
+                enemyGround.startTransform = LeftStartTransformEnemyGround;
+                enemyGround.endTransform = RightStartTransformEnemyGround;
+                enemyGround.transform.GetChild(0).transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else
+            {
+                enemyGround.startTransform = RightStartTransformEnemyGround;
+                enemyGround.endTransform = LeftStartTransformEnemyGround;
+                enemyGround.transform.GetChild(0).transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            enemyGround.startTime = Time.time;
+            enemyGround.duration = enemyDuration;
+            groundEnemy.transform.position = enemyGround.startTransform.position;
+            groundEnemy.GetComponent<BoxCollider2D>().isTrigger = false;
+            groundEnemy.SetActive(true);
+        }
+    }
 }

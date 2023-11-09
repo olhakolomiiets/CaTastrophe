@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class BirdNightCityQuest : MonoBehaviour
@@ -36,6 +38,9 @@ public class BirdNightCityQuest : MonoBehaviour
     private Coroutine moveCoroutine;
 
     [SerializeField] private float pointsToSlider;
+
+    [Header("ForHide")]
+    [SerializeField] private HideForQuest hideScript;
 
 
     private void Start()
@@ -108,6 +113,7 @@ public class BirdNightCityQuest : MonoBehaviour
         if (Used == false)
         {
             particlesForDo?.SetActive(true);
+            hideScript.HidingOn();
             SoundManager.snd.PlayCatsFightSounds();
             nightCityLogic.UpdateSlider(pointsToSlider);
             Used = true;
@@ -149,7 +155,7 @@ public class BirdNightCityQuest : MonoBehaviour
     }
 
     private IEnumerator MoveObjectToStart(float delay)
-    {
+    {       
         if (delay>0)
         {
             yield return new WaitForSeconds(delay);
@@ -159,7 +165,7 @@ public class BirdNightCityQuest : MonoBehaviour
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(endTransform.position, startTransform.position);
         questAnimator.SetTrigger(questDeactivation);
-
+        hideScript.HidingOff();
         while (Time.time - startTime < moveDuration)
         {
             float distanceCovered = (Time.time - startTime) * journeyLength / moveDuration;
