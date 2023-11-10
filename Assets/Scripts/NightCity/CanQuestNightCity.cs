@@ -18,6 +18,9 @@ public class CanQuestNightCity : MonoBehaviour
     public Transform endTransform;
     public bool isMoving = false;
     [SerializeField] private float pointsToSlider;
+    [SerializeField] private float leftLimitX = -60f;
+    [SerializeField] private float rightLimitX = -36.8f;
+
 
     private void Start()
     {
@@ -75,7 +78,7 @@ public class CanQuestNightCity : MonoBehaviour
         isMoving = true;
         float startTime = Time.time;
 
-        float randomX = UnityEngine.Random.Range(-60f, -36.8f);
+        float randomX = UnityEngine.Random.Range(leftLimitX, rightLimitX);
 
         // Set the position of spawnBallPoint with the random X value
         Vector3 newPosition = endTransform.position;

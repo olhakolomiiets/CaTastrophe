@@ -67,7 +67,7 @@ public class NightCityLogic : MonoBehaviour
         GameObject groundEnemy;
         float enemyDuration;
         groundEnemy = ObjectPooler.SharedInstance.GetPooledObject("EnemyGround");
-        enemyDuration = Random.Range(5, 7);
+        enemyDuration = Random.Range(8, 11);
         if (groundEnemy != null)
         {
             EnemyGround enemyGround = groundEnemy.transform.GetComponent<EnemyGround>();
