@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -42,6 +43,8 @@ public class BirdNightCityQuest : MonoBehaviour
     [Header("ForHide")]
     [SerializeField] private HideForQuest hideScript;
 
+    public UnityEvent OnMoveObjectToEnd;
+    public UnityEvent OnMoveObjectToStart;
 
     private void Start()
     {
@@ -137,7 +140,8 @@ public class BirdNightCityQuest : MonoBehaviour
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(startTransform.position, endTransform.position);
         questAnimator.SetTrigger(questDeactivation);
-        SoundManager.snd.PlayOwlSounds();
+        OnMoveObjectToEnd?.Invoke();
+
 
         while (Time.time - startTime < moveDuration)
         {
@@ -155,13 +159,16 @@ public class BirdNightCityQuest : MonoBehaviour
     }
 
     private IEnumerator MoveObjectToStart(float delay)
-    {       
+    {
+        ChangeGameObjDirection();
+
         if (delay>0)
         {
             yield return new WaitForSeconds(delay);
             particlesForDo?.SetActive(false);
         }
-        SoundManager.snd.PlayOwlSounds();
+        OnMoveObjectToStart?.Invoke();
+
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(endTransform.position, startTransform.position);
         questAnimator.SetTrigger(questDeactivation);
@@ -178,6 +185,14 @@ public class BirdNightCityQuest : MonoBehaviour
 
         // Ensure the object reaches the end position exactly
         transformToMove.position = startTransform.position;
+        ChangeGameObjDirection();
         questAnimator.SetTrigger(questActivation);
+    }
+
+    public void ChangeGameObjDirection()
+    {
+        Vector3 theScale = questAnimator.transform.localScale;
+        theScale.x *= -1;
+        questAnimator.transform.localScale = theScale;
     }
 }

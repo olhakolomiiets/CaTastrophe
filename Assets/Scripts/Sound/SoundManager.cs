@@ -46,7 +46,8 @@ public class SoundManager : MonoBehaviour
     private AudioClip[] BuildingCollapse;
     private AudioClip[] CatsFightLoudSounds;
     private AudioClip[] CatsFightSounds;
-    private AudioClip[] OwlSounds; 
+    private AudioClip[] OwlSounds;
+    private AudioClip[] CrowSounds; 
 
     public AudioClip damage;
     private int randomSounds;
@@ -97,6 +98,7 @@ public class SoundManager : MonoBehaviour
         CatsFightLoudSounds = Resources.LoadAll<AudioClip>("CatsFightLoudSounds");
         CatsFightSounds = Resources.LoadAll<AudioClip>("CatsFightSounds");
         OwlSounds = Resources.LoadAll<AudioClip>("OwlSounds");
+        CrowSounds = Resources.LoadAll<AudioClip>("CrowSounds");
     }
 
     public void PlayVaseSounds()
@@ -312,5 +314,11 @@ public class SoundManager : MonoBehaviour
     {
         randomSounds = Random.Range(0, 2);
         audioSrc.PlayOneShot(OwlSounds[randomSounds]);
+    }
+
+    public void PlayCrowSounds()
+    {
+        randomSounds = Random.Range(0, 2);
+        audioSrc.PlayOneShot(CrowSounds[randomSounds]);
     }
 }
