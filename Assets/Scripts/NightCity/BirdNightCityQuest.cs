@@ -92,7 +92,7 @@ public class BirdNightCityQuest : MonoBehaviour
     {
         if (Used == false)
         {
-            if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy") && !triggered)
+            if (other.CompareTag("ActiveCollaider") | other.CompareTag("Player") && !triggered)
             {
                 triggered = true;
                 btnActive.SetActive(true);
@@ -103,7 +103,7 @@ public class BirdNightCityQuest : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy") && triggered)
+        if (other.CompareTag("ActiveCollaider") | other.CompareTag("Player") && triggered)
         {
             triggered = false;
             btnActive.SetActive(false);
