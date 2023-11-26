@@ -50,6 +50,29 @@ public class MenuLevels : MonoBehaviour
 
         FirebaseAnalytics.LogEvent(name: "open_house", new Parameter(parameterName: "levels", parameterValue: "level " + level));        
     }
+
+    public void MiniGameStart(int level)
+    {
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadAsync(level));
+
+        switch (level)
+        {
+            case 16:
+                FirebaseAnalytics.LogEvent(name: "start_Basketball");
+                break;
+            case 17:
+                FirebaseAnalytics.LogEvent(name: "start_RoofRunner");
+                break;
+            case 19:
+                FirebaseAnalytics.LogEvent(name: "start_BirdCatcher");
+                break;
+            case 20:
+                FirebaseAnalytics.LogEvent(name: "start_Wall");
+                break;
+        }       
+    }
+
     IEnumerator LoadAsync(int level)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(level);

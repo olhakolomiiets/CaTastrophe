@@ -51,8 +51,10 @@ public class MiniGameUIManager : MonoBehaviour
     private static bool _wasReminderShown5;
 
     [Header("Night City")]
-    [SerializeField]
-    private GameObject nightCityStartWindow;
+    [SerializeField] private GameObject nightCityStartWindow;    
+    
+    [Header("Night City")]
+    [SerializeField] private GameObject nightCity2StartWindow;
 
     private int _levelIndex;
 
@@ -187,10 +189,13 @@ public class MiniGameUIManager : MonoBehaviour
                 }
                 break;
             case 6:
-                _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel6);
                 SoundManager.snd.PlayButtonsSound();
-
                 nightCityStartWindow.SetActive(true);
+
+                break;
+            case 7:
+                SoundManager.snd.PlayButtonsSound();
+                nightCity2StartWindow.SetActive(true);
 
                 break;
         }

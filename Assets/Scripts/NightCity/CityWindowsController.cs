@@ -39,12 +39,12 @@ public class CityWindowsController : MonoBehaviour
             maxThrowTime = maxThrowTimeLevel2;
             minThrowTime = minThrowTimeLevel2;
         }
-        else if (sliderValue <= 70f && sliderValue > 40)
+        else if (sliderValue <= 80f && sliderValue > 40)
         {
             maxThrowTime = maxThrowTimeLevel3;
             minThrowTime = minThrowTimeLevel3;
         }
-        else if (sliderValue <= 100f && sliderValue > 70)
+        else if (sliderValue <= 100f && sliderValue > 80)
         {
             maxThrowTime = maxThrowTimeLevel4;
             minThrowTime = minThrowTimeLevel4;
