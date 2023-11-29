@@ -21,6 +21,7 @@ public class NightCityObjectQuest : MonoBehaviour
     [SerializeField] private float pointsToSlider;
     [SerializeField] private float animationDuration;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private List<AudioClip> soundsForQuest;
 
     [Header("Random On/Off Quest")]
 
@@ -102,11 +103,18 @@ public class NightCityObjectQuest : MonoBehaviour
 
     private IEnumerator Animate(float duration)
     {
+        SetRandomClip();
         audioSource.Play();
         questAnimator.SetTrigger(questDone);
         playerAnimator.SetTrigger(playerAnimationTag);
         yield return new WaitForSeconds(duration);
         questAnimator.SetTrigger(questDeactivation);
         audioSource.Stop();
+    }
+
+    private void SetRandomClip()
+    {
+        var randomSounds = Random.Range(0, soundsForQuest.Count);
+        audioSource.clip = soundsForQuest[randomSounds];
     }
 }
