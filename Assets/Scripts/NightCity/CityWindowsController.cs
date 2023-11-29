@@ -7,6 +7,8 @@ public class CityWindowsController : MonoBehaviour
     [SerializeField] private List<WindowCityNight> windows;
     private float nextThrowTime;
 
+    [SerializeField] private DoorCityNight door;
+
     [Header("Throwing Frequency")]
     [SerializeField] private float minThrowTime;
     [SerializeField] private float maxThrowTime;
@@ -62,19 +64,21 @@ public class CityWindowsController : MonoBehaviour
         if (!windows[randomIndex].isMoving)
         {
             windows[randomIndex].ThrowObject();
+
+            if (randomIndex % 2 != 0)
+                door.MovePeople();
         }
         else
         {
             ThrowObjectFromRandomWindow();
         }
-        
     }
 
     void Update()
     {
         if (Time.time >= nextThrowTime)
         {
-            ThrowObjectFromRandomWindow();
+            ThrowObjectFromRandomWindow();           
             // Calculate the next spawn time
             nextThrowTime = Time.time + Random.Range(minThrowTime, maxThrowTime);
         }
