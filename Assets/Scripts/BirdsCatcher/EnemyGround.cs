@@ -36,6 +36,7 @@ public class EnemyGround : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -44,6 +45,5 @@ public class EnemyGround : MonoBehaviour
 
             return;
         }
-
     }
 }

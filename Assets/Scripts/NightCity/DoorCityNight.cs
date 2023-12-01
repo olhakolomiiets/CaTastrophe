@@ -5,24 +5,24 @@ using UnityEngine;
 public class DoorCityNight : MonoBehaviour
 {
     [Header("Door Sprite")]
-    [SerializeField] private GameObject darkState;
-    [SerializeField] private GameObject leftMask;
-    [SerializeField] private GameObject rightMask;
+    [SerializeField] private GameObject darkState, leftMask, rightMask;
 
     [Header("Settings for people")]
     [SerializeField] private bool IsNeedToMoveToPosition;
-    [SerializeField] private Transform hideLeftTransform;
-    [SerializeField] private Transform hideRightTransform;  
-    [SerializeField] private Transform leftTransform;
-    [SerializeField] private Transform rightTransform;
-    [SerializeField] private float moveDuration = 2f;  // The duration of the movement
+    [SerializeField] private Transform hideLeftTransform, hideRightTransform;
+    [SerializeField] private Transform leftTransform, rightTransform;
+
+    [SerializeField] private float moveDuration = 2f;
     [SerializeField] private Animator peopleAnimator;
     [SerializeField] private string walkActivation;
     [SerializeField] private string idleActivation;
 
-    [SerializeField] private Transform humanToMove;  // The transform of the GameObject 
+    [SerializeField] private Transform humanToMove;
     [SerializeField] private List<GameObject> allPeople;
+
     private bool IsThrowing;
+
+    private int peopleIndex;
 
     private void Awake()
     {
@@ -36,60 +36,48 @@ public class DoorCityNight : MonoBehaviour
             obj.SetActive(false);
         }
 
-        int randomIndex = Random.Range(0, allPeople.Count);
-        allPeople[randomIndex].SetActive(true);
-        humanToMove = allPeople[randomIndex].transform;
-        peopleAnimator = allPeople[randomIndex].GetComponent<Animator>();
+        peopleIndex = Random.Range(0, allPeople.Count);
+
+        humanToMove = allPeople[peopleIndex].transform;
+        peopleAnimator = allPeople[peopleIndex].GetComponent<Animator>();
     }
 
     public void MovePeople()
     {
         if (IsThrowing) return;
-        int randomIndex = Random.Range(0, 6);
 
-        if (randomIndex % 2 != 0)
-            StartCoroutine("PeopleGoRight");
-        else StartCoroutine("PeopleGoLeft");
+        allPeople[peopleIndex].SetActive(true);
+
+        int randomIndex = Random.Range(0, 6);        
+        StartCoroutine(randomIndex % 2 != 0 ? "PeopleGoRight" : "PeopleGoLeft");
     }
 
-    private IEnumerator PeopleGoRight()
+    private IEnumerator PeopleGoRight() => PeopleGo(true, rightMask, Vector3.zero, hideRightTransform, rightTransform);
+    private IEnumerator PeopleGoLeft() => PeopleGo(false, leftMask, Vector3.up * 180, hideLeftTransform, leftTransform);
+
+    private IEnumerator PeopleGo(bool goRight, GameObject mask, Vector3 rotation, Transform hideTransform, Transform targetTransform)
     {
         IsThrowing = true;
-        rightMask.SetActive(false);
-        humanToMove.rotation = Quaternion.Euler(0, 0, 0);
+        mask.SetActive(false);
+        humanToMove.rotation = Quaternion.Euler(rotation);
         darkState.SetActive(true);
-        StartCoroutine("MoveToRight");
-        yield return new WaitForSeconds(3);
-        humanToMove.rotation = Quaternion.Euler(0, 180, 0);
-        StartCoroutine(MoveToStartOnRight(0f));
+        StartCoroutine(goRight ? MoveTo(targetTransform, hideTransform) : MoveTo(targetTransform, hideTransform));
+        yield return new WaitForSeconds(3.3f);
+        humanToMove.rotation = Quaternion.Euler(rotation.x, 180 - rotation.y, rotation.z);
+        StartCoroutine(MoveToStart(targetTransform, hideTransform, 0f));
         yield return new WaitForSeconds(2);
-        rightMask.SetActive(true);
-        yield return new WaitForSeconds(0.25f);
+        mask.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
         darkState.SetActive(false);
         IsThrowing = false;
+
+        allPeople[peopleIndex].SetActive(false);
     }
 
-    private IEnumerator PeopleGoLeft()
-    {
-        IsThrowing = true;
-        leftMask.SetActive(false);
-        humanToMove.rotation = Quaternion.Euler(0, 180, 0);
-        darkState.SetActive(true);
-        StartCoroutine("MoveToLeft");
-        yield return new WaitForSeconds(3);
-        humanToMove.rotation = Quaternion.Euler(0, 0, 0);
-        StartCoroutine(MoveToStartOnLeft(0f));
-        yield return new WaitForSeconds(2);       
-        leftMask.SetActive(true);
-        yield return new WaitForSeconds(0.25f);
-        darkState.SetActive(false);
-        IsThrowing = false;
-    }
-
-    private IEnumerator MoveToLeft()
+    private IEnumerator MoveTo(Transform targetTransform, Transform hideTransform)
     {
         float startTime = Time.time;
-        float journeyLength = Vector3.Distance(hideLeftTransform.position, leftTransform.position);
+        float journeyLength = Vector3.Distance(hideTransform.position, targetTransform.position);
         peopleAnimator.SetTrigger(walkActivation);
 
         while (Time.time - startTime < moveDuration)
@@ -97,82 +85,31 @@ public class DoorCityNight : MonoBehaviour
             float distanceCovered = (Time.time - startTime) * journeyLength / moveDuration;
             float fractionOfJourney = distanceCovered / journeyLength;
 
-            humanToMove.position = Vector3.Lerp(hideLeftTransform.position, leftTransform.position, fractionOfJourney);
-
-            yield return null; 
-        }
-
-        humanToMove.position = leftTransform.position;
-
-    }
-
-    private IEnumerator MoveToRight()
-    {
-        float startTime = Time.time;
-        float journeyLength = Vector3.Distance(hideRightTransform.position, rightTransform.position);
-        peopleAnimator.SetTrigger(walkActivation);
-
-        while (Time.time - startTime < moveDuration)
-        {
-            float distanceCovered = (Time.time - startTime) * journeyLength / moveDuration;
-            float fractionOfJourney = distanceCovered / journeyLength;
-
-            humanToMove.position = Vector3.Lerp(hideRightTransform.position, rightTransform.position, fractionOfJourney);
-
+            humanToMove.position = Vector3.Lerp(hideTransform.position, targetTransform.position, fractionOfJourney);
             yield return null;
         }
-        
-        humanToMove.position = rightTransform.position;
 
+        humanToMove.position = targetTransform.position;
     }
 
-    private IEnumerator MoveToStartOnLeft(float delay)
+    private IEnumerator MoveToStart(Transform targetTransform, Transform hideTransform, float delay)
     {
         if (delay > 0)
-        {
             yield return new WaitForSeconds(delay);
-        }
-        float startTime = Time.time;
-        float journeyLength = Vector3.Distance(leftTransform.position, hideLeftTransform.position);
 
+        float startTime = Time.time;
+        float journeyLength = Vector3.Distance(targetTransform.position, hideTransform.position);
 
         while (Time.time - startTime < moveDuration)
         {
             float distanceCovered = (Time.time - startTime) * journeyLength / moveDuration;
             float fractionOfJourney = distanceCovered / journeyLength;
 
-            humanToMove.position = Vector3.Lerp(leftTransform.position, hideLeftTransform.position, fractionOfJourney);
-
+            humanToMove.position = Vector3.Lerp(targetTransform.position, hideTransform.position, fractionOfJourney);
             yield return null;
         }
 
-        humanToMove.position = hideLeftTransform.position;
+        humanToMove.position = hideTransform.position;
         peopleAnimator.SetTrigger(idleActivation);
     }
-
-    private IEnumerator MoveToStartOnRight(float delay)
-    {
-        if (delay > 0)
-        {
-            yield return new WaitForSeconds(delay);
-        }
-        float startTime = Time.time;
-        float journeyLength = Vector3.Distance(rightTransform.position, hideRightTransform.position);
-
-
-        while (Time.time - startTime < moveDuration)
-        {
-            float distanceCovered = (Time.time - startTime) * journeyLength / moveDuration;
-            float fractionOfJourney = distanceCovered / journeyLength;
-
-            humanToMove.position = Vector3.Lerp(rightTransform.position, hideRightTransform.position, fractionOfJourney);
-
-            yield return null;
-        }
-
-        humanToMove.position = hideRightTransform.position;
-        peopleAnimator.SetTrigger(idleActivation);
-    }
-
 }
-

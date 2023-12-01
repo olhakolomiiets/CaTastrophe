@@ -17,6 +17,8 @@ public class CityWindowsController : MonoBehaviour
     [SerializeField] private float maxThrowTimeLevel3, minThrowTimeLevel3;
     [SerializeField] private float maxThrowTimeLevel4, minThrowTimeLevel4;
 
+    private bool isPeopleMove;
+    private int countToMove = 0;
     private void Awake()
     {
         maxThrowTime = 180f;
@@ -40,16 +42,19 @@ public class CityWindowsController : MonoBehaviour
         {
             maxThrowTime = maxThrowTimeLevel2;
             minThrowTime = minThrowTimeLevel2;
+            isPeopleMove = true;
         }
         else if (sliderValue <= 80f && sliderValue > 40)
         {
             maxThrowTime = maxThrowTimeLevel3;
             minThrowTime = minThrowTimeLevel3;
+            isPeopleMove = true;
         }
         else if (sliderValue <= 100f && sliderValue > 80)
         {
             maxThrowTime = maxThrowTimeLevel4;
             minThrowTime = minThrowTimeLevel4;
+            isPeopleMove = true;
         }
         nextThrowTime = Time.time + Random.Range(minThrowTime, maxThrowTime);
     }
@@ -60,13 +65,20 @@ public class CityWindowsController : MonoBehaviour
         {
             return;
         }
+        countToMove++;
+
+        if (isPeopleMove && countToMove > 5)
+        {
+            door.MovePeople();
+            isPeopleMove = false;
+            countToMove = 0;
+        }
+
+        Debug.Log("!!!!!!!!---------------- countToMove " + countToMove);
         int randomIndex = UnityEngine.Random.Range(0, windows.Count);
         if (!windows[randomIndex].isMoving)
         {
-            windows[randomIndex].ThrowObject();
-
-            if (randomIndex % 2 != 0)
-                door.MovePeople();
+            windows[randomIndex].ThrowObject();                    
         }
         else
         {
