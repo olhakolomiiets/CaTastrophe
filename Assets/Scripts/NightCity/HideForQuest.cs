@@ -79,4 +79,25 @@ public class HideForQuest : MonoBehaviour
         right = canvas.transform.GetChild(3).GetComponent<EventTrigger>();
         originalConstraints = rbPlayer.constraints;
     }
+
+    public void FreezePositionOn()
+    {      
+        left.enabled = false;
+        right.enabled = false;
+        jump.interactable = false;
+        controller.noAffraidDogs = true;
+        rbPlayer.isKinematic = true;
+        rbPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
+        isHiding = true;
+    }
+    public void FreezePositionOff()
+    {
+        controller.noAffraidDogs = false;
+        rbPlayer.isKinematic = false;
+        rbPlayer.constraints = originalConstraints;
+        isHiding = false;
+        left.enabled = true;
+        right.enabled = true;
+        jump.interactable = true;
+    }
 }

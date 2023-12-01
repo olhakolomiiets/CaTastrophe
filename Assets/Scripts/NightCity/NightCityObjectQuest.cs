@@ -32,6 +32,9 @@ public class NightCityObjectQuest : MonoBehaviour
     private float nextDeactivateTime;
     private float nextActivateTime;
 
+    [Header("ForHide")]
+    [SerializeField] private HideForQuest hideScript;
+
     private void Start()
     {
         Used = true;
@@ -83,7 +86,7 @@ public class NightCityObjectQuest : MonoBehaviour
         {
             triggered = false;
             btnActive.SetActive(false);
-            btn.onClick.RemoveListener(Do);
+            btn.onClick.RemoveListener(Do); 
         }
     }
 
@@ -103,12 +106,20 @@ public class NightCityObjectQuest : MonoBehaviour
 
     private IEnumerator Animate(float duration)
     {
+        if (hideScript != null)
+        {
+            hideScript.FreezePositionOn();
+        }       
         SetRandomClip();
         audioSource.Play();
         questAnimator.SetTrigger(questDone);
         playerAnimator.SetTrigger(playerAnimationTag);
         yield return new WaitForSeconds(duration);
         questAnimator.SetTrigger(questDeactivation);
+        if (hideScript != null)
+        {
+            hideScript.FreezePositionOff();
+        }
         audioSource.Stop();
     }
 

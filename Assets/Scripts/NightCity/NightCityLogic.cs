@@ -22,10 +22,18 @@ public class NightCityLogic : MonoBehaviour
     public Transform RightStartTransformEnemyGround;
     private float nextSpawnTimeEnemyGround;
 
+    [Header("Enemy Air Settings")]
+    public float minSpawnTimeEnemyAir;
+    public float maxSpawnTimeEnemyAir;
+    public Transform LeftStartTransformEnemyAir;
+    public Transform RightStartTransformEnemyAir;
+    private float nextSpawnTimeEnemyAir;
+
     private void Start()
     {
         SetupPlayer();
         nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);
+        nextSpawnTimeEnemyAir = Time.time + Random.Range(minSpawnTimeEnemyAir, maxSpawnTimeEnemyAir);
     }
 
     private void SetupPlayer()
@@ -58,7 +66,15 @@ public class NightCityLogic : MonoBehaviour
             MakeGroundEnemy();
 
             // Calculate the next spawn time
-            nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);
+            nextSpawnTimeEnemyGround = Time.time + Random.Range(minSpawnTimeEnemyGround, maxSpawnTimeEnemyGround);           
+        }
+
+        if (Time.time >= nextSpawnTimeEnemyAir)
+        {
+            MakeAirEnemy();
+
+            // Calculate the next spawn time
+            nextSpawnTimeEnemyAir = Time.time + Random.Range(minSpawnTimeEnemyAir, maxSpawnTimeEnemyAir);
         }
     }
 
@@ -67,7 +83,7 @@ public class NightCityLogic : MonoBehaviour
         GameObject groundEnemy;
         float enemyDuration;
         groundEnemy = ObjectPooler.SharedInstance.GetPooledObject("EnemyGround");
-        enemyDuration = Random.Range(8, 11);
+        enemyDuration = Random.Range(15, 20);
         if (groundEnemy != null)
         {
             EnemyGround enemyGround = groundEnemy.transform.GetComponent<EnemyGround>();
@@ -90,6 +106,53 @@ public class NightCityLogic : MonoBehaviour
             groundEnemy.transform.position = enemyGround.startTransform.position;
             groundEnemy.GetComponent<BoxCollider2D>().isTrigger = false;
             groundEnemy.SetActive(true);
+        }
+    }
+
+    private void MakeAirEnemy() 
+    {
+        GameObject bird;
+        float birdDuration;
+        float waveAmplitude;
+        float birdPoopRandom = Random.Range(0, 3);
+        float poopTime;
+
+        bird = ObjectPooler.SharedInstance.GetPooledObject("EnemyPlant");
+        birdDuration = Random.Range(6, 8);
+        waveAmplitude = Random.Range(2, 4);
+        poopTime = Random.Range(0.7f, birdDuration - 0.5f);
+
+        if (bird != null)
+        {
+            WaveMove birdWaveMove = bird.transform.GetComponent<WaveMove>();
+            //birdWaveMove.birdToCatch._birdsCatcherLogic = this;
+            float sideToSpawn = Random.Range(0, 2);
+            if (sideToSpawn == 0)
+            {
+                birdWaveMove.startTransform = LeftStartTransformEnemyAir;
+                birdWaveMove.endTransform = RightStartTransformEnemyAir;
+                birdWaveMove.birdToCatch.birdAnim.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else
+            {
+                birdWaveMove.startTransform = RightStartTransformEnemyAir;
+                birdWaveMove.endTransform = LeftStartTransformEnemyAir;
+                birdWaveMove.birdToCatch.birdAnim.transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            birdWaveMove.startTime = Time.time;
+            birdWaveMove.duration = birdDuration;
+            birdWaveMove.waveAmplitude = waveAmplitude;
+            if (birdPoopRandom == 0)
+            {
+                birdWaveMove.poopTime = poopTime;
+            }
+            else
+            {
+                birdWaveMove.poopTime = 0f;
+            }
+            bird.transform.position = birdWaveMove.startTransform.position;
+            bird.SetActive(true);
+            birdWaveMove.isMoving = true;
         }
     }
 }
