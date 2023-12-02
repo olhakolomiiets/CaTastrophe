@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarQuestNightCity : MonoBehaviour
 {
     [SerializeField] private NightCityLogic nightCityLogic;
-    [SerializeField] private GameObject scoreAnimation;
+    //[SerializeField] private GameObject scoreAnimation;
     [SerializeField] private GameObject carLights;
     [SerializeField] private AudioSource carAudioSource;
     [SerializeField] private AudioClip carSetAlarm;
@@ -19,7 +19,7 @@ public class CarQuestNightCity : MonoBehaviour
             other.GetComponentInChildren<BallNightCityBehaviour>().MakeBallPuff();
             Debug.Log("------------------------------------");
             nightCityLogic.UpdateSlider(pointsToSlider);
-            scoreAnimation.SetActive(true);
+            //scoreAnimation.SetActive(true);
             used = true;
             StartCoroutine("StartAlarm");
         }

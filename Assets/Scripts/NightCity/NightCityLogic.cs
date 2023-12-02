@@ -29,6 +29,11 @@ public class NightCityLogic : MonoBehaviour
     public Transform RightStartTransformEnemyAir;
     private float nextSpawnTimeEnemyAir;
 
+    [Header("Score Settings")]
+    [SerializeField] private GameObject scoreAnimation;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text totalScoreText;
+
     private void Start()
     {
         SetupPlayer();
@@ -49,6 +54,9 @@ public class NightCityLogic : MonoBehaviour
     public void UpdateSlider(float addToSlider)
     {
         slider.value = slider.value + addToSlider;
+        totalScoreText.text = slider.value.ToString();
+        scoreText.text = "+" + addToSlider.ToString();
+        StartCoroutine("AddScoreAnimation");
         if (slider.value >= 100f)
         {
             timer.StopTimer();
@@ -57,6 +65,13 @@ public class NightCityLogic : MonoBehaviour
         {
             windowsController.UpdateThrowingFrequency((int)slider.value);
         }
+    }
+
+    private IEnumerator AddScoreAnimation()
+    {      
+        scoreAnimation.SetActive(true);
+        yield return new WaitForSeconds(2);
+        scoreAnimation.SetActive(false);
     }
 
     void Update()
@@ -151,6 +166,7 @@ public class NightCityLogic : MonoBehaviour
                 birdWaveMove.poopTime = 0f;
             }
             bird.transform.position = birdWaveMove.startTransform.position;
+            bird.GetComponent<BoxCollider2D>().isTrigger = false;
             bird.SetActive(true);
             birdWaveMove.isMoving = true;
         }
