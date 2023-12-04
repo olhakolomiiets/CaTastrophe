@@ -14,7 +14,7 @@ public class OnTriggerStartAnimLogic : MonoBehaviour
 
     private void Start()
     {
-        _anim = GetComponent<Animator>();
+        //_anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

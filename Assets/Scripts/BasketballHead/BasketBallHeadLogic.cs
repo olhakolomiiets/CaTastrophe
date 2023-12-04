@@ -55,7 +55,7 @@ public class BasketBallHeadLogic : MonoBehaviour
     {
         ballsScored++;
         //_netAnim.SetTrigger("Play");
-        _scoreAnim.SetActive(true);
+        //_scoreAnim.SetActive(true);
         SoundManager.snd.PlayBallHitNetSounds();
         scoreDisplay.text = ballsScored.ToString();
         ballScored = true;

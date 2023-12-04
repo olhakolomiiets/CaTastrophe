@@ -15,12 +15,13 @@ public class DoorCityNight : MonoBehaviour
     [SerializeField] private float moveDuration = 2f;
     [SerializeField] private Animator peopleAnimator;
     [SerializeField] private string walkActivation;
+    [SerializeField] private string threatActivation;
     [SerializeField] private string idleActivation;
 
     [SerializeField] private Transform humanToMove;
     [SerializeField] private List<GameObject> allPeople;
 
-    private bool IsThrowing;
+    private bool IsWalkingAndThreatening;
 
     private int peopleIndex;
 
@@ -44,8 +45,9 @@ public class DoorCityNight : MonoBehaviour
 
     public void MovePeople()
     {
-        if (IsThrowing) return;
+        if (IsWalkingAndThreatening) return;
 
+        allPeople[peopleIndex].GetComponent<BoxCollider2D>().isTrigger = false;
         allPeople[peopleIndex].SetActive(true);
 
         int randomIndex = Random.Range(0, 6);        
@@ -57,19 +59,19 @@ public class DoorCityNight : MonoBehaviour
 
     private IEnumerator PeopleGo(bool goRight, GameObject mask, Vector3 rotation, Transform hideTransform, Transform targetTransform)
     {
-        IsThrowing = true;
+        IsWalkingAndThreatening = true;
         mask.SetActive(false);
         humanToMove.rotation = Quaternion.Euler(rotation);
         darkState.SetActive(true);
         StartCoroutine(goRight ? MoveTo(targetTransform, hideTransform) : MoveTo(targetTransform, hideTransform));
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(4.5f);
         humanToMove.rotation = Quaternion.Euler(rotation.x, 180 - rotation.y, rotation.z);
         StartCoroutine(MoveToStart(targetTransform, hideTransform, 0f));
         yield return new WaitForSeconds(2);
         mask.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         darkState.SetActive(false);
-        IsThrowing = false;
+        IsWalkingAndThreatening = false;
 
         allPeople[peopleIndex].SetActive(false);
     }
@@ -90,6 +92,9 @@ public class DoorCityNight : MonoBehaviour
         }
 
         humanToMove.position = targetTransform.position;
+        peopleAnimator.SetTrigger(threatActivation);
+        yield return new WaitForSeconds(1.5f);
+        peopleAnimator.SetTrigger(walkActivation);
     }
 
     private IEnumerator MoveToStart(Transform targetTransform, Transform hideTransform, float delay)

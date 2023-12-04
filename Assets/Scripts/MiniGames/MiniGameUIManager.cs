@@ -188,16 +188,6 @@ public class MiniGameUIManager : MonoBehaviour
                     infoText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("MiniGameMessage")} {"5"}";
                 }
                 break;
-            case 6:
-                SoundManager.snd.PlayButtonsSound();
-                nightCityStartWindow.SetActive(true);
-
-                break;
-            case 7:
-                SoundManager.snd.PlayButtonsSound();
-                nightCity2StartWindow.SetActive(true);
-
-                break;
         }
     }
 }
