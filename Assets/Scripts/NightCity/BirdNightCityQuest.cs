@@ -32,6 +32,7 @@ public class BirdNightCityQuest : MonoBehaviour
     [SerializeField] private bool IsNeedToMoveToPosition;
     [SerializeField] private Transform startTransform; // The starting position
     [SerializeField] private Transform endTransform;   // The ending position
+    [SerializeField] private List<Transform> endTransformVariants;
     [SerializeField] private float moveDuration = 2f;  // The duration of the movement
 
     [SerializeField] private Transform transformToMove;  // The transform of the GameObject
@@ -59,13 +60,15 @@ public class BirdNightCityQuest : MonoBehaviour
         {
             if (Time.time >= nextActivateTime)
             {
+                var endTransformIndex = Random.Range(0, endTransformVariants.Count);
+                endTransform = endTransformVariants[endTransformIndex];
+
                 if (IsNeedToMoveToPosition)
                 {
                     moveToEnd = true;
                     moveCoroutine = StartCoroutine(MoveObjectToEnd());
                 }
                 Used = false;
-                //questAnimator.SetTrigger(questActivation);
                 nextDeactivateTime = Time.time + Random.Range(minDeactivateTime, maxDeactivateTime);
             }
         }
@@ -82,7 +85,6 @@ public class BirdNightCityQuest : MonoBehaviour
                 triggered = false;
                 btnActive.SetActive(false);
                 btn.onClick.RemoveListener(Do);
-                //questAnimator.SetTrigger(questDeactivation);
                 nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
             }
         }
