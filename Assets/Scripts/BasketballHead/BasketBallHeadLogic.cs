@@ -8,7 +8,6 @@ using System;
 
 public class BasketBallHeadLogic : MonoBehaviour
 {
-
     public bool Used;
     [SerializeField] private Transform spawnBallPoint;
     [SerializeField] private Button btn;
@@ -27,7 +26,7 @@ public class BasketBallHeadLogic : MonoBehaviour
     public int ballsScored;
     public bool ballScored = false;
     [SerializeField] private Slider slider;
-    [SerializeField] private GameTimer timer;
+    [SerializeField] private HeadBallTimer timer;
 
     public float minX = -5f; 
     public float maxX = 5f;
@@ -54,8 +53,6 @@ public class BasketBallHeadLogic : MonoBehaviour
     public void UpdateBallsAmount(float addToSlider)
     {
         ballsScored++;
-        //_netAnim.SetTrigger("Play");
-        //_scoreAnim.SetActive(true);
         SoundManager.snd.PlayBallHitNetSounds();
         scoreDisplay.text = ballsScored.ToString();
         ballScored = true;
@@ -66,13 +63,11 @@ public class BasketBallHeadLogic : MonoBehaviour
     public void UpdateSlider(float addToSlider)
     {
         slider.value = slider.value + addToSlider;
-        if (slider.value >= 100f)
+        if (slider.value >= 50f)
         {
-            timer.StopTimer();
+            timer.StopMiniGameTimer();
         }
     }
-
-    
 
     public void Do()
     {
@@ -88,17 +83,10 @@ public class BasketBallHeadLogic : MonoBehaviour
     private void UpdateBall()
     {
         float randomX = UnityEngine.Random.Range(minX, maxX);
-
-        // Set the position of spawnBallPoint with the random X value
-       // Vector3 newPosition = spawnBallPoint.position;
-       // newPosition.x = randomX;
-       // spawnBallPoint.position = newPosition;
-
         MakeBallPuff();
         Rigidbody2D ballRB = _ball.transform.GetComponent<Rigidbody2D>();
         ballRB.velocity = new Vector3(0f, 0f, 0f);
         ballRB.angularVelocity = 0f;
-        //ballRB.angularVelocity = new Vector3(0f, 0f, 0f);
         _ball.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         _ball.transform.position = spawnBallPoint.position;
          StartCoroutine(HoldTheBall(_ball));

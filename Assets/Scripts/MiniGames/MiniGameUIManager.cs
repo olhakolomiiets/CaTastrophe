@@ -175,8 +175,9 @@ public class MiniGameUIManager : MonoBehaviour
             case 5:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel6);
                 SoundManager.snd.PlayButtonsSound();
+                headBallStartWindow.SetActive(true);
 
-                if (_levelIndex >= 1)
+/*                if (_levelIndex >= 1)
                 { 
                     headBallStartWindow.SetActive(true);
                     PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel6, 1);
@@ -186,7 +187,7 @@ public class MiniGameUIManager : MonoBehaviour
                     infoWindow.SetActive(true);
                     gameName.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("BasketballHeadTitle")}";
                     infoText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("MiniGameMessage")} {"5"}";
-                }
+                }*/
                 break;
         }
     }

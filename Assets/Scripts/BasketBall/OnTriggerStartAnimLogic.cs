@@ -12,11 +12,6 @@ public class OnTriggerStartAnimLogic : MonoBehaviour
     [SerializeField] private float timeBeforeNextTrigger;
     public UnityEvent triggerEntered;
 
-    private void Start()
-    {
-        //_anim = GetComponent<Animator>();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!coroutineIsRunning && other.CompareTag(tag))
