@@ -26,7 +26,7 @@ public class BasketBallHeadLogic : MonoBehaviour
     public int ballsScored;
     public bool ballScored = false;
     [SerializeField] private Slider slider;
-    [SerializeField] private HeadBallTimer timer;
+    [SerializeField] private TimerWithScore timer;
 
     public float minX = -5f; 
     public float maxX = 5f;

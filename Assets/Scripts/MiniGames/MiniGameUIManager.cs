@@ -52,9 +52,6 @@ public class MiniGameUIManager : MonoBehaviour
 
     [Header("Night City")]
     [SerializeField] private GameObject nightCityStartWindow;    
-    
-    [Header("Night City")]
-    [SerializeField] private GameObject nightCity2StartWindow;
 
     private int _levelIndex;
 
@@ -188,6 +185,10 @@ public class MiniGameUIManager : MonoBehaviour
                     gameName.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("BasketballHeadTitle")}";
                     infoText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("MiniGameMessage")} {"5"}";
                 }*/
+                break;
+            case 6:
+                SoundManager.snd.PlayButtonsSound();
+                nightCityStartWindow.SetActive(true);
                 break;
         }
     }

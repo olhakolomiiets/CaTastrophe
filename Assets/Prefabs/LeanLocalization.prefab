@@ -8052,16 +8052,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: BASKETBALL
+    Text: HEADBALL
     Object: {fileID: 0}
   - Language: Russian
-    Text: BASKETBALL
+    Text: HEADBALL
     Object: {fileID: 0}
   - Language: Spanish
-    Text: BASKETBALL
+    Text: HEADBALL
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: BASKETBALL
+    Text: HEADBALL
     Object: {fileID: 0}
 --- !u!1 &3347379352815065579
 GameObject:
@@ -8572,6 +8572,63 @@ MonoBehaviour:
   - Language: Ukrainian
     Text: "\u0417\u0410\u0412\u0414\u0410\u0422\u0418 \u0417\u0411\u0418\u0422\u041AI\u0412
       \u0411\u0423\u0414\u0418\u041D\u041A\u0423 \u041D\u0410 200 \u041C\u041E\u041D\u0415\u0422"
+    Object: {fileID: 0}
+--- !u!1 &3732766150432584995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3944284240379868078}
+  - component: {fileID: 2994352503987396675}
+  m_Layer: 0
+  m_Name: BestResult
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3944284240379868078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732766150432584995}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_RootOrder: 322
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2994352503987396675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732766150432584995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'BEST RESULT:'
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041B\u0423\u0427\u0428\u0418\u0419 \u0420\u0415\u0417\u0423\u041B\u042C\u0422\u0410\u0422:"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: 'MEJOR RESULTADO:'
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u041A\u0420\u0410\u0429\u0418\u0419 \u0420\u0415\u0417\u0423\u041B\u042C\u0422\u0410\u0422:"
     Object: {fileID: 0}
 --- !u!1 &3734096958799227331
 GameObject:
@@ -17391,6 +17448,7 @@ Transform:
   - {fileID: 81303904}
   - {fileID: 223940291}
   - {fileID: 1527674556}
+  - {fileID: 3944284240379868078}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

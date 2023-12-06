@@ -4,10 +4,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Firebase.Analytics;
 
-public class HeadBallTimer : MonoBehaviour, IMiniGamesScore
+public class TimerWithScore : MonoBehaviour, IMiniGamesScore
 {
-    public Text timeDisplay;
-    public float timer = 90;
+    [SerializeField] private Text timeDisplay;
+    [SerializeField] private float timer;
     private DateTime timerEnd;
     bool timerRunning = false;
     private float timeDelta = 0.0f;
@@ -15,16 +15,16 @@ public class HeadBallTimer : MonoBehaviour, IMiniGamesScore
     [HideInInspector] public bool TimeUp;
     int sceneIndex;
     int levelComplete;
-    public GameObject damageImage;
-    public GameObject canvas;
+    [SerializeField] private GameObject damageImage;
+    [SerializeField] private GameObject canvas;
     private Animator anim;
     private UIManager _uiManager;
     private TimeSpan elapsedTime;
 
     private bool _isGetExtraTime;
 
-    [HideInInspector] public float timeLeft;
-    [HideInInspector] public int headBallScored;
+    private float timeLeft;
+    [HideInInspector] public int gameScore;
 
     private void Start()
     {
@@ -45,7 +45,6 @@ public class HeadBallTimer : MonoBehaviour, IMiniGamesScore
         }
         else
         {
-            Debug.Log("return 000000000000000000000000");
             return 0;
         }
     }
@@ -65,8 +64,6 @@ public class HeadBallTimer : MonoBehaviour, IMiniGamesScore
             if (GetLevelScore() < sm.score)
             {
                 PlayerPrefs.SetInt("LevelStars" + sceneIndex, sm.score);
-                Debug.Log(PlayerPrefs.GetInt("LevelStars" + sceneIndex, sm.score));
-                Debug.Log("sceneIndex is" + sceneIndex);
             }
             timeDisplay.text = ("00:00");
 
@@ -95,23 +92,19 @@ public class HeadBallTimer : MonoBehaviour, IMiniGamesScore
     public void StopMiniGameTimer()
     {
         timeLeft = timeDelta * -1;
-        SetHeadBallScored();
+        SetHeadBallScore();
 
         timeDisplay.text = elapsedTime.ToString(@"mm\:ss");
         _uiManager.TimeUp();
     }
 
-    public void SetHeadBallScored()
+    public void SetHeadBallScore()
     {
-
-        headBallScored = (int)timeLeft;
-        Debug.Log("!!!!!!!!!!!!!!--------------- headBallScored " + headBallScored);
-
+        gameScore = (int)timeLeft;
+        Debug.Log("!!!!!!!!!!!!!!--------------- Head Ball Score " + gameScore);
 
         int bestResult = PlayerPrefs.GetInt("HeadBallBestResult");
-
         int headBallResult = (180 - (int)timeLeft);
-
         if (headBallResult <= bestResult || bestResult == 0)
         {
             PlayerPrefs.SetInt("HeadBallBestResult", headBallResult);
@@ -120,7 +113,7 @@ public class HeadBallTimer : MonoBehaviour, IMiniGamesScore
 
     public int MiniGameScore()
     {
-        return headBallScored;
+        return gameScore;
     }
 
 }

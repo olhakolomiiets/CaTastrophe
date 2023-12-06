@@ -47,6 +47,7 @@ public class MiniGameStarsWin : MonoBehaviour
     private void OnEnable()
     {
         miniGameComponent = _objectWithInterface.GetComponents<Component>().OfType<IMiniGamesScore>().FirstOrDefault();
+
         _gameScore = miniGameComponent.MiniGameScore();
 
         _coins = (int)(_gameScore * multiplier);
