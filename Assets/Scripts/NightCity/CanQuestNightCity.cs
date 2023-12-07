@@ -8,6 +8,8 @@ public class CanQuestNightCity : MonoBehaviour
     [SerializeField] private GameObject btnActive;
     [SerializeField] private Button btn;
     private Animator playerAnimator;
+    [SerializeField] private string playerAnimationTag;
+    [SerializeField] private float delayForMovingCan; 
     public bool Used;
     public NightCityLogic nightCityLogic;
     private bool triggered = false;
@@ -52,6 +54,7 @@ public class CanQuestNightCity : MonoBehaviour
 
     public void Do()
     {
+        playerAnimator.SetTrigger(playerAnimationTag);
         nightCityLogic.UpdateSlider(pointsToSlider);
         SoundManager.snd.PlayMetalStuffSounds();
         Used = true;
@@ -69,7 +72,7 @@ public class CanQuestNightCity : MonoBehaviour
 
     private IEnumerator MoveObject(GameObject thrownObject, Transform startTransform, Transform endTransform)
     {
-
+        yield return new WaitForSeconds(delayForMovingCan);
         // Generate a random rotation angle around the Z-axis
         float randomRotation = Random.Range(0f, 360f);
         // Apply the rotation to the GameObject

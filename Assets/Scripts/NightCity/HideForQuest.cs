@@ -39,27 +39,15 @@ public class HideForQuest : MonoBehaviour
         Debug.Log("HidingOn");
         playerSortingGroup.sortingLayerName = "Default";
         playerSortingGroup.sortingOrder = -20;
-        left.enabled = false;
-        right.enabled = false;
-        jump.interactable = false;
-        controller.noAffraidDogs = true;
+        FreezePositionOn();
         player.layer = 21;
-        rbPlayer.isKinematic = true;
-        rbPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
-        isHiding = true;
-
     }
+
     public void HidingOff()
     {
         Debug.Log("HidingOff");
         player.layer = 14;
-        controller.noAffraidDogs = false;
-        rbPlayer.isKinematic = false;
-        rbPlayer.constraints = originalConstraints;
-        isHiding = false;
-        left.enabled = true;
-        right.enabled = true;
-        jump.interactable = true;
+        FreezePositionOff();
         playerSortingGroup.sortingLayerName = "Player";
         playerSortingGroup.sortingOrder = 0;
     }
@@ -81,7 +69,12 @@ public class HideForQuest : MonoBehaviour
     }
 
     public void FreezePositionOn()
-    {      
+    {
+        if (controller.joystick != null)
+        {
+            controller.joystick.enabled = false;
+        }
+          
         left.enabled = false;
         right.enabled = false;
         jump.interactable = false;
@@ -92,6 +85,10 @@ public class HideForQuest : MonoBehaviour
     }
     public void FreezePositionOff()
     {
+        if (controller.joystick != null)
+        {
+            controller.joystick.enabled = true;
+        }
         controller.noAffraidDogs = false;
         rbPlayer.isKinematic = false;
         rbPlayer.constraints = originalConstraints;

@@ -29,10 +29,12 @@ public class HideFromDog : MonoBehaviour
     private EventTrigger left;
     private EventTrigger right;
     private RigidbodyConstraints2D originalConstraints;
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
     }
+
     void Start()
     {
         dogs = GameObject.FindGameObjectsWithTag("EnemyDog");
@@ -51,6 +53,7 @@ public class HideFromDog : MonoBehaviour
         right = canvas.transform.GetChild(3).GetComponent<EventTrigger>();
         originalConstraints = rbPlayer.constraints;
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("OnTriggerEnter2D");
@@ -68,6 +71,7 @@ public class HideFromDog : MonoBehaviour
             }
         }
     }
+
     public void Do()
     {
         if (!isHiding)
@@ -79,6 +83,7 @@ public class HideFromDog : MonoBehaviour
             HidingOff();
         }
     }
+
     public void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("OnTriggerExit2D");
@@ -93,6 +98,7 @@ public class HideFromDog : MonoBehaviour
             Invoke("TipHide", 2);
         }
     }
+
     private void TipHide()
     {
         Tip.SetActive(false);
@@ -108,6 +114,10 @@ public class HideFromDog : MonoBehaviour
             }
         playerSortingGroup.sortingLayerName = "Default";
         playerSortingGroup.sortingOrder = -20;
+        if (controller.joystick != null)
+        {
+            controller.joystick.enabled = false;
+        }
         left.enabled = false;
         right.enabled = false;
         jump.interactable = false;
@@ -136,6 +146,10 @@ public class HideFromDog : MonoBehaviour
         }
         Debug.Log("HidingOff");
         player.layer = 14;
+        if (controller.joystick != null)
+        {
+            controller.joystick.enabled = true;
+        }
         controller.noAffraidDogs = false;
         rbPlayer.isKinematic = false;
         rbPlayer.constraints = originalConstraints;

@@ -92,13 +92,13 @@ public class NightCityObjectQuest : MonoBehaviour
 
     public void Do()
     {
+        btn.GetComponent<StopMoveForDo>().StopMove();
         StartCoroutine(Animate(animationDuration));
         nightCityLogic.UpdateSlider(pointsToSlider);
         Used = true;       
         questAnimator.SetTrigger(questDone);
         btn.onClick.RemoveListener(Do);
-        btnActive.SetActive(false);
-        btn.GetComponent<StopMoveForDo>().StopMove();
+        btnActive.SetActive(false);       
 
         // Calculate the next spawn time
         nextActivateTime = Time.time + Random.Range(minActivateTime, maxActivateTime);
