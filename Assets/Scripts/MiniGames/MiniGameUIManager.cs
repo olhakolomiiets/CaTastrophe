@@ -51,6 +51,8 @@ public class MiniGameUIManager : MonoBehaviour
     private static bool _wasReminderShown5;
 
     [Header("Night City")]
+    [SerializeField] private GameObject nightStreet;
+    [SerializeField] private GameObject nightCityPuzzle;
     [SerializeField] private GameObject nightCityStartWindow;    
 
     private int _levelIndex;
@@ -191,5 +193,17 @@ public class MiniGameUIManager : MonoBehaviour
                 nightCityStartWindow.SetActive(true);
                 break;
         }
+    }
+
+    public void OpenNightStreet()
+    {
+        if (PlayerPrefs.GetInt("NightCityPuzzle") > 6)
+        {
+            nightStreet.SetActive(true);
+        }
+        else
+        {
+            nightCityPuzzle.SetActive(true);
+        }            
     }
 }
