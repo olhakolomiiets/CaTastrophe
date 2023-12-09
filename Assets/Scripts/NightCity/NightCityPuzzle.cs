@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NightCityPuzzle : MonoBehaviour
 {
     [SerializeField] private List<GameObject> grayscalePuzzlePieces;
-    [SerializeField] private Button buttonOpenCity;
+    [SerializeField] private GameObject buttonToCity;
 
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class NightCityPuzzle : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("NightCityPuzzle") == 6)
         {
-            buttonOpenCity.interactable = true;
+            buttonToCity.SetActive(true);
         }
     }
 
