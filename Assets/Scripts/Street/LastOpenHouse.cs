@@ -13,7 +13,7 @@ public class LastOpenHouse : MonoBehaviour
         switch (levelComplete)
         {
             case 0:
-                rectTransform.anchoredPosition = new Vector2(5212, 0);
+                rectTransform.anchoredPosition = new Vector2(5365, 0);
                 break;
             case 2:
                 rectTransform.anchoredPosition = new Vector2(5212, 0);

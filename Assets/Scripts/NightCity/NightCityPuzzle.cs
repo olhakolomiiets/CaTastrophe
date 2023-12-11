@@ -8,6 +8,7 @@ public class NightCityPuzzle : MonoBehaviour
     [SerializeField] private List<GameObject> grayscalePuzzlePieces;
     [SerializeField] private GameObject buttonToCity;
 
+
     private void OnEnable()
     {
         for (int i = 0; i < grayscalePuzzlePieces.Count; i++)
@@ -26,11 +27,5 @@ public class NightCityPuzzle : MonoBehaviour
         {
             buttonToCity.SetActive(true);
         }
-    }
-
-    public void CloseNightCityPuzzle()
-    {
-        PlayerPrefs.SetInt("NightCityPuzzle", PlayerPrefs.GetInt("NightCityPuzzle") + 1);
-        gameObject.SetActive(false);
     }
 }

@@ -53,7 +53,8 @@ public class MiniGameUIManager : MonoBehaviour
     [Header("Night City")]
     [SerializeField] private GameObject nightStreet;
     [SerializeField] private GameObject nightCityPuzzle;
-    [SerializeField] private GameObject nightCityStartWindow;    
+    [SerializeField] private GameObject nightCityStartWindow;
+    [SerializeField] private GameObject nightCityPuzzleReminder;
 
     private int _levelIndex;
 
@@ -77,6 +78,10 @@ public class MiniGameUIManager : MonoBehaviour
         DateTime now = DateTime.Now;
         int day = now.Day;
 
+        if (PlayerPrefs.GetInt("NightCityPuzzle") == 6)
+        {
+            nightCityPuzzleReminder.SetActive(true);
+        }
 
         for (int i = 0; i < _msg.Count; i++)
         {
@@ -174,9 +179,8 @@ public class MiniGameUIManager : MonoBehaviour
             case 5:
                 _levelIndex = PlayerPrefs.GetInt("LevelStar1" + needLevel6);
                 SoundManager.snd.PlayButtonsSound();
-                headBallStartWindow.SetActive(true);
 
-/*                if (_levelIndex >= 1)
+                if (_levelIndex >= 1)
                 { 
                     headBallStartWindow.SetActive(true);
                     PlayerPrefs.SetInt("MiniGameFirstMessage" + needLevel6, 1);
@@ -186,7 +190,7 @@ public class MiniGameUIManager : MonoBehaviour
                     infoWindow.SetActive(true);
                     gameName.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("BasketballHeadTitle")}";
                     infoText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("MiniGameMessage")} {"5"}";
-                }*/
+                }
                 break;
             case 6:
                 SoundManager.snd.PlayButtonsSound();
@@ -205,5 +209,12 @@ public class MiniGameUIManager : MonoBehaviour
         {
             nightCityPuzzle.SetActive(true);
         }            
+    }
+
+    public void CloseNightCityPuzzle()
+    {
+        nightCityPuzzleReminder.SetActive(false);
+        PlayerPrefs.SetInt("NightCityPuzzle", PlayerPrefs.GetInt("NightCityPuzzle") + 1);
+        nightCityPuzzle.SetActive(false);
     }
 }

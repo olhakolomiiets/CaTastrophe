@@ -32,9 +32,9 @@ public class PickUpPuzzle : MonoBehaviour
         Time.timeScale = 0;
         nightCityPuzzle.SetActive(true);
         anim.SetTrigger("pieceFound");
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.25f);
         stars.SetActive(true);
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(2);
         nightCityPuzzle.SetActive(false);
         gameObject.SetActive(false);
         Time.timeScale = 1;
