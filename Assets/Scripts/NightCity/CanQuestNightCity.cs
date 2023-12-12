@@ -9,6 +9,7 @@ public class CanQuestNightCity : MonoBehaviour
     [SerializeField] private Button btn;
     private Animator playerAnimator;
     [SerializeField] private string playerAnimationTag;
+    [SerializeField] private float animationDuration;
     [SerializeField] private float delayForMovingCan; 
     public bool Used;
     public NightCityLogic nightCityLogic;
@@ -23,6 +24,8 @@ public class CanQuestNightCity : MonoBehaviour
     [SerializeField] private float leftLimitX = -60f;
     [SerializeField] private float rightLimitX = -36.8f;
 
+    [Header("ForHide")]
+    [SerializeField] private HideForQuest hideScript;
 
     private void Start()
     {
@@ -54,6 +57,7 @@ public class CanQuestNightCity : MonoBehaviour
 
     public void Do()
     {
+        StartCoroutine(Animate(animationDuration));
         playerAnimator.SetTrigger(playerAnimationTag);
         nightCityLogic.UpdateSlider(pointsToSlider);
         SoundManager.snd.PlayMetalStuffSounds();
@@ -64,7 +68,20 @@ public class CanQuestNightCity : MonoBehaviour
         SetPositionAndStartMove();
     }
 
-    public void SetPositionAndStartMove()
+    private IEnumerator Animate(float duration)
+    {
+        if (hideScript != null)
+        {
+            hideScript.FreezePositionOn();
+        }
+        yield return new WaitForSeconds(duration);
+        if (hideScript != null)
+        {
+            hideScript.FreezePositionOff();
+        }
+    }
+
+        public void SetPositionAndStartMove()
     {
         startTransform.position = this.transform.position;
         StartCoroutine(MoveObject(gameObject, startTransform, endTransform));

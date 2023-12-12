@@ -9,7 +9,7 @@ public class HideForQuest : MonoBehaviour
 {
     [SerializeField] private GameObject btnActive;
     [SerializeField] private Button btn;
-    [SerializeField] private Animator questAnimator;
+    //[SerializeField] private Animator questAnimator;
     private Animator playerAnimator;
     private ScoreManager sm;
     private Inventory inventory;

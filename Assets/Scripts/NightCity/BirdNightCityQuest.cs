@@ -15,7 +15,9 @@ public class BirdNightCityQuest : MonoBehaviour
     [SerializeField] private string questActivation;
     [SerializeField] private string questDeactivation;
     [SerializeField] private string questDone;
-    [SerializeField] private GameObject particlesForDo; 
+    [SerializeField] private GameObject particlesForDo;
+    [SerializeField] private GameObject particlesFeather;
+    private GameObject featherPuff;
     private bool triggered = false;
     public bool Used;
     public NightCityLogic nightCityLogic;
@@ -118,6 +120,7 @@ public class BirdNightCityQuest : MonoBehaviour
         if (Used == false)
         {
             particlesForDo?.SetActive(true);
+            StartCoroutine(AddFeather()); 
             hideScript.HidingOn();
             SoundManager.snd.PlayCatsFightSounds();
             nightCityLogic.UpdateSlider(pointsToSlider);
@@ -134,6 +137,43 @@ public class BirdNightCityQuest : MonoBehaviour
                 moveToEnd = false;
                 moveCoroutine = StartCoroutine(MoveObjectToStart(2f));
             }
+        }
+    }
+
+    private void MakeFeatherPuff()
+    {
+        switch (this.gameObject.tag)
+        {
+            case "PoolObject1":
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject4");
+                break;
+            case "PoolObject2":
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject3");
+                break;          
+            default:
+                featherPuff = ObjectPooler.SharedInstance.GetPooledObject("PoolObject4");
+                break;
+        }
+        if (featherPuff != null)
+        {
+            featherPuff.transform.position = transform.position;
+            featherPuff.SetActive(true);
+        }
+    }
+
+    private IEnumerator AddFeather()
+    {
+        yield return new WaitForSeconds(1f);
+        MakeFeatherPuff();
+        if (featherPuff != null)
+        {
+            featherPuff.transform.position = transform.position;
+            featherPuff.SetActive(true);
+        }
+        yield return new WaitForSeconds(4f);
+        if (featherPuff != null)
+        {
+            featherPuff.SetActive(false);
         }
     }
 
