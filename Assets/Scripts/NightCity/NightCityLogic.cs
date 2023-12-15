@@ -12,7 +12,7 @@ public class NightCityLogic : MonoBehaviour
     [SerializeField] private float speed;
 
     [SerializeField] private Slider slider;
-    [SerializeField] private GameTimer timer;
+    [SerializeField] private TimerWithScore timer;
     [SerializeField] private CityWindowsController windowsController;
 
     [Header("Enemy Ground Settings")]

@@ -10906,7 +10906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameStars: {fileID: 11400000, guid: d6fc806bf8c640a42939c6bb04f61c3c, type: 2}
-  levelIndex: 16
   _miniGameRewards: {fileID: 5088693009398046653}
   star1: {fileID: 5088693008691582496}
   star2: {fileID: 5088693008610718791}
@@ -10914,7 +10913,6 @@ MonoBehaviour:
   textForStar1: {fileID: 5088693010489183716}
   textForStar2: {fileID: 5088693009140881851}
   textForStar3: {fileID: 5088693009237975746}
-  _bestResultPrefs: BasketballBestResult
   bestResultText: {fileID: 5088693008653064157}
   _objectWithInterface: {fileID: 0}
   resultText: {fileID: 5088693008884257920}
@@ -11070,8 +11068,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4ead90ce37ff04183cf26e9ae549b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 16
+  miniGameStars: {fileID: 0}
   rewardPref: {fileID: 7766126539441019215, guid: 9714ea15db6da3a4a87e78a4b20f28db,
+    type: 3}
+  rewardPrefStreet: {fileID: 7766126539441019215, guid: 80970848da8ef38488eb9aa20948403a,
     type: 3}
   rewardsGrid: {fileID: 5088693009398046652}
   rewards:
@@ -11085,6 +11085,11 @@ MonoBehaviour:
     Value: 3
     Name: sand
   rewardPrefabs: []
+  sadCatHead: {fileID: 7837409424504208848, guid: dc0181b9968b83c42b0e280a544de227,
+    type: 3}
+  happyCatHead: {fileID: 7837409424504208848, guid: 15076ffc845f6a3409c502e4536a50fe,
+    type: 3}
+  isStreet: 0
 --- !u!1 &5088693009417179593
 GameObject:
   m_ObjectHideFlags: 0

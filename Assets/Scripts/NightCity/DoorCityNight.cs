@@ -12,7 +12,7 @@ public class DoorCityNight : MonoBehaviour
     [SerializeField] private Transform hideLeftTransform, hideRightTransform;
     [SerializeField] private Transform leftTransform, rightTransform;
 
-    [SerializeField] private float moveDuration = 2f;
+    [SerializeField] private float moveDuration = 2.5f;
     [SerializeField] private Animator peopleAnimator;
     [SerializeField] private string walkActivation;
     [SerializeField] private string threatActivation;
@@ -20,6 +20,8 @@ public class DoorCityNight : MonoBehaviour
 
     [SerializeField] private Transform humanToMove;
     [SerializeField] private List<GameObject> allPeople;
+
+    private BoxCollider2D peopleCollider;
 
     private bool IsWalkingAndThreatening;
 
@@ -41,6 +43,7 @@ public class DoorCityNight : MonoBehaviour
 
         humanToMove = allPeople[peopleIndex].transform;
         peopleAnimator = allPeople[peopleIndex].GetComponent<Animator>();
+        peopleCollider = allPeople[peopleIndex].GetComponent<BoxCollider2D>();
     }
 
     public void MovePeople()
@@ -64,15 +67,21 @@ public class DoorCityNight : MonoBehaviour
         humanToMove.rotation = Quaternion.Euler(rotation);
         darkState.SetActive(true);
         StartCoroutine(goRight ? MoveTo(targetTransform, hideTransform) : MoveTo(targetTransform, hideTransform));
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        peopleCollider.enabled = true;
+        yield return new WaitForSeconds(4);
+
         humanToMove.rotation = Quaternion.Euler(rotation.x, 180 - rotation.y, rotation.z);
         StartCoroutine(MoveToStart(targetTransform, hideTransform, 0f));
         yield return new WaitForSeconds(2);
+
         mask.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        peopleCollider.enabled = false;
+        yield return new WaitForSeconds(0.5f);   
+        
         darkState.SetActive(false);
         IsWalkingAndThreatening = false;
-
         allPeople[peopleIndex].SetActive(false);
     }
 

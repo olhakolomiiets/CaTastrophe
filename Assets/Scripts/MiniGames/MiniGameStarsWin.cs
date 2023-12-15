@@ -11,9 +11,7 @@ public class MiniGameStarsWin : MonoBehaviour
     [SerializeField] private MiniGamesSO miniGameStars;
 
     [Space(5)]
-    public int levelIndex;
     [SerializeField] private MiniGameRewards _miniGameRewards;
-
 
     [Space(5)]
     [SerializeField] private GameObject star1;
@@ -26,7 +24,6 @@ public class MiniGameStarsWin : MonoBehaviour
     [SerializeField] private Text textForStar3;
 
     [Space(5)]
-    [SerializeField] private string _bestResultPrefs;
     [SerializeField] private Text bestResultText;
 
     [Space(5)]
@@ -66,36 +63,36 @@ public class MiniGameStarsWin : MonoBehaviour
         textForStar2.text = miniGameStars.Star2.ToString();
         textForStar3.text = miniGameStars.Star3.ToString();
 
-        bestResultText.text = $"{PlayerPrefs.GetInt(_bestResultPrefs)}";
+        bestResultText.text = $"{PlayerPrefs.GetInt(miniGameStars.BestResultPrefs)}";
 
-        if (PlayerPrefs.GetInt("LevelStars" + levelIndex) < _gameScore)
-            PlayerPrefs.SetInt("LevelStars" + levelIndex, _gameScore);
+        if (PlayerPrefs.GetInt("LevelStars" + miniGameStars.LevelIndex) < _gameScore)
+            PlayerPrefs.SetInt("LevelStars" + miniGameStars.LevelIndex, _gameScore);
 
         if (_gameScore >= miniGameStars.Star1)
         {
             miniGameStars.SetCatMood(true);
-            FirebaseAnalytics.LogEvent(name: "star1_miniGame_" + levelIndex);
+            FirebaseAnalytics.LogEvent(name: "star1_miniGame_" + miniGameStars.LevelIndex);
             StartCoroutine(StarWin1());           
         }
         else miniGameStars.SetCatMood(false);
 
         if (_gameScore >= miniGameStars.Star2)
         {
-            FirebaseAnalytics.LogEvent(name: "star2_miniGame_" + levelIndex);
+            FirebaseAnalytics.LogEvent(name: "star2_miniGame_" + miniGameStars.LevelIndex);
             StartCoroutine(StarWin2());
         }
 
         if (_gameScore >= miniGameStars.Star3)
         {
-            FirebaseAnalytics.LogEvent(name: "star3_miniGame_" + levelIndex);
+            FirebaseAnalytics.LogEvent(name: "star3_miniGame_" + miniGameStars.LevelIndex);
             StartCoroutine(StarWin3());
         }
 
         if (GetLevelScore() >= miniGameStars.Star1)
         {
-            if (PlayerPrefs.GetInt("LevelStar1" + levelIndex) == 0)
+            if (PlayerPrefs.GetInt("LevelStar1" + miniGameStars.LevelIndex) == 0)
             {
-                PlayerPrefs.SetInt("LevelStar1" + levelIndex, 1);
+                PlayerPrefs.SetInt("LevelStar1" + miniGameStars.LevelIndex, 1);
                 miniGameStars.SetIsReward1Show(true);
             }
             else miniGameStars.SetIsReward1Show(false);
@@ -103,9 +100,9 @@ public class MiniGameStarsWin : MonoBehaviour
 
         if (GetLevelScore() >= miniGameStars.Star2)
         {
-            if (PlayerPrefs.GetInt("LevelStar2" + levelIndex) == 0)
+            if (PlayerPrefs.GetInt("LevelStar2" + miniGameStars.LevelIndex) == 0)
             {
-                PlayerPrefs.SetInt("LevelStar2" + levelIndex, 1);
+                PlayerPrefs.SetInt("LevelStar2" + miniGameStars.LevelIndex, 1);
                 miniGameStars.SetIsReward2Show(true);
             }
             else miniGameStars.SetIsReward2Show(false);
@@ -113,9 +110,9 @@ public class MiniGameStarsWin : MonoBehaviour
 
         if (GetLevelScore() >= miniGameStars.Star3)
         {
-            if (PlayerPrefs.GetInt("LevelStar3" + levelIndex) == 0)
+            if (PlayerPrefs.GetInt("LevelStar3" + miniGameStars.LevelIndex) == 0)
             {
-                PlayerPrefs.SetInt("LevelStar3" + levelIndex, 1);
+                PlayerPrefs.SetInt("LevelStar3" + miniGameStars.LevelIndex, 1);
                 miniGameStars.SetIsReward3Show(true);
             }
             else miniGameStars.SetIsReward3Show(false);
@@ -130,9 +127,9 @@ public class MiniGameStarsWin : MonoBehaviour
     }
     public int GetLevelScore()
     {
-        if (PlayerPrefs.HasKey("LevelStars" + levelIndex))
+        if (PlayerPrefs.HasKey("LevelStars" + miniGameStars.LevelIndex))
         {
-            return PlayerPrefs.GetInt("LevelStars" + levelIndex);
+            return PlayerPrefs.GetInt("LevelStars" + miniGameStars.LevelIndex);
         }
         else
         {

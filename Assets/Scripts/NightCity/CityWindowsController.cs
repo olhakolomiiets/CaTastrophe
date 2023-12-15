@@ -74,11 +74,10 @@ public class CityWindowsController : MonoBehaviour
             countToMove = 0;
         }
 
-        Debug.Log("!!!!!!!!---------------- countToMove " + countToMove);
         int randomIndex = UnityEngine.Random.Range(0, windows.Count);
         if (!windows[randomIndex].isMoving)
         {
-            windows[randomIndex].ThrowObject();                    
+            windows[randomIndex].ThrowObject();
         }
         else
         {

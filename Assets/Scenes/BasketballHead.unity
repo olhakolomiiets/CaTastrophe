@@ -2948,10 +2948,10 @@ RectTransform:
   m_Father: {fileID: 1891394186}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29, y: 443.23}
-  m_SizeDelta: {x: 127.54657, y: 29.999992}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 29, y: -89.5}
+  m_SizeDelta: {x: 127.54657, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211111843
 MonoBehaviour:
@@ -4704,7 +4704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.5999985, y: 0.5999999}
+  m_AnchoredPosition: {x: 4.5999985, y: 0.5999985}
   m_SizeDelta: {x: 19.545105, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276383679
@@ -33812,6 +33812,7 @@ MonoBehaviour:
   damageImage: {fileID: 756574142}
   canvas: {fileID: 1891394182}
   gameScore: 0
+  _miniGameSO: {fileID: 11400000, guid: 9cc718360e04aac469ad0d798f39a473, type: 2}
 --- !u!95 &1043261220
 Animator:
   serializedVersion: 5
@@ -35531,7 +35532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: -0.8000002}
+  m_AnchoredPosition: {x: -5, y: -0.80000305}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1178149478
@@ -61064,7 +61065,7 @@ GameObject:
   - component: {fileID: 1695797046532154014}
   m_Layer: 0
   m_Name: CactusEnemy
-  m_TagString: EnemyPlant
+  m_TagString: PassiveEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85201,7 +85202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4ead90ce37ff04183cf26e9ae549b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 18
   miniGameStars: {fileID: 11400000, guid: 9cc718360e04aac469ad0d798f39a473, type: 2}
   rewardPref: {fileID: 7766126539441019215, guid: 9714ea15db6da3a4a87e78a4b20f28db,
     type: 3}
@@ -85351,7 +85351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameStars: {fileID: 11400000, guid: 9cc718360e04aac469ad0d798f39a473, type: 2}
-  levelIndex: 18
   _miniGameRewards: {fileID: 6729862367092632115}
   star1: {fileID: 6729862366792459168}
   star2: {fileID: 6729862366805950919}
@@ -85359,7 +85358,6 @@ MonoBehaviour:
   textForStar1: {fileID: 6729862368148650084}
   textForStar2: {fileID: 6729862367349795899}
   textForStar3: {fileID: 6729862367319480130}
-  _bestResultPrefs: HeadBallBestResult
   bestResultText: {fileID: 6729862366831043165}
   _objectWithInterface: {fileID: 1043261215}
   resultText: {fileID: 357504514}

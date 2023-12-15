@@ -41,6 +41,7 @@ public class CowController : MonoBehaviour
     public string enemy3;
     public string enemy4;
     public string enemy5;
+    public string enemy6;
     private Image[] hearts = new Image[4];
     public Sprite HeartFull;
     public Sprite HeartEmpty;
@@ -115,6 +116,8 @@ public class CowController : MonoBehaviour
         else activeCollaider.tag = "ActiveCollaider";
 
         #endregion
+
+        enemy6 = "PassiveEnemy";
     }
     void Start()
     {
@@ -414,14 +417,16 @@ public class CowController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == enemy1 | other.gameObject.tag == enemy2 | other.gameObject.tag == enemy3 | other.gameObject.tag == enemy4 | other.gameObject.tag == enemy5)
+        if (other.gameObject.tag == enemy1 | other.gameObject.tag == enemy2 | other.gameObject.tag == enemy3 | other.gameObject.tag == enemy4 | other.gameObject.tag == enemy5 | other.gameObject.tag == enemy6)
         {
             if (other.gameObject.tag == enemy1)
             {
                 other.gameObject.GetComponent<Dog>().WaitingTillNextBite();
             }
-            lives--;
-            
+            if (other.gameObject.tag != enemy6)
+            {
+                lives--;
+            }                        
             FirebaseAnalytics.LogEvent(name: "cat_lose_life", new Parameter(parameterName: "enemies", parameterValue: other.gameObject.tag));
 
             SoundManager.snd.PlayDamage();

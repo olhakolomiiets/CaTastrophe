@@ -25,6 +25,7 @@ public class TimerWithScore : MonoBehaviour, IMiniGamesScore
 
     private float timeLeft;
     [HideInInspector] public int gameScore;
+    [SerializeField] private MiniGamesSO _miniGameSO;
 
     private void Start()
     {
@@ -89,25 +90,25 @@ public class TimerWithScore : MonoBehaviour, IMiniGamesScore
         timer = timer + sec;
     }
 
-    public void StopMiniGameTimer()
+    public void StopTimer()
     {
         timeLeft = timeDelta * -1;
-        SetHeadBallScore();
+        SetGameScore();
 
         timeDisplay.text = elapsedTime.ToString(@"mm\:ss");
         _uiManager.TimeUp();
     }
 
-    public void SetHeadBallScore()
+    public void SetGameScore()
     {
         gameScore = (int)timeLeft;
-        Debug.Log("!!!!!!!!!!!!!!--------------- Head Ball Score " + gameScore);
+        Debug.Log("!!!!!!!!!!!!!!--------------- Game Score " + gameScore);
 
-        int bestResult = PlayerPrefs.GetInt("HeadBallBestResult");
-        int headBallResult = (180 - (int)timeLeft);
-        if (headBallResult <= bestResult || bestResult == 0)
+        int bestResult = PlayerPrefs.GetInt(_miniGameSO.BestResultPrefs);
+        int currentResult = (180 - (int)timeLeft);
+        if (currentResult <= bestResult || bestResult == 0)
         {
-            PlayerPrefs.SetInt("HeadBallBestResult", headBallResult);
+            PlayerPrefs.SetInt(_miniGameSO.BestResultPrefs, currentResult);
         }
     }
 

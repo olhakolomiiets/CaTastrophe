@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MiniGameRewards : MonoBehaviour
 {
-    [SerializeField] private int levelIndex;
     [SerializeField] private MiniGamesSO miniGameStars;
 
     [Space(5)]
@@ -41,9 +40,9 @@ public class MiniGameRewards : MonoBehaviour
 
     private void Start()
     {
-        _levelStar1 = "LevelStar1" + levelIndex;
-        _levelStar2 = "LevelStar2" + levelIndex;
-        _levelStar3 = "LevelStar3" + levelIndex;
+        _levelStar1 = "LevelStar1" + miniGameStars.LevelIndex;
+        _levelStar2 = "LevelStar2" + miniGameStars.LevelIndex;
+        _levelStar3 = "LevelStar3" + miniGameStars.LevelIndex;
 
         _star1 = PlayerPrefs.GetInt(_levelStar1);
         _star2 = PlayerPrefs.GetInt(_levelStar2);

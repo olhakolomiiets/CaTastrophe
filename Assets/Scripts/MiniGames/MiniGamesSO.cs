@@ -5,16 +5,21 @@ using UnityEngine;
 [CreateAssetMenu]
 public class MiniGamesSO : ScriptableObject
 {
+    [SerializeField] private int _levelIndex;
+    [Space(10)]
     [SerializeField] private int _star1;
     [SerializeField] private int _star2;
     [SerializeField] private int _star3;
-
+    [Space(10)]
     [SerializeField] private bool isReward1Show;
     [SerializeField] private bool isReward2Show;
-    [SerializeField] private bool isReward3Show;    
-    
+    [SerializeField] private bool isReward3Show;
+    [Space(10)]
     [SerializeField] private bool isCatHappy;
+    [Space(10)]
+    [SerializeField] private string _bestResultPrefs;
 
+    public int LevelIndex { get => _levelIndex; }
     public int Star1 { get => _star1; }
     public int Star2 { get => _star2; }
     public int Star3 { get => _star3; }
@@ -23,6 +28,7 @@ public class MiniGamesSO : ScriptableObject
     public bool IsReward2Show { get => isReward2Show; }
     public bool IsReward3Show { get => isReward3Show; }
     public bool IsCatHappy { get => isCatHappy; }
+    public string BestResultPrefs { get => _bestResultPrefs; }
 
 
     public void SetIsReward1Show(bool isRewardShow)

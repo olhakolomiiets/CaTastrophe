@@ -8,6 +8,7 @@ public class HumanManager : MonoBehaviour
     private int peopleIndex;
     private void Awake()
     {
+        peopleIndex = Random.Range(0, allPeople.Count);
         ActivateRandomHuman();
     }
 
@@ -17,7 +18,12 @@ public class HumanManager : MonoBehaviour
         {
             obj.SetActive(false);
         }
-        peopleIndex = Random.Range(0, allPeople.Count);
+        
         allPeople[peopleIndex].SetActive(true);
+    }
+
+    public void DisableHuman()
+    {
+        allPeople[peopleIndex].SetActive(false);
     }
 }

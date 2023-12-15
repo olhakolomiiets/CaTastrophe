@@ -65,7 +65,7 @@ public class BasketBallHeadLogic : MonoBehaviour
         slider.value = slider.value + addToSlider;
         if (slider.value >= 100f)
         {
-            timer.StopMiniGameTimer();
+            timer.StopTimer();
         }
     }
 
