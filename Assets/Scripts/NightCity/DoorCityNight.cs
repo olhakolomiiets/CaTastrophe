@@ -27,9 +27,20 @@ public class DoorCityNight : MonoBehaviour
 
     private int peopleIndex;
 
+    public Transform playerTransform;
+
+    private IEnumerator cor1;
+    private Coroutine cor2;
+    private Coroutine cor3;
+    private Coroutine cor4;
+
+    private bool _moveRight;
+
     private void Awake()
     {
         ActivateRandomHuman();
+
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public void ActivateRandomHuman()
@@ -44,6 +55,8 @@ public class DoorCityNight : MonoBehaviour
         humanToMove = allPeople[peopleIndex].transform;
         peopleAnimator = allPeople[peopleIndex].GetComponent<Animator>();
         peopleCollider = allPeople[peopleIndex].GetComponent<BoxCollider2D>();
+
+        allPeople[peopleIndex].GetComponent<DamageStoper>().OnCollisionWithPlayer.AddListener(KickPlayer);
     }
 
     public void MovePeople()
@@ -57,23 +70,68 @@ public class DoorCityNight : MonoBehaviour
         StartCoroutine(randomIndex % 2 != 0 ? "PeopleGoRight" : "PeopleGoLeft");
     }
 
-    private IEnumerator PeopleGoRight() => PeopleGo(true, rightMask, Vector3.zero, hideRightTransform, rightTransform);
-    private IEnumerator PeopleGoLeft() => PeopleGo(false, leftMask, Vector3.up * 180, hideLeftTransform, leftTransform);
+    public void KickPlayer()
+    {
+        StopCoroutine(cor1);
+        //StopCoroutine(cor2);
+        StopCoroutine(cor3);
+        if (cor4 != null)
+        {
+            StopCoroutine(cor4);
+        }
+        
+
+        if (playerTransform.transform.position.x < humanToMove.transform.position.x)
+        {
+            humanToMove.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else humanToMove.transform.rotation = Quaternion.Euler(0, 180, 0);
+
+        humanToMove.GetComponent<Animator>().SetTrigger("Kick");
+
+        humanToMove.GetComponent<BoxCollider2D>().isTrigger = true;
+
+        if (!_moveRight)
+            StartCoroutine(PeopleGoToStart(leftMask, Vector3.up * 180, hideLeftTransform, humanToMove.transform));
+        else
+            StartCoroutine(PeopleGoToStart(rightMask, Vector3.zero, hideRightTransform, humanToMove.transform));
+    }
+
+    private IEnumerator PeopleGoRight() => cor1 = PeopleGo(true, rightMask, Vector3.zero, hideRightTransform, rightTransform);
+    private IEnumerator PeopleGoLeft() => cor1 = PeopleGo(false, leftMask, Vector3.up * 180, hideLeftTransform, leftTransform);
+
+    private IEnumerator PeopleGoToStart(GameObject mask, Vector3 rotation, Transform hideTransform, Transform targetTransform)
+    {
+        yield return new WaitForSeconds(2);
+
+        humanToMove.rotation = Quaternion.Euler(rotation.x, 180 - rotation.y, rotation.z);
+        StartCoroutine(MoveToStart(targetTransform, hideTransform, 0f));
+        yield return new WaitForSeconds(1f);
+
+        mask.SetActive(true);
+        peopleCollider.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+
+        darkState.SetActive(false);
+        IsWalkingAndThreatening = false;
+        allPeople[peopleIndex].SetActive(false);
+    }
 
     private IEnumerator PeopleGo(bool goRight, GameObject mask, Vector3 rotation, Transform hideTransform, Transform targetTransform)
     {
+        _moveRight = goRight;
         IsWalkingAndThreatening = true;
         mask.SetActive(false);
         humanToMove.rotation = Quaternion.Euler(rotation);
         darkState.SetActive(true);
-        StartCoroutine(goRight ? MoveTo(targetTransform, hideTransform) : MoveTo(targetTransform, hideTransform));
-        yield return new WaitForSeconds(0.5f);
+        cor3 = StartCoroutine(goRight ? MoveTo(targetTransform, hideTransform) : MoveTo(targetTransform, hideTransform));
+        yield return new WaitForSeconds(1);
 
         peopleCollider.enabled = true;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3.5f);
 
         humanToMove.rotation = Quaternion.Euler(rotation.x, 180 - rotation.y, rotation.z);
-        StartCoroutine(MoveToStart(targetTransform, hideTransform, 0f));
+        cor4 = StartCoroutine(MoveToStart(targetTransform, hideTransform, 0f));
         yield return new WaitForSeconds(2);
 
         mask.SetActive(true);
@@ -125,5 +183,11 @@ public class DoorCityNight : MonoBehaviour
 
         humanToMove.position = hideTransform.position;
         peopleAnimator.SetTrigger(idleActivation);
+    }
+
+
+    private void OnDisable()
+    {
+        allPeople[peopleIndex].GetComponent<DamageStoper>().OnCollisionWithPlayer.RemoveListener(KickPlayer);
     }
 }
