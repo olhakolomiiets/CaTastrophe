@@ -70,6 +70,9 @@ public class MenuLevels : MonoBehaviour
             case 20:
                 FirebaseAnalytics.LogEvent(name: "start_Wall");
                 break;
+            case 22:
+                FirebaseAnalytics.LogEvent(name: "start_NightCity1");
+                break;
         }       
     }
 

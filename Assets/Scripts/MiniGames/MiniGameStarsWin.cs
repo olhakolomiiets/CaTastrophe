@@ -61,9 +61,7 @@ public class MiniGameStarsWin : MonoBehaviour
     {
         textForStar1.text = miniGameStars.Star1.ToString();
         textForStar2.text = miniGameStars.Star2.ToString();
-        textForStar3.text = miniGameStars.Star3.ToString();
-
-        bestResultText.text = $"{PlayerPrefs.GetInt(miniGameStars.BestResultPrefs)}";
+        textForStar3.text = miniGameStars.Star3.ToString();        
 
         if (PlayerPrefs.GetInt("LevelStars" + miniGameStars.LevelIndex) < _gameScore)
             PlayerPrefs.SetInt("LevelStars" + miniGameStars.LevelIndex, _gameScore);
@@ -117,6 +115,8 @@ public class MiniGameStarsWin : MonoBehaviour
             }
             else miniGameStars.SetIsReward3Show(false);
         }
+
+        bestResultText.text = $"{PlayerPrefs.GetInt(miniGameStars.BestResultPrefs)}";
 
         OnActiveMiniGameRewards();
     }

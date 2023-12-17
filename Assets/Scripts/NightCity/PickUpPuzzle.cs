@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PickUpPuzzle : MonoBehaviour
     [SerializeField] private GameObject nightCityPuzzle;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject stars;
-
+    [SerializeField] private int houseNumber;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class PickUpPuzzle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FirebaseAnalytics.LogEvent(name: "puzzlePieceInHouse" + houseNumber);
             StartCoroutine(PuzzlePieceAnim());           
             PlayerPrefs.SetInt(nightCityPuzzlePrefs, 1);
             PlayerPrefs.SetInt("NightCityPuzzle", PlayerPrefs.GetInt("NightCityPuzzle") + 1);           

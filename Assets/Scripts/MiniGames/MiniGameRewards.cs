@@ -48,14 +48,6 @@ public class MiniGameRewards : MonoBehaviour
         _star2 = PlayerPrefs.GetInt(_levelStar2);
         _star3 = PlayerPrefs.GetInt(_levelStar3);
 
-        Debug.Log("Level Star 1 " + PlayerPrefs.GetInt(_levelStar1));
-        Debug.Log("Level Star 2 " + PlayerPrefs.GetInt(_levelStar2));
-        Debug.Log("Level Star 3 " + PlayerPrefs.GetInt(_levelStar3));
-
-        Debug.Log("is Rewards Show 1" + miniGameStars.IsReward1Show);
-        Debug.Log("is Rewards Show 2" + miniGameStars.IsReward2Show);
-        Debug.Log("is Rewards Show 3" + miniGameStars.IsReward3Show);
-
         levelStars = new string[] { _levelStar1, _levelStar2, _levelStar3 };
         activeRewards = new int[] { _star1, _star2, _star3 };
         isRewardsShow = new bool[] { miniGameStars.IsReward1Show, miniGameStars.IsReward2Show, miniGameStars.IsReward3Show };
