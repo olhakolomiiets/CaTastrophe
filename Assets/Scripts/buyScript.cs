@@ -17,7 +17,7 @@ public class buyScript : MonoBehaviour
     public GameObject buttonTxtBuy;
     public GameObject buttonTxtSelect;
     private Text buyText;
-    private GameObject priceTag;
+    [SerializeField] private GameObject priceTag;
     [SerializeField] private GameObject nameChange;
     private int allCatsYouHave;
     private int floor1Active;
@@ -36,7 +36,6 @@ public class buyScript : MonoBehaviour
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         buttonTxtSelect.transform.parent.GetComponent<Image>().enabled = true;
         buyText = buttonTxtBuy.GetComponent<Text>();
-        priceTag = transform.parent.GetChild(2).gameObject;
         if (purch == 0)
         {           
             priceText.text = price.ToString();
