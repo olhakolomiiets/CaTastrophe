@@ -11,6 +11,10 @@ public class ReturnReward : MonoBehaviour
     private const int _days = 4;
     private DateTime lastVisitDate;
 
+    private DateTime currentDate;
+
+
+
     private void Start()
     {
         if (PlayerPrefs.HasKey("DateOfTheUserLastVisit"))
@@ -18,11 +22,11 @@ public class ReturnReward : MonoBehaviour
             string lastVisitDateString = PlayerPrefs.GetString("DateOfTheUserLastVisit");
             lastVisitDate = DateTime.Parse(lastVisitDateString);
 
-            DateTime currentDate = DateTime.Now.Date;
+            currentDate = DateTime.Now.Date;
 
             int daysSinceLastVisit = (int)(currentDate - lastVisitDate).TotalDays;
 
-            if (daysSinceLastVisit >= _days)
+            if (daysSinceLastVisit >= _days && currentDate != lastVisitDate)
             {
                 OpenWindow();
             }
@@ -37,6 +41,9 @@ public class ReturnReward : MonoBehaviour
 
         SoundManager.snd.PlaybuySounds();
         _rewardWindow.SetActive(false);
+
+        string actualDate = currentDate.ToString();
+        PlayerPrefs.SetString("DateOfTheUserLastVisit", actualDate);
 
         FirebaseAnalytics.LogEvent(name: "received_return_reward");
     }
