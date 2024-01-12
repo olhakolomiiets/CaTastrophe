@@ -60,7 +60,7 @@ public class SpecialOffers : MonoBehaviour
         _purchaseController.BuyProduct(_productNane);
     }
 
-    private void SpecialOfferEnergyRestore()
+    public void SpecialOfferEnergyRestore()
     {
         powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
         powersToRestore = powersToRestore + amountPowersToRestore;
@@ -73,7 +73,7 @@ public class SpecialOffers : MonoBehaviour
         specialOffersTimer.SpecialOfferPurchased();
     }
 
-    private void MoneyPack3500()
+    public void MoneyPack3500()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy3500;
@@ -84,7 +84,7 @@ public class SpecialOffers : MonoBehaviour
         specialOffersTimer.SpecialOfferPurchased();
     }
 
-    private void StarterPack()
+    public void StarterPack()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + 10000;
@@ -114,7 +114,7 @@ public class SpecialOffers : MonoBehaviour
         PlayerPrefs.SetInt("UserGotStarterPack", 1);
     }
 
-    private void GetExtraLife()
+    public void GetExtraLife()
     {
         PlayerPrefs.SetInt("extraLife", 1);
         SoundManager.snd.PlaybuySounds();

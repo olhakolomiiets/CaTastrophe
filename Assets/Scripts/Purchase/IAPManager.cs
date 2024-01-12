@@ -215,7 +215,34 @@ public class IAPManager : MonoBehaviour, IStoreListener
     }
     #endregion
 
-    #region PURCHASES RESTORE METHODS   
+    #region PURCHASES RESTORE METHODS
+
+    public void RestorePurchases() //For AppStore
+    {
+        if (!IsInitialized())
+        {
+            Debug.Log("RestorePurchases FAIL. Not initialized.");
+            return;
+        }
+
+        if (Application.platform == RuntimePlatform.IPhonePlayer ||
+            Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            Debug.Log("RestorePurchases started ...");
+
+            var apple = _extensionProvider.GetExtension<IAppleExtensions>();
+
+            apple.RestoreTransactions((result) =>
+            {
+                Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
+            });
+        }
+        else
+        {
+            Debug.Log("RestorePurchases FAIL. Not supported on this platform. Current = " + Application.platform);
+        }
+    }
+
     private void Product_MoneyPack5000ForPreRegistration()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");

@@ -69,7 +69,7 @@ public class PurchaseManager : MonoBehaviour
         _purchaseController.BuyProduct(_productNane);
     }
 
-     private void NoAds()
+     public void NoAds()
     {
         PlayerPrefs.SetInt("adsRemoved", 1);
         buyNoAdsTxt.SetActive(false);
@@ -79,7 +79,7 @@ public class PurchaseManager : MonoBehaviour
         noAdsWindow.SetActive(false);     
     }
 
-    private void ExtraLife()
+    public void ExtraLife()
     {
         PlayerPrefs.SetInt("extraLife", 1);
         SoundManager.snd.PlaybuySounds();
@@ -90,7 +90,7 @@ public class PurchaseManager : MonoBehaviour
         extraLifeWindow.SetActive(false);     
     }
 
-    private void MoneyPack2000()
+    public void MoneyPack2000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy2K;
@@ -99,7 +99,7 @@ public class PurchaseManager : MonoBehaviour
         _2KCoinsWindow.SetActive(false);       
     }
 
-    private void MoneyPack5000()
+    public void MoneyPack5000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy5K;        
@@ -108,7 +108,7 @@ public class PurchaseManager : MonoBehaviour
         _5KCoinsWindow.SetActive(false);       
     }
 
-    private void MoneyPack10000()
+    public void MoneyPack10000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy10K;
@@ -116,7 +116,7 @@ public class PurchaseManager : MonoBehaviour
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _10KCoinsWindow.SetActive(false);        
     }
-    private void PowersToRestore()
+    public void PowersToRestore()
     {
         powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
         powersToRestore = powersToRestore + amountPowersToRestore;
