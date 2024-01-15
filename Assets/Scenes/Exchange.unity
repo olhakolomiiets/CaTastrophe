@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38900,6 +38900,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6856277578503558895, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1914461738}
+    - target: {fileID: 6856277578503558895, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1994722826}
+    - target: {fileID: 6856277578503558895, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ApplyChanges
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856277578503558895, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856277578503558895, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856277578503558895, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6856277579365139251, guid: 6011232b4841d8f499b738dae8508f3f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -39019,6 +39049,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215262925514316405, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1994722826}
+    - target: {fileID: 9215262925514316405, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonsSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215262925514316405, guid: 6011232b4841d8f499b738dae8508f3f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6011232b4841d8f499b738dae8508f3f, type: 3}
@@ -58704,6 +58749,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27cd17300fc839f458113e2843574b39, type: 3}
+--- !u!114 &1914461738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5478994381763926420, guid: 27cd17300fc839f458113e2843574b39,
+    type: 3}
+  m_PrefabInstance: {fileID: 1914461737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1538d37df608c4f974b05b85b5147d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1916741512
 GameObject:
   m_ObjectHideFlags: 0
