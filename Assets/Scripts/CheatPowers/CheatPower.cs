@@ -5,7 +5,10 @@ using UnityEngine;
 public class CheatPower : MonoBehaviour
 {
     public string ppNameCheatPower;
-    public GameObject icoIsNotBought; 
+    public int hatIndex;
+    public BuyCheatPower cheatPowerInfo;
+    public GameObject icoIsNotBought;
+    public GameObject ButtonChoose;
     public GameObject icoSelect; 
     public GameObject icoDefault; 
     public GameObject buttonSelect; 

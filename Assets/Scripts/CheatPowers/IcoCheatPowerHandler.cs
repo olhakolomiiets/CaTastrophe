@@ -10,7 +10,7 @@ public class IcoCheatPowerHandler : MonoBehaviour
 
     private void OnEnable() 
     {
-    
+       
     }
 
     public void GetIconAndOpen(GameObject ico) 
@@ -104,4 +104,57 @@ public class IcoCheatPowerHandler : MonoBehaviour
         cheatPowerIcon.GetComponent<CheatIco>().icoAnimator.enabled = false;
         this.gameObject.SetActive(false);
     }
+
+    public void SetHat(int hatId)
+    {
+        string nameCat = PlayerPrefs.GetString("CatInShopActive");
+        CheatPower _cheatPower = cheatPowers[hatId-1].GetComponent<CheatPower>();
+        string powerName = _cheatPower.ppNameCheatPower;
+        int hatInex = _cheatPower.hatIndex;
+        PlayerPrefs.SetInt(nameCat + powerName, hatInex);
+        Debug.Log(" nameCat " + nameCat + " powerName - " + powerName + " hatInex - " + hatInex);
+
+        BuyCheatPower _cheatPowerInfo = _cheatPower.cheatPowerInfo;
+        
+        for (int i = 0; i < cheatPowers.Length; i++)
+        {
+            cheatPowers[i].transform.GetChild(0).gameObject.SetActive(true);
+            cheatPowers[i].transform.GetChild(1).gameObject.SetActive(false);
+            cheatPowers[i].transform.GetChild(6).gameObject.SetActive(false);
+            cheatPowers[i].transform.GetChild(5).gameObject.SetActive(true);
+            //cheatPowers[i].transform.GetChild(7).gameObject.SetActive(false);
+            var cheatPowerInfo = cheatPowers[i].GetComponent<CheatPower>().cheatPowerInfo;
+            if (PlayerPrefs.GetInt(nameCat + cheatPowerInfo.ppNameCheatPower) != 0)
+            {
+                PlayerPrefs.SetInt(nameCat + cheatPowerInfo.ppNameCheatPower, 1);
+            }
+            
+            Debug.Log(" nameCat " + nameCat + " powerName - " + cheatPowerInfo.ppNameCheatPower + " Set 1 - ");
+        }
+        PlayerPrefs.SetInt(nameCat + _cheatPowerInfo.ppNameCheatPower, 2);
+
+        cheatPowers[hatId-1].transform.GetChild(1).gameObject.SetActive(true);
+        cheatPowers[hatId-1].transform.GetChild(6).gameObject.SetActive(true);
+        cheatPowers[hatId - 1].transform.GetChild(5).gameObject.SetActive(false);
+        //cheatPowers[hatId-1].transform.GetChild(7).gameObject.SetActive(true);
+        Debug.Log(" cheatPowers[hatId-1].transform.GetChild(6) SetActive(false) " + cheatPowers[hatId - 1].transform.GetChild(6).gameObject.name); 
+    }
+
+    public void RemoveHat(int hatId)
+    {
+        string nameCat = PlayerPrefs.GetString("CatInShopActive");
+        CheatPower _cheatPower = cheatPowers[hatId-1].GetComponent<CheatPower>();
+        string powerName = _cheatPower.ppNameCheatPower;
+        int hatInex = _cheatPower.hatIndex;
+        PlayerPrefs.SetInt(nameCat + powerName, 1);
+        Debug.Log(" nameCat " + nameCat + "powerName - " + powerName + "hatInex - " + hatInex);
+
+        BuyCheatPower _cheatPowerInfo = _cheatPower.cheatPowerInfo;
+        PlayerPrefs.SetInt(nameCat + _cheatPowerInfo.ppNameCheatPower, 1);
+
+        cheatPowers[hatId-1].transform.GetChild(0).gameObject.SetActive(true);
+        cheatPowers[hatId-1].transform.GetChild(1).gameObject.SetActive(false);
+        cheatPowers[hatId-1].transform.GetChild(6).gameObject.SetActive(false);
+    }
+
 }

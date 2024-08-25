@@ -8,7 +8,7 @@ using Firebase.Analytics;
 public class BuyCheatPower : MonoBehaviour
 {
     public bool isPurchased;
-    [SerializeField] private string ppNameCheatPower;
+    public string ppNameCheatPower;
     [SerializeField] private CheatPowersHandler _cheatPowerHandler;
     private string ppNameCat;
     public int price;

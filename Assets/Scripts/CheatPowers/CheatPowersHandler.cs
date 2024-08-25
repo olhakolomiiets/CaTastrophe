@@ -8,6 +8,7 @@ public class CheatPowersHandler : MonoBehaviour
     private int purch;
     [SerializeField] private GameObject[] cheatPowersInfo;
     [SerializeField] private GameObject cheatPowersTip;
+    public bool isCheckHat;
 
     void Start()
     {
@@ -16,6 +17,12 @@ public class CheatPowersHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        if (isCheckHat)
+        {
+            CheckHat();
+            return;
+        }
+
         foreach (GameObject cheatPow in cheatPowers)
         {
             CheatPower _cheatPower = cheatPow.GetComponent<CheatPower>();
@@ -89,4 +96,49 @@ public class CheatPowersHandler : MonoBehaviour
             cheatPowersInfo[i].SetActive(i == infoId);
         }
     }
+
+    private void CheckHat() 
+    {
+        foreach (GameObject cheatPow in cheatPowers)
+        {
+            CheatPower _cheatPower = cheatPow.GetComponent<CheatPower>();
+            BuyCheatPower _cheatPowerInfo = _cheatPower.cheatPowerInfo;
+            string powerName = _cheatPowerInfo.ppNameCheatPower;
+            string nameCat = PlayerPrefs.GetString("CatInShopActive");
+            
+            purch = PlayerPrefs.GetInt(nameCat + powerName);
+
+            Debug.Log("----------------- nameCat " + nameCat + " powerName - " + powerName + " Get Int " + PlayerPrefs.GetInt(nameCat + powerName));
+
+            if (purch == 0)
+            {
+                _cheatPower.icoDefault.SetActive(true);
+                _cheatPower.icoIsNotBought.SetActive(true);
+                _cheatPower.icoSelect.SetActive(false);
+                _cheatPower.buttonSelect.SetActive(false);
+                _cheatPower.buttonRemove.SetActive(false);
+            }
+            else if (purch == 2)
+            {
+                _cheatPower.icoDefault.SetActive(false);
+                _cheatPower.icoIsNotBought.SetActive(false);
+                _cheatPower.icoSelect.SetActive(true);
+                _cheatPower.buttonSelect.SetActive(false);
+                _cheatPower.buttonRemove.SetActive(true);
+                _cheatPower.ButtonChoose.SetActive(false);
+                Debug.Log("-------------------------------------------- cheatPow if (purch == 2) " + cheatPow.name);
+                // Add button to cansel power only if came from current ico       
+            }
+            else
+            {
+                _cheatPower.icoDefault.SetActive(true);
+                _cheatPower.icoIsNotBought.SetActive(false);
+                _cheatPower.icoSelect.SetActive(false);
+                _cheatPower.buttonSelect.SetActive(true);
+                _cheatPower.buttonRemove.SetActive(false);
+                _cheatPower.ButtonChoose.SetActive(false);
+            }
+        }
+    }
+
 }
