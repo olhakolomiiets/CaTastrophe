@@ -121,11 +121,12 @@ public class IcoCheatPowerHandler : MonoBehaviour
             cheatPowers[i].transform.GetChild(0).gameObject.SetActive(true);
             cheatPowers[i].transform.GetChild(1).gameObject.SetActive(false);
             cheatPowers[i].transform.GetChild(6).gameObject.SetActive(false);
-            cheatPowers[i].transform.GetChild(5).gameObject.SetActive(true);
+            
             //cheatPowers[i].transform.GetChild(7).gameObject.SetActive(false);
             var cheatPowerInfo = cheatPowers[i].GetComponent<CheatPower>().cheatPowerInfo;
             if (PlayerPrefs.GetInt(nameCat + cheatPowerInfo.ppNameCheatPower) != 0)
             {
+                cheatPowers[i].transform.GetChild(5).gameObject.SetActive(true);
                 PlayerPrefs.SetInt(nameCat + cheatPowerInfo.ppNameCheatPower, 1);
             }
             
