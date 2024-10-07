@@ -63,6 +63,60 @@ public class HatsActivator : MonoBehaviour
                 case 5:
                     ActivateHat(4);
                     break;
+                case 6:
+                    ActivateHat(5);
+                    break;
+                case 7:
+                    ActivateHat(6);
+                    break;
+                case 8:
+                    ActivateHat(7);
+                    break;
+                case 9:
+                    ActivateHat(8);
+                    break;
+                case 10:
+                    ActivateHat(9);
+                    break;
+                case 11:
+                    ActivateHat(10);
+                    break;
+                case 12:
+                    ActivateHat(11);
+                    break;
+                case 13:
+                    ActivateHat(12);
+                    break;
+                case 14:
+                    ActivateHat(13);
+                    break;
+                case 15:
+                    ActivateHat(14);
+                    break;
+                case 16:
+                    ActivateHat(15);
+                    break;
+                case 17:
+                    ActivateHat(16);
+                    break;
+                case 18:
+                    ActivateHat(17);
+                    break;
+                case 19:
+                    ActivateHat(18);
+                    break;
+                case 20:
+                    ActivateHat(19);
+                    break;
+                case 21:
+                    ActivateHat(20);
+                    break;
+                case 22:
+                    ActivateHat(21);
+                    break;
+                case 23:
+                    ActivateHat(22);
+                    break;
                 default:
                     DeactivateAllHats();
                     break;
@@ -122,6 +176,62 @@ public class HatsActivator : MonoBehaviour
             case 5:
                 ActivateHat(4);
                 break;
+            case 6:
+                ActivateHat(5);
+                break;
+            case 7:
+                ActivateHat(6);
+                break;
+            case 8:
+                ActivateHat(7);
+                break;
+            case 9:
+                ActivateHat(8);
+                break;
+            case 10:
+                ActivateHat(9);
+                break;
+            case 11:
+                ActivateHat(10);
+                break;
+            case 12:
+                ActivateHat(11);
+                break;
+            case 13:
+                ActivateHat(12);
+                break;
+            case 14:
+                ActivateHat(13);
+                break;
+            case 15:
+                ActivateHat(14);
+                break;
+            case 16:
+                ActivateHat(15);
+                break;
+            case 17:
+                ActivateHat(16);
+                break;
+            case 18:
+                ActivateHat(17);
+                break;
+            case 19:
+                ActivateHat(18);
+                break;
+            case 20:
+                ActivateHat(19);
+                break;
+            case 21:
+                ActivateHat(20);
+                break;
+            case 22:
+                ActivateHat(21);
+                break;
+            case 23:
+                ActivateHat(22);
+                break;
+
+
             default:
                 DeactivateAllHats();
                 break;
