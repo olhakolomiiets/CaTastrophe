@@ -151,14 +151,14 @@ public class HatsActivator : MonoBehaviour
         while (true)
         {
             SetActiveHatInShop();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }        
     }
 
     private void SetActiveHatInShop()
     {
         string nameCat = PlayerPrefs.GetString("CatInShopActive");
-        Debug.Log(" nameCat " + nameCat + " PlayerPrefs.GetInt(nameCat + ActiveHat) " + PlayerPrefs.GetInt(nameCat + "ActiveHat"));
+        //Debug.Log(" nameCat " + nameCat + " PlayerPrefs.GetInt(nameCat + ActiveHat) " + PlayerPrefs.GetInt(nameCat + "ActiveHat"));
         switch (PlayerPrefs.GetInt(nameCat + "ActiveHat"))
         {
             case 1:

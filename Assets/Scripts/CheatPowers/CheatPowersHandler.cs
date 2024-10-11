@@ -29,7 +29,7 @@ public class CheatPowersHandler : MonoBehaviour
             string powerName = _cheatPower.ppNameCheatPower;
             string nameCat = PlayerPrefs.GetString("CatInShopActive");
             purch = PlayerPrefs.GetInt(nameCat + powerName);
-
+            
             if (purch == 0)
             {
                 _cheatPower.icoDefault.SetActive(true);
@@ -108,7 +108,7 @@ public class CheatPowersHandler : MonoBehaviour
             
             purch = PlayerPrefs.GetInt(nameCat + powerName);
 
-            Debug.Log("----------------- nameCat " + nameCat + " powerName - " + powerName + " Get Int " + PlayerPrefs.GetInt(nameCat + powerName));
+            Debug.Log("----------------- nameCat " + nameCat + " powerName - " + powerName + "; Get Int or purch " + PlayerPrefs.GetInt(nameCat + powerName));
 
             if (purch == 0)
             {
@@ -117,6 +117,7 @@ public class CheatPowersHandler : MonoBehaviour
                 _cheatPower.icoSelect.SetActive(false);
                 _cheatPower.buttonSelect.SetActive(false);
                 _cheatPower.buttonRemove.SetActive(false);
+                _cheatPower.ButtonChoose.SetActive(true);
             }
             else if (purch == 2)
             {
