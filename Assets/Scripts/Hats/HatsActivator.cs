@@ -138,7 +138,7 @@ public class HatsActivator : MonoBehaviour
         }
     }
 
-    private void DeactivateAllHats()
+    public void DeactivateAllHats()
     {
         foreach (GameObject hat in Hats)
         {
@@ -158,7 +158,7 @@ public class HatsActivator : MonoBehaviour
     private void SetActiveHatInShop()
     {
         string nameCat = PlayerPrefs.GetString("CatInShopActive");
-        //Debug.Log(" nameCat " + nameCat + " PlayerPrefs.GetInt(nameCat + ActiveHat) " + PlayerPrefs.GetInt(nameCat + "ActiveHat"));
+        Debug.Log(" nameCat " + nameCat + " PlayerPrefs.GetInt(nameCat + ActiveHat) " + PlayerPrefs.GetInt(nameCat + "ActiveHat"));
         switch (PlayerPrefs.GetInt(nameCat + "ActiveHat"))
         {
             case 1:

@@ -120,13 +120,15 @@ public class IcoCheatPowerHandler : MonoBehaviour
         {
             cheatPowers[i].transform.GetChild(0).gameObject.SetActive(true);
             cheatPowers[i].transform.GetChild(1).gameObject.SetActive(false);
-            cheatPowers[i].transform.GetChild(6).gameObject.SetActive(false);
+            cheatPowers[i].GetComponent<CheatPower>().buttonRemove.SetActive(false);
+            //cheatPowers[i].transform.GetChild(6).gameObject.SetActive(false);
             
-            //cheatPowers[i].transform.GetChild(7).gameObject.SetActive(false);
+
             var cheatPowerInfo = cheatPowers[i].GetComponent<CheatPower>().cheatPowerInfo;
             if (PlayerPrefs.GetInt(nameCat + cheatPowerInfo.ppNameCheatPower) != 0)
             {
-                cheatPowers[i].transform.GetChild(5).gameObject.SetActive(true);
+                cheatPowers[i].GetComponent<CheatPower>().buttonSelect.SetActive(true);
+                //cheatPowers[i].transform.GetChild(5).gameObject.SetActive(true);
                 PlayerPrefs.SetInt(nameCat + cheatPowerInfo.ppNameCheatPower, 1);
             }
             
@@ -135,10 +137,14 @@ public class IcoCheatPowerHandler : MonoBehaviour
         PlayerPrefs.SetInt(nameCat + _cheatPowerInfo.ppNameCheatPower, 2);
 
         cheatPowers[hatId-1].transform.GetChild(1).gameObject.SetActive(true);
-        cheatPowers[hatId-1].transform.GetChild(6).gameObject.SetActive(true);
-        cheatPowers[hatId - 1].transform.GetChild(5).gameObject.SetActive(false);
-        //cheatPowers[hatId-1].transform.GetChild(7).gameObject.SetActive(true);
-        Debug.Log(" cheatPowers[hatId-1].transform.GetChild(6) SetActive(false) " + cheatPowers[hatId - 1].transform.GetChild(6).gameObject.name); 
+
+        cheatPowers[hatId - 1].GetComponent<CheatPower>().buttonRemove.SetActive(false);
+        //cheatPowers[hatId-1].transform.GetChild(6).gameObject.SetActive(true);
+
+        cheatPowers[hatId - 1].GetComponent<CheatPower>().buttonSelect.SetActive(false);
+        //cheatPowers[hatId - 1].transform.GetChild(5).gameObject.SetActive(false);
+
+        cheatPowers[hatId - 1].GetComponent<CheatPower>().buttonRemove.SetActive(true);
     }
 
     public void RemoveHat(int hatId)
@@ -147,7 +153,7 @@ public class IcoCheatPowerHandler : MonoBehaviour
         CheatPower _cheatPower = cheatPowers[hatId-1].GetComponent<CheatPower>();
         string powerName = _cheatPower.ppNameCheatPower;
         int hatInex = _cheatPower.hatIndex;
-        PlayerPrefs.SetInt(nameCat + powerName, 1);
+        PlayerPrefs.SetInt(nameCat + powerName, 0);
         Debug.Log(" nameCat " + nameCat + "powerName - " + powerName + "hatInex - " + hatInex);
 
         BuyCheatPower _cheatPowerInfo = _cheatPower.cheatPowerInfo;
@@ -155,7 +161,11 @@ public class IcoCheatPowerHandler : MonoBehaviour
 
         cheatPowers[hatId-1].transform.GetChild(0).gameObject.SetActive(true);
         cheatPowers[hatId-1].transform.GetChild(1).gameObject.SetActive(false);
-        cheatPowers[hatId-1].transform.GetChild(6).gameObject.SetActive(false);
+
+        cheatPowers[hatId - 1].GetComponent<CheatPower>().buttonRemove.SetActive(false);
+        //cheatPowers[hatId-1].transform.GetChild(6).gameObject.SetActive(false);
+
+        cheatPowers[hatId - 1].GetComponent<CheatPower>().buttonSelect.SetActive(true);
     }
 
 }
