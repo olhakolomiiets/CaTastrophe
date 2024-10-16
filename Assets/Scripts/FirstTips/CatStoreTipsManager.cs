@@ -9,11 +9,12 @@ public class CatStoreTipsManager : MonoBehaviour
     [SerializeField] private GameObject tipName;
     [SerializeField] private GameObject tipCheatPowers;
     [SerializeField] private GameObject tipCheatPower;
+    [SerializeField] private GameObject tipHats;
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject catName;
     [SerializeField] private GameObject cheatPowers;
     [SerializeField] private GameObject cheatPowerInfo;
-    [SerializeField] private GameObject cheatPowerLock;
+    [SerializeField] private GameObject catInfo;
 
 
     void Start()
@@ -50,7 +51,14 @@ public class CatStoreTipsManager : MonoBehaviour
         cheatPowers.SetActive(true);
         cheatPowerInfo.SetActive(true);
         tipCheatPower.SetActive(true);
-        cheatPowerLock.SetActive(false);
+    }
+    public void ActiveTipHats()
+    {
+        tipCheatPower.SetActive(false);
+        background.SetActive(false);
+        cheatPowers.SetActive(false);
+        cheatPowerInfo.SetActive(false);
+        tipHats.SetActive(true);
     }
 
     public void ExitTip()
@@ -59,6 +67,6 @@ public class CatStoreTipsManager : MonoBehaviour
         background.SetActive(false);
         cheatPowers.SetActive(false);
         cheatPowerInfo.SetActive(false);
-        cheatPowerLock.SetActive(true);
+        tipHats.SetActive(false);
     }
 }
