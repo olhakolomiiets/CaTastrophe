@@ -11463,6 +11463,7 @@ GameObject:
   - component: {fileID: 140575141}
   - component: {fileID: 140575143}
   - component: {fileID: 140575142}
+  - component: {fileID: 140575144}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -11533,6 +11534,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140575140}
   m_CullTransparentMesh: 0
+--- !u!114 &140575144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140575140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: StarsAmountUnlock1
+  FallbackText: 
 --- !u!1 &141232590
 GameObject:
   m_ObjectHideFlags: 0
@@ -76057,10 +76072,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -76080,8 +76095,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 600590129}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: GiveMeMoney
+        m_TargetAssemblyTypeName: MenuLevels, Assembly-CSharp
+        m_MethodName: GiveMeMoreMoney
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -93136,9 +93151,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0422\u0415\u0411\u0415 \u041D\u0410\u0414\u041E \u041C\u0418\u041D\u0418\u041C\u0423\u041C
-    6 \u0417\u0412\u0415\u0417\u0414\u042B \u0414\u041B\u042F \u042D\u0422\u041E\u0413\u041E
-    \u0414\u041E\u041C\u0410"
+  m_Text: "\u0427\u0422\u041E\u0411\u042B \u041E\u0422\u041A\u0420\u042B\u0422\u042C
+    \u042D\u0422\u041E\u0422 \u0414\u041E\u041C \u041D\u0423\u0416\u041D\u041E \u041C\u0418\u041D\u0418\u041C\u0423\u041C
+    6 \u0417\u0412\u0415\u0417\u0414"
 --- !u!222 &1197342029
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -93160,7 +93175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationName: StarsAmountUnlock6
-  FallbackText: 
+  FallbackText: "\u0422\u0415\u0411\u0415 \u041D\u0410\u0414\u041E \u041C\u0418\u041D\u0418\u041C\u0423\u041C
+    6 \u0417\u0412\u0415\u0417\u0414\u042B \u0414\u041B\u042F \u042D\u0422\u041E\u0413\u041E
+    \u0414\u041E\u041C\u0410"
 --- !u!1 &1198843659
 GameObject:
   m_ObjectHideFlags: 0
@@ -96715,7 +96732,7 @@ MonoBehaviour:
   textForStar2: {fileID: 1406101118}
   textForStar3: {fileID: 861120504}
   levelIndex: 4
-  starsToUnlock: 0
+  starsToUnlock: 1
   startButton: {fileID: 1724292843}
   message: {fileID: 1641928877}
 --- !u!222 &1242024037
@@ -117588,6 +117605,7 @@ GameObject:
   - component: {fileID: 1558889917}
   - component: {fileID: 1558889919}
   - component: {fileID: 1558889918}
+  - component: {fileID: 1558889920}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -117658,6 +117676,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558889916}
   m_CullTransparentMesh: 0
+--- !u!114 &1558889920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558889916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee4021ce59f313499a5cab041f02aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: StarsAmountUnlock1
+  FallbackText: 
 --- !u!1 &1559076678
 GameObject:
   m_ObjectHideFlags: 0
@@ -155088,7 +155120,7 @@ MonoBehaviour:
   textForStar2: {fileID: 414058331}
   textForStar3: {fileID: 1875894422}
   levelIndex: 3
-  starsToUnlock: 0
+  starsToUnlock: 1
   startButton: {fileID: 1762061271}
   message: {fileID: 1317140756}
 --- !u!114 &2075250207
@@ -190625,7 +190657,7 @@ PrefabInstance:
     - target: {fileID: 7778184984673707880, guid: 455aa2e0b5d23e24f978054da0be506e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 573.15497
+      value: 1298.8711
       objectReference: {fileID: 0}
     - target: {fileID: 7778184984673707880, guid: 455aa2e0b5d23e24f978054da0be506e,
         type: 3}

@@ -105,6 +105,11 @@ public class MenuLevels : MonoBehaviour
         }
     }
 
+    public void GiveMeMoreMoney()
+    {
+        PlayerPrefs.SetInt("TotalScore", 50000);
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("main-menu");

@@ -62,6 +62,7 @@ public class BuyCheatPower : MonoBehaviour
         if (TotalScore >= price && isPurchased == false)
         {
             PlayerPrefs.SetInt(ppNameCat + ppNameCheatPower, 1);
+            FirebaseAnalytics.LogEvent(name: "buy_cheat_power_" + ppNameCheatPower);
             TotalScore = TotalScore - price;
             isPurchased = true;
             SoundManager.snd.PlaybuySounds();
@@ -72,9 +73,7 @@ public class BuyCheatPower : MonoBehaviour
             PlayerPrefs.SetInt("TotalScore", TotalScore);
             _cheatPowerHandler.UpdateAllIcons();
             _cheatPowerHandler.ShowTip();
-            this.gameObject.SetActive(false);
-
-            FirebaseAnalytics.LogEvent(name: "buy_cheat_power " + ppNameCheatPower);
+            this.gameObject.SetActive(false);            
 
             // if(CheatPowerBoughtEvent != null)
             // CheatPowerBoughtEvent?.Invoke();
