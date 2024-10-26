@@ -7,6 +7,7 @@ public class NameOfCatShop : MonoBehaviour
 
     public string nameOfCat;
     public string savedNameCat;
+    public InputField inputField;
     public Text inputText;
     private int catIndex;
     public void SetName()
@@ -23,5 +24,18 @@ public class NameOfCatShop : MonoBehaviour
             savedNameCat = "Cat".ToString().ToUpper();
             PlayerPrefs.SetString("nameOfCat" + catIndex, savedNameCat); 
         }        
+    }
+
+    public void UpdateName()
+    {
+        savedNameCat = inputText.text.ToUpper();
+        PlayerPrefs.SetString("nameOfCat" + catIndex, savedNameCat);
+        nameOfCat = PlayerPrefs.GetString("nameOfCat" + catIndex);
+        inputField.text = string.Empty;
+    }
+
+    public void changeCatIndex(int index)
+    {
+        catIndex = index;
     }
 }

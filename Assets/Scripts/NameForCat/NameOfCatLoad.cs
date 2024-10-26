@@ -9,7 +9,7 @@ public class NameOfCatLoad : MonoBehaviour
     public Text loadedName;
     [SerializeField] private int catIndex;
 
-    private void Start()
+    private void OnEnable()
     {
         nameOfCat = PlayerPrefs.GetString("nameOfCat" + catIndex);
         loadedName.text = nameOfCat;
