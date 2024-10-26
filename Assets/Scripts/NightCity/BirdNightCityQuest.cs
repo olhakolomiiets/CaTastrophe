@@ -136,6 +136,7 @@ public class BirdNightCityQuest : MonoBehaviour
             {
                 moveToEnd = false;
                 moveCoroutine = StartCoroutine(MoveObjectToStart(2f));
+                StartCoroutine(MakeCatVisible(2f));
             }
         }
     }
@@ -214,7 +215,7 @@ public class BirdNightCityQuest : MonoBehaviour
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(endTransform.position, startTransform.position);
         questAnimator.SetTrigger(questDeactivation);
-        hideScript.HidingOff();
+        //hideScript.HidingOff();
         while (Time.time - startTime < moveDuration)
         {
             float distanceCovered = (Time.time - startTime) * journeyLength / moveDuration;
@@ -229,6 +230,12 @@ public class BirdNightCityQuest : MonoBehaviour
         transformToMove.position = startTransform.position;
         ChangeGameObjDirection();
         questAnimator.SetTrigger(questActivation);
+    }
+
+    private IEnumerator MakeCatVisible(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        hideScript.HidingOff();
     }
 
     public void ChangeGameObjDirection()

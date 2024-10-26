@@ -3747,6 +3747,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTimeUpText: {fileID: 61319223}
   scoreTotalText: {fileID: 2109390632}
+  extraCoinsText: {fileID: 0}
+  buttonReward: {fileID: 0}
+  serviceText: {fileID: 0}
+  paws: {fileID: 0}
+  loadingPaws: []
+  rewardMsg: {fileID: 0}
+  rewardText: {fileID: 0}
+  _adController: {fileID: 0}
+  OnUserEarnedRewardEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  RewardedAdLoadedWithErrorEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &61921091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8706,7 +8723,7 @@ Transform:
   m_LocalScale: {x: 0.42714584, y: 0.42714584, z: 0.42714584}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &165432298
 MonoBehaviour:
@@ -26276,7 +26293,7 @@ PrefabInstance:
     - target: {fileID: 5480039316868281723, guid: a624864b3aa50484db99137a0790f000,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5480039316868281723, guid: a624864b3aa50484db99137a0790f000,
         type: 3}
