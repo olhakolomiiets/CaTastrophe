@@ -13,12 +13,19 @@ public class NameOfCatLoad : MonoBehaviour
     {
         nameOfCat = PlayerPrefs.GetString("nameOfCat" + catIndex);
         loadedName.text = nameOfCat;
-
     }
     private void Update()
     {
-        nameOfCat = PlayerPrefs.GetString("nameOfCat" + catIndex);
-        loadedName.text = nameOfCat;
+        if (!PlayerPrefs.HasKey("nameOfCat" + catIndex))
+        {
+            loadedName.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("CatName")}";
+        }
+        else
+        {
+            nameOfCat = PlayerPrefs.GetString("nameOfCat" + catIndex);
+            loadedName.text = nameOfCat;
+        }
+            
         // StartCoroutine(UpdateName());
     }
 

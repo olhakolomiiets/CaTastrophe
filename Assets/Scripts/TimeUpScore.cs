@@ -36,20 +36,13 @@ public class TimeUpScore : MonoBehaviour
     private int totalScore;
     private int extraCoins;
     private int tScore;
-    private bool _rewardedAdUsed;
     private float animationDuration = 0.5f;
     private Sequence loadingSequence;
 
     #endregion
 
-    void Start()
-    {
-        // sm = FindObjectOfType<ScoreManager>();
-        // totalScore = sm.TotalScore;
-    }
     private void OnEnable()
     {
-        _rewardedAdUsed = false;
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
         _adController.RewardedAdLoadedWithErrorEvent.AddListener(RewardedAdWithError);
@@ -64,11 +57,7 @@ public class TimeUpScore : MonoBehaviour
         StartCoroutine("CounterTotal");
         StartCoroutine("ExtraCoinsCounter");
     }
-    void Update()
-    {
-        // StartCoroutine("Counter");
-        // StartCoroutine("CounterTotal");
-    }
+
     IEnumerator Counter()
     {
         for (int i = 1; i <= sm.score; i += 4)
@@ -111,35 +100,28 @@ public class TimeUpScore : MonoBehaviour
 
     public void UserEarnedReward()
     {
-        StopLoadingAnimation();
-        paws.SetActive(false);
-        serviceText.gameObject.SetActive(false);
         tScore = PlayerPrefs.GetInt("TotalScore");
         tScore = tScore + extraCoins;
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", tScore);
-        scoreTotalText.text = tScore.ToString();
+        StopLoadingAnimation();
+        paws.SetActive(false);
+        serviceText.gameObject.SetActive(false);
 
+        scoreTotalText.text = tScore.ToString();
         rewardMsg.SetActive(true);
         rewardText.text = extraCoins.ToString();
 
-
         FirebaseAnalytics.LogEvent(name: "got_extraCoins_for_ads");
-
-        //buttonReward.interactable = true;
-        _rewardedAdUsed = true;
     }
 
     public void GetExtraCoins()
     {
-        //buttonReward.interactable = false;
         buttonReward.gameObject.SetActive(false);
-        serviceText.gameObject.SetActive(true);
         paws.SetActive(true);
-        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
-
         StartLoadingAnimation();
-
+        serviceText.gameObject.SetActive(true);
+        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";    
         _adController.LoadAd();
     }
 

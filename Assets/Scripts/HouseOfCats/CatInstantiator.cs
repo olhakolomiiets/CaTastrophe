@@ -25,12 +25,12 @@ public class CatInstantiator : MonoBehaviour
     public GameObject topBarBeige;
     public GameObject topBarWhite;
     public GameObject topBarGrey;
-     public GameObject topBarslimCat;
+    public GameObject topBarslimCat;
     public GameObject topBarslimCatSO;
     public GameObject topBarslimCatS;
     public GameObject topBarslimCatR;
     public GameObject topBarslimCatG;
-     public GameObject topBarslimCatDG;
+    public GameObject topBarslimCatDG;
     public GameObject topBarslimCatB;
     public GameObject topBarslimCat3B;
     public GameObject topBarslimCaDSO;
@@ -76,7 +76,8 @@ public class CatInstantiator : MonoBehaviour
 
     private void CheckBlackCat()
     {
-        blackCat.transform.position = new Vector3(Random.Range(-40, 30), placeForCat.catSpawnPositionY.transform.position.y, 0);
+        var position = new Vector3(Random.Range(-40, 35), blackCat.position.y, 0);
+        blackCat.position = position;
     }
     private void CheckBrownCat()
     {
