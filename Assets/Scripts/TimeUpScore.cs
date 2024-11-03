@@ -17,8 +17,6 @@ public class TimeUpScore : MonoBehaviour
     [SerializeField] private Text extraCoinsText;
     [SerializeField] private Button buttonReward;
     [SerializeField] private Text serviceText;
-    [SerializeField] private GameObject paws;
-    [SerializeField] private GameObject[] loadingPaws;
     [SerializeField] private GameObject rewardMsg;
     [SerializeField] private Text rewardText;
     [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
@@ -104,8 +102,6 @@ public class TimeUpScore : MonoBehaviour
         tScore = tScore + extraCoins;
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", tScore);
-        StopLoadingAnimation();
-        paws.SetActive(false);
         serviceText.gameObject.SetActive(false);
 
         scoreTotalText.text = tScore.ToString();
@@ -118,10 +114,9 @@ public class TimeUpScore : MonoBehaviour
     public void GetExtraCoins()
     {
         buttonReward.gameObject.SetActive(false);
-        paws.SetActive(true);
-        StartLoadingAnimation();
         serviceText.gameObject.SetActive(true);
         serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";    
+
         _adController.LoadAd();
     }
 
@@ -133,29 +128,6 @@ public class TimeUpScore : MonoBehaviour
     public void RewardedAdWithError()
     {
         serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
-    }
-
-    void StartLoadingAnimation()
-    {
-        loadingSequence = DOTween.Sequence();
-
-        foreach (GameObject dot in loadingPaws)
-        {
-            loadingSequence.Append(dot.transform.DOScale(Vector3.one, animationDuration) 
-                        .From(Vector3.zero) 
-                        .SetEase(Ease.InOutSine)) 
-                    .AppendInterval(0.2f); 
-        }
-
-        loadingSequence.SetLoops(-1, LoopType.Restart);
-    }
-
-    public void StopLoadingAnimation()
-    {
-        if (loadingSequence != null && loadingSequence.IsPlaying())
-        {
-            loadingSequence.Kill();
-        }
     }
 
     private void OnDisable()

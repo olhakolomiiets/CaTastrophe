@@ -1917,7 +1917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AGAIN
+  m_Text: "\u0415\u0429\u0415 \u0420\u0410\u0417"
 --- !u!222 &31352619
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3750,8 +3750,6 @@ MonoBehaviour:
   extraCoinsText: {fileID: 0}
   buttonReward: {fileID: 0}
   serviceText: {fileID: 0}
-  paws: {fileID: 0}
-  loadingPaws: []
   rewardMsg: {fileID: 0}
   rewardText: {fileID: 0}
   _adController: {fileID: 0}
@@ -20382,7 +20380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &259719549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20401,7 +20399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 109, y: -38}
+  m_AnchoredPosition: {x: 179.5, y: -38}
   m_SizeDelta: {x: 197.4328, y: 75.47037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259719550
@@ -22339,7 +22337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: sec
+  m_Text: "\u0441\u0435\u043A"
 --- !u!222 &276867033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46410,7 +46408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "CITY\r"
+  m_Text: "\u0412 \u0413\u041E\u0420\u041E\u0414"
 --- !u!222 &655095386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53339,7 +53337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TIME'S UP
+  m_Text: "\u0412\u0420\u0415\u041C\u042F \u0412\u042B\u0428\u041B\u041E"
 --- !u!222 &777964078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57911,7 +57909,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'BEST RESULT:'
+  m_Text: "\u041B\u0423\u0427\u0428\u0418\u0419 \u0420\u0415\u0417\u0423\u041B\u042C\u0422\u0410\u0422:"
 --- !u!222 &875322552
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79233,7 +79231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDisplay: {fileID: 1011978784}
-  timer: 180
+  timer: 20
   TimeUp: 0
   damageImage: {fileID: 756574142}
   canvas: {fileID: 1891394182}
@@ -140931,7 +140929,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: sec
+  m_Text: "\u0441\u0435\u043A"
 --- !u!222 &1896173734
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -155851,6 +155849,7 @@ MonoBehaviour:
   panelLose: {fileID: 1151071387}
   pauseButton: {fileID: 2058394904}
   _adController: {fileID: 2080398750}
+  serviceText: {fileID: 896029863639672295}
   OnUserEarnedRewardEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -160482,6 +160481,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7372236852708543788, guid: b7b70c16cb3f7d4438264d7515688d18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7b70c16cb3f7d4438264d7515688d18, type: 3}
+--- !u!114 &896029863639672295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2716389810577627677, guid: b7b70c16cb3f7d4438264d7515688d18,
+    type: 3}
+  m_PrefabInstance: {fileID: 896029863639672294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &896029863639672299 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 896029862345030534, guid: b7b70c16cb3f7d4438264d7515688d18,

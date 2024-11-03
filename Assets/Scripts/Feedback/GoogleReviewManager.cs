@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Google.Play.Review;
+using Firebase.Analytics;
 
 public class GoogleReviewManager : MonoBehaviour
 {
     private ReviewManager _reviewManager;
     private PlayReviewInfo _playReviewInfo;
 
-
-    private void Start()
+    private void OnEnable()
     {
-
+        FirebaseAnalytics.LogEvent(name: "open_reviewWindow");
     }
 
     IEnumerator RequestReviews()
@@ -40,5 +40,6 @@ public class GoogleReviewManager : MonoBehaviour
     public void GetReviewOnGooglePlay()
     {
         StartCoroutine(RequestReviews());
+        FirebaseAnalytics.LogEvent(name: "open_googleReview");
     }
 }

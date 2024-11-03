@@ -15,6 +15,7 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
     [SerializeField] private GameTimer gameTimer;
     [SerializeField] private int extraTime;
     [SerializeField] private GameObject pauseButton;
+    [SerializeField] private Text serviceText;
 
     #endregion
 
@@ -67,8 +68,6 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
     public void RewardedAdClosed()
     {        
         Time.timeScale = 1;
-        //rbPlayer.isKinematic = false;
-        //rbPlayer.constraints = RigidbodyConstraints2D.None;
         panelGetTime.SetActive(false);
         pauseButton.GetComponent<Button>().interactable = true;
         _rewardedAdUsed = true;
@@ -78,8 +77,9 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
 
     public void OnGetOneMinute()
     {
-        buttonReward.interactable = false;
-        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
+        buttonReward.gameObject.SetActive(false);
+        serviceText.gameObject.SetActive(true);
+        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
         _adController.LoadAd();
     }
@@ -91,7 +91,7 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
 
     public void RewardedAdWithError()
     {
-        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
+        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
     }
 
     private void OnDisable()

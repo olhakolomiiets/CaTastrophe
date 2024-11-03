@@ -12,6 +12,7 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     [SerializeField] private GameObject panelLose;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
+    [SerializeField] private Text serviceText;
 
     #endregion
 
@@ -65,8 +66,9 @@ public class ExtraLifeRewardedAd : MonoBehaviour
 
     public void OnGetOneMoreLife()
     {
-        buttonReward.interactable = false;
-        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
+        buttonReward.gameObject.SetActive(false);
+        serviceText.gameObject.SetActive(true);
+        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
         _adController.LoadAd();
     }
@@ -78,7 +80,7 @@ public class ExtraLifeRewardedAd : MonoBehaviour
 
     public void RewardedAdWithError()
     {
-        buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
+        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("rewardedAdError")}";
     }
 
     private void OnDisable()

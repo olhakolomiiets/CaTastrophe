@@ -9,7 +9,6 @@ public class FeedbackWindowOpener : MonoBehaviour
     private int visitCount;
 
     [SerializeField] private GameObject feedbackWindow;
-
     [SerializeField] private UserCommunicationSO userCommunicationSO;
 
     private void Start()

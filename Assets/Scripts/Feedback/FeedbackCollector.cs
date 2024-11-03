@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Firebase.Analytics;
 
 public class FeedbackCollector : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class FeedbackCollector : MonoBehaviour
                     break;
                 case CollectionOption.sendGFormData:
                     StartCoroutine(SendGFormData(txtData.text));
+                    FirebaseAnalytics.LogEvent(name: "feedback_in_googleForm");
                     break;
             }
         });
