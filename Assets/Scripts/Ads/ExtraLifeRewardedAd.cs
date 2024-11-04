@@ -13,6 +13,8 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
     [SerializeField] private Text serviceText;
+    [SerializeField] private GameObject description;
+    [SerializeField] private GameObject sadCatHead;
 
     #endregion
 
@@ -40,7 +42,7 @@ public class ExtraLifeRewardedAd : MonoBehaviour
         _adController.RewardedAdLoadedWithErrorEvent.AddListener(RewardedAdWithError);
 
         if (!_rewardedAdUsed)
-        {            
+        {
             buttonReward.interactable = true;
         }
         else
@@ -58,6 +60,9 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     public void RewardedAdClosed()
     {
         panelLose.SetActive(false);
+        sadCatHead.SetActive(true);
+        serviceText.gameObject.SetActive(false);
+        description.SetActive(false);
         pauseButton.GetComponent<Button>().interactable = true;
         Time.timeScale = 1;
         _rewardedAdUsed = true;       
