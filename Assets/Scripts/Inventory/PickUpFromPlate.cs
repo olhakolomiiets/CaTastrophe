@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Lofelt.NiceVibrations;
 
 public class PickUpFromPlate : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PickUpFromPlate : MonoBehaviour
     private ScoreManager sm;
     public bool isTimeBonus;
     public string bonusIdPref;
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -53,6 +55,7 @@ public class PickUpFromPlate : MonoBehaviour
         {
             foreach (Animator anim in foodAnim)
             {
+                HapticPatterns.PlayConstant(0.5f, 0.0f, 0.5f);
                 anim.SetTrigger("IsTriggered");
                 btn.onClick.AddListener(Do);
                 btnActive.SetActive(true);

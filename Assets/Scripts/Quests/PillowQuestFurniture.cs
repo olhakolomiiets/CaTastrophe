@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class PillowQuestFurniture : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class PillowQuestFurniture : MonoBehaviour
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.SoftImpact);
                 triggered = true;
                 btnActive.SetActive(true);
                 if (PlayerPrefs.GetInt("pillowTipUsed") == 0)
