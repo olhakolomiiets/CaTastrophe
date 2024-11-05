@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using Lofelt.NiceVibrations;
 
 public class BookQuest : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class BookQuest : MonoBehaviour
             {
                 foreach (Animator anim in questAnim)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("bookStandDestroy1TipUsed") == 0)
                     {

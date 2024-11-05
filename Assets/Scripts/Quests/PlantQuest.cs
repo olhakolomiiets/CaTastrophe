@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Lofelt.NiceVibrations;
 
 public class PlantQuest : MonoBehaviour
 {
@@ -22,10 +23,12 @@ public class PlantQuest : MonoBehaviour
     private GameObject ground2;
      [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
     }
+
     void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
@@ -33,6 +36,7 @@ public class PlantQuest : MonoBehaviour
         plantTip = gameObject.transform.GetChild(1).gameObject;
         btnActive = btn.transform.GetChild(0).gameObject;
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (Used == false && PlayerPrefs.GetInt("plant1") == 1)
@@ -41,6 +45,7 @@ public class PlantQuest : MonoBehaviour
             {
                 foreach (Animator anim in plant)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("PlanttipUsed") == 0)
                     {
@@ -52,6 +57,7 @@ public class PlantQuest : MonoBehaviour
             }
         }
     }
+
     public void Do()
     {
         btn.GetComponent<StopMoveForDo>().StopMove();

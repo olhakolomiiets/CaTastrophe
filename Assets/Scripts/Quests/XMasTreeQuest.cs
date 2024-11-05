@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Lofelt.NiceVibrations;
 
 public class XMasTreeQuest : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class XMasTreeQuest : MonoBehaviour
 
                 foreach (Animator anim in questAnim)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("XMasTreeTipUsed") == 0)
                     {

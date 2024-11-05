@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class LampQuest : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class LampQuest : MonoBehaviour
     private bool isTimeBonus;
     [SerializeField]
     private string bonusIdPref;
-
    
      private void Awake() 
     {
@@ -50,10 +50,11 @@ public class LampQuest : MonoBehaviour
         if(Used == false && PlayerPrefs.GetInt("LampIsBought") == 1)
         { 
         if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy")) 
-            {           
+            {
                 //  if(PlayerPrefs.GetInt("LampTipUsed") == 0){
                 //       pillowTip.SetActive(true);                     
-                // }               
+                // }
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 btn.onClick.AddListener(Do);
                 btnActive.SetActive(true);                                                    
             }                                  

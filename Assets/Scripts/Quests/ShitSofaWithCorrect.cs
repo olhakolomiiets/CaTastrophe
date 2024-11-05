@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class ShitSofaWithCorrect : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class ShitSofaWithCorrect : MonoBehaviour
             }
             if (other.CompareTag("ShitCollaider"))
             {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 btnActive.SetActive(true);
                 foreach (Animator anim in ThisAnim)
                 {

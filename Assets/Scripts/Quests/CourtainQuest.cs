@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Lofelt.NiceVibrations;
 
 public class CourtainQuest : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class CourtainQuest : MonoBehaviour
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 shine.SetActive(true);
                 // foreach(Animator anim in questAnim) {
                 //     anim.SetTrigger("IsTriggered");

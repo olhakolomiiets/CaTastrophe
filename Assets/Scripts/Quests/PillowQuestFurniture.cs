@@ -69,7 +69,7 @@ public class PillowQuestFurniture : MonoBehaviour
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
-                //HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 triggered = true;
                 btnActive.SetActive(true);
                 if (PlayerPrefs.GetInt("pillowTipUsed") == 0)

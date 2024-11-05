@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Lofelt.NiceVibrations;
 
 public class ChairQuest : MonoBehaviour
 {
@@ -22,10 +23,12 @@ public class ChairQuest : MonoBehaviour
     bool paint = false;
     [SerializeField] private bool isTimeBonus;
     [SerializeField] private string bonusIdPref;
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
     }
+
     void Start()
     {
         sm = FindObjectOfType<ScoreManager>();
@@ -42,6 +45,7 @@ public class ChairQuest : MonoBehaviour
 
                 foreach (Animator anim in questAnim)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("chairDestroyTipUsed") == 0)
                     {
@@ -54,6 +58,7 @@ public class ChairQuest : MonoBehaviour
             }
         }
     }
+
     public void Do()
     {
         btn.GetComponent<StopMoveForDo>().StopMove();

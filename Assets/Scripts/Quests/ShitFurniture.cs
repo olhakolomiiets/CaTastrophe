@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class ShitFurniture : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class ShitFurniture : MonoBehaviour
             {
                 foreach (Animator anim in ThisAnim)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt(prefTip) == 0)
                     {

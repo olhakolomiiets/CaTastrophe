@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Lofelt.NiceVibrations;
 
 public class ClockStandQuest : MonoBehaviour
 {
@@ -11,60 +12,66 @@ public class ClockStandQuest : MonoBehaviour
     public Animator[] bull;
     public Button btn;
     private GameObject btnActive;
-    
+
     public int points = 20;
     private ScoreManager sm;
     private GameObject plantTip;
     public GameObject CottonParticles;
-        public AudioClip crashPlant;
-        private AudioSource source;
-         private GameObject pooh;
-       Transform player;
-      
-    
-   
-    private void Awake() {
+    public AudioClip crashPlant;
+    private AudioSource source;
+    private GameObject pooh;
+    Transform player;
+
+
+
+    private void Awake()
+    {
         source = GetComponent<AudioSource>();
         Collider2D col = transform.GetComponent<Collider2D>();
-        
-            col.enabled = false;
-      
+
+        col.enabled = false;
+
         if (PlayerPrefs.GetInt("clockDestroy") == 1)
         {
-           
-                col.enabled = true;
-          
+
+            col.enabled = true;
+
         }
     }
 
-     void Start()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         sm = FindObjectOfType<ScoreManager>();
         bull = GameObject.FindGameObjectWithTag("Player").GetComponents<Animator>();
         plantTip = gameObject.transform.GetChild(1).gameObject;
-         btnActive = btn.transform.GetChild(0).gameObject;
+        btnActive = btn.transform.GetChild(0).gameObject;
 
     }
-    public void OnTriggerEnter2D (Collider2D other)
-    {      
-        if(Used == false){ 
-        if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy")) {
-         
-            foreach(Animator anim in questAnim) {
-                anim.SetTrigger("IsTriggered");
-                if(PlayerPrefs.GetInt("clockDestroyTipUsed") == 0){
-                      plantTip.SetActive(true);                    
-                      
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (Used == false)
+        {
+            if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
+            {
+
+                foreach (Animator anim in questAnim)
+                {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
+                    anim.SetTrigger("IsTriggered");
+                    if (PlayerPrefs.GetInt("clockDestroyTipUsed") == 0)
+                    {
+                        plantTip.SetActive(true);
+
+                    }
+
+                    btn.onClick.AddListener(Do);
+                    btnActive.SetActive(true);
+
                 }
-                                   
-                     btn.onClick.AddListener(Do);
-                     btnActive.SetActive(true);
-                                                                       
-            }
             }
         }
-        }
+    }
 
     public void Do()
     {

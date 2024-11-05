@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class ShoesShitQuest : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class ShoesShitQuest : MonoBehaviour
             {
                 foreach (Animator anim in ThisAnim)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("shoesShitTipUsed") == 0)
                     {

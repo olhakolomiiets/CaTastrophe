@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Lofelt.NiceVibrations;
 
 public class TuleQuest : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class TuleQuest : MonoBehaviour
             {
                 foreach (Animator anim in questAnim)
                 {
+                    HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                     anim.SetTrigger("IsTriggered");
                     if (PlayerPrefs.GetInt("TuleTipUsed") == 0)
                     {

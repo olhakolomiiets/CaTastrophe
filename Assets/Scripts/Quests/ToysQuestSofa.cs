@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class ToysQuestSofa : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class ToysQuestSofa : MonoBehaviour
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 play = true;
                 if (PlayerPrefs.GetInt("toyTipUsed") == 0)
                 {

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Lofelt.NiceVibrations;
 
 public class PaperQuest : MonoBehaviour
 {
@@ -56,15 +57,13 @@ public class PaperQuest : MonoBehaviour
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
-
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 play = true;
-
                 if (PlayerPrefs.GetInt("paperToiletTipUsed") == 0)
                 {
                     thisQuestTip.SetActive(true);
 
                 }
-
                 btn.onClick.AddListener(Do);
                 btnActive.SetActive(true);
             }

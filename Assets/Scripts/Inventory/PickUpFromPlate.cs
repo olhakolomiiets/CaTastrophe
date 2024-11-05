@@ -55,7 +55,7 @@ public class PickUpFromPlate : MonoBehaviour
         {
             foreach (Animator anim in foodAnim)
             {
-                //HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
                 anim.SetTrigger("IsTriggered");
                 btn.onClick.AddListener(Do);
                 btnActive.SetActive(true);
