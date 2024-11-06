@@ -118,6 +118,8 @@ public class CowController : MonoBehaviour
         #endregion
 
         enemy6 = "PassiveEnemy";
+
+        SetupSpeedAndJump();
     }
     void Start()
     {
@@ -683,5 +685,35 @@ public class CowController : MonoBehaviour
     public void AddLife()
     {       
         lives++;
+    }
+
+    public void SetupSpeedAndJump()
+    {
+        int catIndex = PlayerPrefs.GetInt("Player");
+        if (PlayerPrefs.HasKey("Speed" + "nameOfCat" + catIndex))
+        {
+            Debug.Log("The key " + "Speed " + "nameOfCat" + catIndex + " exists");
+
+            normalSpeed = PlayerPrefs.GetFloat("Speed" + "nameOfCat" + catIndex);
+
+            Debug.Log("normalSpeed = "  + normalSpeed);
+        }
+        else
+        {
+            Debug.Log("The key " + "Speed" + "nameOfCat" + catIndex + " does not exist");
+        }
+
+        if (PlayerPrefs.HasKey("Jump" + "nameOfCat" + catIndex))
+        {
+            Debug.Log("The key " + "Jump " + "nameOfCat" + catIndex + " exists");
+
+            jumpForce = PlayerPrefs.GetFloat("Jump" + "nameOfCat" + catIndex);
+
+            Debug.Log("jumpForce = " + jumpForce);
+        }
+        else
+        {
+            Debug.Log("The key " + "Jump" + "nameOfCat" + catIndex + " does not exist");
+        }
     }
 }
