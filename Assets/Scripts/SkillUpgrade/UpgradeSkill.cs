@@ -12,7 +12,8 @@ public class UpgradeSkill : MonoBehaviour
     [SerializeField] private GameObject skillUI;
     [SerializeField] private Button buttonBuy;
     [SerializeField] private GameObject noMoneyTag;
-    [SerializeField] private buyScript catInfo; 
+    [SerializeField] private buyScript catInfo;
+    [SerializeField] private GameObject upgradeButton; 
 
     [SerializeField] private List<float> skillLevels;
     [SerializeField] private List<float> levelsPrices; 
@@ -29,6 +30,11 @@ public class UpgradeSkill : MonoBehaviour
     public void SetSkillLevel(float level)
     {
         int index = skillLevels.IndexOf(level);
+
+        if (index == skillLevels.Count - 1)
+        {
+            upgradeButton.SetActive(false);
+        }
 
         if (index == -1)
         {
