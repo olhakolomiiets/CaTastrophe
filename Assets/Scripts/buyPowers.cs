@@ -17,7 +17,13 @@ public class buyPowers : MonoBehaviour
     private GameObject noMoneyTag;
     public GameObject buyTxt;
     public GameObject alreadyBoughtTxt;
-    private void Awake()
+
+    private void OnEnable()
+    {
+        UpdatePowerUI();
+    }
+
+    private void UpdatePowerUI()
     {
         purch = PlayerPrefs.GetInt(ppnamePower, 0);
         TotalScore = PlayerPrefs.GetInt("TotalScore");
@@ -42,6 +48,7 @@ public class buyPowers : MonoBehaviour
             alreadyBoughtTxt.SetActive(true);
         }
     }
+
     void Start()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
