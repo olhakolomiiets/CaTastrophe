@@ -117,6 +117,24 @@ public class HatsActivator : MonoBehaviour
                 case 23:
                     ActivateHat(22);
                     break;
+                case 24:
+                    ActivateHat(23);
+                    break;
+                case 25:
+                    ActivateHat(24);
+                    break;
+                case 26:
+                    ActivateHat(25);
+                    break;
+                case 27:
+                    ActivateHat(26);
+                    break;
+                case 28:
+                    ActivateHat(27);
+                    break;
+                case 29:
+                    ActivateHat(28);
+                    break;
                 default:
                     DeactivateAllHats();
                     break;
@@ -158,7 +176,7 @@ public class HatsActivator : MonoBehaviour
     private void SetActiveHatInShop()
     {
         string nameCat = PlayerPrefs.GetString("CatInShopActive");
-        Debug.Log(" nameCat " + nameCat + " PlayerPrefs.GetInt(nameCat + ActiveHat) " + PlayerPrefs.GetInt(nameCat + "ActiveHat"));
+        //Debug.Log(" nameCat " + nameCat + " PlayerPrefs.GetInt(nameCat + ActiveHat) " + PlayerPrefs.GetInt(nameCat + "ActiveHat"));
         switch (PlayerPrefs.GetInt(nameCat + "ActiveHat"))
         {
             case 1:
@@ -230,7 +248,24 @@ public class HatsActivator : MonoBehaviour
             case 23:
                 ActivateHat(22);
                 break;
-
+            case 24:
+                ActivateHat(23);
+                break;
+            case 25:
+                ActivateHat(24);
+                break;
+            case 26:
+                ActivateHat(25);
+                break;
+            case 27:
+                ActivateHat(26);
+                break;
+            case 28:
+                ActivateHat(27);
+                break;
+            case 29:
+                ActivateHat(28);
+                break;
 
             default:
                 DeactivateAllHats();
