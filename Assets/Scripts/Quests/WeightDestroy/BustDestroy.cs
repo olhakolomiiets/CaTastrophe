@@ -41,7 +41,7 @@ public class BustDestroy : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (collision.gameObject.tag.Equals("ForWeightDestroy") && weightFolt == false)
         {
             if (isTimeBonus == true)
@@ -54,7 +54,7 @@ public class BustDestroy : MonoBehaviour
                 }
             }
             sm.DestroyBonus(points);
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.linearVelocity = new Vector3(0, 0, 0);
             weightFolt = true;
             SoundManager.snd.PlayPaintSounds();
             PlayerPrefs.SetInt("AwardHeavyObj", PlayerPrefs.GetInt("AwardHeavyObj") + 1);

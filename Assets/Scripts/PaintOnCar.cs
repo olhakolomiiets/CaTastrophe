@@ -33,7 +33,7 @@ public class PaintOnCar : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (collision.gameObject.tag.Equals("Car") && paint == false)
         {
             if (isTimeBonus == true)
@@ -46,7 +46,7 @@ public class PaintOnCar : MonoBehaviour
                 }
             }
             sm.DestroyBonus(points);
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.linearVelocity = new Vector3(0, 0, 0);
             spotPaintThis = Instantiate(spotPaint, new Vector3(transform.position.x - xCorrect, collision.transform.position.y - yCorrect, 0), Quaternion.identity);
             spotPaintThis.transform.parent = collision.transform;
             StartCoroutine(WallSpots());

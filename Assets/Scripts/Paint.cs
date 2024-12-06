@@ -26,11 +26,11 @@ public class Paint : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (collision.gameObject.tag.Equals("FurnitureSoft") && paint == false)
         {
             sm.DestroyBonus(points);
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.linearVelocity = new Vector3(0, 0, 0);
             spotPaintThis = Instantiate(spotPaint, new Vector3(transform.position.x - 1f, collision.transform.position.y - 0.2f, 0), Quaternion.identity);
             spotPaintThis.transform.parent = collision.transform;
             paint = true;

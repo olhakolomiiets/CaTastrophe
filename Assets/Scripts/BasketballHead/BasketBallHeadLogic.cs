@@ -85,7 +85,7 @@ public class BasketBallHeadLogic : MonoBehaviour
         float randomX = UnityEngine.Random.Range(minX, maxX);
         MakeBallPuff();
         Rigidbody2D ballRB = _ball.transform.GetComponent<Rigidbody2D>();
-        ballRB.velocity = new Vector3(0f, 0f, 0f);
+        ballRB.linearVelocity = new Vector3(0f, 0f, 0f);
         ballRB.angularVelocity = 0f;
         _ball.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         _ball.transform.position = spawnBallPoint.position;
@@ -114,7 +114,7 @@ public class BasketBallHeadLogic : MonoBehaviour
         catPitchAnim.SetTrigger("Play");
         yield return new WaitForSeconds(0.5f);
 
-        ballRb.velocity = new Vector2(randomX, randomY);
+        ballRb.linearVelocity = new Vector2(randomX, randomY);
 
         ObjectPooler.SharedInstance.DisableAllBallsPuffs();
         Used = false;

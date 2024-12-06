@@ -40,7 +40,7 @@ public class WeightDestroy : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (collision.gameObject.tag.Equals("ForWeightDestroy") && weightFolt == false)
         {
             if (isTimeBonus == true)
@@ -53,7 +53,7 @@ public class WeightDestroy : MonoBehaviour
                 }
             }
             sm.DestroyBonus(points);
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.linearVelocity = new Vector3(0, 0, 0);
             weightFolt = true;
             SoundManager.snd.PlayPaintSounds();
             _mainCamera.isShakingLevel2 = true;

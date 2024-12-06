@@ -18,7 +18,7 @@ public class DestroySmallPot : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (collision.gameObject.tag.Equals("Floor") | collision.gameObject.tag.Equals("Destroyed")
         | collision.gameObject.tag.Equals("Undestroyed") && !isDestroyed
         && collision.relativeVelocity.magnitude > magnitude)

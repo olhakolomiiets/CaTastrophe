@@ -18,7 +18,7 @@ public class Destroy2 : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         // Debug.Log("Неразбился" + collision.relativeVelocity.magnitude);
         if (collision.gameObject.tag.Equals("Floor") | collision.gameObject.tag.Equals("Destroyed")
         | collision.gameObject.tag.Equals("Undestroyed") && !isDestroyed

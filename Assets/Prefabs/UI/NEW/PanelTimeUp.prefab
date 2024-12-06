@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &542689042258043863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29,11 +29,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.8001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 733221907191614292}
   - {fileID: 2005176383303930111}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -117,11 +117,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043904333855}
   - {fileID: 542689043295102233}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -156,9 +156,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.67963874}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042749360788}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -235,9 +235,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043419209629}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -312,10 +312,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24047275, y: 0.5097346, z: 1.0288264}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043861530809}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -470,9 +470,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.67963874}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043645972119}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -581,9 +581,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 25.577747, y: 25.577747, z: 25.577747}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3415568647415566076}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -605,19 +605,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542689042474021750}
-  serializedVersion: 7
+  serializedVersion: 8
   lengthInSec: 0.4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
+  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -816,6 +816,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -845,6 +846,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     startSize:
@@ -1166,7 +1168,9 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 1000
+    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -1894,6 +1898,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -1923,6 +1928,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
@@ -4143,6 +4149,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -4172,6 +4179,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
@@ -4561,6 +4569,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -4603,6 +4612,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -4632,6 +4642,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     widthOverTrail:
@@ -4719,6 +4730,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -4748,6 +4760,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   CustomDataModule:
@@ -4786,6 +4799,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -4815,6 +4829,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     colorLabel0: Color
@@ -5068,6 +5083,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -5097,6 +5113,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     colorLabel1: Color
@@ -5328,11 +5345,15 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5359,6 +5380,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -5371,17 +5393,23 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!114 &542689042474021749
 MonoBehaviour:
@@ -5416,6 +5444,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 28171a8736fc86f4cb1586b62c4f8ae3, type: 3}
+  m_Resource: {fileID: 8300000, guid: 28171a8736fc86f4cb1586b62c4f8ae3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5530,9 +5559,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.67963874}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042749360788}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5580,7 +5609,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0417\u0410 \u041F\u0420\u041E\u0421\u041C\u041E\u0422\u0420 \u0420\u0415\u041A\u041B\u0410\u041C\u042B"
+  m_Text: FOR WATCHING AD
 --- !u!114 &542689042561102883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5621,13 +5650,13 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689042302928870}
   - {fileID: 542689042837423003}
   - {fileID: 542689043878773959}
   - {fileID: 542689042561102892}
   m_Father: {fileID: 542689044128361091}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5662,10 +5691,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.30073556}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3991843919647684090}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5742,9 +5771,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043295102233}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5819,10 +5848,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24047275, y: 0.5097346, z: 1.0288264}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043946401602}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5964,9 +5993,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042749360788}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6041,9 +6070,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.30073556}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043481143497}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6091,8 +6120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0422\u042B \u0420\u0410\u0417\u0420\u0423\u0428\u0418\u041B \u0414\u041E\u041C
-    \u041D\u0410"
+  m_Text: 'YOU DID DAMAGE TO THE HOUSE '
 --- !u!114 &542689042894280508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6135,9 +6163,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043645972119}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6214,9 +6242,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.000013558537}
   m_LocalScale: {x: 20.17491, y: 20.699108, z: 20.174911}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3533969058196129977}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6238,19 +6266,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542689043066576089}
-  serializedVersion: 7
+  serializedVersion: 8
   lengthInSec: 0.4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
+  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -6449,6 +6477,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -6478,6 +6507,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     startSize:
@@ -6799,7 +6829,9 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 1000
+    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -7527,6 +7559,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -7556,6 +7589,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
@@ -9776,6 +9810,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -9805,6 +9840,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
@@ -10194,6 +10230,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -10236,6 +10273,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -10265,6 +10303,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     widthOverTrail:
@@ -10352,6 +10391,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -10381,6 +10421,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   CustomDataModule:
@@ -10419,6 +10460,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -10448,6 +10490,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     colorLabel0: Color
@@ -10701,6 +10744,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -10730,6 +10774,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     colorLabel1: Color
@@ -10961,11 +11006,15 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10992,6 +11041,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -11004,17 +11054,23 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!114 &542689043066576092
 MonoBehaviour:
@@ -11049,6 +11105,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29681437b28a4ee4793c7682c1ea8a19, type: 3}
+  m_Resource: {fileID: 8300000, guid: 29681437b28a4ee4793c7682c1ea8a19, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -11165,9 +11222,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 25.577747, y: 25.577742, z: 25.577745}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 448474838580191011}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11189,19 +11246,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542689043066883029}
-  serializedVersion: 7
+  serializedVersion: 8
   lengthInSec: 0.4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
+  emitterVelocityMode: 0
   looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -11400,6 +11457,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -11429,6 +11487,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     startSize:
@@ -11750,7 +11809,9 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 1000
+    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -12478,6 +12539,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -12507,6 +12569,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
@@ -14727,6 +14790,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -14756,6 +14820,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
@@ -15145,6 +15210,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -15187,6 +15253,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -15216,6 +15283,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     widthOverTrail:
@@ -15303,6 +15371,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -15332,6 +15401,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   CustomDataModule:
@@ -15370,6 +15440,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -15399,6 +15470,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     colorLabel0: Color
@@ -15652,6 +15724,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -15681,6 +15754,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
+        m_ColorSpace: -1
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
     colorLabel1: Color
@@ -15912,11 +15986,15 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -15943,6 +16021,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -15955,17 +16034,23 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!114 &542689043066883016
 MonoBehaviour:
@@ -16000,6 +16085,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a8f6520df9f196e40a23dde1df36d927, type: 3}
+  m_Resource: {fileID: 8300000, guid: a8f6520df9f196e40a23dde1df36d927, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -16113,6 +16199,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.3014863, y: 6.467852, z: 2.4273815}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043551467106}
   - {fileID: 8669489012556777980}
@@ -16126,7 +16213,6 @@ RectTransform:
   - {fileID: 653644253035102971}
   - {fileID: 4594812471831083962}
   m_Father: {fileID: 733221907191614292}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16198,11 +16284,11 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043666761855}
   - {fileID: 542689042812090758}
   m_Father: {fileID: 542689042274833024}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16235,11 +16321,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043514806972}
   - {fileID: 542689043419209629}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16272,11 +16358,11 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689044169789853}
   - {fileID: 542689042311113711}
   m_Father: {fileID: 542689043310196277}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16309,11 +16395,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689042894280511}
   - {fileID: 542689043645972119}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16349,9 +16435,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.30073556}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043310196277}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16399,7 +16485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u0421\u0415\u0413\u041E \u0423 \u0422\u0415\u0411\u042F"
+  m_Text: "YOUR BALANCE IS\r"
 --- !u!114 &542689043514806973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16443,9 +16529,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.30073556}
   m_LocalScale: {x: 0.10063949, y: 0.11391278, z: 0.3086515}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16493,7 +16579,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u0420\u0415\u041C\u042F \u0412\u042B\u0428\u041B\u041E"
+  m_Text: TIME'S UP
 --- !u!114 &542689043551467107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16534,11 +16620,11 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689042389632652}
   - {fileID: 542689042899554999}
   m_Father: {fileID: 542689043481143497}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -16573,9 +16659,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043295102233}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16653,9 +16739,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.73261344, y: 0.41566718, z: 0.41566718}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042322964344}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16703,7 +16789,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412 \u0413\u041E\u0420\u041E\u0414"
+  m_Text: "CITY\r"
 --- !u!114 &542689043861530814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16746,9 +16832,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.67963874}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042749360788}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16826,9 +16912,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.30073556}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042274833024}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16921,9 +17007,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7308974, y: 0.41469356, z: 0.41469356}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689042832032788}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16971,7 +17057,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0415\u0429\u0415 \u0420\u0410\u0417"
+  m_Text: AGAIN
 --- !u!114 &542689043946401603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17015,10 +17101,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689042749360788}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17159,9 +17245,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542689043419209629}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17238,9 +17324,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3991843919647684090}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17313,9 +17399,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: 0.0032994682, w: 0.9999946}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001722266}
   m_LocalScale: {x: 0.57336235, y: 0.57336235, z: 0.57336235}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.37800002}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17392,9 +17478,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3991843919647684090}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17467,9 +17553,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3991843919647684090}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17541,10 +17627,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043083183857}
   m_Father: {fileID: 542689042258043863}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17574,6 +17660,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -17626,7 +17713,7 @@ MonoBehaviour:
     OnResume:
       m_PersistentCalls:
         m_Calls: []
-    OnRevert:
+    OnChangeDirection:
       m_PersistentCalls:
         m_Calls: []
     OnComplete:
@@ -17638,26 +17725,37 @@ MonoBehaviour:
     OnSkipToTheEnd:
       m_PersistentCalls:
         m_Calls: []
+    OnInitializationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisable:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
+  InScriptDrivenPause: 0
   FeedbacksList:
-  - id: 0
+  - rid: 0
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
   PlayCount: 0
   references:
-    version: 1
-    00000000:
-      type: {class: MMF_Scale, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
+    version: 2
+    RefIds:
+    - rid: 0
+      type: {class: MMF_Scale, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
         UniqueID: 1685218402
         Label: Scale
+        OriginalLabel: 
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
         Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
         Timing:
           TimescaleMode: 0
           ExcludeFromHoldingPauses: 0
@@ -17668,6 +17766,10 @@ MonoBehaviour:
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
+          PlayCount: 0
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
           MMFeedbacksDirectionCondition: 0
           PlayDirection: 0
           ConstantIntensity: 0
@@ -17713,6 +17815,8 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
         Owner: {fileID: 4987650684640108801}
         DebugActive: 0
         Mode: 0
@@ -17759,6 +17863,9 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
           Initialized: 0
+          ConditionPropertyName: AnimateX
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
         AnimateY: 1
         AnimateScaleTweenY:
           MMTweenDefinitionType: 1
@@ -17797,6 +17904,9 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
           Initialized: 0
+          ConditionPropertyName: AnimateY
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
         AnimateZ: 1
         AnimateScaleTweenZ:
           MMTweenDefinitionType: 1
@@ -17835,6 +17945,9 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
           Initialized: 0
+          ConditionPropertyName: AnimateZ
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
         UniformScaling: 0
         AllowAdditivePlays: 0
         DetermineScaleOnPlay: 0
@@ -17885,9 +17998,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2354, y: 1.17363, z: 1.2354}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17961,9 +18074,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3991843919647684090}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18036,10 +18149,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001718951}
   m_LocalScale: {x: 1, y: 0.9625, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043066883018}
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18112,6 +18225,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.20158863, y: 0.21363182, z: 0.20158863}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4376783883617811208}
   - {fileID: 3415568647415566076}
@@ -18123,7 +18237,6 @@ RectTransform:
   - {fileID: 448474838580191011}
   - {fileID: 7972507218353063912}
   m_Father: {fileID: 542689043083183857}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18177,9 +18290,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3991843919647684090}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18252,9 +18365,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001722266}
   m_LocalScale: {x: 0.55872834, y: 0.55872834, z: 0.55872834}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18331,9 +18444,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001718951}
   m_LocalScale: {x: 1, y: 0.95, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18407,9 +18520,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001722266}
   m_LocalScale: {x: 0.77152014, y: 0.77152014, z: 0.77152014}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18486,9 +18599,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3991843919647684090}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18561,9 +18674,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001718951}
   m_LocalScale: {x: 1, y: 0.95, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18637,10 +18750,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.00001718951}
   m_LocalScale: {x: 1, y: 0.9625, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689042474021751}
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18714,10 +18827,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2678, y: 1.1893549, z: 1.2678}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 542689043066576094}
   m_Father: {fileID: 8669489012556777980}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18790,6 +18903,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4182318938145484631}
   - {fileID: 1043183840908982353}
@@ -18798,7 +18912,6 @@ RectTransform:
   - {fileID: 2899576819924885134}
   - {fileID: 4680995810793991612}
   m_Father: {fileID: 542689042760764787}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18807,7 +18920,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &6371913374482943919
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18821,6 +18934,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -18831,8 +18945,14 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 542689043083183857}
     m_Modifications:
+    - target: {fileID: 1052207559057134021, guid: 682dd67183b6d154f99e3e15327a1fee,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1052207559745045826, guid: 682dd67183b6d154f99e3e15327a1fee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -18964,6 +19084,9 @@ PrefabInstance:
       value: 1521
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682dd67183b6d154f99e3e15327a1fee, type: 3}
 --- !u!224 &653644253035102971 stripped
 RectTransform:
@@ -18976,28 +19099,28 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 542689043083183857}
     m_Modifications:
     - target: {fileID: 624766052028689608, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 624766052270853939, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0420\u0410\u0417\u0411\u0418\u0412\u0410\u0422\u042C
-        \u0417\u0415\u0420\u041A\u0410\u041B\u0410."
+      value: "CAT CAN BREAK MIRRORS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 624766053948954318, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 2303683435034089836, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 6755463788581151575, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
@@ -19122,8 +19245,7 @@ PrefabInstance:
     - target: {fileID: 7836923780818343204, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0411\u0420\u0410\u0421\u042B\u0412\u0410\u0422\u042C
-        \u0427\u0410\u0421\u042B."
+      value: "CAT CAN TEAR DOWN CLOCKS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 8293279054541393235, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
@@ -19138,214 +19260,204 @@ PrefabInstance:
     - target: {fileID: 8742904544528637017, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904544583162822, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0411\u0420\u0410\u0421\u042B\u0412\u0410\u0422\u042C
-        \u041A\u0410\u0420\u0422\u0418\u041D\u042B \u0421\u041E \u0421\u0422\u0415\u041D."
+      value: "CAT CAN KNOCK PICTURES OFF THE WALLS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 8742904544645853421, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904544784899210, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0413\u0410\u0414\u0418\u0422\u042C
-        \u041D\u0410 \u041A\u0420\u041E\u0412\u0410\u0422\u0418. \r\n\u041D\u0423\u0416\u041D\u0410
-        1 \u0415\u0414\u0410."
+      value: 'CAT CAN POOP ON THE BED.
+
+        NEED 1 FOOD.'
       objectReference: {fileID: 0}
     - target: {fileID: 8742904544890448392, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0413\u0410\u0414\u0418\u0422\u042C
-        \u041D\u0410 \u041A\u0420\u0415\u0421\u041B\u0410. \r\n\u041D\u0423\u0416\u041D\u0410
-        1 \u0415\u0414\u0410."
+      value: 'CAT CAN POOP ON CHAIRS.
+
+        NEED 1 FOOD.'
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545253878793, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545378106932, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0413\u0410\u0414\u0418\u0422\u042C
-        \u0412 \u041E\u0411\u0423\u0412\u042C. \r\n\u041D\u0423\u0416\u041D\u0410
-        1 \u0415\u0414\u0410."
+      value: 'CAT CAN POOP IN SHOES.
+
+        NEED 1 FOOD.'
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545394209393, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0414\u0420\u0410\u0422\u042C
-        \u041F\u041E\u0414\u0423\u0428\u041A\u0418."
+      value: "CAT CAN RIP PILLOWS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545628099618, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0420\u0410\u0421\u041A\u0418\u0414\u042B\u0412\u0410\u0422\u042C
-        \u0417\u0415\u041C\u041B\u042E \u0418\u0417 \u0411\u041E\u041B\u042C\u0428\u0418\u0425
-        \u0412\u0410\u0417\u041E\u041D\u041E\u0412\r\n"
+      value: 'CAT CAN SCATTER SOIL  FROM LARGE PLANT POTS
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545697701476, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545712538992, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0413\u0410\u0414\u0418\u0422\u042C
-        \u041D\u0410 \u0414\u0418\u0412\u0410\u041D\u042B. \n\u041D\u0423\u0416\u041D\u0410
-        1 \u0415\u0414\u0410."
+      value: 'CAT CAN POOP ON SOFAS.
+
+        NEED 1 FOOD.'
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545834373810, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904545992183727, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u041F\u0418\u0421\u0410\u0422\u042C
-        \u041D\u0410 \u041D\u041E\u0423\u0422\u042B. \n\u041D\u0423\u0416\u041D\u0410
-        1 \u0415\u0414\u0410."
+      value: 'CAT CAN PEE ON LAPTOPS.
+
+        NEED 1 FOOD.'
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546013838745, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546061630391, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546087135876, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u0422\u0415\u041B\u0415\u0412\u0418\u0417\u041E\u0420\u042B. "
+      value: "CAT CAN PUSH TV\r."
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546423721273, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u041F\u0415\u0420\u0415\u0412\u041E\u0420\u0410\u0427\u0418\u0412\u0410\u0422\u042C
-        \u0428\u041A\u0410\u0424\u042B."
+      value: CAT CAN TURN CABINETS.
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546471214877, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546532490172, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0420\u0410\u0417\u0411\u0418\u0412\u0410\u0422\u042C
-        \u041B\u042E\u0421\u0422\u0420\u042B. "
+      value: "CAT CAN BREAK CHANDELIERS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546534353216, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546560693314, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546588676549, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0414\u0420\u0410\u0422\u042C
-        \u0428\u0422\u041E\u0420\u042B."
+      value: "CAT CAN RIP CURTAINS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 8742904546616584554, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923748276708041, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923748814371910, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u0422\u041E\u0421\u0422\u0415\u0420\u042B. "
+      value: "CAT CAN PUSH TOASTERS.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 9179923748843080179, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u0411\u041B\u0415\u041D\u0414\u0415\u0420\u042B \u0418 \u041C\u0418\u041A\u0421\u0415\u0420\u042B. "
+      value: "CAT CAN PUSH BLENDERS AND MIXERS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 9179923748935464059, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923748993330153, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923749015276258, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0414\u0420\u0410\u0422\u042C
-        \u041C\u042F\u0413\u041A\u0418\u0415 \u0418\u0413\u0420\u0423\u0428\u041A\u0418."
+      value: "CAT CAN TEAR SOFT TOYS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 9179923749231386635, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923749402817663, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923749575422373, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u041F\u0420\u0418\u041D\u0422\u0415\u0420\u042B. "
+      value: "CAT CAN PUSH PRINTERS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 9179923749623193033, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     - target: {fileID: 9179923750070945780, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u041C\u0423\u041B\u042C\u0422\u0418\u0412\u0410\u0420\u041A\u0418. "
+      value: "CAT CAN PUSH MULTICOOKERS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 9179923750110199039, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u041C\u0418\u041A\u0420\u041E\u0412\u041E\u041B\u041D\u041E\u0412\u041A\u0418. "
+      value: "CAT CAN PUSH MICROWAVES\r."
       objectReference: {fileID: 0}
     - target: {fileID: 9179923750124774963, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u041E\u0422 \u041C\u041E\u0416\u0415\u0422 \u0421\u0422\u0410\u041B\u041A\u0418\u0412\u0410\u0422\u042C
-        \u041A\u041E\u0424\u0415\u0412\u0410\u0420\u041A\u0418. "
+      value: "CAT CAN PUSH COFFEE MAKERS\r."
       objectReference: {fileID: 0}
     - target: {fileID: 9179923750330230263, guid: 43ae58203f09acb4882d40e9556420cd,
         type: 3}
       propertyPath: m_Text
-      value: "\u041A\u0423\u041F\u0418\u0422\u042C"
+      value: BUY
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43ae58203f09acb4882d40e9556420cd, type: 3}
 --- !u!224 &4594812471831083962 stripped
 RectTransform:
@@ -19358,6 +19470,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 542689042258043863}
     m_Modifications:
     - target: {fileID: 1719141440240055247, guid: 4ef944248478aad4d867ad07aecb29d8,
@@ -19641,6 +19754,9 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef944248478aad4d867ad07aecb29d8, type: 3}
 --- !u!224 &2005176383303930111 stripped
 RectTransform:

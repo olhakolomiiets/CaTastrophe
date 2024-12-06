@@ -59,7 +59,7 @@ public class WashingMachDestr : MonoBehaviour
 
 
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
        // Debug.Log("Неразбился" + collision.relativeVelocity.magnitude);
 
         if (collision.gameObject.tag.Equals("Weight") && isBroke == false)

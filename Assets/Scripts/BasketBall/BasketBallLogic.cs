@@ -87,7 +87,7 @@ public class BasketBallLogic : MonoBehaviour, IMiniGamesScore
 
         MakeBallPuff();
         Rigidbody2D ballRB = _ball.transform.GetComponent<Rigidbody2D>();
-        ballRB.velocity = new Vector3(0f, 0f, 0f);
+        ballRB.linearVelocity = new Vector3(0f, 0f, 0f);
         //ballRB.angularVelocity = new Vector3(0f, 0f, 0f);
         _ball.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         _ball.transform.position = spawnBallPoint.position;

@@ -44,7 +44,7 @@ public class RobotCleaner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        dogSpeed = rb.velocity.magnitude;
+        dogSpeed = rb.linearVelocity.magnitude;
         movingAngry = 0;
         noAffraid = player.GetComponent<CowController>().noAffraidDogs;
 

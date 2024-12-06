@@ -174,7 +174,7 @@ public class CowController : MonoBehaviour
         {
             isJumping = true;
             _jumpTimeCounter = jumpTime;
-            rb.velocity = Vector2.up * jumpForce;
+            rb.linearVelocity = Vector2.up * jumpForce;
             anim.SetTrigger("takeOff");
             _jumpDelayTimer = 1f;
         }
@@ -183,7 +183,7 @@ public class CowController : MonoBehaviour
         {
             if (_jumpTimeCounter > 0)
             {
-                rb.velocity = Vector2.up * jumpForce;
+                rb.linearVelocity = Vector2.up * jumpForce;
                 _jumpTimeCounter -= Time.deltaTime;
             }
             else
@@ -203,7 +203,7 @@ public class CowController : MonoBehaviour
             isUiJumpPressed = false;
         }
 
-        if (rb.velocity.y <= 0)
+        if (rb.linearVelocity.y <= 0)
         {
             anim.SetBool("isJumping", false);
         }
@@ -275,14 +275,14 @@ public class CowController : MonoBehaviour
         }
         if (knockbackCount <= 0)
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
         }
         else
         {
             if (knockFromRight)
-                rb.velocity = new Vector2(-knockback, knockback);
+                rb.linearVelocity = new Vector2(-knockback, knockback);
             if (!knockFromRight)
-                rb.velocity = new Vector2(knockback, knockback);
+                rb.linearVelocity = new Vector2(knockback, knockback);
             knockbackCount -= Time.deltaTime;
         }
         if (speed != 0f)

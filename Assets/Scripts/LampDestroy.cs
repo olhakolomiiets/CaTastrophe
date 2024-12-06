@@ -28,7 +28,7 @@ public class LampDestroy : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (collision.gameObject.tag.Equals("Floor") | collision.gameObject.tag.Equals("Destroyed")
         | collision.gameObject.tag.Equals("Undestroyed") && PlayerPrefs.GetInt("LampIsBought") == 1
         && collision.relativeVelocity.magnitude > 3 && isBroke == false)

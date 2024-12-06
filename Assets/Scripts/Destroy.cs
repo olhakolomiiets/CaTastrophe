@@ -11,7 +11,7 @@ public class Destroy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        Vector3 vel = rb.velocity;
+        Vector3 vel = rb.linearVelocity;
         if (col.gameObject.tag.Equals("Floor"))
         {
             Debug.Log("HitGround222222222");

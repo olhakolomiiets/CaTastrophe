@@ -10,7 +10,7 @@ public class GroundCheck : MonoBehaviour
         {
             Debug.Log("HitGround");
         }
-        if (col.gameObject.tag.Equals("Floor") && CowController.rb.velocity.y < -15)
+        if (col.gameObject.tag.Equals("Floor") && CowController.rb.linearVelocity.y < -15)
         {
             Debug.Log("death");
         }

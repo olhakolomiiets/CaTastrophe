@@ -42,7 +42,7 @@ public class Dog : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        dogSpeed = rb.velocity.magnitude;
+        dogSpeed = rb.linearVelocity.magnitude;
         movingAngry = 0;
         // headRb = transform.GetChild(0).gameObject.GetComponent<Rigidbody2D>();
         stars = transform.GetChild(34).gameObject;
