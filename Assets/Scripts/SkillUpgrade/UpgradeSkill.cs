@@ -77,6 +77,7 @@ public class UpgradeSkill : MonoBehaviour
             //FirebaseAnalytics.LogEvent(name: "buy_cheat_power_" + ppNameCheatPower);
 
             TotalScore = (int)(TotalScore - levelsPrices[index]);
+            PlayerPrefs.SetInt("TotalScore", TotalScore);
             SoundManager.snd.PlaybuySounds();
 
             skillUI.SetActive(false);
