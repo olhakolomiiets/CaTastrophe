@@ -1,4 +1,5 @@
 using Firebase.Analytics;
+using GoogleMobileAds.Sample;
 using UnityEngine;
 
 public class Interstitial : MonoBehaviour
@@ -7,7 +8,9 @@ public class Interstitial : MonoBehaviour
     #region EDITOR FIELDS
 
     [SerializeField, Range(1, 900)] private int delayBetweenAds = 180;
-    [SerializeField] private GoogleMobileAds.Sample.InterstitialAdController _adController;
+    [SerializeField] private InterstitialAdController _adController;
+
+    //[SerializeField] private AppodealAdController _appodealController;
 
     #endregion
 
@@ -18,7 +21,12 @@ public class Interstitial : MonoBehaviour
     #endregion
 
     private void OnEnable()
-    {       
+    {
+        if (_adController == null)
+        {
+            _adController = FindAnyObjectByType<InterstitialAdController>();
+        }
+
         PlayerPrefs.SetInt("HowManyGamesPlayed", PlayerPrefs.GetInt("HowManyGamesPlayed") + 1);
 
         var _playCount = PlayerPrefs.GetInt("HowManyGamesPlayed");
@@ -51,7 +59,12 @@ public class Interstitial : MonoBehaviour
     }
     public void ShowInterstitialAd()
     {
+        if (PlayerPrefs.GetInt("HowManyGamesPlayed") < 3)
+        {
+            return;
+        }
         _adController.ShowAd();
+        //_appodealController.ShowInterstitial();
 
         FirebaseAnalytics.LogEvent(name: "interstitial_ad_showed");
     }

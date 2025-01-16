@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Firebase.Analytics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -94,6 +95,15 @@ public class CheatPowersHandler : MonoBehaviour
         for (int i = 0; i < cheatPowersInfo.Length; i++)
         {
             cheatPowersInfo[i].SetActive(i == infoId);
+        }
+    }
+
+    public void HatSwitch(int infoId)
+    {
+        for (int i = 0; i < cheatPowersInfo.Length; i++)
+        {
+            cheatPowersInfo[i].SetActive(i == infoId);
+            FirebaseAnalytics.LogEvent(name: "chose_hat_" + infoId);
         }
     }
 

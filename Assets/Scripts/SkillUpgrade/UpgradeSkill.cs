@@ -1,3 +1,4 @@
+using Firebase.Analytics;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -74,7 +75,7 @@ public class UpgradeSkill : MonoBehaviour
             PlayerPrefs.SetFloat(skillName + "nameOfCat" + catInfo.playerIndex, skillLevels[index + 1]);
             buttonBuy.onClick.RemoveListener(PurchaseSkillUpgrade);
 
-            //FirebaseAnalytics.LogEvent(name: "buy_cheat_power_" + ppNameCheatPower);
+            FirebaseAnalytics.LogEvent(name: "buy_skill_" + skillName);
 
             TotalScore = (int)(TotalScore - levelsPrices[index]);
             PlayerPrefs.SetInt("TotalScore", TotalScore);

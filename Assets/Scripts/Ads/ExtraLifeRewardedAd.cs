@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Firebase.Analytics;
 using System.Collections;
+using GoogleMobileAds.Sample;
 
 public class ExtraLifeRewardedAd : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class ExtraLifeRewardedAd : MonoBehaviour
     [SerializeField] private Button buttonReward;
     [SerializeField] private GameObject panelLose;
     [SerializeField] private GameObject pauseButton;
-    [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
+    [SerializeField] private RewardedAdController _adController;
     [SerializeField] private Text serviceText;
     [SerializeField] private GameObject description;
     [SerializeField] private GameObject sadCatHead;
+
+    //[SerializeField] private AppodealAdController _appodealController;
 
     #endregion
 
@@ -36,6 +39,10 @@ public class ExtraLifeRewardedAd : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_adController == null)
+        {
+            _adController = FindAnyObjectByType<RewardedAdController>();
+        }
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.OnAdClosedEvent.AddListener(RewardedAdClosed);
         _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
@@ -76,6 +83,7 @@ public class ExtraLifeRewardedAd : MonoBehaviour
         serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
         _adController.LoadAd();
+        //_appodealController.ShowRewardedVideo();
     }
 
     public void ShowRewardedAd()

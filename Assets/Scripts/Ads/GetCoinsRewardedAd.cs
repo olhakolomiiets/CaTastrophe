@@ -7,6 +7,7 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 using UnityEngine.Events;
 using Firebase.Analytics;
+using GoogleMobileAds.Sample;
 
 public class GetCoinsRewardedAd : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class GetCoinsRewardedAd : MonoBehaviour
     [SerializeField] private int dailyBonus;
     [SerializeField] AdBonusTimer bonusTimer;
 
-    [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
+    [SerializeField] private RewardedAdController _adController;
+    //[SerializeField] private AppodealAdController _appodealController;
 
     #endregion
 
@@ -39,6 +41,11 @@ public class GetCoinsRewardedAd : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_adController == null)
+        {
+            _adController = FindAnyObjectByType<RewardedAdController>();
+        }
+
         _rewardedAdUsed = false;
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
@@ -66,6 +73,7 @@ public class GetCoinsRewardedAd : MonoBehaviour
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
         _adController.LoadAd();
+        //_appodealController.ShowRewardedVideo();
     }
 
     public void ShowRewardedAd()

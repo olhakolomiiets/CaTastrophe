@@ -74,8 +74,6 @@ public class CowController : MonoBehaviour
 
     private bool _eventSent;
 
-    [SerializeField] private GoogleMobileAds.Sample.BannerViewController _bannerController;
-
     public Joystick joystick;
 
     private bool _playerMoves;
@@ -123,7 +121,6 @@ public class CowController : MonoBehaviour
     }
     void Start()
     {
-        _bannerController = FindAnyObjectByType<GoogleMobileAds.Sample.BannerViewController>();
         joystick = FindAnyObjectByType<Joystick>();
 
         feetPos = gameObject.transform.Find("feetPos").transform;
@@ -264,8 +261,6 @@ public class CowController : MonoBehaviour
 
                 if (!_eventSent)
                 {
-                    _bannerController.LoadAd();
-
                     PlayerPrefs.SetInt("AwardDiedTimes", PlayerPrefs.GetInt("AwardDiedTimes") + 1);
                    
                     FirebaseAnalytics.LogEvent(name: "cat_died");

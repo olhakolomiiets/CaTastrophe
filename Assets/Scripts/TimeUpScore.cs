@@ -8,6 +8,7 @@ using GoogleMobileAds.Common;
 using UnityEngine.Events;
 using Firebase.Analytics;
 using DG.Tweening;
+using GoogleMobileAds.Sample;
 
 public class TimeUpScore : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class TimeUpScore : MonoBehaviour
     [SerializeField] private Text serviceText;
     [SerializeField] private GameObject rewardMsg;
     [SerializeField] private Text rewardText;
-    [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
+    [SerializeField] private RewardedAdController _adController;
+    //[SerializeField] private AppodealAdController _appodealController;
     #endregion
 
     #region UNITY EVENTS
@@ -41,11 +43,15 @@ public class TimeUpScore : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_adController == null)
+        {
+            _adController = FindAnyObjectByType<RewardedAdController>();
+        }
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
         _adController.RewardedAdLoadedWithErrorEvent.AddListener(RewardedAdWithError);
 
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         totalScore = sm.TotalScore;
         if (sm.score > PlayerPrefs.GetInt("AwardMoneyPerHouse", 0))
         {
@@ -115,8 +121,8 @@ public class TimeUpScore : MonoBehaviour
     {
         buttonReward.gameObject.SetActive(false);
         serviceText.gameObject.SetActive(true);
-        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";    
-
+        serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
+        //_appodealController.ShowRewardedVideo();
         _adController.LoadAd();
     }
 

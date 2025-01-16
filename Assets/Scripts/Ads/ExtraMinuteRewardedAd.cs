@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Firebase.Analytics;
 using System.Collections;
+using GoogleMobileAds.Sample;
 
 public class ExtraMinuteRewardedAd : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
 
     [SerializeField] private Button buttonReward;
     [SerializeField] private GameObject panelGetTime;
-    [SerializeField] private GoogleMobileAds.Sample.RewardedAdController _adController;
+    [SerializeField] private RewardedAdController _adController;
     [SerializeField] private GameTimer gameTimer;
     [SerializeField] private int extraTime;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private Text serviceText;
+
+    //[SerializeField] private AppodealAdController _appodealController;
 
     #endregion
 
@@ -39,11 +42,16 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<CowController>();
+        player = FindAnyObjectByType<CowController>();
         rbPlayer = player.transform.GetComponentInParent<Rigidbody2D>();
     }
     private void OnEnable()
     {
+        if (_adController == null)
+        {
+            _adController = FindAnyObjectByType<RewardedAdController>();
+        }
+
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.OnAdClosedEvent.AddListener(RewardedAdClosed);
         _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
@@ -82,6 +90,7 @@ public class ExtraMinuteRewardedAd : MonoBehaviour
         serviceText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
         _adController.LoadAd();
+        //_appodealController.ShowRewardedVideo();
     }
 
     public void ShowRewardedAd()
