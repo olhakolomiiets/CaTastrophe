@@ -21,7 +21,7 @@ public class FirstShopGuide : MonoBehaviour
 
     IEnumerator PillowPage()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.5f);
         pillowPage.SetActive(true);
     }
 

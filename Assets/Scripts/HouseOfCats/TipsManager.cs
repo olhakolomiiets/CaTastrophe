@@ -26,12 +26,18 @@ public class TipsManager : MonoBehaviour
 
     void Start()
     {
+
         if (PlayerPrefs.GetInt("CatHouseFirstMessages") == 0)
         {
             tipShop.SetActive(true);
             background.SetActive(true);
-            buttonBlockBackground.SetActive(true);
-            PlayerPrefs.SetInt("CatHouseFirstMessages", 1);
+            buttonBlockBackground.SetActive(true);           
+        }
+        if (PlayerPrefs.GetInt("CatHouseFirstMessages") == 1)
+        {
+            tipSofa.SetActive(true);
+            background.SetActive(true);
+            buttonBlockBackground.SetActive(true);            
         }
     }
 
@@ -68,10 +74,19 @@ public class TipsManager : MonoBehaviour
         tipSecondFloor.SetActive(false);
         background.SetActive(false);
         buttonBlockBackground.SetActive(false);
+        tipToilet.SetActive(false);
         buyFloor.SetActive(false);
         mainCamera.transform.DOLocalMove(transform4.position, 0.7f);
         buyFloorButton.SetActive(true);
-
+        if (PlayerPrefs.GetInt("CatHouseFirstMessages") == 1)
+        {
+            PlayerPrefs.SetInt("CatHouseFirstMessages", 2);
+        }
+        if (PlayerPrefs.GetInt("CatHouseFirstMessages") == 0)
+        {
+            PlayerPrefs.SetInt("CatHouseFirstMessages", 1);
+        }
+       
     }
     IEnumerator ChangeTips(GameObject tipActive, GameObject tipInactive)
     {

@@ -7,7 +7,6 @@ using UnityEditor;
 
 public class QuestExplainer : MonoBehaviour
 {
-
     private GameObject Tip;
     public GameObject Canvas;
     bool triggered = false;
@@ -51,11 +50,5 @@ public class QuestExplainer : MonoBehaviour
         controller.isUiJumpPressed = false;
         controller.isJumping = false;
         Canvas.SetActive(true);
-    }    
-        
+    }           
  }
-
-    
-// PlateExplainerDone
-
-

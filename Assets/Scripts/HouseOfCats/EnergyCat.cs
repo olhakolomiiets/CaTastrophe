@@ -42,8 +42,25 @@ public class EnergyCat : MonoBehaviour, IClickable
             totalEnergy = totalEnergy + powerPoints.pointsWhenYouWereAbsent / 2;
             CheckBelowZero();
             CheckMaxEnergy();
+            CheckEventsForTutorial();
 
             Invoke("CheckFoodAndToilet", 0.1f);
+        }
+    }
+
+    private void CheckEventsForTutorial()
+    {
+        if (powerSO.Value <= 7f)
+        {
+            PersistentEventManager.Instance.TriggerEvent("EnergyBelow6");
+        }
+        if (powerSO.Value <= 4f)
+        {
+            PersistentEventManager.Instance.TriggerEvent("EnergyBelow4");
+        }
+        if (powerSO.Value <= 2f)
+        {
+            PersistentEventManager.Instance.TriggerEvent("EnergyBelow2");
         }
     }
 

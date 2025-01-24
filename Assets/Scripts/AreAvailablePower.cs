@@ -5,7 +5,9 @@ using UnityEngine;
 public class AreAvailablePower : MonoBehaviour
 {
     public Component[] buyPowers;
+    [SerializeField] private GameObject NotificationImg;
     
+
     void Start()
     {
         Debug.Log("Start AreAvailablePower" + PlayerPrefs.GetInt("AreAvailablePower"));
@@ -25,18 +27,23 @@ public class AreAvailablePower : MonoBehaviour
     }
     public void CheckPowers()
     {
-      
+        if (NotificationImg != null)
+        {
+            NotificationImg.SetActive(false);
+        }
+
         foreach (buyPowers power in buyPowers)
           
             if (power.isPurchased == false)
             {
-                Debug.Log(power.name + power.isPurchased);
                 if (power.price <= GetTotalScore())
                 {
                     PlayerPrefs.SetInt("AreAvailablePower", 1);
-                  
+                    if (NotificationImg != null)
+                    {
+                        NotificationImg.SetActive(true);
+                    }
                 }
-               
             }           
     }
    
