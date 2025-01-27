@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class ShowUIOnce : MonoBehaviour
@@ -10,6 +9,19 @@ public class ShowUIOnce : MonoBehaviour
     [SerializeField] private bool pauseGameOnShow = false;  // Pause the game when UI is shown
     [SerializeField] private float delayToShow = 0f;  // Delay before showing UI
 
+    [Header("Cloning Settings")]
+    [SerializeField] private GameObject gameObjToCopy; // Object to be cloned
+    [SerializeField] private Transform gameObjParent;   // Parent object for the clone
+    [SerializeField] private GameObject alternateObject; // Alternate object to be cloned
+    [SerializeField] private bool useAlternateObject = false; // Use alternate object instead of default
+
+    [Header("Cloning Settings for Second Obj")]
+    [SerializeField] private Transform gameObjToCopy2;   // Parent object for the clone 2
+    [SerializeField] private Transform gameObjParent2;   // Parent object for the clone 2
+    [SerializeField] private GameObject alternateObject2; // Object to be cloned
+
+    private GameObject clonedObject;
+
     private void Start()
     {
         StartCoroutine(ShowUIWithDelay());
@@ -18,8 +30,6 @@ public class ShowUIOnce : MonoBehaviour
     private IEnumerator ShowUIWithDelay()
     {
         yield return new WaitForSeconds(delayToShow);
-
-        // Check if UI has been shown before
         if (!PlayerPrefs.HasKey(prefKey))
         {
             ShowUI();
@@ -37,6 +47,7 @@ public class ShowUIOnce : MonoBehaviour
             uiObject.SetActive(true);
             PlayerPrefs.SetInt(prefKey, 1);
             PlayerPrefs.Save();
+            CloneAndParentObject(useAlternateObject && alternateObject != null ? alternateObject : gameObjToCopy);
 
             if (pauseGameOnShow)
             {
@@ -57,6 +68,41 @@ public class ShowUIOnce : MonoBehaviour
     public void ResetUI()
     {
         PlayerPrefs.DeleteKey(prefKey);
+    }
+
+    public void CloneAndParentObject(GameObject objectToClone)
+    {
+        if (objectToClone != null && gameObjParent != null)
+        {
+            clonedObject = Instantiate(objectToClone, gameObjToCopy.transform.position, gameObjToCopy.transform.rotation);
+            clonedObject.transform.SetParent(gameObjParent, true);
+            clonedObject.transform.localScale = Vector3.one;
+            clonedObject.SetActive(true);
+        }
+    }
+
+    public void CloneAndParentSecondObject(GameObject objectToClone)
+    {
+        if (objectToClone != null && gameObjParent != null)
+        {
+            clonedObject = Instantiate(objectToClone, gameObjToCopy2.transform.position, gameObjToCopy2.transform.rotation);
+            clonedObject.transform.SetParent(gameObjParent2, true);
+            clonedObject.transform.localScale = Vector3.one;
+            clonedObject.SetActive(true);
+        }
+    }
+
+    public void UseAlternateObject()
+    {
+        useAlternateObject = true;
+    }
+
+    private void OnDisable()
+    {
+        if (clonedObject != null)
+        {
+            Destroy(clonedObject);
+        }
     }
 
     private void PauseGame()

@@ -24,11 +24,14 @@ public class UniversalTutorialHandler : MonoBehaviour
     [SerializeField] private GameObject uiObject;
     [SerializeField] private GameObject targetObject;
     [SerializeField] private Transform targetPosition;
+    [SerializeField] private GameObject goToCopy; // Object to be cloned
+    [SerializeField] private Transform goParent;   // Parent object for the clone
 
     [Header("Timing Settings")]
     [SerializeField] private float delayBeforeAction = 0f;
 
     private bool tutorialTriggered = false;
+    private GameObject clonedObject;
 
     private void Start()
     {
@@ -57,7 +60,7 @@ public class UniversalTutorialHandler : MonoBehaviour
     {
         if (triggerType == TriggerType.OnTriggerZone && other.CompareTag("Player") && ShouldTriggerTutorial())
         {
-            NewTutorialManager.Instance.TryShowTutorial(this);
+            TriggerTutorial();
         }
     }
 
@@ -65,7 +68,7 @@ public class UniversalTutorialHandler : MonoBehaviour
     {
         if (ShouldTriggerTutorial())
         {
-            NewTutorialManager.Instance.TryShowTutorial(this);
+            TriggerTutorial();
         }
     }
 
@@ -79,7 +82,7 @@ public class UniversalTutorialHandler : MonoBehaviour
             {
                 if (ShouldTriggerTutorial())
                 {
-                    NewTutorialManager.Instance.TryShowTutorial(this);
+                    TriggerTutorial();
                     CancelInvoke(nameof(CheckPlayerPrefsTrigger));
                 }
             }
@@ -95,6 +98,13 @@ public class UniversalTutorialHandler : MonoBehaviour
         return true;
     }
 
+    private void TriggerTutorial()
+    {
+        if (tutorialTriggered) return;
+        tutorialTriggered = true;
+        NewTutorialManager.Instance.TryShowTutorial(this);
+    }
+
     public IEnumerator ExecuteTutorial()
     {
         yield return new WaitForSeconds(delayBeforeAction);
@@ -102,7 +112,11 @@ public class UniversalTutorialHandler : MonoBehaviour
         switch (actionType)
         {
             case ActionType.ShowUI:
-                if (uiObject != null) uiObject.SetActive(true);
+                if (uiObject != null)
+                {
+                    uiObject.SetActive(true);
+                    CloneAndParentObject();
+                }
                 break;
             case ActionType.MoveObject:
                 if (targetObject != null && targetPosition != null)
@@ -111,7 +125,11 @@ public class UniversalTutorialHandler : MonoBehaviour
                 }
                 break;
             case ActionType.ShowUIAndMoveObject:
-                if (uiObject != null) uiObject.SetActive(true);
+                if (uiObject != null)
+                {
+                    uiObject.SetActive(true);
+                    CloneAndParentObject();
+                }
                 if (targetObject != null && targetPosition != null)
                 {
                     targetObject.transform.position = targetPosition.position;
@@ -127,6 +145,25 @@ public class UniversalTutorialHandler : MonoBehaviour
 
         Debug.Log($"Tutorial triggered: {tutorialId} with priority {priority}");
         NewTutorialManager.Instance.TutorialCompleted();
+    }
+
+    private void CloneAndParentObject()
+    {
+        if (goToCopy != null && goParent != null)
+        {
+            clonedObject = Instantiate(goToCopy, goToCopy.transform.position, goToCopy.transform.rotation);
+            clonedObject.transform.SetParent(goParent, true);
+            clonedObject.transform.localScale = Vector3.one;
+            clonedObject.SetActive(true);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (clonedObject != null)
+        {
+            Destroy(clonedObject);
+        }
     }
 
     private void OnDestroy()
