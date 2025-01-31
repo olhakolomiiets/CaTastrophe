@@ -38,6 +38,11 @@ public class CourtainQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("courtainDestroy1") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("courtainDestroy1TipEvent");
+        }
+
         if (Used == false && PlayerPrefs.GetInt("courtainDestroy1") == 1)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))

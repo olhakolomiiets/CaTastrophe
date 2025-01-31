@@ -55,6 +55,11 @@ public class BookQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("bookStandDestroy1") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("bookStandDestroy1TipEvent");
+        }
+
         if (Used == false && PlayerPrefs.GetInt("bookStandDestroy1") == 0)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))

@@ -55,6 +55,11 @@ public class ToysQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("ToysIsBought") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("ToysIsBoughtTipEvent");
+        }
+
         if (Used == false && PlayerPrefs.GetInt("ToysIsBought") == 1)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))

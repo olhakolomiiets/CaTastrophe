@@ -39,6 +39,11 @@ public class ClothesQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("clothesDestroy1") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("clothesDestroy1TipEvent");
+        }
+
         if (Used == false && PlayerPrefs.GetInt("clothesDestroy1") == 1)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))

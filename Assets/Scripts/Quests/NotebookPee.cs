@@ -43,6 +43,11 @@ public class NotebookPee : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("NotebookPee") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("NotebookPeeTipEvent");
+        }
+
         Debug.Log(inventory.HasFullSlots());
         if (Used == false && inventory.HasFullSlots() && PlayerPrefs.GetInt("NotebookPee") == 1)
         {

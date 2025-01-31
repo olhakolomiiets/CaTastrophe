@@ -44,6 +44,11 @@ public class ShitSofa : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("sofaShit") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("SofaShitTipEvent");
+        }
+
         Debug.Log(inventory.HasFullSlots());
         if (Used == false && inventory.HasFullSlots() && PlayerPrefs.GetInt("sofaShit") == 1)
         {

@@ -46,6 +46,12 @@ public class ShitFurniture : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (Used == false && PlayerPrefs.GetInt(isBought) == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("ShitFurnitureTipEvent");
+        }
+
         Debug.Log(inventory.HasFullSlots());
         if (Used == false && inventory.HasFullSlots() && PlayerPrefs.GetInt(isBought) == 1)
         {

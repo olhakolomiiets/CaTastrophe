@@ -24,6 +24,11 @@ public class ShowUIOnce : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.GetInt("FirstMessages") == 1)
+        {
+            return;
+        }
+
         StartCoroutine(ShowUIWithDelay());
     }
 

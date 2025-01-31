@@ -99,7 +99,12 @@ public class UniversalTutorialHandler : MonoBehaviour
     }
 
     private void TriggerTutorial()
-    {
+    {      
+        if (PlayerPrefs.GetInt("FirstMessages") == 1)
+        {
+            return;
+        }
+
         if (tutorialTriggered) return;
         tutorialTriggered = true;
         NewTutorialManager.Instance.TryShowTutorial(this);

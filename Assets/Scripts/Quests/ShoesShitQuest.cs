@@ -38,6 +38,11 @@ public class ShoesShitQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("shoesShit") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("ShoesShitTipEvent");
+        }
+
         if (Used == false && inventory.HasFullSlots() && PlayerPrefs.GetInt("shoesShit") == 1)
         {
             if (other.CompareTag("ShitCollaider"))

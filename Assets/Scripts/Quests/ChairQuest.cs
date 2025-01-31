@@ -38,6 +38,11 @@ public class ChairQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("chairDestroy") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("chairDestroyTipEvent");
+        }
+
         if (Used == false && PlayerPrefs.GetInt("chairDestroy") == 1)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
