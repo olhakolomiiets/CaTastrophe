@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using TMPro;
+using UnityEngine.UI;
 
 public class ThoughtBubble : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class ThoughtBubble : MonoBehaviour
     [SerializeField] private Transform[] connectionCircles; // Кружки (устанавливаются вручную в инспекторе)
     private Transform cat; // Ссылка на кота
     private Transform head; // Ссылка на голову кота
-    public TMP_Text thoughtText; // Ссылка на текст внутри облака
+    public Text thoughtText; // Ссылка на текст внутри облака
     private Vector3 targetPosition; // Цель для облака
     private bool isInitialized = false; // Проверка, был ли вызван Start()
 
@@ -44,7 +44,7 @@ public class ThoughtBubble : MonoBehaviour
         }
 
         // Находим текст внутри облака
-        thoughtText = GetComponentInChildren<TMP_Text>();
+        thoughtText = GetComponentInChildren<Text>();
         if (thoughtText == null)
         {
             Debug.LogWarning("Текст не найден внутри облака! Добавьте компонент TMP_Text.");
@@ -192,7 +192,8 @@ public class ThoughtBubble : MonoBehaviour
     {
         if (thoughtText != null)
         {
-            thoughtText.text = text;
+            //thoughtText.text = text;
+            thoughtText.text = $"{Lean.Localization.LeanLocalization.GetTranslationText(text)}";
         }
     }
 }
