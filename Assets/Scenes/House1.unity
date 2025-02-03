@@ -1116,11 +1116,14 @@ MonoBehaviour:
   - Random Thought 4
   - Random Thought 5
   - Random Thought 6
-  - Random Thought7
+  - Random Thought 7
   - Random Thought 8
   - Random Thought 9
   - Random Thought 10
+  - Random Thought 11
+  - Random Thought 12
   allowRandomThoughts: 1
+  puffParticles: {fileID: 828743260}
   questThoughtsList:
   - eventName: NotebookPeeTipEvent
     messages:
@@ -1182,12 +1185,16 @@ MonoBehaviour:
     - pillow TipEvent1
     - pillow TipEvent2
     - pillow TipEvent3
-  displayDuration: 5
-  minCooldown: 10
-  maxCooldown: 20
-  maxHintsPerGame: 20
+  questDisplayDuration: 4
+  questMinCooldown: 5
+  questMaxCooldown: 5
+  questMaxHintsPerGame: 20
+  randomDisplayDuration: 4
+  randomMinCooldown: 12
+  randomMaxCooldown: 12
+  randomMaxHintsPerGame: 20
+  globalMessageCooldown: 7
   gameTimeLimit: 180
-  puffParticles: {fileID: 828743260}
 --- !u!1 &61020578
 GameObject:
   m_ObjectHideFlags: 0
