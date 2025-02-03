@@ -73,6 +73,11 @@ public class PillowQuestSofa : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Used == false && PlayerPrefs.GetInt("pillow") == 0 && other.CompareTag("Player"))
+        {
+            PersistentEventManager.Instance.TriggerEvent("pillowTipEvent");
+        }
+
         if (Used == false && PlayerPrefs.GetInt("pillow") == 1 && sofaWithCorrect.isActive == false)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
