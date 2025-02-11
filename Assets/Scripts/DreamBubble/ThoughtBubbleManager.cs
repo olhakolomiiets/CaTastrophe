@@ -17,7 +17,7 @@ public class ThoughtBubbleManager : MonoBehaviour
     [SerializeField] private GameObject puffParticles;
     #endregion
 
-    #region Quest Thought List
+    #region Quest Thought List (Обычные квестовые подсказки)
     [Serializable]
     private class QuestThought
     {
@@ -25,9 +25,28 @@ public class ThoughtBubbleManager : MonoBehaviour
         public List<string> messages;
     }
 
-    [Header("Quest Thought List")]
+    [Header("Quest Thought List (Обычные)")]
     [SerializeField] private List<QuestThought> questThoughtsList = new List<QuestThought>();
     private Dictionary<string, List<string>> questThoughts = new Dictionary<string, List<string>>();
+    #endregion
+
+    #region Mandatory Quest Thought List (Обязательные квестовые подсказки)
+    [Serializable]
+    private class MandatoryQuestThought
+    {
+        public string eventName;
+        public List<string> messages;
+        // Если true – подсказка сработает только один раз за игру,
+        // иначе будет показана заданное количество раз.
+        public bool oncePerGame = true;
+        public int maxCount = 1;
+    }
+
+    [Header("Mandatory Quest Thought List (Обязательные)")]
+    [SerializeField] private List<MandatoryQuestThought> mandatoryQuestThoughtsList = new List<MandatoryQuestThought>();
+    private Dictionary<string, MandatoryQuestThought> mandatoryQuestThoughts = new Dictionary<string, MandatoryQuestThought>();
+    // Отслеживаем, сколько раз была показана каждая обязательная подсказка.
+    private Dictionary<string, int> mandatoryQuestDisplayedCounts = new Dictionary<string, int>();
     #endregion
 
     #region Quest Hint Settings
@@ -60,14 +79,14 @@ public class ThoughtBubbleManager : MonoBehaviour
     private int questHintsUsed = 0;
     private int randomHintsUsed = 0;
 
-    // Для каждого квестового события отслеживаем, сколько раз с момента его показа
+    // Для каждого обычного квестового события – отслеживаем, сколько раз с момента показа
     // были показаны подсказки для других событий.
     private Dictionary<string, int> questWaitingCounts = new Dictionary<string, int>();
 
     // Очередь для отслеживания двух последних показов (true = квест, false = рандом)
     private Queue<bool> lastTwoWasQuests = new Queue<bool>();
 
-    // Для рандомных мыслей — запоминаем последний показанный текст, чтобы не повторять подряд.
+    // Для рандомных мыслей – запоминаем последний показанный текст, чтобы не повторять подряд.
     private string lastRandomThought = string.Empty;
 
     private bool gameTimeLimitReached = false;
@@ -75,9 +94,12 @@ public class ThoughtBubbleManager : MonoBehaviour
     // Ссылка на корутину показа рандомных мыслей
     private Coroutine randomThoughtCoroutine = null;
 
-    // Новые переменные для принудительного показа рандома после каждых 2-х квестов
+    // Переменные для принудительного показа рандомной мысли после каждых 2-х квестовых подсказок
     private int questHintSequenceCounter = 0;
     private bool forcedRandomActive = false;
+
+    // Ссылка на отложенную корутину для показа квестовой подсказки (для обычных)
+    private Coroutine delayedQuestHintCoroutine = null;
     #endregion
 
     private void Awake()
@@ -90,13 +112,12 @@ public class ThoughtBubbleManager : MonoBehaviour
 
     void Start()
     {
-        // Инициализируем словарь квестовых сообщений из списка
+        // Инициализируем словарь обычных квестовых сообщений из списка
         foreach (var quest in questThoughtsList)
         {
             questThoughts[quest.eventName] = new List<string>(quest.messages);
         }
-
-        // Предварительно инициализируем словарь ожидания для всех квестовых событий.
+        // Инициализируем словарь ожидания для обычных квестовых событий.
         // Значение 2 означает, что при первом срабатывании условие (waitingCount < 2) не будет мешать показу.
         foreach (var questEvent in questThoughts.Keys)
         {
@@ -104,10 +125,20 @@ public class ThoughtBubbleManager : MonoBehaviour
                 questWaitingCounts.Add(questEvent, 2);
         }
 
+        // Инициализируем обязательные квестовые подсказки и их счётчики.
+        foreach (var mQuest in mandatoryQuestThoughtsList)
+        {
+            mandatoryQuestThoughts[mQuest.eventName] = mQuest;
+            mandatoryQuestDisplayedCounts[mQuest.eventName] = 0;
+        }
+
         StartCoroutine(GameTimeLimitCoroutine());
 
-        // При подписке на события важно правильно захватить имя события, чтобы разные события передавались корректно.
-        foreach (var questEvent in questThoughts.Keys)
+        // При подписке на события важно правильно захватить имя события.
+        // Подписываемся как для обычных, так и для обязательных подсказок.
+        // Если событие присутствует в обязательных – оно имеет приоритет.
+        var allEvents = questThoughts.Keys.Union(mandatoryQuestThoughts.Keys);
+        foreach (var questEvent in allEvents)
         {
             string eventName = questEvent; // локальная копия для лямбды
             PersistentEventManager.Instance.Subscribe(eventName, () => TryShowHint(eventName));
@@ -115,14 +146,16 @@ public class ThoughtBubbleManager : MonoBehaviour
 
         if (allowRandomThoughts)
         {
-            // Запускаем цикл рандомных мыслей и сохраняем ссылку на корутину
+            // Запускаем цикл рандомных мыслей и сохраняем ссылку на корутину.
             randomThoughtCoroutine = StartCoroutine(RandomThoughtLoop());
         }
+
+        PersistentEventManager.Instance.TriggerEvent("StartGameTipEvent");
     }
 
     /// <summary>
     /// Основной метод для попытки показа подсказки.
-    /// Если eventName не null, то это квестовая подсказка, иначе — рандомная мысль.
+    /// Если eventName не null, то это квестовая подсказка (обязательная или обычная), иначе – рандомная мысль.
     /// Перед показом проверяется глобальный таймер между сообщениями.
     /// </summary>
     public void TryShowHint(string eventName = null)
@@ -134,34 +167,60 @@ public class ThoughtBubbleManager : MonoBehaviour
         if (forcedRandomActive)
             return;
 
-        // Проверка глобального интервала между сообщениями
+        // Проверка глобального интервала между сообщениями.
         if (Time.time - lastMessageTime < globalMessageCooldown)
             return;
 
         if (eventName != null)
         {
-            // Если для данного события waiting count меньше 2, подсказку показывать не разрешается.
-            if (questWaitingCounts.ContainsKey(eventName) && questWaitingCounts[eventName] < 2)
+            // Если для данного события настроены обязательные подсказки, они имеют приоритет.
+            if (mandatoryQuestThoughts.ContainsKey(eventName))
             {
-                return;
-            }
+                // Если обязательная подсказка уже показывалась нужное число раз – пропускаем её.
+                MandatoryQuestThought mqt = mandatoryQuestThoughts[eventName];
+                int count = mandatoryQuestDisplayedCounts[eventName];
+                if (mqt.oncePerGame && count >= 1)
+                    return;
+                if (!mqt.oncePerGame && count >= mqt.maxCount)
+                    return;
 
-            // Проверка лимита показов квестовых подсказок
-            if (questHintsUsed >= questMaxHintsPerGame)
+                // Показ обязательной подсказки.
+                ShowMandatoryQuestHint(eventName);
                 return;
-
-            // Проверка индивидуального кулдауна для квестов
-            if (Time.time - lastQuestShowTime < questMinCooldown)
-                return;
-
-            // Если последние две подсказки не являются квестовыми, задерживаем показ квестовой подсказки на 1 секунду
-            if (lastTwoWasQuests.Count < 2 || !lastTwoWasQuests.All(wasQuest => wasQuest))
-            {
-                StartCoroutine(DelayedQuestHint(eventName, 1f));
             }
             else
             {
-                ShowQuestHint(eventName);
+                // Если есть ожидающие обязательные подсказки, не показываем обычную подсказку.
+                if (IsMandatoryPending())
+                    return;
+
+                // Обычная логика для обычных квестовых подсказок.
+                // Если для данного события waiting count меньше 2, подсказку показывать не разрешается.
+                if (questWaitingCounts.ContainsKey(eventName) && questWaitingCounts[eventName] < 2)
+                {
+                    return;
+                }
+
+                // Проверка лимита показов обычных квестовых подсказок.
+                if (questHintsUsed >= questMaxHintsPerGame)
+                    return;
+
+                // Проверка индивидуального кулдауна для квестов.
+                if (Time.time - lastQuestShowTime < questMinCooldown)
+                    return;
+
+                // Если последние две подсказки не являются квестовыми, задерживаем показ обычной квестовой подсказки на 1 секунду.
+                if (lastTwoWasQuests.Count < 2 || !lastTwoWasQuests.All(wasQuest => wasQuest))
+                {
+                    if (delayedQuestHintCoroutine == null)
+                    {
+                        delayedQuestHintCoroutine = StartCoroutine(DelayedQuestHint(eventName, 1f));
+                    }
+                }
+                else
+                {
+                    ShowQuestHint(eventName);
+                }
             }
         }
         else // Рандомная мысль
@@ -176,31 +235,17 @@ public class ThoughtBubbleManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Корутин для задержки показа квестовой подсказки.
-    /// Останавливает цикл рандомных мыслей.
-    /// </summary>
-    private IEnumerator DelayedQuestHint(string eventName, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        if (randomThoughtCoroutine != null)
-        {
-            StopCoroutine(randomThoughtCoroutine);
-            randomThoughtCoroutine = null;
-        }
-        ShowQuestHint(eventName);
-    }
+    #region Обязательные квестовые подсказки
 
     /// <summary>
-    /// Метод для показа квестовой подсказки.
-    /// После показа обновляет waiting counts, чтобы то же событие не показывалось до появления двух других.
-    /// Также отслеживает количество подряд показанных квестовых подсказок и через 2 показа запускает рандомную мысль.
+    /// Показывает обязательную квестовую подсказку для указанного события.
     /// </summary>
-    private void ShowQuestHint(string eventName)
+    private void ShowMandatoryQuestHint(string eventName)
     {
-        if (!questThoughts.ContainsKey(eventName))
+        if (!mandatoryQuestThoughts.ContainsKey(eventName))
             return;
 
+        // Останавливаем рандом, если он запущен.
         if (randomThoughtCoroutine != null)
         {
             StopCoroutine(randomThoughtCoroutine);
@@ -210,7 +255,99 @@ public class ThoughtBubbleManager : MonoBehaviour
         if (thoughtBubble.gameObject.activeSelf)
             thoughtBubble.gameObject.SetActive(false);
 
-        // Выбираем случайное сообщение для данного квестового события
+        MandatoryQuestThought mqt = mandatoryQuestThoughts[eventName];
+        // Выбираем случайное сообщение.
+        string hint = mqt.messages[UnityEngine.Random.Range(0, mqt.messages.Count)];
+        thoughtBubble.SetText(hint);
+        thoughtBubble.gameObject.SetActive(true);
+
+        lastQuestShowTime = Time.time;
+        lastMessageTime = Time.time;
+        // Обновляем счетчик показа обязательной подсказки.
+        mandatoryQuestDisplayedCounts[eventName]++;
+
+        // Добавляем в очередь (как и для обычных квестовых подсказок).
+        lastTwoWasQuests.Enqueue(true);
+        if (lastTwoWasQuests.Count > 2)
+            lastTwoWasQuests.Dequeue();
+
+        StartCoroutine(HideBubbleAfterDelay(questDisplayDuration));
+
+        // Перезапускаем цикл рандомных мыслей.
+        StartCoroutine(RestartRandomThoughtLoop());
+    }
+
+    /// <summary>
+    /// Возвращает true, если хотя бы для одного обязательного события
+    /// количество показов меньше требуемого (для oncePerGame – 0, для остальных – меньше maxCount).
+    /// </summary>
+    private bool IsMandatoryPending()
+    {
+        foreach (var kvp in mandatoryQuestThoughts)
+        {
+            string eventName = kvp.Key;
+            MandatoryQuestThought mqt = kvp.Value;
+            int count = mandatoryQuestDisplayedCounts.ContainsKey(eventName) ? mandatoryQuestDisplayedCounts[eventName] : 0;
+            if (mqt.oncePerGame)
+            {
+                if (count == 0)
+                    return true;
+            }
+            else
+            {
+                if (count < mqt.maxCount)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    #endregion
+
+    #region Обычные квестовые подсказки
+
+    /// <summary>
+    /// Корутина для задержки показа обычной квестовой подсказки.
+    /// Останавливает цикл рандомных мыслей.
+    /// Если принудительный рандом уже активирован – не показывает подсказку.
+    /// </summary>
+    private IEnumerator DelayedQuestHint(string eventName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        delayedQuestHintCoroutine = null;
+        if (forcedRandomActive)
+            yield break;
+        if (randomThoughtCoroutine != null)
+        {
+            StopCoroutine(randomThoughtCoroutine);
+            randomThoughtCoroutine = null;
+        }
+        ShowQuestHint(eventName);
+    }
+
+    /// <summary>
+    /// Показывает обычную квестовую подсказку для указанного события.
+    /// Обновляет waiting counts, счетчик показов и при необходимости запускает принудительный показ рандомной мысли.
+    /// </summary>
+    private void ShowQuestHint(string eventName)
+    {
+        if (!questThoughts.ContainsKey(eventName))
+            return;
+
+        if (delayedQuestHintCoroutine != null)
+        {
+            StopCoroutine(delayedQuestHintCoroutine);
+            delayedQuestHintCoroutine = null;
+        }
+        if (randomThoughtCoroutine != null)
+        {
+            StopCoroutine(randomThoughtCoroutine);
+            randomThoughtCoroutine = null;
+        }
+        if (thoughtBubble.gameObject.activeSelf)
+            thoughtBubble.gameObject.SetActive(false);
+
+        // Выбираем случайное сообщение для события.
         string hint = questThoughts[eventName][UnityEngine.Random.Range(0, questThoughts[eventName].Count)];
         thoughtBubble.SetText(hint);
         thoughtBubble.gameObject.SetActive(true);
@@ -219,23 +356,21 @@ public class ThoughtBubbleManager : MonoBehaviour
         lastMessageTime = Time.time;
         questHintsUsed++;
 
-        // Обновляем waiting counts: для всех других событий увеличиваем счётчик
+        // Обновляем waiting counts для остальных событий.
         foreach (var key in questWaitingCounts.Keys.ToList())
         {
             if (key != eventName)
                 questWaitingCounts[key]++;
         }
-        // Сбрасываем waiting count для показанного события
         questWaitingCounts[eventName] = 0;
         if (!questWaitingCounts.ContainsKey(eventName))
             questWaitingCounts.Add(eventName, 0);
 
-        // Отмечаем, что показана квестовая подсказка.
         lastTwoWasQuests.Enqueue(true);
         if (lastTwoWasQuests.Count > 2)
             lastTwoWasQuests.Dequeue();
 
-        // Увеличиваем счётчик квестовых показов подряд.
+        // Увеличиваем счётчик показов подряд.
         questHintSequenceCounter++;
 
         StartCoroutine(HideBubbleAfterDelay(questDisplayDuration));
@@ -248,31 +383,29 @@ public class ThoughtBubbleManager : MonoBehaviour
             StartCoroutine(ShowForcedRandomAfterDelay(1f));
         }
 
-        // Перезапускаем цикл рандомных мыслей
         StartCoroutine(RestartRandomThoughtLoop());
     }
 
+    #endregion
+
     /// <summary>
-    /// Корутин для принудительного показа рандомной мысли через задержку с учетом глобальной задержки.
+    /// Корутина для принудительного показа рандомной мысли через задержку с учетом глобальной задержки.
     /// После показа сбрасывается флаг, разрешая дальнейшие квестовые подсказки.
     /// </summary>
     private IEnumerator ShowForcedRandomAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // Дополнительная проверка глобальной задержки, чтобы обеспечить единообразие
         float remainingDelay = globalMessageCooldown - (Time.time - lastMessageTime);
         if (remainingDelay > 0)
         {
             yield return new WaitForSeconds(remainingDelay);
         }
-
         ShowRandomThought();
         forcedRandomActive = false;
     }
 
     /// <summary>
-    /// Метод для показа рандомной мысли.
+    /// Показывает рандомную мысль (аналогично существующему функционалу).
     /// Исключает повтор показа одного и того же текста подряд.
     /// </summary>
     private void ShowRandomThought()
@@ -307,7 +440,7 @@ public class ThoughtBubbleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Корутин для скрытия пузыря подсказки с проигрыванием эффекта "пуха".
+    /// Корутина для скрытия пузыря подсказки с проигрыванием эффекта "пуха".
     /// </summary>
     private IEnumerator HideBubbleAfterDelay(float delay)
     {
@@ -341,7 +474,7 @@ public class ThoughtBubbleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Корутин для перезапуска цикла рандомных мыслей после задержки.
+    /// Корутина для перезапуска цикла рандомных мыслей после задержки.
     /// </summary>
     private IEnumerator RestartRandomThoughtLoop()
     {
@@ -353,7 +486,7 @@ public class ThoughtBubbleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Корутин для завершения показа подсказок по истечении времени игры.
+    /// Корутина для завершения показа подсказок по истечении времени игры.
     /// </summary>
     private IEnumerator GameTimeLimitCoroutine()
     {

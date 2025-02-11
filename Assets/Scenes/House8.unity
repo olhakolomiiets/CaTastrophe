@@ -7731,7 +7731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: 
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -93018,7 +93018,7 @@ GameObject:
   - component: {fileID: 1571559491}
   - component: {fileID: 1571559490}
   m_Layer: 0
-  m_Name: Layer-7
+  m_Name: Layer-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98461,6 +98461,79 @@ Canvas:
   m_SortingLayerID: 246511657
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1829668780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1523765398793418439, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_Name
+      value: ThoughtBubbleManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709610768693305202, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860880781967113526, guid: e68a75f5be8652e4497f6e763c2f235e,
+        type: 3}
+      propertyPath: mandatoryQuestThoughtsList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e68a75f5be8652e4497f6e763c2f235e, type: 3}
 --- !u!1 &1834121605
 GameObject:
   m_ObjectHideFlags: 0
@@ -137091,6 +137164,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1759449020}
   - {fileID: 564885898}
+  - {fileID: 1829668780}
   - {fileID: 2142421675}
   - {fileID: 1454448669}
   - {fileID: 916826085}
