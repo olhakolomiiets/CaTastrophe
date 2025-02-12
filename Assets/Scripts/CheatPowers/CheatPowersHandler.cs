@@ -102,8 +102,7 @@ public class CheatPowersHandler : MonoBehaviour
     {
         for (int i = 0; i < cheatPowersInfo.Length; i++)
         {
-            cheatPowersInfo[i].SetActive(i == infoId);
-            FirebaseAnalytics.LogEvent(name: "chose_hat_" + infoId);
+            cheatPowersInfo[i].SetActive(i == infoId);        
         }
     }
 

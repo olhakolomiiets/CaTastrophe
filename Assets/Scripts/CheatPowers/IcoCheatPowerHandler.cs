@@ -118,6 +118,8 @@ public class IcoCheatPowerHandler : MonoBehaviour
 
         BuyCheatPower _cheatPowerInfo = _cheatPower.cheatPowerInfo;
 
+        FirebaseAnalytics.LogEvent(name: "chose_hat_" + hatId);
+
         for (int i = 0; i < cheatPowers.Length; i++)
         {
             cheatPowers[i].transform.GetChild(0).gameObject.SetActive(true);
