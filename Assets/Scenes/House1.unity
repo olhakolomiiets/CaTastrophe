@@ -4320,7 +4320,6 @@ GameObject:
   - component: {fileID: 229006433}
   - component: {fileID: 229006437}
   - component: {fileID: 229006438}
-  - component: {fileID: 229006439}
   m_Layer: 11
   m_Name: PaintJar
   m_TagString: Paint
@@ -4502,20 +4501,6 @@ MonoBehaviour:
     type: 3}
   coins: {fileID: 0}
   envelop: {fileID: 0}
---- !u!114 &229006439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229006432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &242150321
 GameObject:
   m_ObjectHideFlags: 0
@@ -23041,19 +23026,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1891394186}
     m_Modifications:
-    - target: {fileID: 540064049093570311, guid: fc0a2c27585d1314894c58012ff3740b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 596948761416203794, guid: fc0a2c27585d1314894c58012ff3740b,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u041C\u042F\u0413\u041A\u0410\u042F \u041C\u0415\u0411\u0415\u041B\u042C
-        \u0421\u041F\u0410\u0421\u0415\u0422 \u0412\u0410\u0417\u041E\u041D. \u0422\u041E\u041B\u041A\u0410\u0419
-        \u0421 \u0421\u0418\u041B\u041E\u0419 \u041D\u0410 \u041F\u041E\u041B, \u0418\u041D\u0410\u0427\u0415
-        \u0412\u0410\u0417\u041E\u041D \u0423\u0426\u0415\u041B\u0415\u0415\u0422!"
-      objectReference: {fileID: 0}
     - target: {fileID: 837114492262603567, guid: fc0a2c27585d1314894c58012ff3740b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -23174,26 +23146,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1759449019}
-    - target: {fileID: 7740045482269240858, guid: fc0a2c27585d1314894c58012ff3740b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PauseOff
-      objectReference: {fileID: 0}
-    - target: {fileID: 7740045482269240858, guid: fc0a2c27585d1314894c58012ff3740b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: PlayButtonsSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 9043257902269910228, guid: fc0a2c27585d1314894c58012ff3740b,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.003921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 9043257902269910228, guid: fc0a2c27585d1314894c58012ff3740b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39786,6 +39738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012149568}
   - component: {fileID: 2012149571}
+  - component: {fileID: 2012149572}
   - component: {fileID: 2012149570}
   - component: {fileID: 2012149569}
   m_Layer: 0
@@ -39922,6 +39875,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012149567}
   m_CullTransparentMesh: 0
+--- !u!114 &2012149572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012149567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d786b4ee9f558c4fa0eb8e7e9b010f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 2
 --- !u!1 &2027340380
 GameObject:
   m_ObjectHideFlags: 0
@@ -46069,6 +46035,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1891394186}
     m_Modifications:
+    - target: {fileID: 1204873202, guid: 2c90bfc44dfbf244c94a0e12a16850fe, type: 3}
+      propertyPath: managedReferences[0].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
     - target: {fileID: 1785175527242814988, guid: 2c90bfc44dfbf244c94a0e12a16850fe,
         type: 3}
       propertyPath: m_Name
@@ -61260,7 +61230,6 @@ GameObject:
   - component: {fileID: 2434929007959427729}
   - component: {fileID: 3940784851666291173}
   - component: {fileID: 5665847531964374101}
-  - component: {fileID: 3940784851666291175}
   m_Layer: 9
   m_Name: Cup1 (2)
   m_TagString: Undestroyed
@@ -61268,20 +61237,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784851666291175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784851666291174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784851734638581
 GameObject:
   m_ObjectHideFlags: 0
@@ -61296,7 +61251,6 @@ GameObject:
   - component: {fileID: 2434929007890410626}
   - component: {fileID: 3940784851734638582}
   - component: {fileID: 5665847531900238406}
-  - component: {fileID: 3940784851734638583}
   m_Layer: 9
   m_Name: vaseOrange (2)
   m_TagString: Undestroyed
@@ -61321,20 +61275,6 @@ MonoBehaviour:
     type: 3}
   rb: {fileID: 0}
   magnitude: 12
---- !u!114 &3940784851734638583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784851734638581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784851758107584
 GameObject:
   m_ObjectHideFlags: 0
@@ -61348,7 +61288,6 @@ GameObject:
   - component: {fileID: 2434929007849916599}
   - component: {fileID: 3940784851758107587}
   - component: {fileID: 2676510514657394311}
-  - component: {fileID: 3940784851758107585}
   m_Layer: 9
   m_Name: Bowl
   m_TagString: Undestroyed
@@ -61356,20 +61295,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784851758107585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784851758107584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784851758107587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61418,7 +61343,6 @@ GameObject:
   - component: {fileID: 2434929007858888836}
   - component: {fileID: 3940784851766031344}
   - component: {fileID: 5665847532065711680}
-  - component: {fileID: 3940784851766031348}
   m_Layer: 9
   m_Name: Lamp (2)
   m_TagString: Undestroyed
@@ -61426,20 +61350,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784851766031348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784851766031347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784851786834243
 GameObject:
   m_ObjectHideFlags: 0
@@ -61454,7 +61364,6 @@ GameObject:
   - component: {fileID: 2434929007838798388}
   - component: {fileID: 50132469914411298}
   - component: {fileID: 5665847532118570224}
-  - component: {fileID: 3940784851786834244}
   m_Layer: 9
   m_Name: OliveOil (2)
   m_TagString: Undestroyed
@@ -61462,20 +61371,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784851786834244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784851786834243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784851835925376
 GameObject:
   m_ObjectHideFlags: 0
@@ -61490,7 +61385,6 @@ GameObject:
   - component: {fileID: 2434929007789322487}
   - component: {fileID: 3940784851835925379}
   - component: {fileID: 5665847532000273971}
-  - component: {fileID: 3940784851835925377}
   m_Layer: 9
   m_Name: vasePurple (2)
   m_TagString: Undestroyed
@@ -61498,20 +61392,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784851835925377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784851835925376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784851835925379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61581,7 +61461,6 @@ GameObject:
   - component: {fileID: 2434929008083835897}
   - component: {fileID: 2210867463257351279}
   - component: {fileID: 5665847531839704381}
-  - component: {fileID: 3940784852061231247}
   m_Layer: 9
   m_Name: Cactus1 (6)
   m_TagString: Undestroyed
@@ -61589,20 +61468,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852061231247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852061231246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852281222166
 GameObject:
   m_ObjectHideFlags: 0
@@ -61617,7 +61482,6 @@ GameObject:
   - component: {fileID: 6915056809885848185}
   - component: {fileID: 2676510515181539665}
   - component: {fileID: 4448790640278779347}
-  - component: {fileID: 3940784852281222167}
   m_Layer: 9
   m_Name: BowlFruit (1)
   m_TagString: Undestroyed
@@ -61625,20 +61489,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852281222167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852281222166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852516434241
 GameObject:
   m_ObjectHideFlags: 0
@@ -61653,7 +61503,6 @@ GameObject:
   - component: {fileID: 2434929007628874294}
   - component: {fileID: 2210867464010370464}
   - component: {fileID: 5665847531120534770}
-  - component: {fileID: 3940784852516434242}
   m_Layer: 9
   m_Name: Cactus1 (5)
   m_TagString: Undestroyed
@@ -61661,20 +61510,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852516434242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852516434241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 10
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852553645737
 GameObject:
   m_ObjectHideFlags: 0
@@ -61689,7 +61524,6 @@ GameObject:
   - component: {fileID: 2434929007608413662}
   - component: {fileID: 3940784852553645738}
   - component: {fileID: 5665847531276266266}
-  - component: {fileID: 3940784852553645739}
   m_Layer: 9
   m_Name: vasePurp (2)
   m_TagString: Undestroyed
@@ -61714,20 +61548,6 @@ MonoBehaviour:
     type: 3}
   rb: {fileID: 0}
   magnitude: 12
---- !u!114 &3940784852553645739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852553645737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852637765572
 GameObject:
   m_ObjectHideFlags: 0
@@ -61742,7 +61562,6 @@ GameObject:
   - component: {fileID: 2434929007524760755}
   - component: {fileID: 3940784852637765575}
   - component: {fileID: 5665847531192130167}
-  - component: {fileID: 3940784852637765573}
   m_Layer: 9
   m_Name: Cup1
   m_TagString: Undestroyed
@@ -61750,20 +61569,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852637765573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852637765572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 9
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784852637765575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61794,7 +61599,6 @@ GameObject:
   - component: {fileID: 2434929007479781155}
   - component: {fileID: 3940784852665136215}
   - component: {fileID: 3943596026619139522}
-  - component: {fileID: 3940784852665136213}
   m_Layer: 9
   m_Name: Plates
   m_TagString: Undestroyed
@@ -61802,20 +61606,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852665136213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852665136212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784852665136215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61847,7 +61637,6 @@ GameObject:
   - component: {fileID: 2434929009050674186}
   - component: {fileID: 6469718443224787946}
   - component: {fileID: 5665847533054177998}
-  - component: {fileID: 3940784852721887102}
   m_Layer: 9
   m_Name: vaseBlue (3)
   m_TagString: Undestroyed
@@ -61855,20 +61644,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852721887102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852721887101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852835756764
 GameObject:
   m_ObjectHideFlags: 0
@@ -61881,7 +61656,6 @@ GameObject:
   - component: {fileID: 8452554040681784808}
   - component: {fileID: 8565438168150681201}
   - component: {fileID: 2434929008937003435}
-  - component: {fileID: 3940784852835756765}
   - component: {fileID: 6469718443373192779}
   - component: {fileID: 5665847533135347567}
   m_Layer: 9
@@ -61891,20 +61665,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852835756765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852835756764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852894839114
 GameObject:
   m_ObjectHideFlags: 0
@@ -61970,7 +61730,6 @@ GameObject:
   - component: {fileID: 2434929008854007349}
   - component: {fileID: 3940784852901657921}
   - component: {fileID: 2782390284586035918}
-  - component: {fileID: 3940784852901657923}
   m_Layer: 9
   m_Name: BowlWhite (1)
   m_TagString: Undestroyed
@@ -61978,20 +61737,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852901657923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852901657922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852904679682
 GameObject:
   m_ObjectHideFlags: 0
@@ -62006,7 +61751,6 @@ GameObject:
   - component: {fileID: 2434929008868563573}
   - component: {fileID: 2210867464687478243}
   - component: {fileID: 5665847533068504241}
-  - component: {fileID: 3940784852904679683}
   m_Layer: 9
   m_Name: Cactus1 (4)
   m_TagString: Undestroyed
@@ -62014,20 +61758,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852904679683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852904679682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 9
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852964960888
 GameObject:
   m_ObjectHideFlags: 0
@@ -62042,7 +61772,6 @@ GameObject:
   - component: {fileID: 2434929009328351503}
   - component: {fileID: 50132470623889945}
   - component: {fileID: 5665847532743999435}
-  - component: {fileID: 3940784852964960889}
   m_Layer: 9
   m_Name: OliveOil (3)
   m_TagString: Undestroyed
@@ -62050,20 +61779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784852964960889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784852964960888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784852968443268
 GameObject:
   m_ObjectHideFlags: 0
@@ -62116,7 +61831,6 @@ GameObject:
   - component: {fileID: 2434929009290614708}
   - component: {fileID: 3940784853002720448}
   - component: {fileID: 5665847532781715824}
-  - component: {fileID: 3940784853002720452}
   m_Layer: 9
   m_Name: Lamp (1)
   m_TagString: Undestroyed
@@ -62124,20 +61838,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853002720452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853002720451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 9
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853021315211
 GameObject:
   m_ObjectHideFlags: 0
@@ -62152,7 +61852,6 @@ GameObject:
   - component: {fileID: 2434929009288238076}
   - component: {fileID: 6469718443458157596}
   - component: {fileID: 5665847532683429176}
-  - component: {fileID: 3940784853021315212}
   m_Layer: 9
   m_Name: vaseBlue (1)
   m_TagString: Undestroyed
@@ -62160,20 +61859,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853021315212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853021315211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853051710611
 GameObject:
   m_ObjectHideFlags: 0
@@ -62188,7 +61873,6 @@ GameObject:
   - component: {fileID: 2434929009241038820}
   - component: {fileID: 2210867464547786866}
   - component: {fileID: 5665847532730632480}
-  - component: {fileID: 3940784853051710612}
   m_Layer: 9
   m_Name: Cactus1 (1)
   m_TagString: Undestroyed
@@ -62196,20 +61880,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853051710612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853051710611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853090622640
 GameObject:
   m_ObjectHideFlags: 0
@@ -62224,7 +61894,6 @@ GameObject:
   - component: {fileID: 2434929009219133383}
   - component: {fileID: 2210867464366006353}
   - component: {fileID: 5665847532886493443}
-  - component: {fileID: 3940784853090622641}
   m_Layer: 9
   m_Name: Cactus1 (2)
   m_TagString: Undestroyed
@@ -62232,20 +61901,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &3940784853090622641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853090622640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 9
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853103349377
 GameObject:
   m_ObjectHideFlags: 0
@@ -62259,7 +61914,6 @@ GameObject:
   - component: {fileID: 2434929009189916150}
   - component: {fileID: 3940784853103349378}
   - component: {fileID: 3943596027258990359}
-  - component: {fileID: 3940784853103349379}
   m_Layer: 9
   m_Name: Plates (1)
   m_TagString: Undestroyed
@@ -62284,20 +61938,6 @@ MonoBehaviour:
     type: 3}
   rb: {fileID: 0}
   magnitude: 12
---- !u!114 &3940784853103349379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853103349377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853104280664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62328,7 +61968,6 @@ GameObject:
   - component: {fileID: 2434929009205528364}
   - component: {fileID: 3940784853104280664}
   - component: {fileID: 2676510513303482652}
-  - component: {fileID: 3940784853104280668}
   m_Layer: 9
   m_Name: Bowl
   m_TagString: Undestroyed
@@ -62336,20 +61975,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853104280668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853104280667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853111610636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62380,7 +62005,6 @@ GameObject:
   - component: {fileID: 2434929009198177912}
   - component: {fileID: 3940784853111610636}
   - component: {fileID: 2676510513310804040}
-  - component: {fileID: 3940784853111610640}
   m_Layer: 9
   m_Name: Bowl (1)
   m_TagString: Undestroyed
@@ -62388,20 +62012,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853111610640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853111610639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853149695869
 GameObject:
   m_ObjectHideFlags: 0
@@ -62416,7 +62026,6 @@ GameObject:
   - component: {fileID: 3940784853149695870}
   - component: {fileID: 5208628307141146186}
   - component: {fileID: 8612070929803577308}
-  - component: {fileID: 3940784853149695871}
   m_Layer: 9
   m_Name: vaseWhite
   m_TagString: Undestroyed
@@ -62441,20 +62050,6 @@ MonoBehaviour:
     type: 3}
   rb: {fileID: 0}
   magnitude: 12
---- !u!114 &3940784853149695871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853149695869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853170163460
 GameObject:
   m_ObjectHideFlags: 0
@@ -62469,7 +62064,6 @@ GameObject:
   - component: {fileID: 2434929009122511987}
   - component: {fileID: 6469718443590157203}
   - component: {fileID: 5665847532815604407}
-  - component: {fileID: 3940784853170163461}
   m_Layer: 9
   m_Name: vaseBlue (6)
   m_TagString: Undestroyed
@@ -62477,20 +62071,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853170163461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853170163460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 10
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853257247222
 GameObject:
   m_ObjectHideFlags: 0
@@ -62542,7 +62122,6 @@ GameObject:
   - component: {fileID: 2434929008482345641}
   - component: {fileID: 3940784853290213853}
   - component: {fileID: 2676510513891005593}
-  - component: {fileID: 3940784853290213855}
   m_Layer: 9
   m_Name: Bowl (2)
   m_TagString: Undestroyed
@@ -62550,20 +62129,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853290213855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853290213854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853305555758
 GameObject:
   m_ObjectHideFlags: 0
@@ -62578,7 +62143,6 @@ GameObject:
   - component: {fileID: 6915056809016708417}
   - component: {fileID: 2676510513907388009}
   - component: {fileID: 4448790639375821547}
-  - component: {fileID: 3940784853305555759}
   m_Layer: 9
   m_Name: BowlFruit
   m_TagString: Undestroyed
@@ -62586,20 +62150,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &3940784853305555759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853305555758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853309579784
 GameObject:
   m_ObjectHideFlags: 0
@@ -62614,7 +62164,6 @@ GameObject:
   - component: {fileID: 2434929008462913919}
   - component: {fileID: 3940784853309579787}
   - component: {fileID: 5665847532401211323}
-  - component: {fileID: 3940784853309579785}
   m_Layer: 9
   m_Name: vasePurple (1)
   m_TagString: Undestroyed
@@ -62622,20 +62171,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853309579785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853309579784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853309579787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62684,7 +62219,6 @@ GameObject:
   - component: {fileID: 3940784853398456681}
   - component: {fileID: 5208628307859669085}
   - component: {fileID: 8612070930490667467}
-  - component: {fileID: 3940784853398456683}
   m_Layer: 9
   m_Name: vaseWhite (2)
   m_TagString: Undestroyed
@@ -62692,20 +62226,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853398456683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853398456682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853455972728
 GameObject:
   m_ObjectHideFlags: 0
@@ -62718,7 +62238,6 @@ GameObject:
   - component: {fileID: 8452554041096480332}
   - component: {fileID: 8565438168613643733}
   - component: {fileID: 2434929008299977231}
-  - component: {fileID: 3940784853455972729}
   - component: {fileID: 6469718442767623663}
   - component: {fileID: 5665847532596919499}
   m_Layer: 9
@@ -62728,20 +62247,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853455972729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853455972728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853457357027
 GameObject:
   m_ObjectHideFlags: 0
@@ -62756,7 +62261,6 @@ GameObject:
   - component: {fileID: 2434929008314993556}
   - component: {fileID: 8514885851702614334}
   - component: {fileID: 5665847532582673744}
-  - component: {fileID: 3940784853457357028}
   m_Layer: 9
   m_Name: HoneyJar (1)
   m_TagString: Undestroyed
@@ -62764,20 +62268,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853457357028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853457357027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853478941917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62809,7 +62299,6 @@ GameObject:
   - component: {fileID: 3940784853478941917}
   - component: {fileID: 5208628307940158953}
   - component: {fileID: 8612070930560654463}
-  - component: {fileID: 3940784853478941919}
   m_Layer: 9
   m_Name: vaseWhite (1)
   m_TagString: Undestroyed
@@ -62817,20 +62306,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853478941919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853478941918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853481292904
 GameObject:
   m_ObjectHideFlags: 0
@@ -62845,7 +62320,6 @@ GameObject:
   - component: {fileID: 2434929008291743519}
   - component: {fileID: 3940784853481292907}
   - component: {fileID: 5665847532571578843}
-  - component: {fileID: 3940784853481292905}
   m_Layer: 9
   m_Name: Lamp
   m_TagString: Undestroyed
@@ -62853,20 +62327,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853481292905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853481292904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 9
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853481292907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62915,7 +62375,6 @@ GameObject:
   - component: {fileID: 2434929008741648177}
   - component: {fileID: 3940784853551612997}
   - component: {fileID: 5665847532155228661}
-  - component: {fileID: 3940784853551612999}
   m_Layer: 9
   m_Name: vasePurple (3)
   m_TagString: Undestroyed
@@ -62923,20 +62382,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853551612999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853551612998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853596410777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62968,7 +62413,6 @@ GameObject:
   - component: {fileID: 2434929008713044205}
   - component: {fileID: 3940784853596410777}
   - component: {fileID: 5665847532183832105}
-  - component: {fileID: 3940784853596410779}
   m_Layer: 9
   m_Name: Lamp (3)
   m_TagString: Undestroyed
@@ -62976,20 +62420,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853596410779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853596410778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853604013984
 GameObject:
   m_ObjectHideFlags: 0
@@ -63004,7 +62434,6 @@ GameObject:
   - component: {fileID: 2434929008689190103}
   - component: {fileID: 2210867465070275393}
   - component: {fileID: 5665847532174131731}
-  - component: {fileID: 3940784853604013985}
   m_Layer: 9
   m_Name: Cactus1
   m_TagString: Undestroyed
@@ -63012,20 +62441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853604013985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853604013984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!114 &3940784853670142596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63055,7 +62470,6 @@ GameObject:
   - component: {fileID: 8452554041444871603}
   - component: {fileID: 8565438168391609898}
   - component: {fileID: 2434929008623198704}
-  - component: {fileID: 3940784853670142600}
   - component: {fileID: 3940784853670142596}
   - component: {fileID: 5665847532374357812}
   m_Layer: 9
@@ -63065,20 +62479,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853670142600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853670142599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853670960817
 GameObject:
   m_ObjectHideFlags: 0
@@ -63092,7 +62492,6 @@ GameObject:
   - component: {fileID: 8565438168398975516}
   - component: {fileID: 2434929008621919686}
   - component: {fileID: 3940784853670960818}
-  - component: {fileID: 3940784853670960819}
   m_Layer: 9
   m_Name: SoapDozer
   m_TagString: Undestroyed
@@ -63117,20 +62516,6 @@ MonoBehaviour:
     type: 3}
   rb: {fileID: 0}
   magnitude: 12
---- !u!114 &3940784853670960819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853670960817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!1 &3940784853743849527
 GameObject:
   m_ObjectHideFlags: 0
@@ -63145,7 +62530,6 @@ GameObject:
   - component: {fileID: 2434929008565834560}
   - component: {fileID: 8514885851414479338}
   - component: {fileID: 5665847532298274180}
-  - component: {fileID: 3940784853743849528}
   m_Layer: 9
   m_Name: HoneyJar
   m_TagString: Undestroyed
@@ -63153,20 +62537,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3940784853743849528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940784853743849527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c86257ea638e8489f9d8a17dc70e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnitude: 12
-  Tip: {fileID: 8029478337620724394}
 --- !u!60 &3943596026619139522
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -74357,7 +73727,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 229006439}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ExitTip
         m_Mode: 1
@@ -80441,6 +79811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3939621606180073841}
+  - component: {fileID: 9198528865850928608}
   - component: {fileID: 1465102080543984199}
   - component: {fileID: 4410882088974278750}
   - component: {fileID: 6964624495710085670}
@@ -80451,6 +79822,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9198528865850928608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198528865850928607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d786b4ee9f558c4fa0eb8e7e9b010f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 3
 --- !u!114 &9201576202526322595
 MonoBehaviour:
   m_ObjectHideFlags: 0

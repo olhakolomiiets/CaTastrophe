@@ -34,14 +34,14 @@ public class BookQuest : MonoBehaviour
     private void Awake()
     {
         source = GetComponent<AudioSource>();
-        Collider2D col = transform.GetComponent<Collider2D>();
+        //Collider2D col = transform.GetComponent<Collider2D>();
 
-        col.enabled = false;
+        //col.enabled = false;
 
-        if (PlayerPrefs.GetInt("closetsDestroy") == 1)
-        {
-            col.enabled = true;
-        }
+        //if (PlayerPrefs.GetInt("closetsDestroy") == 1)
+        //{
+        //    col.enabled = true;
+        //}
     }
 
     void Start()
@@ -55,12 +55,12 @@ public class BookQuest : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (Used == false && PlayerPrefs.GetInt("bookStandDestroy1") == 0 && other.CompareTag("Player"))
+        if (Used == false && PlayerPrefs.GetInt("closetsDestroy") == 0 && other.CompareTag("Player"))
         {
             PersistentEventManager.Instance.TriggerEvent("bookStandDestroy1TipEvent");
         }
 
-        if (Used == false && PlayerPrefs.GetInt("bookStandDestroy1") == 0)
+        if (Used == false && PlayerPrefs.GetInt("closetsDestroy") == 1)
         {
             if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy"))
             {
@@ -120,7 +120,7 @@ public class BookQuest : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy") && PlayerPrefs.GetInt("bookStandDestroy1") == 0)
+        if (other.CompareTag("ActiveCollaider") | other.CompareTag("ActiveCollaiderHeavy") && PlayerPrefs.GetInt("closetsDestroy") == 1)
         {
             foreach (Animator anim in questAnim)
             {
