@@ -13,8 +13,8 @@ public class TimeUpScoreBall : MonoBehaviour
 
     private void OnEnable()
     {
-        sm = FindObjectOfType<ScoreManager>();
-        basketBallLogic = FindObjectOfType<BasketBallLogic>();
+        sm = FindAnyObjectByType<ScoreManager>();
+        basketBallLogic = FindAnyObjectByType<BasketBallLogic>();
         totalScore = sm.TotalScore;
         StartCoroutine("Counter");
         StartCoroutine("CounterTotal");

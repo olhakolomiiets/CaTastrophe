@@ -5803,7 +5803,7 @@ MonoBehaviour:
     Text: PAQUETE DE INICIO
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: "\u0421\u0422\u0410\u0420\u0422\u041E\u0412\u0418\u0419 \u041D\u0410\u0411\u0406\u0420"
+    Text: "\u0421\u0422\u0410\u0420\u0422\u041E\u0412\u0418\u0419 \u041D\u0410\u0411I\u0420"
     Object: {fileID: 0}
 --- !u!1 &1404522852436939057
 GameObject:
@@ -10382,6 +10382,64 @@ MonoBehaviour:
   - Language: Ukrainian
     Text: "\u041C\u0415\u041D\u042E"
     Object: {fileID: 0}
+--- !u!1 &3524712190371368882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021307712449313304}
+  - component: {fileID: 7834287501550589507}
+  m_Layer: 0
+  m_Name: Leaderboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021307712449313304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524712190371368882}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7834287501550589507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524712190371368882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: LEADERBOARD
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041B\u0418\u0414\u0415\u0420\u0411\u041E\u0420\u0414"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: TABLA DE LIDERES
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u041BI\u0414\u0415\u0420\u0418"
+    Object: {fileID: 0}
 --- !u!1 &3635193520324761047
 GameObject:
   m_ObjectHideFlags: 0
@@ -13196,6 +13254,68 @@ MonoBehaviour:
       \u0413\u041E\u041B\u041E\u0412\u041E\u041B\u041E\u041C\u041A\u0418 I \u0422\u0415\u041F\u0415\u0420
       \u0422\u041E\u0411I \u0414\u041E\u0421\u0422\u0423\u041F\u041DI \u041D\u041E\u0412I
       I\u0413\u0420\u0418 \u0412 \u041DI\u0427\u041D\u041E\u041C\u0423 \u041CI\u0421\u0422I"
+    Object: {fileID: 0}
+--- !u!1 &4744152170106178052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6619165734796336778}
+  - component: {fileID: 1022502053671768091}
+  m_Layer: 0
+  m_Name: FirstPazzleExplainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6619165734796336778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744152170106178052}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022502053671768091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744152170106178052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: COLLECT PUZZLE PIECES TO UNLOCK THE CITY
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0421\u041E\u0411\u0418\u0420\u0410\u0419\u0422\u0415 \u041A\u0423\u0421\u041E\u0427\u041A\u0418
+      \u041F\u0410\u0417\u041B\u0410, \u0427\u0422\u041E\u0411\u042B \u0420\u0410\u0417\u0411\u041B\u041E\u041A\u0418\u0420\u041E\u0412\u0410\u0422\u042C
+      \u0413\u041E\u0420\u041E\u0414"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: RECOGE PIEZAS DEL ROMPECABEZAS PARA DESBLOQUEAR LA CIUDAD
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u0417\u0411\u0418\u0420\u0410\u0419\u0422\u0415 \u0428\u041C\u0410\u0422\u041E\u0427\u041A\u0418
+      \u041F\u0410\u0417\u041B\u0410, \u0429\u041E\u0411 \u0420\u041E\u0417\u0411\u041B\u041E\u041A\u0423\u0412\u0410\u0422\u0418
+      \u041C\u0406\u0421\u0422\u041E"
     Object: {fileID: 0}
 --- !u!1 &4837153766567766994
 GameObject:
@@ -20212,6 +20332,64 @@ MonoBehaviour:
     Text: "\u0422i\u043B\u044C\u043A\u0438 \u0441\u043E\u0431\u0430\u043A\u0438 \u0442\u0443\u0442
       \u043D\u0435 \u0432\u0438\u0441\u0442\u0430\u0447\u0430\u043B\u043E..."
     Object: {fileID: 0}
+--- !u!1 &7760816170296068227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2640964667693939578}
+  - component: {fileID: 445674359123760353}
+  m_Layer: 0
+  m_Name: edit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2640964667693939578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760816170296068227}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445674359123760353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760816170296068227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: EDIT
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0418\u0417\u041C\u0415\u041D\u0418\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: CAMBIAR
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u0417\u041CI\u041D\u0418\u0422\u0418"
+    Object: {fileID: 0}
 --- !u!1 &7773193527053766042
 GameObject:
   m_ObjectHideFlags: 0
@@ -21501,6 +21679,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8329711620184395405}
+  - {fileID: 1021307712449313304}
   - {fileID: 8329711618491908061}
   - {fileID: 8329711618224574959}
   - {fileID: 8329711618851605966}
@@ -21566,6 +21745,7 @@ Transform:
   - {fileID: 5150489375111130891}
   - {fileID: 9072134217373882148}
   - {fileID: 3534701233612471045}
+  - {fileID: 2640964667693939578}
   - {fileID: 3222604494601647538}
   - {fileID: 5435236908304337597}
   - {fileID: 6348601182636747189}
@@ -21583,6 +21763,7 @@ Transform:
   - {fileID: 8213444176930372579}
   - {fileID: 6156454491651336026}
   - {fileID: 7987160977711895001}
+  - {fileID: 6619165734796336778}
   - {fileID: 4569336902180192464}
   - {fileID: 6025371886284593847}
   - {fileID: 8574549542380676028}
@@ -21918,7 +22099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: Ukrainian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1

@@ -36,6 +36,7 @@ public class GetCoinsRewardedAd : MonoBehaviour
 
     private bool _rewardedAdUsed;
     private int TotalScore;
+    private ScoreManager sm;
 
     #endregion
 
@@ -45,6 +46,8 @@ public class GetCoinsRewardedAd : MonoBehaviour
         {
             _adController = FindAnyObjectByType<RewardedAdController>();
         }
+
+        sm = FindAnyObjectByType<ScoreManager>();
 
         _rewardedAdUsed = false;
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
@@ -56,6 +59,8 @@ public class GetCoinsRewardedAd : MonoBehaviour
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + dailyBonus;
+
+        sm.UpdateAwardTotalScore(dailyBonus);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         bonusTimer.AdViewed();

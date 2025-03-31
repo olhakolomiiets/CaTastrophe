@@ -14,7 +14,7 @@ public class GetTotalScore : MonoBehaviour
     {
         // StartCoroutine(GetScore());
         TotalScore = PlayerPrefs.GetInt("TotalScore");
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         scoreTotalText.text = TotalScore.ToString();
         allStars = PlayerPrefs.GetInt("AllStars");
         allStarsText.text = allStars.ToString();
@@ -25,7 +25,7 @@ public class GetTotalScore : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             TotalScore = PlayerPrefs.GetInt("TotalScore");
-            sm = FindObjectOfType<ScoreManager>();
+            sm = FindAnyObjectByType<ScoreManager>();
             scoreTotalText.text = TotalScore.ToString();
         }
     }

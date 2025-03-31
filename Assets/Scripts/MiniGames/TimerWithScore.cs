@@ -32,7 +32,7 @@ public class TimerWithScore : MonoBehaviour, IMiniGamesScore
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         levelComplete = PlayerPrefs.GetInt("LevelComplete");
         Debug.Log("sceneIndex is" + sceneIndex);
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         TimeUp = false;
         anim = gameObject.GetComponent<Animator>();
         _uiManager = Camera.main.GetComponent<UIManager>();

@@ -10,6 +10,7 @@ public class PickUpPuzzle : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject stars;
     [SerializeField] private int houseNumber;
+    [SerializeField] private float duration = 2;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class PickUpPuzzle : MonoBehaviour
         anim.SetTrigger("pieceFound");
         yield return new WaitForSecondsRealtime(0.25f);
         stars.SetActive(true);
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(duration);
         nightCityPuzzle.SetActive(false);
         gameObject.SetActive(false);
         Time.timeScale = 1;

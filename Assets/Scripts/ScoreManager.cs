@@ -29,9 +29,12 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        scoreDisplay.text = score.ToString();
-        scoreWinText.text = score.ToString() + "$";
-        TotalScore = GetTotalScore();
+        if(scoreDisplay != null)
+        {
+            scoreDisplay.text = score.ToString();
+            scoreWinText.text = score.ToString() + "$";
+            TotalScore = GetTotalScore();
+        }
     }
     public void DestroyBonus(int x)
     {
@@ -41,6 +44,13 @@ public class ScoreManager : MonoBehaviour
         {
             anim.SetTrigger("Plus");
         }
+    }
+
+    public void UpdateAwardTotalScore(int score)
+    {
+        int totalMoney = PlayerPrefs.GetInt("AwardTotalMoney");
+        totalMoney += score;
+        PlayerPrefs.SetInt("AwardTotalMoney", totalMoney);
     }
     public int GetTotalScore()
     {

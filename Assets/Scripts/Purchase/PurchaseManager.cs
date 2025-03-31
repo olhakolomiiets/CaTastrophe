@@ -44,9 +44,10 @@ public class PurchaseManager : MonoBehaviour
     [HideInInspector] public UnityEvent PurchasedProductMoneyPack10000;
     [HideInInspector] public UnityEvent PurchasedProductPowersToRestore;
 
+    private ScoreManager sm;
     private void Awake()
     {
-        _purchaseController = FindObjectOfType<IAPManager>();
+        _purchaseController = FindAnyObjectByType<IAPManager>();
     }
 
     private void OnEnable()
@@ -60,6 +61,7 @@ public class PurchaseManager : MonoBehaviour
     }
     private void Start()
     {
+        sm = FindAnyObjectByType<ScoreManager>();
         RestoreVariable();
     }
 
@@ -94,6 +96,7 @@ public class PurchaseManager : MonoBehaviour
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy2K;
+        sm.UpdateAwardTotalScore(buy2K);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _2KCoinsWindow.SetActive(false);       
@@ -102,9 +105,11 @@ public class PurchaseManager : MonoBehaviour
     public void MoneyPack5000()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + buy5K;        
+        TotalScore = TotalScore + buy5K;
+        sm.UpdateAwardTotalScore(buy5K);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
+
         _5KCoinsWindow.SetActive(false);       
     }
 
@@ -112,6 +117,7 @@ public class PurchaseManager : MonoBehaviour
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + buy10K;
+        sm.UpdateAwardTotalScore(buy10K);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         _10KCoinsWindow.SetActive(false);        

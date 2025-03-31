@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("timeBonus1", 0);
         PlayerPrefs.SetInt("timeBonus2", 0);
         PlayerPrefs.SetInt("timeBonus3", 0);
-        timerMy = FindObjectOfType<GameTimer>();
+        timerMy = FindAnyObjectByType<GameTimer>();
     }
 
     private Transform ChooseStartPlayerPosition()

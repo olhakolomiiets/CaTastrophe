@@ -106,6 +106,8 @@ public class TimeUpScore : MonoBehaviour
     {
         tScore = PlayerPrefs.GetInt("TotalScore");
         tScore = tScore + extraCoins;
+
+        sm.UpdateAwardTotalScore(extraCoins);
         SoundManager.snd.PlaybuySounds();
         PlayerPrefs.SetInt("TotalScore", tScore);
         serviceText.gameObject.SetActive(false);

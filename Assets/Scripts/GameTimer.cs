@@ -32,7 +32,7 @@ public class GameTimer : MonoBehaviour
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         levelComplete = PlayerPrefs.GetInt("LevelComplete");
         Debug.Log("sceneIndex is" + sceneIndex);
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         TimeUp = false;
         anim = gameObject.GetComponent<Animator>();
         _uiManager = Camera.main.GetComponent<UIManager>();
@@ -62,6 +62,9 @@ public class GameTimer : MonoBehaviour
         if (timeDelta >= 0.0 && TimeUp == false)
         {
             sm.TotalScore += sm.score;
+
+            sm.UpdateAwardTotalScore(sm.score);
+
             PlayerPrefs.SetInt("TotalScore", sm.TotalScore);
             if (GetLevelScore() < sm.score)
             {

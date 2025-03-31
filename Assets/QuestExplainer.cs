@@ -27,7 +27,10 @@ public class QuestExplainer : MonoBehaviour
             if (PlayerPrefs.GetInt(explainerName) == 0)
             {
                 Tip.SetActive(true);
-                Canvas.SetActive(false);
+
+                if(explainerName != "JumpExplainerDone")
+                    Canvas.SetActive(false);
+
                 Time.timeScale = 0;
                 PlayerPrefs.SetInt(explainerName, 1);
                 controller.OnButtonUp();
