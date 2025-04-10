@@ -7,10 +7,8 @@ public class Interstitial : MonoBehaviour
 
     #region EDITOR FIELDS
 
-    [SerializeField, Range(1, 900)] private int delayBetweenAds = 180;
+    private int delayBetweenAds = 120;
     [SerializeField] private InterstitialAdController _adController;
-
-    //[SerializeField] private AppodealAdController _appodealController;
 
     #endregion
 
@@ -41,7 +39,7 @@ public class Interstitial : MonoBehaviour
 
     public void LoadInterstitialAd()
     {
-        if(PlayerPrefs.GetInt("HowManyGamesPlayed") < 3)
+        if(PlayerPrefs.GetInt("HowManyGamesPlayed") < 1)
         {
             return;
         }
@@ -64,7 +62,6 @@ public class Interstitial : MonoBehaviour
             return;
         }
         _adController.ShowAd();
-        //_appodealController.ShowInterstitial();
 
         FirebaseAnalytics.LogEvent(name: "interstitial_ad_showed");
     }
