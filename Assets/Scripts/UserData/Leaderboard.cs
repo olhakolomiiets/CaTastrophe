@@ -2,20 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using static LeaderboardUser;
 
 public class Leaderboard : MonoBehaviour
 {
+    #region EDITOR FIELDS
+
+    [Header("Leaderboard Settings")]
     [SerializeField] private string apiUrl = "https://cbcs.fatcat.com.ua/api/";
     [SerializeField] private GameObject leaderboardEntryPrefab;
     [SerializeField] private Transform leaderboardContainer;
     [SerializeField] private GameObject serviceText;
+
+    [Header("Top Five")]
+    [SerializeField] private Text _1stPlaceUsername;
+    [SerializeField] private Text _2ndPlaceUsername;
+    [SerializeField] private Text _3rdPlaceUsername;
+    [SerializeField] private Text _4thPlaceUsername;
+    [SerializeField] private Text _5thPlaceUsername;
+
+    #endregion 
+
+    #region PRIVATE FIELDS
 
     private string deviceID;
     public int totalScore;
     private bool isUpdatingLeaderboard = false;
     private int limit = 100;
     private int offset = 0;
+
+    #endregion
 
     private void OnEnable()
     {
@@ -120,7 +137,19 @@ public class Leaderboard : MonoBehaviour
             LeaderboardUser entryScript = entryObj.GetComponent<LeaderboardUser>();
             entryScript.Display(leaderboardEntries[i], i + 1 + offset, deviceID);
         }
+
+        DisplayTopFive(leaderboardEntries);
     }
+
+    private void DisplayTopFive(LeaderboardUser.LeaderboardEntry[] leaderboardEntries)
+    {
+        _1stPlaceUsername.text = leaderboardEntries.Length > 0 ? leaderboardEntries[0].name : "-";
+        _2ndPlaceUsername.text = leaderboardEntries.Length > 1 ? leaderboardEntries[1].name : "-";
+        _3rdPlaceUsername.text = leaderboardEntries.Length > 2 ? leaderboardEntries[2].name : "-";
+        _4thPlaceUsername.text = leaderboardEntries.Length > 3 ? leaderboardEntries[3].name : "-";
+        _5thPlaceUsername.text = leaderboardEntries.Length > 4 ? leaderboardEntries[4].name : "-";
+    }
+
 
     private void OnDisable()
     {
