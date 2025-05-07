@@ -22,10 +22,14 @@ public class Leaderboard : MonoBehaviour
     [SerializeField] private Text _4thPlaceUsername;
     [SerializeField] private Text _5thPlaceUsername;
 
+    //[SerializeField] private List<Sprite> catIcons;
+    //[SerializeField] private UserManager userManager;
+
     #endregion 
 
     #region PRIVATE FIELDS
 
+    private Sprite catSprite;
     private string deviceID;
     public int totalScore;
     private bool isUpdatingLeaderboard = false;
@@ -135,8 +139,14 @@ public class Leaderboard : MonoBehaviour
         {
             GameObject entryObj = Instantiate(leaderboardEntryPrefab, leaderboardContainer);
             LeaderboardUser entryScript = entryObj.GetComponent<LeaderboardUser>();
+
+            //int position = i + 1 + offset;
+            //catSprite = GetCatIconByPosition(position);
+
             entryScript.Display(leaderboardEntries[i], i + 1 + offset, deviceID);
         }
+
+        //userManager.catIco.sprite = catSprite;
 
         DisplayTopFive(leaderboardEntries);
     }
@@ -149,6 +159,21 @@ public class Leaderboard : MonoBehaviour
         _4thPlaceUsername.text = leaderboardEntries.Length > 3 ? leaderboardEntries[3].name : "-";
         _5thPlaceUsername.text = leaderboardEntries.Length > 4 ? leaderboardEntries[4].name : "-";
     }
+
+    //private Sprite GetCatIconByPosition(int position)
+    //{
+    //    switch (position)
+    //    {
+    //        case 1: return catIcons[0];
+    //        case 2: return catIcons[1];
+    //        case 3: return catIcons[4];
+    //        case 4: return catIcons[10];
+    //        case 5: return catIcons[12];
+    //        default:
+    //            int randomIndex = Random.Range(0, catIcons.Count);
+    //            return catIcons[randomIndex];
+    //    }
+    //}
 
 
     private void OnDisable()

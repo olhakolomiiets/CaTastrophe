@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class UserManager : MonoBehaviour
 {
+    //[SerializeField] public Image catIco;
     [SerializeField] private Text NicknameLabel;
     [SerializeField] private GameObject UserNamePanel;
     [SerializeField] private GameObject EditNamePanel;

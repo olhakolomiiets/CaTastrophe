@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LeaderboardUser : MonoBehaviour
 {
     [SerializeField] private Image background;
+    //[SerializeField] private Image catIco;
     [SerializeField] private Text displayName;
     [SerializeField] private Text rank;
     [SerializeField] private Text score;
@@ -17,8 +19,8 @@ public class LeaderboardUser : MonoBehaviour
         displayName.text = data.name;
         rank.text = position.ToString();
         score.text = data.total_score.ToString();
-        bool isMine = data.device_id == id;
-        background.color = isMine ? activeColor : defaultColor;
+        background.color = data.device_id == id ? activeColor : defaultColor;
+        //catIco.sprite = catSprite;
     }
 
     [System.Serializable]
