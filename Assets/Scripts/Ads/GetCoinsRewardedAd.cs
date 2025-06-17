@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using GoogleMobileAds;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 using UnityEngine.Events;
 using Firebase.Analytics;
 using GoogleMobileAds.Sample;
@@ -12,15 +7,22 @@ using GoogleMobileAds.Sample;
 public class GetCoinsRewardedAd : MonoBehaviour
 {
     #region EDITOR FIELDS
-
+    [Header("Coins")]
     [SerializeField] private Button buttonReward;
     [SerializeField] private GameObject getCoinsForAdsWindow;
 
     [SerializeField] private int dailyBonus;
     [SerializeField] AdBonusTimer bonusTimer;
 
+    [Header("Energy Recovery")]
+    [SerializeField] private GameObject getEnergyButton;
+    [SerializeField] private Button buttonEnergyReward;
+    [SerializeField] private GameObject getEnergyForAdsWindow;
+    [SerializeField] private PowersRestore energyRecovery;
+    [SerializeField] private int amountPowersToRestore;
+
+    [Space(5)]
     [SerializeField] private RewardedAdController _adController;
-    //[SerializeField] private AppodealAdController _appodealController;
 
     #endregion
 
@@ -37,6 +39,8 @@ public class GetCoinsRewardedAd : MonoBehaviour
     private bool _rewardedAdUsed;
     private int TotalScore;
     private ScoreManager sm;
+    private bool isCoins;
+    private bool isEnergy;
 
     #endregion
 
@@ -49,7 +53,6 @@ public class GetCoinsRewardedAd : MonoBehaviour
 
         sm = FindAnyObjectByType<ScoreManager>();
 
-        _rewardedAdUsed = false;
         _adController.OnUserEarnedRewardEvent.AddListener(UserEarnedReward);
         _adController.RewardedAdLoadedEvent.AddListener(ShowRewardedAd);
         _adController.RewardedAdLoadedWithErrorEvent.AddListener(RewardedAdWithError);
@@ -57,28 +60,56 @@ public class GetCoinsRewardedAd : MonoBehaviour
 
     public void UserEarnedReward()
     {
-        TotalScore = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = TotalScore + dailyBonus;
 
-        sm.UpdateAwardTotalScore(dailyBonus);
-        SoundManager.snd.PlaybuySounds();
-        PlayerPrefs.SetInt("TotalScore", TotalScore);
-        bonusTimer.AdViewed();
+        if (isCoins)
+        {
+            isCoins = false;
+            TotalScore = PlayerPrefs.GetInt("TotalScore");
+            TotalScore = TotalScore + dailyBonus;
 
-        FirebaseAnalytics.LogEvent(name: "got_250coins_for_ads");
+            sm.UpdateAwardTotalScore(dailyBonus);
+            SoundManager.snd.PlaybuySounds();
+            PlayerPrefs.SetInt("TotalScore", TotalScore);
+            bonusTimer.AdViewed();
 
-        buttonReward.interactable = true;
-        getCoinsForAdsWindow.SetActive(false);
-        _rewardedAdUsed = true;
+            FirebaseAnalytics.LogEvent(name: "got_250coins_for_ads");
+
+            buttonReward.interactable = true;
+            getCoinsForAdsWindow.SetActive(false);
+        }
+        else if (isEnergy)
+        {
+            isEnergy = false;
+            getEnergyButton.SetActive(false);
+            int powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
+            powersToRestore = powersToRestore + amountPowersToRestore;
+            PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
+            SoundManager.snd.PlaybuySounds();
+
+            buttonEnergyReward.interactable = true;
+            getEnergyForAdsWindow.SetActive(false);
+
+            energyRecovery.UpdateUI();
+        }
+
     }
 
     public void GetCoins()
     {
+        isCoins = true;
         buttonReward.interactable = false;
         buttonReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
 
         _adController.LoadAd();
-        //_appodealController.ShowRewardedVideo();
+    }
+
+    public void GetEnergy()
+    {
+        isEnergy = true;
+        buttonEnergyReward.interactable = false;
+        buttonEnergyReward.GetComponentInChildren<Text>().text = $"{Lean.Localization.LeanLocalization.GetTranslationText("loading")}";
+
+        _adController.LoadAd();
     }
 
     public void ShowRewardedAd()

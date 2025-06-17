@@ -13,6 +13,8 @@ public class PowersRestore : MonoBehaviour
     [SerializeField] private FloatSO catPowersSO;
     [SerializeField] private int powersToRestore;
     [SerializeField] private Text amountPowers;
+
+    [SerializeField] private GameObject getEnergyButton;
     //[SerializeField] private GameObject particles;
 
     private void Awake()
@@ -29,6 +31,11 @@ public class PowersRestore : MonoBehaviour
     }
     void Start()
     {
+        if (PlayerPrefs.GetInt("firstPowerRestore") == 1 && catPowersSO.Value < 1f)
+        {
+            getEnergyButton.SetActive(true);
+        }
+
         if (PlayerPrefs.HasKey("firstPowerRestore") == false && catPowersSO.Value < 3f)
         {
             firstPowerRestore.SetActive(true);

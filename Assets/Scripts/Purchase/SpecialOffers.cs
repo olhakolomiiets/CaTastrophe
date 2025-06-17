@@ -43,7 +43,7 @@ public class SpecialOffers : MonoBehaviour
 
     private void Awake()
     {
-        _purchaseController = FindObjectOfType<IAPManager>();
+        _purchaseController = FindAnyObjectByType<IAPManager>();
     }
 
     private void OnEnable()

@@ -6,7 +6,6 @@ using UnityEngine;
 public class BannerAd : MonoBehaviour
 {
     [SerializeField] private BannerViewController _adController;
-    //[SerializeField] private AppodealAdController _appodealController;
 
     private void OnEnable()
     {
@@ -14,19 +13,15 @@ public class BannerAd : MonoBehaviour
         {
             _adController = FindAnyObjectByType<BannerViewController>();
         }
-    }
-    private void Start()
-    {
+
         if (PlayerPrefs.GetInt("adsRemoved") == 0)
         {
-            //_appodealController.ShowBannerBottom();
             _adController.LoadAd();
         }
     }
 
     private void OnDisable()
     {
-        //_appodealController.HideBanner();
         _adController.HideAd();
     }
 }

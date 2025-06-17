@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: 
+  currentLanguage: Ukrainian
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -40839,7 +40839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d869a0ffea3f65a4ba6c7507c28bd12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenAds: 180
   _adController: {fileID: 2080398749}
 --- !u!4 &2080398747
 Transform:
@@ -45322,6 +45321,9 @@ MonoBehaviour:
     OnPause:
       m_PersistentCalls:
         m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
     OnResume:
       m_PersistentCalls:
         m_Calls: []
@@ -45352,6 +45354,7 @@ MonoBehaviour:
   - rid: 0
   KeepPlayModeChanges: 0
   PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
   StopFeedbacksOnDisable: 0
   PlayCount: 0
   references:
@@ -61126,6 +61129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534724781290996792, guid: 618b65ea4d47436478bdf1de4cf64c11,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3534724781290996804, guid: 618b65ea4d47436478bdf1de4cf64c11,
         type: 3}
