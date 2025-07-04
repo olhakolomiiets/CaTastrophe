@@ -48,22 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943b96be04536d64cbb1449aa89e04bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catPowersSO:
-  - {fileID: 11400000, guid: fc1052210d58e9e4480a91b802288fe0, type: 2}
-  - {fileID: 11400000, guid: ed180d102ab0ace4d8533f450d4e9e6c, type: 2}
-  - {fileID: 11400000, guid: d76f495229a7fb64abc192392dc3735a, type: 2}
-  - {fileID: 11400000, guid: 4dceacb1713be414e818bc43cfc09acc, type: 2}
-  - {fileID: 11400000, guid: 088ab497167f47642b2ad7d0fa75a358, type: 2}
-  - {fileID: 11400000, guid: 6014570b983b0a9438d7b84745ae8847, type: 2}
-  - {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
-  - {fileID: 11400000, guid: 5e3579b44ff4c79438e955ff3d42f504, type: 2}
-  - {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
-  - {fileID: 11400000, guid: 60c02da4fc901ca4e9a1e0bdfa05ecf3, type: 2}
-  - {fileID: 11400000, guid: 0ef29bc55d057ed4a912957905672c60, type: 2}
-  - {fileID: 11400000, guid: eebe99c053451cc4685114b41337c609, type: 2}
-  - {fileID: 11400000, guid: 961f3dcd78ba51448a1a5e6af215e14d, type: 2}
-  - {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
-  - {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
   _toiletTimerSO: {fileID: 11400000, guid: ba737241a7c5e1648a5a0f2db5f8d3ad, type: 2}
   timeWhenToiletCleanedPref: timeWhenToiletCleanedPowerPref1
   exitTimeToiletPref: exitTimeToiletPowerPref1
@@ -77,6 +61,10 @@ MonoBehaviour:
   secAfterExit: 0
   secForToiletAll: 0
   pointsWhenWereExit: 0
+  skillName: Jump
+  skillManager: {fileID: 7543201819593576044}
+  isToiletActive: 0
+  isFirstTime: 0
 --- !u!1 &307341713097274012
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,22 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07320df727e9b84aab1d54607a7276b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catPowersSO:
-  - {fileID: 11400000, guid: fc1052210d58e9e4480a91b802288fe0, type: 2}
-  - {fileID: 11400000, guid: ed180d102ab0ace4d8533f450d4e9e6c, type: 2}
-  - {fileID: 11400000, guid: d76f495229a7fb64abc192392dc3735a, type: 2}
-  - {fileID: 11400000, guid: 4dceacb1713be414e818bc43cfc09acc, type: 2}
-  - {fileID: 11400000, guid: 088ab497167f47642b2ad7d0fa75a358, type: 2}
-  - {fileID: 11400000, guid: 6014570b983b0a9438d7b84745ae8847, type: 2}
-  - {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
-  - {fileID: 11400000, guid: 5e3579b44ff4c79438e955ff3d42f504, type: 2}
-  - {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
-  - {fileID: 11400000, guid: 60c02da4fc901ca4e9a1e0bdfa05ecf3, type: 2}
-  - {fileID: 11400000, guid: 0ef29bc55d057ed4a912957905672c60, type: 2}
-  - {fileID: 11400000, guid: eebe99c053451cc4685114b41337c609, type: 2}
-  - {fileID: 11400000, guid: 961f3dcd78ba51448a1a5e6af215e14d, type: 2}
-  - {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
-  - {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
   timeWhenFoodAddPref: timeWhenFoodAddPref3
   exitTimeFoodPref: exitTimeFoodPowerPref3
   secondsLeftFoodPref: secondsLeftFoodPowerPref3
@@ -226,6 +198,9 @@ MonoBehaviour:
   pointsWhenWereExit: 0
   secondsLeft: 0
   iconsFood: 0
+  skillName: Speed
+  skillManager: {fileID: 7543201819593576044}
+  isFoodActive: 0
 --- !u!1 &1558251352340600905
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,22 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9955257383f04ca4997bd0b367f6c462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catPowersSO:
-  - {fileID: 11400000, guid: fc1052210d58e9e4480a91b802288fe0, type: 2}
-  - {fileID: 11400000, guid: ed180d102ab0ace4d8533f450d4e9e6c, type: 2}
-  - {fileID: 11400000, guid: d76f495229a7fb64abc192392dc3735a, type: 2}
-  - {fileID: 11400000, guid: 4dceacb1713be414e818bc43cfc09acc, type: 2}
-  - {fileID: 11400000, guid: 088ab497167f47642b2ad7d0fa75a358, type: 2}
-  - {fileID: 11400000, guid: 6014570b983b0a9438d7b84745ae8847, type: 2}
-  - {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
-  - {fileID: 11400000, guid: 5e3579b44ff4c79438e955ff3d42f504, type: 2}
-  - {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
-  - {fileID: 11400000, guid: 60c02da4fc901ca4e9a1e0bdfa05ecf3, type: 2}
-  - {fileID: 11400000, guid: 0ef29bc55d057ed4a912957905672c60, type: 2}
-  - {fileID: 11400000, guid: eebe99c053451cc4685114b41337c609, type: 2}
-  - {fileID: 11400000, guid: 961f3dcd78ba51448a1a5e6af215e14d, type: 2}
-  - {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
-  - {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
   timeWhenFoodAddPref: timeWhenFoodAddPref2
   exitTimeFoodPref: exitTimeFoodPowerPref2
   secondsLeftFoodPref: secondsLeftFoodPowerPref2
@@ -357,6 +316,9 @@ MonoBehaviour:
   pointsWhenWereExit: 0
   secondsLeft: 0
   iconsFood: 0
+  skillName: Speed
+  skillManager: {fileID: 7543201819593576044}
+  isFoodActive: 0
 --- !u!1 &3748587328857645126
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,22 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3151c3ed351b1e745a280ac79382a0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catPowersSO:
-  - {fileID: 11400000, guid: fc1052210d58e9e4480a91b802288fe0, type: 2}
-  - {fileID: 11400000, guid: ed180d102ab0ace4d8533f450d4e9e6c, type: 2}
-  - {fileID: 11400000, guid: d76f495229a7fb64abc192392dc3735a, type: 2}
-  - {fileID: 11400000, guid: 4dceacb1713be414e818bc43cfc09acc, type: 2}
-  - {fileID: 11400000, guid: 088ab497167f47642b2ad7d0fa75a358, type: 2}
-  - {fileID: 11400000, guid: 6014570b983b0a9438d7b84745ae8847, type: 2}
-  - {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
-  - {fileID: 11400000, guid: 5e3579b44ff4c79438e955ff3d42f504, type: 2}
-  - {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
-  - {fileID: 11400000, guid: 60c02da4fc901ca4e9a1e0bdfa05ecf3, type: 2}
-  - {fileID: 11400000, guid: 0ef29bc55d057ed4a912957905672c60, type: 2}
-  - {fileID: 11400000, guid: eebe99c053451cc4685114b41337c609, type: 2}
-  - {fileID: 11400000, guid: 961f3dcd78ba51448a1a5e6af215e14d, type: 2}
-  - {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
-  - {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
   _toiletTimerSO: {fileID: 11400000, guid: ba737241a7c5e1648a5a0f2db5f8d3ad, type: 2}
   timeWhenToiletCleanedPref: timeWhenToiletCleanedPowerPref2
   exitTimeToiletPref: exitTimeToiletPowerPref2
@@ -433,6 +379,10 @@ MonoBehaviour:
   secAfterExit: 0
   secForToiletAll: 0
   pointsWhenWereExit: 0
+  skillName: Jump
+  skillManager: {fileID: 7543201819593576044}
+  isToiletActive: 0
+  isFirstTime: 0
 --- !u!1 &6412658968555639631
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,8 +394,8 @@ GameObject:
   - component: {fileID: 1608320526714335305}
   - component: {fileID: 6482607310962153886}
   - component: {fileID: 8261429643963278721}
-  - component: {fileID: 3379547584900315026}
   - component: {fileID: 5214774243150789007}
+  - component: {fileID: 7543201819593576044}
   m_Layer: 0
   m_Name: 1MyAwardsManager
   m_TagString: Untagged
@@ -499,18 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5448e05fabc708941b0a9df42b97068f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3379547584900315026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6412658968555639631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa69ade53681ba43b8a821d2fa84048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5214774243150789007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +461,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434b4410c5ef81f498295018a8e65488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7543201819593576044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6412658968555639631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba35355bbabc86c42a295ad34998bbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catData:
+  - {fileID: 11400000, guid: 15dcbea34d4394140a2fe42e04f0d04c, type: 2}
+  - {fileID: 11400000, guid: c24129a9ee0a0404da5cffb8f3a9ea81, type: 2}
+  - {fileID: 11400000, guid: 2a8a33c1c4e344c4989a838824e186a7, type: 2}
+  - {fileID: 11400000, guid: 4558f14398bff6a43b928b19a1ebf811, type: 2}
+  - {fileID: 11400000, guid: 8e63059a80c925b4eb185c544ef60a4a, type: 2}
+  - {fileID: 11400000, guid: 09f0f512d40283b41ab9e030d6edf04d, type: 2}
+  - {fileID: 11400000, guid: 13269c32befec5f4fba248c544a7e9f5, type: 2}
+  - {fileID: 11400000, guid: 3e1f511658908a748815db591809b627, type: 2}
+  - {fileID: 11400000, guid: 04cecc4447608d546babd1f91b7ea36e, type: 2}
+  - {fileID: 11400000, guid: cb0969a616801a048b05328ddf8a29ba, type: 2}
+  - {fileID: 11400000, guid: bfd6bbbf45e451a41847bb6fa6d38513, type: 2}
+  - {fileID: 11400000, guid: de76ef613abcfbf4cb2a8eb4f382d923, type: 2}
+  - {fileID: 11400000, guid: 9466f488be3949b41ba834a1e57c4914, type: 2}
+  - {fileID: 11400000, guid: 5509cf3af2aebdf40a5df1e4f150caf4, type: 2}
+  - {fileID: 11400000, guid: b467beed8d28cd54690f2472fe227968, type: 2}
+  speedLevels:
+  - 0
+  - 5.5
+  - 5.8
+  - 6
+  - 6.5
+  - 7
+  - 7.5
+  - 8
+  - 8.5
+  - 9
+  jumpLevels:
+  - 0
+  - 11.5
+  - 12.5
+  - 13
+  - 13.5
+  - 14.5
+  - 15.3
+  - 16
+  - 16.5
+  - 17
 --- !u!1 &7072499162270632997
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,22 +559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3b7043e65396b43867634ba68aca6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catPowersSO:
-  - {fileID: 11400000, guid: fc1052210d58e9e4480a91b802288fe0, type: 2}
-  - {fileID: 11400000, guid: ed180d102ab0ace4d8533f450d4e9e6c, type: 2}
-  - {fileID: 11400000, guid: d76f495229a7fb64abc192392dc3735a, type: 2}
-  - {fileID: 11400000, guid: 4dceacb1713be414e818bc43cfc09acc, type: 2}
-  - {fileID: 11400000, guid: 088ab497167f47642b2ad7d0fa75a358, type: 2}
-  - {fileID: 11400000, guid: 6014570b983b0a9438d7b84745ae8847, type: 2}
-  - {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
-  - {fileID: 11400000, guid: 5e3579b44ff4c79438e955ff3d42f504, type: 2}
-  - {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
-  - {fileID: 11400000, guid: 60c02da4fc901ca4e9a1e0bdfa05ecf3, type: 2}
-  - {fileID: 11400000, guid: 0ef29bc55d057ed4a912957905672c60, type: 2}
-  - {fileID: 11400000, guid: eebe99c053451cc4685114b41337c609, type: 2}
-  - {fileID: 11400000, guid: 961f3dcd78ba51448a1a5e6af215e14d, type: 2}
-  - {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
-  - {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
   _toiletTimerSO: {fileID: 11400000, guid: ba737241a7c5e1648a5a0f2db5f8d3ad, type: 2}
   timeWhenToiletCleanedPref: timeWhenToiletCleanedPowerPref3
   exitTimeToiletPref: exitTimeToiletPowerPref3
@@ -599,6 +571,10 @@ MonoBehaviour:
   secAfterExit: 0
   secForToiletAll: 0
   pointsWhenWereExit: 0
+  skillName: Jump
+  skillManager: {fileID: 7543201819593576044}
+  isToiletActive: 0
+  isFirstTime: 0
 --- !u!1 &7625547958100834097
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,22 +678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340ade6fd2e027b4994f9687f006f897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catPowersSO:
-  - {fileID: 11400000, guid: fc1052210d58e9e4480a91b802288fe0, type: 2}
-  - {fileID: 11400000, guid: ed180d102ab0ace4d8533f450d4e9e6c, type: 2}
-  - {fileID: 11400000, guid: d76f495229a7fb64abc192392dc3735a, type: 2}
-  - {fileID: 11400000, guid: 4dceacb1713be414e818bc43cfc09acc, type: 2}
-  - {fileID: 11400000, guid: 088ab497167f47642b2ad7d0fa75a358, type: 2}
-  - {fileID: 11400000, guid: 6014570b983b0a9438d7b84745ae8847, type: 2}
-  - {fileID: 11400000, guid: 6dcb6b87cbe4237479acd0e81affd809, type: 2}
-  - {fileID: 11400000, guid: 5e3579b44ff4c79438e955ff3d42f504, type: 2}
-  - {fileID: 11400000, guid: 327e5b9a84cfeb54f904802a59486eae, type: 2}
-  - {fileID: 11400000, guid: 60c02da4fc901ca4e9a1e0bdfa05ecf3, type: 2}
-  - {fileID: 11400000, guid: 0ef29bc55d057ed4a912957905672c60, type: 2}
-  - {fileID: 11400000, guid: eebe99c053451cc4685114b41337c609, type: 2}
-  - {fileID: 11400000, guid: 961f3dcd78ba51448a1a5e6af215e14d, type: 2}
-  - {fileID: 11400000, guid: 11df5fee0e68e524798e83926b677423, type: 2}
-  - {fileID: 11400000, guid: f98b23cf0b6fbcb4fb73287c24674fad, type: 2}
   timeWhenFoodAddPref: timeWhenFoodAddPref1
   exitTimeFoodPref: exitTimeFoodPowerPref1
   secondsLeftFoodPref: secondsLeftFoodPowerPref1
@@ -730,3 +690,6 @@ MonoBehaviour:
   pointsWhenWereExit: 0
   secondsLeft: 0
   iconsFood: 0
+  skillName: Speed
+  skillManager: {fileID: 7543201819593576044}
+  isFoodActive: 0

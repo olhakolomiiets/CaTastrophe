@@ -55,10 +55,10 @@ public class CowController : MonoBehaviour
     public GameObject canvas;
     public bool noAffraidDogs;
     public bool ExtraLife;
-    private int timeForLowPower6;
-    private float energyCat;
-    public GameObject lowPower;
-    private bool lowPowerModeON;
+    //private int timeForLowPower6;
+    //private float energyCat;
+    //public GameObject lowPower;
+    //private bool lowPowerModeON;
     [SerializeField] private Button jump;
     [SerializeField] private EventTrigger left;
     [SerializeField] private EventTrigger right;
@@ -134,7 +134,7 @@ public class CowController : MonoBehaviour
         hearts[3] = LivesHearts.transform.GetChild(3).GetComponent<Image>(); ;
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         damageImage = canvas.gameObject.transform.GetChild(10).gameObject;
-        lowPower = canvas.gameObject.transform.GetChild(17).gameObject;
+        //lowPower = canvas.gameObject.transform.GetChild(17).gameObject;
         jump = canvas.transform.GetChild(0).GetComponent<Button>();
         left = canvas.transform.GetChild(2).GetComponent<EventTrigger>();
         right = canvas.transform.GetChild(3).GetComponent<EventTrigger>();
@@ -155,13 +155,13 @@ public class CowController : MonoBehaviour
             lives = 3;
             hearts[3].enabled = false;
         }
-        if (catPower.Value <= 0.05f)
-        {
-            lowPower.SetActive(true);
-            lowPowerModeON = true;
+        // if (catPower.Value <= 0.05f)
+        // {
+        //     lowPower.SetActive(true);
+        //     lowPowerModeON = true;
 
-            FirebaseAnalytics.LogEvent(name: "low_power_mode_on");
-        }
+        //     FirebaseAnalytics.LogEvent(name: "low_power_mode_on");
+        // }
     }
     private void Update()
     {
@@ -219,16 +219,16 @@ public class CowController : MonoBehaviour
             OnButtonUp();
         }
 
-        if (lowPowerModeON)
-        {
-            if (isGrounded == true)
-            {
-                if (isWaiting == false)
-                {
-                    StartCoroutine(waiter());
-                }
-            }
-        }
+        // if (lowPowerModeON)
+        // {
+        //     if (isGrounded == true)
+        //     {
+        //         if (isWaiting == false)
+        //         {
+        //             StartCoroutine(waiter());
+        //         }
+        //     }
+        // }
     }
     private void FixedUpdate()
     {
@@ -691,7 +691,7 @@ public class CowController : MonoBehaviour
 
             normalSpeed = PlayerPrefs.GetFloat("Speed" + "nameOfCat" + catIndex);
 
-            Debug.Log("normalSpeed = "  + normalSpeed);
+            Debug.Log("normalSpeed = " + normalSpeed);
         }
         else
         {

@@ -148,11 +148,11 @@ public class FoodTimer : MonoBehaviour, IClickable
         {
             Debug.Log(" secondsAfterExit < secondsLeftFood ");
             pointsBoostWhenWereExit = (int)secondsAfterExit * 0.03333334f;
-            if (pointsBoostWhenWereExit > 0)
-            {
-                powerPoints.pointsWhenYouWereAbsent = powerPoints.pointsWhenYouWereAbsent + pointsBoostWhenWereExit;
-                Debug.Log("Points when you was absent Timer NotFinished " + pointsBoostWhenWereExit);
-            }
+            // if (pointsBoostWhenWereExit > 0)
+            // {
+            //     powerPoints.pointsWhenYouWereAbsent = powerPoints.pointsWhenYouWereAbsent + pointsBoostWhenWereExit;
+            //     Debug.Log("Points when you was absent Timer NotFinished " + pointsBoostWhenWereExit);
+            // }
         }
         if (secondsLeftFood < secondsAfterExit)
         {
@@ -171,11 +171,11 @@ public class FoodTimer : MonoBehaviour, IClickable
                 Debug.Log("pointsBoostWhenWereExit = pointsBoostWhenWereExitFood + pointsBoostWhenWereExitNoFood"
                 + pointsBoostWhenWereExit + "= " + pointsBoostWhenWereExitFood + "+ " + pointsBoostWhenWereExitNoFood);
             }
-            if (pointsBoostWhenWereExit > 0)
-            {
-                powerPoints.pointsWhenYouWereAbsent = powerPoints.pointsWhenYouWereAbsent + pointsBoostWhenWereExit;
-                Debug.Log("Points when you was absent Timer Left or 0 " + pointsBoostWhenWereExit);
-            }
+            // if (pointsBoostWhenWereExit > 0)
+            // {
+            //     powerPoints.pointsWhenYouWereAbsent = powerPoints.pointsWhenYouWereAbsent + pointsBoostWhenWereExit;
+            //     Debug.Log("Points when you was absent Timer Left or 0 " + pointsBoostWhenWereExit);
+            // }
         }
         if (secondsAfterExit < secondsLeftFood)
         {

@@ -26,7 +26,7 @@ public class BallsStarsWin : MonoBehaviour
 
     void Start()
     {
-        basketBallLogic = FindObjectOfType<BasketBallLogic>();
+        basketBallLogic = FindAnyObjectByType<BasketBallLogic>();
 
         textForStar1.text = ballsStars.Star1.ToString();
         textForStar2.text = ballsStars.Star2.ToString();

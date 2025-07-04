@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PowerForFood3 : MonoBehaviour, IPlateInterface
 {
     public static PowerForFood3 instance;
-    [SerializeField] private List<FloatSO> catPowersSO;
     public string timeWhenFoodAddPref;
     public string exitTimeFoodPref;
     public string secondsLeftFoodPref;
@@ -17,10 +16,11 @@ public class PowerForFood3 : MonoBehaviour, IPlateInterface
     public float secondsWhenWereExit;
     public int secAfterExit;
     public float secForFoodAll;
-    public float pointsWhenWereExit;
-    private bool toggle;
     public float secondsLeft;
     public int iconsFood;
+    [SerializeField] private string skillName;
+    [SerializeField] private SkillManager skillManager;
+    [SerializeField] private int isFoodActive;
     public delegate void Plate3FoodAddDelegate();
 
     private void Awake()
@@ -46,10 +46,12 @@ public class PowerForFood3 : MonoBehaviour, IPlateInterface
     {
         if (foodTimer >= msFoodTime)
         {
-            if (iconsFood == 0)
+            if (iconsFood == 0 && isFoodActive == 2)
             {
+                isFoodActive = 1;
+                skillManager.UpdateSkill(skillName, isFoodActive);
+                PlayerPrefs.SetInt("FoodPlate3State", isFoodActive);
                 PassivePowerUp.Food3SpeeUp = false;
-                toggle = true;
             }
             else if (iconsFood > 0)
             {
@@ -57,7 +59,6 @@ public class PowerForFood3 : MonoBehaviour, IPlateInterface
                 secForFoodAll = 0;
                 iconsFood = iconsFood - 1;
             }
-
         }
         else if (foodTimer < msFoodTime)
         {
@@ -65,7 +66,13 @@ public class PowerForFood3 : MonoBehaviour, IPlateInterface
             foodTimer = secForFoodAll;
             secondsLeft = (msFoodTime - foodTimer);
             PassivePowerUp.Food3SpeeUp = true;
-            toggle = false;
+
+            if (isFoodActive == 1)
+            {
+                isFoodActive = 2;
+                skillManager.UpdateSkill(skillName, isFoodActive);
+                PlayerPrefs.SetInt("FoodPlate3State", isFoodActive);
+            }
         }
     }
 
@@ -74,6 +81,12 @@ public class PowerForFood3 : MonoBehaviour, IPlateInterface
         foodTimer = 0;
         secForFoodAll = 0;
         PlayerPrefs.SetString(timeWhenFoodAddPref, System.DateTime.Now.ToBinary().ToString());
+
+        if (PlayerPrefs.GetInt("FoodPlate3State") == 0)
+        {
+            isFoodActive = 1;
+            PlayerPrefs.SetInt("FoodPlate3State", isFoodActive);
+        }
     }
 
     public void Save()
@@ -119,48 +132,11 @@ public class PowerForFood3 : MonoBehaviour, IPlateInterface
             iconsFood = 0;
             secondsLeft = 0;
         }
+        isFoodActive = PlayerPrefs.GetInt("FoodPlate3State");
         foodTimer = msFoodTime - secondsLeft;
         secondsWhenWereExit = totalSecondsFoodLeft - secondsLeft;
         secForFoodAll = (float)foodTimer;
         TimeSpan timer = TimeSpan.FromSeconds(rawTime);
-
-        if (secAfterExit < secondsWhenWereExit)
-        {
-            pointsWhenWereExit = secAfterExit * 0.00083333f;
-            if (pointsWhenWereExit > 0)
-            {
-                foreach (FloatSO catPower in catPowersSO)
-                {
-                    if (catPower.Value < 10)
-                    {
-                        PassivePowerUp.foodPoints3WhenWereExit = pointsWhenWereExit;
-                    }
-                }
-            }
-        }
-        if (secAfterExit > secondsWhenWereExit)
-        {
-            if (secondsWhenWereExit > 0)
-            {
-                float pointsForActiveFood = secondsWhenWereExit * 0.00083333f;
-                pointsWhenWereExit = pointsForActiveFood;
-
-                if (pointsWhenWereExit > 0)
-                {
-                    foreach (FloatSO catPower in catPowersSO)
-                    {
-                        if (catPower.Value < 10)
-                        {
-                            PassivePowerUp.foodPoints3WhenWereExit = pointsWhenWereExit;
-                        }
-                    }
-                }
-            }
-            else if ((int)secondsWhenWereExit == 0)
-            {
-                PassivePowerUp.foodPoints3WhenWereExit = 0;
-            }
-        }
     }
     private void OnApplicationFocus(bool focusStatus)
     {

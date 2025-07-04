@@ -47,13 +47,13 @@ public class UserManager : MonoBehaviour
         return Application.internetReachability != NetworkReachability.NotReachable;
     }
 
-    private Dictionary<string, string[]> catNamesByLanguage = new Dictionary<string, string[]>
-    {
-        { "en", new string[] { "Whiskers", "Meowster", "Purrfect", "FuzzyPaws", "MrFluffy", "Clawdia", "KittyMittens", "MeowMeow", "Catniss", "Purrito" } },
-        { "es", new string[] { "Bigotes", "Michi", "Pelusa", "Gatito", "Felino", "MiauMiau", "Ronroneo", "Zarpas", "Minino", "Gordito" } },
-        { "ua", new string[] { "Вусик", "Мурчик", "Киця", "Пухнастик", "Хвостик", "Муркотик", "Барсик", "Сніжок", "Лапка", "Котигорошко" } },
-        { "ru", new string[] { "Барсик", "Мурзик", "Васька", "Кузя", "Пушок", "Лапа", "Мурлыка", "Рыжик", "Снежок", "Котяра" } }
-    };
+private Dictionary<string, string[]> catNamesByLanguage = new Dictionary<string, string[]> 
+{
+    { "en", new string[] { "Whiskers", "Meowster", "Purrfect", "FuzzyPaws", "MrFluffy", "Clawdia", "KittyMittens", "MeowMeow", "Catniss", "Purrito" } },
+    { "es", new string[] { "Bigotes", "Michi", "Pelusa", "Gatito", "Felino", "MiauMiau", "Ronroneo", "Zarpas", "Minino", "Gordito" } },
+    { "ua", new string[] { "РљРёС†СЏ", "РњСѓСЂС‡РёРє", "РџСѓС€РёСЃС‚РёРє", "Р›Р°СЃРєР°", "РљС–СЃР°", "РџСѓС…", "РЎС‚СЂС–Рј", "Р§СѓР±", "РњСЏСѓ", "РџСѓСЂСЂ" } },
+    { "ru", new string[] { "РљРѕС‚РёРє", "РњСѓСЂРєР°", "РџСѓС€РѕРє", "Р‘Р°СЂСЃРёРє", "Р›Р°РїРєР°", "РўРѕРј", "Р’Р°СЃСЊРєР°", "Р С‹Р¶РёРє", "РЎРЅРµР¶РѕРє", "РџСѓС€РѕРє" } }
+};
 
     private string GetSystemLanguage()
     {
@@ -102,7 +102,7 @@ public class UserManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Помилка логіну: " + request.error);
+                Debug.LogError("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: " + request.error);
             }
         }
     }

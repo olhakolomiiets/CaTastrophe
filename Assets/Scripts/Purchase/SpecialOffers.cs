@@ -10,20 +10,17 @@ public class SpecialOffers : MonoBehaviour
     private int TotalScore;
     [SerializeField] SpecialOffersTimer specialOffersTimer;
 
-    [Header("Energy Recovery")]
-    [SerializeField] private GameObject restoreWindow;
-    [SerializeField] private int powersToRestore;
-    [SerializeField] private int amountPowersToRestore;
-
     [Header("Money Packs")]
     [SerializeField] private GameObject _3500CoinsWindow;
     [SerializeField] private int buy3500;
+
+    [SerializeField] private GameObject _7000CoinsWindow;
+    [SerializeField] private int buy7000;
 
     [Header("Starter Pack")]
     [SerializeField] private GameObject _starterPackWindow;
     private int _food;
     private int _sand;
-    [SerializeField] private PowersRestore energyRecovery;
     [SerializeField] private StarterPackTimer _starterPackTimer;
 
     [Header("Extra Life")]
@@ -33,9 +30,9 @@ public class SpecialOffers : MonoBehaviour
 
 
     [Space(5)]
-    [SerializeField] private IAPManager _purchaseController;
+    [SerializeField] private Samples.Purchasing.IAP5.Demo.PaywallManager _purchaseController;
 
-    [HideInInspector] public UnityEvent PurchasedSpecialOfferEnergyRecovery;
+    [HideInInspector] public UnityEvent PurchasedSpecialOfferMoneyPack7000;
     [HideInInspector] public UnityEvent PurchasedSpecialOfferMoneyPack3500;
     [HideInInspector] public UnityEvent PurchasedSpecialOfferStarterPack;
 
@@ -43,35 +40,22 @@ public class SpecialOffers : MonoBehaviour
 
     private void Awake()
     {
-        _purchaseController = FindAnyObjectByType<IAPManager>();
+        _purchaseController = FindAnyObjectByType<Samples.Purchasing.IAP5.Demo.PaywallManager>();
     }
 
-    private void OnEnable()
-    {
-        _purchaseController.PurchasedSpecialOfferEnergyRecovery.AddListener(SpecialOfferEnergyRestore);
-        _purchaseController.PurchasedSpecialOfferMoneyPack3500.AddListener(MoneyPack3500);
-        _purchaseController.PurchasedSpecialOfferStarterPack.AddListener(StarterPack);
-        _purchaseController.PurchasedProductExtraLifeSpecial.AddListener(GetExtraLife);
-    }
+    // private void OnEnable()
+    // {
+    //     _purchaseController.PurchasedSpecialOfferMoneyPack3500.AddListener(MoneyPack3500);
+    //     _purchaseController.PurchasedSpecialOfferMoneyPack7000.AddListener(MoneyPack7000);
+    //     _purchaseController.PurchasedSpecialOfferStarterPack.AddListener(StarterPack);
+    //     _purchaseController.PurchasedProductExtraLifeSpecial.AddListener(GetExtraLife);
+    // }
 
-    public void BuyProduct(string productName)
-    {
-        var _productNane = productName;
-        _purchaseController.BuyProduct(_productNane);
-    }
-
-    public void SpecialOfferEnergyRestore()
-    {
-        powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
-        powersToRestore = powersToRestore + amountPowersToRestore;
-        PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
-        SoundManager.snd.PlaybuySounds();
-        restoreWindow.SetActive(false);
-
-        energyRecovery.UpdateUI();
-
-        specialOffersTimer.SpecialOfferPurchased();
-    }
+    // public void BuyProduct(string productName)
+    // {
+    //     var _productNane = productName;
+    //     _purchaseController.BuyProduct(_productNane);
+    // }
 
     public void MoneyPack3500()
     {
@@ -84,17 +68,22 @@ public class SpecialOffers : MonoBehaviour
         specialOffersTimer.SpecialOfferPurchased();
     }
 
+    public void MoneyPack7000()
+    {
+        TotalScore = PlayerPrefs.GetInt("TotalScore");
+        TotalScore = TotalScore + buy7000;
+        SoundManager.snd.PlaybuySounds();
+        PlayerPrefs.SetInt("TotalScore", TotalScore);
+        _7000CoinsWindow.SetActive(false);
+
+        specialOffersTimer.SpecialOfferPurchased();
+    }
+
     public void StarterPack()
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore");
         TotalScore = TotalScore + 10000;
         PlayerPrefs.SetInt("TotalScore", TotalScore);
-
-        powersToRestore = PlayerPrefs.GetInt("countPowersToRestore");
-        powersToRestore = powersToRestore + 5;
-        PlayerPrefs.SetInt("countPowersToRestore", powersToRestore);
-        
-        energyRecovery.UpdateUI();
 
         _food = PlayerPrefs.GetInt("TotalFood");
         _food = _food + 20;
@@ -121,12 +110,12 @@ public class SpecialOffers : MonoBehaviour
         _extraLifeWindow.SetActive(false);
     }
 
-    private void OnDisable()
-    {
-        _purchaseController.PurchasedSpecialOfferEnergyRecovery.RemoveListener(SpecialOfferEnergyRestore);
-        _purchaseController.PurchasedSpecialOfferMoneyPack3500.RemoveListener(MoneyPack3500);
-        _purchaseController.PurchasedSpecialOfferStarterPack.RemoveListener(StarterPack);
-        _purchaseController.PurchasedProductExtraLifeSpecial.RemoveListener(GetExtraLife);
-    }
+    // private void OnDisable()
+    // {
+    //     _purchaseController.PurchasedSpecialOfferMoneyPack3500.RemoveListener(MoneyPack3500);
+    //     _purchaseController.PurchasedSpecialOfferMoneyPack7000.RemoveListener(MoneyPack7000);
+    //     _purchaseController.PurchasedSpecialOfferStarterPack.RemoveListener(StarterPack);
+    //     _purchaseController.PurchasedProductExtraLifeSpecial.RemoveListener(GetExtraLife);
+    // }
 
 }

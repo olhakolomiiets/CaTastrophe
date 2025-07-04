@@ -4047,6 +4047,64 @@ MonoBehaviour:
     Text: "\u0414\u0420\u0423\u0413\u0418\u0419 \u0411\u0423\u0414\u0418\u041D\u041E\u041A
       \u0412I\u0414\u041A\u0420\u0418\u0422\u041E"
     Object: {fileID: 0}
+--- !u!1 &853748226649450777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773688303303571511}
+  - component: {fileID: 7361548195877651305}
+  m_Layer: 0
+  m_Name: jumpPower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &773688303303571511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853748226649450777}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7361548195877651305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853748226649450777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: jump power
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u043A \u0441\u0438\u043B\u0435 \u043F\u0440\u044B\u0436\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: de poder de salto
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u0434\u043E \u0441\u0438\u043B\u0438 \u0441\u0442\u0440\u0438\u0431\u043A\u0430"
+    Object: {fileID: 0}
 --- !u!1 &858935718234891958
 GameObject:
   m_ObjectHideFlags: 0
@@ -5423,30 +5481,26 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: HERE YOUR CATS LIVE. YOU CAN SPEED UP THE ENERGY RECOVERY OF ALL CATS BY
-      TAKING CARE OF THEM AND DECORATING THEIR HOME
+    Text: THIS IS WHERE YOUR CATS LIVE. TAKE CARE OF THEM AND UPGRADE THEIR HOME
+      TO IMPROVE THEIR SKILLS.
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0417\u0414\u0415\u0421\u042C \u0416\u0418\u0412\u0423\u0422 \u0412\u0410\u0428\u0418
-      \u041A\u041E\u0422\u042B. \u0422\u0423\u0422 \u0412\u042B \u041C\u041E\u0416\u0415\u0422\u0415
-      \u0423\u0421\u041A\u041E\u0420\u0418\u0422\u042C \u0412\u041E\u0421\u0421\u0422\u0410\u041D\u041E\u0412\u041B\u0415\u041D\u0418\u0415
-      \u042D\u041D\u0415\u0420\u0413\u0418\u0418 \u0412\u0421\u0415\u0425 \u041A\u041E\u0422\u041E\u0412
-      \u0423\u0425\u0410\u0416\u0418\u0412\u0410\u042F \u0417\u0410 \u041D\u0418\u041C\u0418
-      \u0418 \u041E\u0411\u0423\u0421\u0422\u0420\u0410\u0418\u0412\u0410\u042F \u0418\u0425
-      \u0414\u041E\u041C"
+      \u041A\u041E\u0422\u042B. \u0423\u0425\u0410\u0416\u0418\u0412\u0410\u0419\u0422\u0415
+      \u0417\u0410 \u041D\u0418\u041C\u0418 \u0418 \u041E\u0411\u0423\u0421\u0422\u0420\u0410\u0418\u0412\u0410\u0419\u0422\u0415
+      \u0418\u0425 \u0414\u041E\u041C, \u0427\u0422\u041E\u0411\u042B \u041F\u041E\u0412\u042B\u0428\u0410\u0422\u042C
+      \u0418\u0425 \u041D\u0410\u0412\u042B\u041A\u0418."
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "AQU\xCD VIVEN TUS GATOS. PUEDES ACELERAR LA RECUPERACI\xD3N DE ENERG\xCDA
-      DE TODOS LOS GATOS CUID\xC1NDOLOS Y DECORANDO SU HOGAR"
+    Text: "AQU\xCD VIVEN TUS GATOS. CU\xCDDALOS Y MEJORA SU HOGAR PARA AUMENTAR SUS
+      HABILIDADES."
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: "\u0422\u0423\u0422 \u0416\u0418\u0412\u0423\u0422\u042C \u0412\u0410\u0428I
-      \u041A\u041E\u0422\u0418. \u0412\u0418 \u041C\u041E\u0416\u0415\u0422\u0415
-      \u041F\u0420\u0418\u0421\u041A\u041E\u0420\u0418\u0422\u0418 \u0412I\u0414\u041D\u041E\u0412\u041B\u0415\u041D\u041D\u042F
-      \u0415\u041D\u0415\u0420\u0413II \u0412\u0421I\u0425 \u041A\u041E\u0422I\u0412,
-      \u0414\u041E\u0413\u041B\u042F\u0414\u0410\u042E\u0427\u0418 \u0417\u0410 \u041D\u0418\u041C\u0418
-      \u0422\u0410 \u041E\u0411\u041B\u0410\u0428\u0422\u041E\u0412\u0423\u042E\u0427\u0418
-      I\u0425\u041DI\u0419 \u0414I\u041C"
+    Text: "\u0422\u0423\u0422 \u0416\u0418\u0412\u0423\u0422\u042C \u0412\u0410\u0428\u0406
+      \u041A\u041E\u0422\u0418. \u0414\u041E\u0413\u041B\u042F\u0414\u0410\u0419\u0422\u0415
+      \u0417\u0410 \u041D\u0418\u041C\u0418 \u0422\u0410 \u041E\u0411\u041B\u0410\u0428\u0422\u041E\u0412\u0423\u0419\u0422\u0415
+      \u0407\u0425\u041D\u0406\u0419 \u0414\u0406\u041C, \u0429\u041E\u0411 \u041F\u041E\u041A\u0420\u0410\u0429\u0418\u0422\u0418
+      \u0407\u0425\u041D\u0406 \u041D\u0410\u0412\u0418\u0427\u041A\u0418."
     Object: {fileID: 0}
 --- !u!1 &1218444517268822409
 GameObject:
@@ -10699,6 +10753,76 @@ MonoBehaviour:
       \u0419\u041E\u0413\u041E \u0428\u0412\u0418\u0414\u041AI\u0421\u0422\u042C
       \u0422\u0410 \u0421\u0422\u0420\u0418\u0411\u0423\u0427I\u0421\u0422\u042C"
     Object: {fileID: 0}
+--- !u!1 &3659268104513370990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3764948440499613762}
+  - component: {fileID: 5277229710288751348}
+  m_Layer: 0
+  m_Name: BoosterText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3764948440499613762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659268104513370990}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5277229710288751348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659268104513370990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Feeding cats increases their speed.
+
+      Cleaning the litter box boosts
+      their jump power.'
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u043E\u0433\u0434\u0430 \u043A\u043E\u0448\u0435\u043A \u043A\u043E\u0440\u043C\u044F\u0442
+      \u2014 \u043E\u043D\u0438 \u0431\u0435\u0433\u0430\u044E\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u0435.\r\n\u041E\u0447\u0438\u0441\u0442\u043A\u0430
+      \u043B\u043E\u0442\u043A\u0430 \u043F\u043E\u0432\u044B\u0448\u0430\u0435\u0442
+      \u0441\u0438\u043B\u0443 \u0438\u0445 \u043F\u0440\u044B\u0436\u043A\u0430."
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: 'Al alimentar a los gatos, aumenta su velocidad.
+
+      Limpiar la arenero
+      mejora su poder de salto.'
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u041D\u0430\u043F\u043E\u0432\u043D\u0435\u043D\u0430 \u043C\u0438\u0441\u043A\u0430
+      \u043F\u0440\u0438\u0441\u043A\u043E\u0440\u044E\u0454 \u043A\u043E\u0442\u0438\u043Ai\u0432.\r\n\u0427\u0438\u0441\u0442\u0438\u0439
+      \u043B\u043E\u0442\u043E\u043A \u0437\u0431i\u043B\u044C\u0448\u0443\u0454
+      \u0441\u0438\u043B\u0443 i\u0445\u043D\u044C\u043E\u0433\u043E \u0441\u0442\u0440\u0438\u0431\u043A\u0430."
+    Object: {fileID: 0}
 --- !u!1 &3730256732590779538
 GameObject:
   m_ObjectHideFlags: 0
@@ -10936,6 +11060,64 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Ukrainian
     Text: "\u0420\u0423\u0419\u041DI\u0412\u041D\u0418\u041A"
+    Object: {fileID: 0}
+--- !u!1 &3803023179564686010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219348358376884304}
+  - component: {fileID: 1306706431796723751}
+  m_Layer: 0
+  m_Name: 7000Coins_specialOffer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219348358376884304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803023179564686010}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306706431796723751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803023179564686010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: BUY 7.000 COINS
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u0423\u041F\u0418\u0422\u042C 7.000 \u041C\u041E\u041D\u0415\u0422"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: COMPRAR 7.000 MONEDAS
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u041A\u0423\u041F\u0418\u0422\u0418 7.000 \u041C\u041E\u041D\u0415\u0422"
     Object: {fileID: 0}
 --- !u!1 &3818902073097558853
 GameObject:
@@ -14082,17 +14264,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: ENERGY RESTORE
+    Text: POWER BOOST
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0412\u041E\u0421\u0421\u0422\u0410\u041D\u041E\u0412\u041B\u0415\u041D\u0418\u0415
-      \u042D\u041D\u0415\u0420\u0413\u0418\u0418"
+    Text: "\u0423\u0421\u0418\u041B\u0415\u041D\u0418\u0415 \u0421\u041F\u041E\u0421\u041E\u0411\u041D\u041E\u0421\u0422\u0415\u0419"
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "RESTAURACI\xD3N DE ENERG\xCDA"
+    Text: MEJORA DE HABILIDADES
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: "\u0412I\u0414\u041D\u041E\u0412\u041B\u0415\u041D\u041D\u042F \u0415\u041D\u0415\u0420\u0413II"
+    Text: "\u041F\u0406\u0414\u0421\u0418\u041B\u0415\u041D\u041D\u042F \u041D\u0410\u0412\u0418\u0427\u041E\u041A"
     Object: {fileID: 0}
 --- !u!1 &5084420432239787811
 GameObject:
@@ -14581,6 +14762,64 @@ MonoBehaviour:
     Text: "\u0429\u043E\u0431 \u043F\u043E\u043Fi\u0441\u044F\u0442\u0438 \u043D\u0430
       \u043D\u043E\u0443\u0442\u0431\u0443\u043A, \u0432\u0438 \u043F\u043E\u0432\u0438\u043D\u043Di
       \u043F\u043E\u0457\u0441\u0442\u0438 \u0442\u0430 \u043D\u0430\u0442\u0438\u0441\u043D\u0443\u0442\u0438"
+    Object: {fileID: 0}
+--- !u!1 &5293401873430739724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7926013512236161284}
+  - component: {fileID: 5718699134332798444}
+  m_Layer: 0
+  m_Name: speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7926013512236161284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5293401873430739724}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329711619110869328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5718699134332798444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5293401873430739724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: speed
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438"
+    Object: {fileID: 0}
+  - Language: Spanish
+    Text: de velocidad
+    Object: {fileID: 0}
+  - Language: Ukrainian
+    Text: "\u0434\u043E \u0448\u0432\u0438\u0434\u043A\u043E\u0441\u0442\u0456"
     Object: {fileID: 0}
 --- !u!1 &5358949566711709869
 GameObject:
@@ -18842,25 +19081,21 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: CLICK ON ENERGY TO OPEN INFORMATION ABOUT YOUR CAT AND ENERGY RESTORE
+    Text: TAP THE NAME TO SEE INFO ABOUT YOUR CAT
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041D\u0410\u0416\u041C\u0418\u0422\u0415 \u041D\u0410 \u0415\u041D\u0415\u0420\u0413\u0418\u042E
-      \u0427\u0422\u041E \u0411\u042B \u041E\u0422\u041A\u0420\u042B\u0422\u042C
-      \u0418\u041D\u0424\u041E\u0420\u041C\u0410\u0426\u0418\u042E \u041E \u0412\u0410\u0428\u0415\u041C
-      \u041A\u041E\u0422\u0415 \u0418 \u0412\u041E\u0421\u0421\u0422\u0410\u041D\u041E\u0412\u041B\u0415\u041D\u0418\u0418
-      \u042D\u041D\u0415\u0420\u0413\u0418\u0418"
+    Text: "\u041D\u0410\u0416\u041C\u0418\u0422\u0415 \u041D\u0410 \u0418\u041C\u042F
+      \u0427\u0422\u041E\u0411\u042B \u041E\u0422\u041A\u0420\u042B\u0422\u042C \u0418\u041D\u0424\u041E\u0420\u041C\u0410\u0426\u0418\u042E
+      \u041E \u0412\u0410\u0428\u0415\u041C \u041A\u041E\u0422\u0415"
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "HAGA CLIC EN ENERG\xCDA PARA ABRIR INFORMACI\xD3N SOBRE SU GATO Y ENERGY
-      RESTORE"
+    Text: "TOCA EL NOMBRE PARA VER LA INFORMACI\xD3N DE TU GATO"
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: "\u041D\u0410\u0422\u0418\u0421\u041DI\u0422\u042C \u041D\u0410 \u0415\u041D\u0415\u0420\u0413I\u042E,
-      \u0429\u041E\u0411 \u0412I\u0414\u041A\u0420\u0418\u0422\u0418 I\u041D\u0424\u041E\u0420\u041C\u0410\u0426I\u042E
-      \u041F\u0420\u041E \u0412\u0410\u0428\u041E\u0413\u041E \u041A\u041E\u0422\u0410
-      \u0422\u0410 \u0412I\u0414\u041D\u041E\u0412\u041B\u0415\u041D\u041D\u042F
-      \u0415\u041D\u0415\u0420\u0413II"
+    Text: "\u041D\u0410\u0422\u0418\u0421\u041D\u0406\u0422\u042C \u041D\u0410 \u0406\u041C\u02BC\u042F,
+      \u0429\u041E\u0411 \u041F\u0415\u0420\u0415\u0413\u041B\u042F\u041D\u0423\u0422\u0418
+      \u0406\u041D\u0424\u041E \u041F\u0420\u041E \u0412\u0410\u0428\u041E\u0413\u041E
+      \u041A\u041E\u0422\u0418\u041A\u0410"
     Object: {fileID: 0}
 --- !u!1 &7037087731213626897
 GameObject:
@@ -19402,34 +19637,28 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: HERE YOU CAN SEE INFORMATION ABOUT HOW FAST ENERGY RECOVERS. DON'T FORGET
-      TO FEED THE CATS AND CLEAN UP AFTER THEM TO SPEED UP ENERGY RECOVERY
+    Text: HERE YOU CAN SEE HOW CAT STATS IMPROVE. FEEDING BOOSTS THEIR SPEED, CLEANING
+      THE LITTER BOX IMPROVES JUMP POWER.
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0417\u0414\u0415\u0421\u042C \u041F\u041E\u041A\u0410\u0417\u0410\u041D\u0410
-      \u0418\u041D\u0424\u041E\u0420\u041C\u0410\u0426\u0418\u042F \u041E \u0422\u041E\u041C
-      \u041A\u0410\u041A \u0411\u042B\u0421\u0422\u0420\u041E \u0412\u041E\u0421\u0421\u0422\u0410\u041D\u0410\u0412\u041B\u0418\u0412\u0410\u0415\u0422\u0421\u042F
-      \u042D\u041D\u0415\u0420\u0413\u0418\u042F. \u041D\u0415 \u0417\u0410\u0411\u042B\u0412\u0410\u0419\u0422\u0415
-      \u041A\u041E\u0420\u041C\u0418\u0422\u042C \u041A\u041E\u0422\u041E\u0412 \u0418
-      \u0423\u0411\u0418\u0420\u0410\u0422\u042C \u0417\u0410 \u041D\u0418\u041C\u0418,
-      \u0427\u0422\u041E\u0411\u042B \u0423\u0421\u041A\u041E\u0420\u0418\u0422\u042C
-      \u0412\u041E\u0421\u0421\u0422\u0410\u041D\u041E\u0412\u041B\u0415\u041D\u0418\u0415
-      \u042D\u041D\u0415\u0420\u0413\u0418\u0418."
+    Text: "\u0417\u0414\u0415\u0421\u042C \u041F\u041E\u041A\u0410\u0417\u0410\u041D\u041E,
+      \u041A\u0410\u041A \u0423\u041B\u0423\u0427\u0428\u0410\u042E\u0422\u0421\u042F
+      \u041D\u0410\u0412\u042B\u041A\u0418 \u041A\u041E\u0422\u041E\u0412. \u041A\u041E\u0413\u0414\u0410
+      \u041A\u041E\u0420\u041C\u0418\u0428\u042C \u2014 \u041E\u041D\u0418 \u0411\u042B\u0421\u0422\u0420\u0415\u0415
+      \u0411\u0415\u0413\u0410\u042E\u0422, \u041A\u041E\u0413\u0414\u0410 \u0423\u0411\u0418\u0420\u0410\u0415\u0428\u042C
+      \u041B\u041E\u0422\u041E\u041A \u2014 \u0412\u042B\u0428\u0415 \u041F\u0420\u042B\u0413\u0410\u042E\u0422."
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "AQU\xCD SE MUESTRA INFORMACI\xD3N SOBRE LA VELOCIDAD DE RECUPERACI\xD3N
-      DE ENERG\xCDA. NO OLVIDES ALIMENTAR A LOS GATOS Y LIMPIAR DESPU\xC9S DE ELLOS
-      PARA ACELERAR LA RECUPERACI\xD3N DE ENERG\xCDA"
+    Text: "AQU\xCD SE MUESTRA C\xD3MO MEJORAN LAS HABILIDADES DE LOS GATOS. ALIMENTARLOS
+      AUMENTA SU VELOCIDAD, LIMPIAR LA ARENERO MEJORA SU PODER DE SALTO."
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: "\u0422\u0423\u0422 \u041F\u0420\u0415\u0414\u0421\u0422\u0410\u0412\u041B\u0415\u041D\u0410
-      I\u041D\u0424\u041E\u0420\u041C\u0410\u0426I\u042F \u041F\u0420\u041E \u0422\u0415,
-      \u042F\u041A \u0428\u0412\u0418\u0414\u041A\u041E \u0412I\u0414\u041D\u041E\u0412\u041B\u042E\u0404\u0422\u042C\u0421\u042F
-      \u0415\u041D\u0415\u0420\u0413I\u042F. \u041D\u0415 \u0417\u0410\u0411\u0423\u0412\u0410\u0419\u0422\u0415
-      \u0413\u041E\u0414\u0423\u0412\u0410\u0422\u0418 \u041A\u041E\u0422I\u0412
-      \u0422\u0410 \u041F\u0420\u0418\u0411\u0418\u0420\u0410\u0422\u0418 \u0417\u0410
-      \u041D\u0418\u041C\u0418, \u0429\u041E\u0411 \u041F\u0420\u0418\u0421\u041A\u041E\u0420\u0418\u0422\u0418
-      \u0412I\u0414\u041D\u041E\u0412\u041B\u0415\u041D\u041D\u042F \u0415\u041D\u0415\u0420\u0413II"
+    Text: "\u0422\u0423\u0422 \u041F\u041E\u041A\u0410\u0417\u0410\u041D\u041E, \u042F\u041A
+      \u041F\u041E\u041A\u0420\u0410\u0429\u0423\u042E\u0422\u042C\u0421\u042F \u041D\u0410\u0412\u0418\u0427\u041A\u0418
+      \u041A\u041E\u0422\u0418\u041A\u0406\u0412. \u0413\u041E\u0414\u0423\u0419
+      \u0429\u041E\u0411 \u0412\u041E\u041D\u0418 \u0428\u0412\u0418\u0414\u0428\u0415
+      \u0411\u0406\u0413\u0410\u041B\u0418, \u041F\u0420\u0418\u0411\u0418\u0420\u0410\u0419
+      \u0429\u041E\u0411 \u0412\u0418\u0429\u0415 \u0421\u0422\u0420\u0418\u0411\u0410\u041B\u0418."
     Object: {fileID: 0}
 --- !u!1 &7250046820708151893
 GameObject:
@@ -21326,20 +21555,19 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: FEED YOUR CAT TO REGENERATE ENERGY FASTER
+    Text: FEED THE CAT TO BOOST ITS SPEED
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041A\u041E\u0420\u041C\u0418\u0422\u0415 \u041A\u041E\u0422\u0410 \u0427\u0422\u041E\u0411\u042B
-      \u0411\u042B\u0421\u0422\u0420\u0415\u0415 \u0412\u041E\u0421\u0421\u0422\u0410\u041D\u0410\u0412\u041B\u0418\u0412\u0410\u0422\u042C
-      \u042D\u041D\u0415\u0420\u0413\u0418\u042E"
+    Text: "\u041A\u041E\u0420\u041C\u0418\u0422\u0415 \u041A\u041E\u0422\u0410, \u0427\u0422\u041E\u0411\u042B
+      \u0423\u0412\u0415\u041B\u0418\u0427\u0418\u0422\u042C \u0415\u0413\u041E \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C"
     Object: {fileID: 0}
   - Language: Spanish
-    Text: "ALIMENTA AL GATO PARA RECUPERAR ENERG\xCDA M\xC1S R\xC1PIDO"
+    Text: ALIMENTA AL GATO PARA AUMENTAR SU VELOCIDAD
     Object: {fileID: 0}
   - Language: Ukrainian
-    Text: "\u0413\u041E\u0414\u0423\u0419\u0422\u0415 \u041A\u041E\u0422\u0410 \u0429\u041E\u0411
-      \u0428\u0412\u0418\u0414\u0428\u0415 \u0412I\u0414\u041D\u041E\u0412\u041B\u042E\u0412\u0410\u0422\u0418
-      \u0415\u041D\u0415\u0420\u0413I\u042E"
+    Text: "\u0413\u041E\u0414\u0423\u0419\u0422\u0415 \u041A\u041E\u0422\u0410, \u0429\u041E\u0411
+      \u041F\u0406\u0414\u0412\u0418\u0429\u0418\u0422\u0418 \u0419\u041E\u0413\u041E
+      \u0428\u0412\u0418\u0414\u041A\u0406\u0421\u0422\u042C"
     Object: {fileID: 0}
 --- !u!1 &8116907656046626120
 GameObject:
@@ -22112,6 +22340,7 @@ Transform:
   - {fileID: 6930757895938190672}
   - {fileID: 2072318409297524675}
   - {fileID: 3149917260976133201}
+  - {fileID: 1219348358376884304}
   - {fileID: 6509920481706251463}
   - {fileID: 6130481822376487555}
   - {fileID: 2296938372585453452}
@@ -22261,6 +22490,9 @@ Transform:
   - {fileID: 920122347595572816}
   - {fileID: 5440487680245826808}
   - {fileID: 3785104867062143559}
+  - {fileID: 3764948440499613762}
+  - {fileID: 7926013512236161284}
+  - {fileID: 773688303303571511}
   - {fileID: 2992132923113117940}
   - {fileID: 8793855040991819702}
   - {fileID: 3157164776572833391}
@@ -22279,7 +22511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Ukrainian
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1

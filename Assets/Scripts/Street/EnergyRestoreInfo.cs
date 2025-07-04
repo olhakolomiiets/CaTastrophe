@@ -61,50 +61,50 @@ public class EnergyRestoreInfo : MonoBehaviour
             toiletCount++;
         }
 
-        switch (trueCount)
-        {
-            case 1:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"1.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        // switch (trueCount)
+        // {
+        //     case 1:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"1.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-            case 2:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"2"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        //     case 2:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"2"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-            case 3:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"2.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        //     case 3:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"2.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-            case 4:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"3"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        //     case 4:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"3"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-            case 5:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"3.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        //     case 5:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"3.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-            case 6:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"4"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        //     case 6:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"4"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-            default:
-                textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"1"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
-                break;
+        //     default:
+        //         textTotalRestore.text = $"{Lean.Localization.LeanLocalization.GetTranslationText("nowAllCatsRestoring")} {"1"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+        //         break;
 
-        }
+        // }
 
         switch (foodCount)
         {
             case 1:
-                textRestoreFood.text = $"{"+ 0.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+                textRestoreFood.text = $"{"+ 0.5 "} {Lean.Localization.LeanLocalization.GetTranslationText("speed")}";
                 break;
 
             case 2:
-                textRestoreFood.text = $"{"+ 1"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+                textRestoreFood.text = $"{"+ 1 "} {Lean.Localization.LeanLocalization.GetTranslationText("speed")}";
                 break;
 
             case 3:
-                textRestoreFood.text = $"{"+ 1.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+                textRestoreFood.text = $"{"+ 1.5 "} {Lean.Localization.LeanLocalization.GetTranslationText("speed")}";
                 break;
 
             default:
@@ -115,15 +115,15 @@ public class EnergyRestoreInfo : MonoBehaviour
         switch (toiletCount)
         {
             case 1:
-                textRestoreToilet.text = $"{"+ 0.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+                textRestoreToilet.text = $"{"+ 0.5 "} {Lean.Localization.LeanLocalization.GetTranslationText("jumpPower")}";
                 break;
 
             case 2:
-                textRestoreToilet.text = $"{"+ 1"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+                textRestoreToilet.text = $"{"+ 1 "} {Lean.Localization.LeanLocalization.GetTranslationText("jumpPower")}";
                 break;
 
             case 3:
-                textRestoreToilet.text = $"{"+ 1.5"} {Lean.Localization.LeanLocalization.GetTranslationText("energyPer20min")}";
+                textRestoreToilet.text = $"{"+ 1.5 "} {Lean.Localization.LeanLocalization.GetTranslationText("jumpPower")}";
                 break;
 
             default:

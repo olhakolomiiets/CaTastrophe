@@ -85,8 +85,6 @@ public class UIManager : MonoBehaviour
     public void TimeUp()
     {
         panelTimeUp.SetActive(true);
-        //rbPlayer.isKinematic = true;
-        //rbPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
         StartCoroutine(TimesUp());
         PauseButton.GetComponent<Button>().interactable = false;
     }    
@@ -106,7 +104,6 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
-        // powerManager.SubstractPower();
         PauseButton.GetComponent<Button>().interactable = true;
         PlayerPrefs.SetInt("AreAvailablePower", 0);
     }

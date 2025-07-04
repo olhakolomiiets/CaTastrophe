@@ -141,9 +141,6 @@ public class DailyRewards : MonoBehaviour
             case DailyReward.RewardType.FOOD:
                 GameController.Instance.AddFood(reward.Value);
                 break;
-            case DailyReward.RewardType.ENERGY_RECOVERY:
-                GameController.Instance.AddEnergy(reward.Value);
-                break;
         }
 
         var _rewardType = reward.Type.ToString();

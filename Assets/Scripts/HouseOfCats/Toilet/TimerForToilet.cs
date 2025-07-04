@@ -115,12 +115,12 @@ public class TimerForToilet : MonoBehaviour, IClickable
     {
         if (floor == 2)
         {
-            toiletPowerComponent = GameObject.FindObjectOfType<PowerForToilet2>();
+            toiletPowerComponent = GameObject.FindAnyObjectByType<PowerForToilet2>();
         }
         else if (floor == 3)
         {
-            toiletPowerComponent = GameObject.FindObjectOfType<PowerForToilet3>();
+            toiletPowerComponent = GameObject.FindAnyObjectByType<PowerForToilet3>();
         }
-        else toiletPowerComponent = GameObject.FindObjectOfType<PowerForToilet>();
+        else toiletPowerComponent = GameObject.FindAnyObjectByType<PowerForToilet>();
     }
 }

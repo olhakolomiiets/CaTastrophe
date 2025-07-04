@@ -10,7 +10,7 @@ public class WinScore : MonoBehaviour
     private int score;
     void Start()
     {
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
     }
     void Update()
     {

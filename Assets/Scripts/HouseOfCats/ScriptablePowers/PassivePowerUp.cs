@@ -44,25 +44,25 @@ public class PassivePowerUp : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (!PlayerPrefs.HasKey("firstInitPassivePowerUp"))
-        {
-            PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
-            SetAllPowesToMaxOnFirstInit();
-        }       
+        // if (!PlayerPrefs.HasKey("firstInitPassivePowerUp"))
+        // {
+        //     PlayerPrefs.SetInt("firstInitPassivePowerUp", 1);
+        //     SetAllPowesToMaxOnFirstInit();
+        // }       
     }
 
-    void Start()
-    {
-        LoadAllPowers();
+    // void Start()
+    // {
+    //     LoadAllPowers();
 
-        toiletPointsWhenWereExit = 0f;
-        toiletPoints2WhenWereExit = 0f;
-        toiletPoints3WhenWereExit = 0f;
-        foodPointsWhenWereExit = 0f;
-        foodPoints2WhenWereExit = 0f;
-        foodPoints3WhenWereExit = 0f;
-        StartCoroutine(PassivePowerUpRoutine());
-    }
+    //     toiletPointsWhenWereExit = 0f;
+    //     toiletPoints2WhenWereExit = 0f;
+    //     toiletPoints3WhenWereExit = 0f;
+    //     foodPointsWhenWereExit = 0f;
+    //     foodPoints2WhenWereExit = 0f;
+    //     foodPoints3WhenWereExit = 0f;
+    //     StartCoroutine(PassivePowerUpRoutine());
+    // }
 
     private IEnumerator PassivePowerUpRoutine()
     {

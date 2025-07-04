@@ -25,7 +25,7 @@ public abstract class QuestClass : MonoBehaviour
     }
     protected virtual void Start()
     {
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponents<Animator>();
         questTip = gameObject.transform.GetChild(1).gameObject;
         btnActive = btnDo.transform.GetChild(0).gameObject;

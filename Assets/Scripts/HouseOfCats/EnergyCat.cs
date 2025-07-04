@@ -39,7 +39,7 @@ public class EnergyCat : MonoBehaviour, IClickable
         Load();
         if (transform.GetChild(0).gameObject.activeInHierarchy)
         {            
-            totalEnergy = totalEnergy + powerPoints.pointsWhenYouWereAbsent / 2;
+            //totalEnergy = totalEnergy + powerPoints.pointsWhenYouWereAbsent / 2;
             CheckBelowZero();
             CheckMaxEnergy();
             CheckEventsForTutorial();

@@ -44,7 +44,7 @@ public class BasketBallHeadLogic : MonoBehaviour
         controller.jumpForce = jumpForce;
         controller.normalSpeed = speed;
         controller.transform.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         btnActive = btn.transform.GetChild(0).gameObject;
         btn.onClick.AddListener(Do);
         btnActive.SetActive(true);

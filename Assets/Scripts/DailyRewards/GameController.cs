@@ -24,15 +24,6 @@ public class GameController : MonoBehaviour
         private set => PlayerPrefs.SetInt("TotalFood", value);
     }
 
-    public int Energy
-    {
-        get => PlayerPrefs.GetInt("countPowersToRestore", 0);
-        private set => PlayerPrefs.SetInt("countPowersToRestore", value);
-    }
-
-    [SerializeField] private PowersRestore energyRecovery;
-
-
     private void Awake()
     {
         Instance = this;
@@ -56,12 +47,6 @@ public class GameController : MonoBehaviour
     public void AddFood(int value)
     {
         Food += value;
-    }
-
-    public void AddEnergy(int value)
-    {
-        Energy += value;
-        energyRecovery.UpdateUI();
     }
 
     private void UpdateUI()

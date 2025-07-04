@@ -23,7 +23,7 @@ public class StarsWin : MonoBehaviour
 
     void Start()
     {
-        sm = FindObjectOfType<ScoreManager>();
+        sm = FindAnyObjectByType<ScoreManager>();
         star1 = this.gameObject.transform.GetChild(1).gameObject;
         star2 = this.gameObject.transform.GetChild(4).gameObject;
         star3 = this.gameObject.transform.GetChild(7).gameObject;

@@ -68,12 +68,7 @@ public class TimerWithScore : MonoBehaviour, IMiniGamesScore
             }
             timeDisplay.text = ("00:00");
 
-            if (!_isGetExtraTime && sceneIndex == 16)
-            {
-                _uiManager.GetTime();
-                _isGetExtraTime = true;
-            }
-            else _uiManager.TimeUp();
+            _uiManager.TimeUp();
 
             damageImage.SetActive(false);
             TimeUp = true;

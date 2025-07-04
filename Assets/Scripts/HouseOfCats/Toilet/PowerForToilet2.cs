@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PowerForToilet2 : MonoBehaviour, IToiletInterface
 {
     public static PowerForToilet2 instance;
-    [SerializeField] private List<FloatSO> catPowersSO;
     [SerializeField] private ToiletTimerSO _toiletTimerSO;
     public string timeWhenToiletCleanedPref;
     public string exitTimeToiletPref;
@@ -19,9 +18,10 @@ public class PowerForToilet2 : MonoBehaviour, IToiletInterface
     public float secondsLeft;
     public int secAfterExit;
     public float secForToiletAll;
-    public float pointsWhenWereExit;
-    private bool toggle;
     private bool saved = true;
+    [SerializeField] private string skillName;
+    [SerializeField] private SkillManager skillManager;
+    [SerializeField] private int isToiletActive;
     public delegate void Toilet2CleanUpDelegate();
 
     private void Awake()
@@ -68,16 +68,27 @@ public class PowerForToilet2 : MonoBehaviour, IToiletInterface
     {
         if (toiletTimer > msToiletTime)
         {
-            PassivePowerUp.Toilet2SpeeUp = false;
-            toggle = true;
+            if (isToiletActive == 2)
+            {
+                isToiletActive = 1;
+                skillManager.UpdateSkill(skillName, isToiletActive);
+                PlayerPrefs.SetInt("LitterBox2State", isToiletActive);
+                PassivePowerUp.Toilet2SpeeUp = false;
+            }
         }
         else if (toiletTimer <= msToiletTime)
         {
             secForToiletAll += (1 * Time.deltaTime);
             toiletTimer = secForToiletAll;
             float secondsLeft = (msToiletTime - toiletTimer);
-            PassivePowerUp.Toilet2SpeeUp = true;
-            toggle = false;
+
+            if (isToiletActive == 1)
+            {
+                isToiletActive = 2;
+                skillManager.UpdateSkill(skillName, isToiletActive);
+                PlayerPrefs.SetInt("LitterBox2State", isToiletActive);
+                PassivePowerUp.Toilet2SpeeUp = true;
+            }
         }
     }
 
@@ -87,6 +98,12 @@ public class PowerForToilet2 : MonoBehaviour, IToiletInterface
         secForToiletAll = 0;
         PlayerPrefs.SetString(timeWhenToiletCleanedPref, System.DateTime.Now.ToBinary().ToString());
         PlayerPrefs.SetString("timeWhenRepairObjectOrToiletCleanedPref2", System.DateTime.Now.ToBinary().ToString());
+
+        if (PlayerPrefs.GetInt("LitterBox2State") == 0)
+        {
+            isToiletActive = 1;
+            PlayerPrefs.SetInt("LitterBox2State", isToiletActive);
+        }
     }
 
     public void Save()
@@ -137,46 +154,11 @@ public class PowerForToilet2 : MonoBehaviour, IToiletInterface
         }
 
         toiletTimer = msToiletTime - secondsLeft;
+
+        isToiletActive = PlayerPrefs.GetInt("LitterBox2State");
+
         secForToiletAll = (float)toiletTimer;
         TimeSpan timer = TimeSpan.FromSeconds(rawTime);
-
-        if (secAfterExit <= secondsWhenWereExit)
-        {
-            pointsWhenWereExit = secAfterExit * 0.00083333f;
-            if (pointsWhenWereExit > 0)
-            {
-                foreach (FloatSO catPower in catPowersSO)
-                {
-                    if (catPower.Value < 10)
-                    {
-                        PassivePowerUp.toiletPoints2WhenWereExit = pointsWhenWereExit;
-                    }
-                }
-            }
-        }
-        if (secAfterExit > secondsWhenWereExit)
-        {
-            if (secondsWhenWereExit > 0)
-            {
-                float pointsForActiveToilet = secondsWhenWereExit * 0.00083333f;
-                pointsWhenWereExit = pointsForActiveToilet;
-
-                if (pointsWhenWereExit > 0)
-                {
-                    foreach (FloatSO catPower in catPowersSO)
-                    {
-                        if (catPower.Value < 10)
-                        {
-                            PassivePowerUp.toiletPoints2WhenWereExit = pointsWhenWereExit;
-                        }
-                    }
-                }
-            }
-            else if ((int)secondsWhenWereExit == 0)
-            {
-                PassivePowerUp.toiletPoints2WhenWereExit = 0;
-            }
-        }
         saved = false;
     }
     private void OnApplicationFocus(bool focusStatus)

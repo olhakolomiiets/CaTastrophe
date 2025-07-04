@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class SpecialOffersTimer : MonoBehaviour
 {
     #region EDITOR FIELDS
-    [SerializeField] private GameObject energyRecovery;
+    [SerializeField] private GameObject moneyPack7;
     [SerializeField] private GameObject buyCoins;
-    [SerializeField] private GameObject powersRestore;
-    [SerializeField] private Text energyRecoveryTimerText;
+    [SerializeField] private Text moneyPack7TimerText;
     [SerializeField] private Text buyCoinsTimerText;
     [SerializeField] private int timerTime;
     [SerializeField] private int activationHour;
@@ -59,21 +59,23 @@ public class SpecialOffersTimer : MonoBehaviour
 
     private void ActivateButton()
     {
-        if(powersRestore.activeSelf == true)
+        int randomChoice = Random.Range(0, 2);
+
+        if (randomChoice == 0)
         {
             buyCoins.SetActive(true);
             StartCoroutine(UpdateBuyCoinsTimer());
         }
         else
         {
-            energyRecovery.SetActive(true);
+            moneyPack7.SetActive(true);
             StartCoroutine(UpdateEnergyRecoveryTimer());
-        }        
-        
+        }
     }
+
     private void HideButton()
     {
-        energyRecovery.SetActive(false);
+        moneyPack7.SetActive(false);
         buyCoins.SetActive(false);
     }
 
@@ -83,7 +85,7 @@ public class SpecialOffersTimer : MonoBehaviour
         {
             TimeSpan timeRemaining = endTime - DateTime.Now;
 
-            energyRecoveryTimerText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", timeRemaining.Hours, timeRemaining.Minutes, timeRemaining.Seconds);
+            moneyPack7TimerText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", timeRemaining.Hours, timeRemaining.Minutes, timeRemaining.Seconds);
 
             if (timeRemaining.Ticks <= 0)
             {

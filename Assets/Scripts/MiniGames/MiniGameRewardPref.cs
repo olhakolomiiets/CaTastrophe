@@ -11,7 +11,6 @@ public class MiniGameRewardPref : MonoBehaviour
     [SerializeField] private Sprite rewardCoins;
     [SerializeField] private Sprite rewardSand;
     [SerializeField] private Sprite rewardFood;
-    [SerializeField] private Sprite rewardEnergyRecovery;
 
     [Space(5)]
     [SerializeField] private GameObject doneIcon;
@@ -30,7 +29,7 @@ public class MiniGameRewardPref : MonoBehaviour
 
         Debug.Log("levelStarsPrefs " + levelStarsPrefs + "   " + PlayerPrefs.GetInt(levelStarsPrefs));
 
-        rewardIcon.sprite = reward.Type == MiniGameReward.RewardType.COINS ? rewardCoins : reward.Type == MiniGameReward.RewardType.SAND ? rewardSand : reward.Type == MiniGameReward.RewardType.FOOD ? rewardFood : rewardEnergyRecovery;
+        rewardIcon.sprite = reward.Type == MiniGameReward.RewardType.COINS ? rewardCoins : reward.Type == MiniGameReward.RewardType.SAND ? rewardSand : rewardFood;
         rewardValue.text = $"{"x"}" + reward.Value.ToString();
 
         if (PlayerPrefs.GetInt(levelStarsPrefs) < 2)
@@ -54,7 +53,7 @@ public class MiniGameRewardPref : MonoBehaviour
             star = activeStar;
             levelStarsPrefs = levelStars;
 
-            rewardIcon.sprite = reward.Type == MiniGameReward.RewardType.COINS ? rewardCoins : reward.Type == MiniGameReward.RewardType.SAND ? rewardSand : reward.Type == MiniGameReward.RewardType.FOOD ? rewardFood : rewardEnergyRecovery;
+            rewardIcon.sprite = reward.Type == MiniGameReward.RewardType.COINS ? rewardCoins : reward.Type == MiniGameReward.RewardType.SAND ? rewardSand : rewardFood;
             rewardValue.text = $"{"x"}" + reward.Value.ToString();
             claimButton.SetActive(true);       
     }
@@ -79,9 +78,6 @@ public class MiniGameRewardPref : MonoBehaviour
                 break;
             case MiniGameReward.RewardType.FOOD:
                 MiniGameController.Instance.AddFood(reward.Value);
-                break;
-            case MiniGameReward.RewardType.ENERGY_RECOVERY:
-                MiniGameController.Instance.AddEnergy(reward.Value);
                 break;
         }
 
