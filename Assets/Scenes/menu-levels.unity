@@ -3331,7 +3331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0417\u041D\u0418\u0416\u041A\u0410 45%"
+  m_Text: "\u0421\u041A\u0418\u0414\u041A\u0410 45%"
 --- !u!222 &38772352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12873,7 +12873,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &113153048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15276,7 +15276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041A\u0423\u041F\u0418\u0422\u0418 3.500 \u041C\u041E\u041D\u0415\u0422"
+  m_Text: "\u041A\u0423\u041F\u0418\u0422\u042C 3.500 \u041C\u041E\u041D\u0415\u0422"
 --- !u!222 &144285191
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19120,7 +19120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &190236562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22952,7 +22952,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &220629038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54854,7 +54854,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041A\u0423\u041F\u0418\u0422\u0418"
+  m_Text: "\u041A\u0423\u041F\u0418\u0422\u042C"
 --- !u!222 &570833619
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55475,7 +55475,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &577483268
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56157,7 +56157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &581417499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56211,7 +56211,7 @@ MonoBehaviour:
   PurchasedProductExtraLifeSpecial:
     m_PersistentCalls:
       m_Calls: []
-  _purchaseController: {fileID: 0}
+  _purchaseController: {fileID: 1693334512}
   PurchasedSpecialOfferEnergyRecovery:
     m_PersistentCalls:
       m_Calls: []
@@ -65334,7 +65334,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &650816033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67234,7 +67234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041DI\u0427\u041D\u0415 \u041CI\u0421\u0422\u041E"
+  m_Text: "\u041D\u041E\u0427\u041D\u041E\u0419 \u0413\u041E\u0420\u041E\u0414"
 --- !u!222 &665710352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -95862,7 +95862,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &962908911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -97800,11 +97800,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: com.catastrophe.starterpack
   buttonType: 0
-  consumePurchase: 1
+  automaticallyConfirmTransaction: 1
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetchFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFetched:
+    m_PersistentCalls:
+      m_Calls: []
   onTransactionsRestored:
     m_PersistentCalls:
       m_Calls: []
-  onPurchaseComplete:
+  onOrderPending:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderConfirmed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 581552879}
@@ -97822,7 +97834,13 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
-  onProductFetched:
+  onOrderDeferred:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseCompleteLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailedLegacy:
     m_PersistentCalls:
       m_Calls: []
   button: {fileID: 981426008}
@@ -104493,7 +104511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0411\u0423\u0414\u0418\u041D\u041E\u041A \u041A\u041E\u0422I\u0412"
+  m_Text: "\u0414\u041E\u041C \u041A\u041E\u0422\u041E\u0412"
 --- !u!222 &1028232318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -117438,7 +117456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041E\u0411\u041CI\u041D \u0412\u0410\u041B\u042E\u0422"
+  m_Text: "\u041E\u0411\u041C\u0415\u041D \u0412\u0410\u041B\u042E\u0422"
 --- !u!222 &1168568277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -126826,7 +126844,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &1250773399
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -142686,11 +142704,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: com.catastrophe.specialoffermoneypack3500
   buttonType: 0
-  consumePurchase: 1
+  automaticallyConfirmTransaction: 1
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetchFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFetched:
+    m_PersistentCalls:
+      m_Calls: []
   onTransactionsRestored:
     m_PersistentCalls:
       m_Calls: []
-  onPurchaseComplete:
+  onOrderPending:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderConfirmed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 581552879}
@@ -142708,7 +142738,13 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
-  onProductFetched:
+  onOrderDeferred:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseCompleteLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailedLegacy:
     m_PersistentCalls:
       m_Calls: []
   button: {fileID: 1433216305}
@@ -145276,7 +145312,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041A\u041E\u0422\u0418\u041A\u0418"
+  m_Text: "\u041A\u041E\u0422\u042B"
 --- !u!222 &1461139416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -152219,7 +152255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &1534630160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -162848,7 +162884,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0420\u041E\u0417\u0428\u0423\u041A"
+  m_Text: "\u0420\u041E\u0417\u042B\u0421\u041A"
 --- !u!222 &1643749248
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -166502,56 +166538,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693334511}
-  - component: {fileID: 1693334510}
+  - component: {fileID: 1693334512}
   m_Layer: 0
-  m_Name: IAPManager
+  m_Name: PaywallManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1693334510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693334509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4818e257443b3d43bb22a1016ef4529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PurchasedProductNoAds:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedProductExtraLife:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedProductMoneyPack2000:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedProductMoneyPack5000:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedProductMoneyPack10000:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedProductPowersToRestore:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedSpecialOfferEnergyRecovery:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedSpecialOfferMoneyPack3500:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedSpecialOfferStarterPack:
-    m_PersistentCalls:
-      m_Calls: []
-  PurchasedProductExtraLifeSpecial:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1693334511
 Transform:
   m_ObjectHideFlags: 0
@@ -166567,6 +166561,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693334512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693334509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3531a893c58a4d1ea32a657be561942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1697409731
 GameObject:
   m_ObjectHideFlags: 0
@@ -168872,18 +168878,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7dd963c1a8b427b96975fa211478a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumePurchase: 0
-  dontDestroyOnLoad: 0
+  automaticallyConfirmTransaction: 1
+  dontDestroyOnLoad: 1
   onProductsFetched:
     m_PersistentCalls:
       m_Calls: []
-  onPurchaseComplete:
+  onProductsFetchFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchasesFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchasesFetchFailure:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderPending:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderConfirmed:
     m_PersistentCalls:
       m_Calls: []
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
-  onPurchaseDetailedFailedEvent:
+  onOrderDeferred:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductsFetchedLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseCompleteLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailedLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseDetailedFailedLegacy:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1715013889
@@ -181048,9 +181078,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0427\u0415\u041A\u0410\u0404\u0422\u0415 \u041D\u0410 \u041F\u0420\u041E\u0414\u041E\u0412\u0416\u0415\u041D\u041D\u042F?\n\u0414\u0410\u0419\u0422\u0415
-    \u0417\u041D\u0410\u0422\u0418 \u0427\u0415\u0420\u0415\u0417 \u0412I\u0414\u0413\u0423\u041A
-    \u041D\u0410 5 \u0417I\u0420\u041E\u041A!"
+  m_Text: "\u0416\u0414\u0401\u0422\u0415 \u041F\u0420\u041E\u0414\u041E\u041B\u0416\u0415\u041D\u0418\u042F?\n\u0414\u0410\u0419\u0422\u0415
+    \u0417\u041D\u0410\u0422\u042C \u0427\u0415\u0420\u0415\u0417 \u041E\u0422\u0417\u042B\u0412
+    \u041D\u0410 5 \u0417\u0412\u0401\u0417\u0414!"
 --- !u!222 &1834467549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -185163,7 +185193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0421\u041F\u0415\u0426I\u0410\u041B\u042C\u041D\u0410 \u041F\u0420\u041E\u041F\u041E\u0417\u0418\u0426I\u042F"
+  m_Text: "\u0421\u041F\u0415\u0426\u0418\u0410\u041B\u042C\u041D\u041E\u0415 \u041F\u0420\u0415\u0414\u041B\u041E\u0416\u0415\u041D\u0418\u0415"
 --- !u!222 &1888383150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -187758,7 +187788,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0417\u0414I\u0411\u041D\u041E\u0421\u0422I"
+  m_Text: "\u0421\u041F\u041E\u0421\u041E\u0411\u041D\u041E\u0421\u0422\u0418"
 --- !u!222 &1915900958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -188127,11 +188157,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: com.catastrophe.specialofferextralife
   buttonType: 0
-  consumePurchase: 1
+  automaticallyConfirmTransaction: 1
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetchFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFetched:
+    m_PersistentCalls:
+      m_Calls: []
   onTransactionsRestored:
     m_PersistentCalls:
       m_Calls: []
-  onPurchaseComplete:
+  onOrderPending:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderConfirmed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 581552879}
@@ -188149,7 +188191,13 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
-  onProductFetched:
+  onOrderDeferred:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseCompleteLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailedLegacy:
     m_PersistentCalls:
       m_Calls: []
   button: {fileID: 1920248302}
@@ -204075,7 +204123,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041D\u0410\u0414\u0406\u0421\u041B\u0410\u0422\u0418 \u0412\u0406\u0414\u0413\u0423\u041A"
+  m_Text: "\u041E\u0422\u041F\u0420\u0410\u0412\u0418\u0422\u042C \u041E\u0422\u0417\u042B\u0412"
 --- !u!222 &2075364176
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -206069,11 +206117,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: com.catastrophe.specialofferenergyrecovery
   buttonType: 0
-  consumePurchase: 1
+  automaticallyConfirmTransaction: 1
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetchFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFetched:
+    m_PersistentCalls:
+      m_Calls: []
   onTransactionsRestored:
     m_PersistentCalls:
       m_Calls: []
-  onPurchaseComplete:
+  onOrderPending:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderConfirmed:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 581552879}
@@ -206091,7 +206151,13 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
-  onProductFetched:
+  onOrderDeferred:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseCompleteLegacy:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailedLegacy:
     m_PersistentCalls:
       m_Calls: []
   button: {fileID: 2093772407}

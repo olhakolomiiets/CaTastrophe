@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Purchasing;
+using Samples.Purchasing.IAP5.Demo;
 
 public class SpecialOffers : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class SpecialOffers : MonoBehaviour
 
 
     [Space(5)]
-    [SerializeField] private IAPManager _purchaseController;
+    [SerializeField] private PaywallManager _purchaseController;
 
     [HideInInspector] public UnityEvent PurchasedSpecialOfferEnergyRecovery;
     [HideInInspector] public UnityEvent PurchasedSpecialOfferMoneyPack3500;
@@ -43,22 +44,22 @@ public class SpecialOffers : MonoBehaviour
 
     private void Awake()
     {
-        _purchaseController = FindAnyObjectByType<IAPManager>();
+        _purchaseController = FindAnyObjectByType<PaywallManager>();
     }
 
-    private void OnEnable()
-    {
-        _purchaseController.PurchasedSpecialOfferEnergyRecovery.AddListener(SpecialOfferEnergyRestore);
-        _purchaseController.PurchasedSpecialOfferMoneyPack3500.AddListener(MoneyPack3500);
-        _purchaseController.PurchasedSpecialOfferStarterPack.AddListener(StarterPack);
-        _purchaseController.PurchasedProductExtraLifeSpecial.AddListener(GetExtraLife);
-    }
+    // private void OnEnable()
+    // {
+    //     _purchaseController.PurchasedSpecialOfferEnergyRecovery.AddListener(SpecialOfferEnergyRestore);
+    //     _purchaseController.PurchasedSpecialOfferMoneyPack3500.AddListener(MoneyPack3500);
+    //     _purchaseController.PurchasedSpecialOfferStarterPack.AddListener(StarterPack);
+    //     _purchaseController.PurchasedProductExtraLifeSpecial.AddListener(GetExtraLife);
+    // }
 
-    public void BuyProduct(string productName)
-    {
-        var _productNane = productName;
-        _purchaseController.BuyProduct(_productNane);
-    }
+    // public void BuyProduct(string productName)
+    // {
+    //     var _productNane = productName;
+    //     _purchaseController.BuyProduct(_productNane);
+    // }
 
     public void SpecialOfferEnergyRestore()
     {
@@ -121,12 +122,12 @@ public class SpecialOffers : MonoBehaviour
         _extraLifeWindow.SetActive(false);
     }
 
-    private void OnDisable()
-    {
-        _purchaseController.PurchasedSpecialOfferEnergyRecovery.RemoveListener(SpecialOfferEnergyRestore);
-        _purchaseController.PurchasedSpecialOfferMoneyPack3500.RemoveListener(MoneyPack3500);
-        _purchaseController.PurchasedSpecialOfferStarterPack.RemoveListener(StarterPack);
-        _purchaseController.PurchasedProductExtraLifeSpecial.RemoveListener(GetExtraLife);
-    }
+    // private void OnDisable()
+    // {
+    //     _purchaseController.PurchasedSpecialOfferEnergyRecovery.RemoveListener(SpecialOfferEnergyRestore);
+    //     _purchaseController.PurchasedSpecialOfferMoneyPack3500.RemoveListener(MoneyPack3500);
+    //     _purchaseController.PurchasedSpecialOfferStarterPack.RemoveListener(StarterPack);
+    //     _purchaseController.PurchasedProductExtraLifeSpecial.RemoveListener(GetExtraLife);
+    // }
 
 }

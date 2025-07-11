@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Purchasing;
+using Samples.Purchasing.IAP5.Demo;
 
 public class PurchaseManager : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class PurchaseManager : MonoBehaviour
     [SerializeField] private int powersToRestore;
     [SerializeField] private int amountPowersToRestore;
 
-    [SerializeField] private IAPManager _purchaseController;
+    [SerializeField] private PaywallManager _purchaseController;
 
     [HideInInspector] public UnityEvent PurchasedProductNoAds;
     [HideInInspector] public UnityEvent PurchasedProductExtraLife;
@@ -47,29 +48,29 @@ public class PurchaseManager : MonoBehaviour
     private ScoreManager sm;
     private void Awake()
     {
-        _purchaseController = FindAnyObjectByType<IAPManager>();
+        _purchaseController = FindAnyObjectByType<PaywallManager>();
     }
 
-    private void OnEnable()
-    {
-        _purchaseController.PurchasedProductNoAds.AddListener(NoAds);
-        _purchaseController.PurchasedProductExtraLife.AddListener(ExtraLife);
-        _purchaseController.PurchasedProductMoneyPack2000.AddListener(MoneyPack2000);
-        _purchaseController.PurchasedProductMoneyPack5000.AddListener(MoneyPack5000);
-        _purchaseController.PurchasedProductMoneyPack10000.AddListener(MoneyPack10000);
-        _purchaseController.PurchasedProductPowersToRestore.AddListener(PowersToRestore);
-    }
+    // private void OnEnable()
+    // {
+    //     _purchaseController.PurchasedProductNoAds.AddListener(NoAds);
+    //     _purchaseController.PurchasedProductExtraLife.AddListener(ExtraLife);
+    //     _purchaseController.PurchasedProductMoneyPack2000.AddListener(MoneyPack2000);
+    //     _purchaseController.PurchasedProductMoneyPack5000.AddListener(MoneyPack5000);
+    //     _purchaseController.PurchasedProductMoneyPack10000.AddListener(MoneyPack10000);
+    //     _purchaseController.PurchasedProductPowersToRestore.AddListener(PowersToRestore);
+    // }
     private void Start()
     {
         sm = FindAnyObjectByType<ScoreManager>();
         RestoreVariable();
     }
 
-    public void BuyProduct(string productName)
-    {
-        var _productNane = productName;
-        _purchaseController.BuyProduct(_productNane);
-    }
+    // public void BuyProduct(string productName)
+    // {
+    //     var _productNane = productName;
+    //     _purchaseController.BuyProduct(_productNane);
+    // }
 
      public void NoAds()
     {
@@ -150,14 +151,14 @@ public class PurchaseManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        _purchaseController.PurchasedProductNoAds.RemoveListener(NoAds);
-        _purchaseController.PurchasedProductExtraLife.RemoveListener(ExtraLife);
-        _purchaseController.PurchasedProductMoneyPack2000.RemoveListener(MoneyPack2000);
-        _purchaseController.PurchasedProductMoneyPack5000.RemoveListener(MoneyPack5000);
-        _purchaseController.PurchasedProductMoneyPack10000.RemoveListener(MoneyPack10000);
-        _purchaseController.PurchasedProductPowersToRestore.RemoveListener(PowersToRestore);
-    }
+    // private void OnDisable()
+    // {
+    //     _purchaseController.PurchasedProductNoAds.RemoveListener(NoAds);
+    //     _purchaseController.PurchasedProductExtraLife.RemoveListener(ExtraLife);
+    //     _purchaseController.PurchasedProductMoneyPack2000.RemoveListener(MoneyPack2000);
+    //     _purchaseController.PurchasedProductMoneyPack5000.RemoveListener(MoneyPack5000);
+    //     _purchaseController.PurchasedProductMoneyPack10000.RemoveListener(MoneyPack10000);
+    //     _purchaseController.PurchasedProductPowersToRestore.RemoveListener(PowersToRestore);
+    // }
 
 }
