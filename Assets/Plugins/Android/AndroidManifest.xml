@@ -5,7 +5,7 @@
          UnityPlayerActivity to work around a known issue when receiving
          notification data payloads in the background. -->
     <meta-data android:name="com.google.android.gms.ads.com.CatTest2.Game" android:value="ca-app-pub-4196164004824768~8007119707" />
-    <activity android:name="com.google.firebase.MessagingUnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:exported="true">
+    <activity android:name="com.google.firebase.MessagingUnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:exported="true" android:theme="@style/UnityThemeSelector">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
